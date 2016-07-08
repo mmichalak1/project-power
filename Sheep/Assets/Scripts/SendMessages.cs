@@ -18,4 +18,9 @@ public class SendMessages : MonoBehaviour {
     {
         Events.Instance.DispatchEvent("MoveForward", null);
     }
+
+    public void GoDown()
+    {
+        Events.Instance.DispatchEvent("MoveDown", null);
+    }
 }

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+using Assets.LogicSystem;
+
 public class MovementController : MonoBehaviour
 {
 
@@ -19,6 +21,10 @@ public class MovementController : MonoBehaviour
     {
         grid = GameObject.FindGameObjectsWithTag("Tile");
         newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        Events.Instance.RegisterForEvent("TurnRight", x => RotateRight());
+        Events.Instance.RegisterForEvent("TurnLeft", x => RotateLeft());
+        Events.Instance.RegisterForEvent("MoveForward", x => MoveForward());
+        Events.Instance.RegisterForEvent("MoveDown", x => MoveBack());
     }
 
     // Update is called once per frame
@@ -43,6 +49,15 @@ public class MovementController : MonoBehaviour
         if (!move)
         {
             newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.forward).normalized * 2;
+            move = true;
+        }
+    }
+
+    public void MoveBack()
+    {
+        if (!move)
+        {
+            newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.back).normalized * 2;
             move = true;
         }
     }
