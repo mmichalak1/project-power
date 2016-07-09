@@ -1,7 +1,7 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sheep.CSharp", "Sheep.CSharp.csproj", "{043ACC22-3B80-1B88-60F0-CFF9CA930083}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{572B2541-C97A-EC9D-07CA-45DAD125559B}") = "Sheep", "Assembly-CSharp.csproj", "{294BD625-35DA-AA20-906E-E9813E2C3A5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,12 +9,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{043ACC22-3B80-1B88-60F0-CFF9CA930083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{043ACC22-3B80-1B88-60F0-CFF9CA930083}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{043ACC22-3B80-1B88-60F0-CFF9CA930083}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{043ACC22-3B80-1B88-60F0-CFF9CA930083}.Release|Any CPU.Build.0 = Release|Any CPU
+		{294BD625-35DA-AA20-906E-E9813E2C3A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{294BD625-35DA-AA20-906E-E9813E2C3A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{294BD625-35DA-AA20-906E-E9813E2C3A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{294BD625-35DA-AA20-906E-E9813E2C3A5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal

@@ -1,11 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using Assets.LogicSystem;
 
 public class TopDownController : MonoBehaviour
 {
-
-
 
     private float actionDelay = 0.5f;
     private float actionTimer = 0.0f;

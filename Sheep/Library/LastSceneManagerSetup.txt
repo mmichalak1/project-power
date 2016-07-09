@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/LookAround.unity
+- path: Assets/Scenes/TopDown.unity
   isLoaded: 1
   isActive: 1
