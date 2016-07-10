@@ -1,0 +1,160 @@
+fileFormatVersion: 2
+guid: 3435881efe9f8bf428829f340f229d9c
+timeCreated: 1468020241
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: BackLeg1_L
+    100004: BackLeg1_R
+    100006: BackLeg2_L
+    100008: BackLeg2_R
+    100010: BackLeg3_L
+    100012: BackLeg3_R
+    100014: BackToe_L
+    100016: BackToe_L_end
+    100018: BackToe_R
+    100020: BackToe_R_end
+    100022: Bone
+    100024: Bone.001
+    100026: Bone.005
+    100028: Bone.012
+    100030: Bone.012_end
+    100032: FrontLeg1_L
+    100034: FrontLeg1_R
+    100036: FrontLeg2_L
+    100038: FrontLeg2_R
+    100040: FrontLeg3_L
+    100042: FrontLeg3_R
+    100044: FrontShoulder_L
+    100046: FrontShoulder_R
+    100048: FrontToe_L
+    100050: FrontToe_L_end
+    100052: FrontToe_R
+    100054: FrontToe_R_end
+    100056: Head
+    100058: Head_end
+    100060: Jaw1
+    100062: Jaw2
+    100064: Jaw2_end
+    100066: Neck1
+    100068: Neck2
+    100070: Neck3
+    100072: Tail1
+    100074: Tail2
+    100076: Tail3
+    100078: Tail4
+    100080: Tail4_end
+    100082: Wolf
+    100084: //RootNode
+    400000: Armature
+    400002: BackLeg1_L
+    400004: BackLeg1_R
+    400006: BackLeg2_L
+    400008: BackLeg2_R
+    400010: BackLeg3_L
+    400012: BackLeg3_R
+    400014: BackToe_L
+    400016: BackToe_L_end
+    400018: BackToe_R
+    400020: BackToe_R_end
+    400022: Bone
+    400024: Bone.001
+    400026: Bone.005
+    400028: Bone.012
+    400030: Bone.012_end
+    400032: FrontLeg1_L
+    400034: FrontLeg1_R
+    400036: FrontLeg2_L
+    400038: FrontLeg2_R
+    400040: FrontLeg3_L
+    400042: FrontLeg3_R
+    400044: FrontShoulder_L
+    400046: FrontShoulder_R
+    400048: FrontToe_L
+    400050: FrontToe_L_end
+    400052: FrontToe_R
+    400054: FrontToe_R_end
+    400056: Head
+    400058: Head_end
+    400060: Jaw1
+    400062: Jaw2
+    400064: Jaw2_end
+    400066: Neck1
+    400068: Neck2
+    400070: Neck3
+    400072: Tail1
+    400074: Tail2
+    400076: Tail3
+    400078: Tail4
+    400080: Tail4_end
+    400082: Wolf
+    400084: //RootNode
+    4300000: Wolf
+    9500000: //RootNode
+    13700000: Wolf
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
