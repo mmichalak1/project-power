@@ -34,5 +34,5 @@ ehthumbs.db
 [Tt]humbs.db
 [Dd]esktop.ini
 Library
-/Sheep/*.apk
-/Sheep/UWP
+*.apk
+/UWP
