@@ -20,11 +20,11 @@ public class AttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= WaitTime)
-        {
-           MyBrain.Think(gameObject);
-            timer = 0f;
-        }
+
+    }
+
+    public void PerformAction()
+    {
+        MyBrain.Think(gameObject);
     }
 }

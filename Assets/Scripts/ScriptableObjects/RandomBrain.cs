@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Interfaces;
 using Assets.Scripts.ScriptableObjects;
+using System.Collections.Generic;
 
 [CreateAssetMenu(menuName = "Brains/RandomBrain")]
-public class RandomBrain : AbstractBrain {
+public class RandomBrain : AbstractBrain
+{
 
     public GameObject[] Targets;
 
@@ -14,9 +16,18 @@ public class RandomBrain : AbstractBrain {
 
     public override void Think(GameObject parent)
     {
-        var sheep = Targets[Random.Range(0, Targets.Length)];
-        IReciveDamage controller = sheep.GetComponent<IReciveDamage>();
-        controller.DealDamage(5);
-        Debug.Log(parent.name + " dealt 5 damage to " + sheep.name);
+        List<GameObject> availableTargets = new List<GameObject>();
+        foreach (GameObject x in Targets)
+        {
+            if (x != null)
+                availableTargets.Add(x);
+        }
+        if (availableTargets.Count > 0)
+        {
+            var sheep = availableTargets[Random.Range(0, availableTargets.Count - 1)];
+            IReciveDamage controller = sheep.GetComponent<IReciveDamage>();
+            controller.DealDamage(5);
+            Debug.Log(parent.name + " dealt 5 damage to " + sheep.name);
+        }
     }
 }
