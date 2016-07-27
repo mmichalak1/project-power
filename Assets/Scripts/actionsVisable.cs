@@ -15,7 +15,7 @@ public class actionsVisable : MonoBehaviour {
 	}
 
 	public void CheckVisabilit()
-	{
+	{     
 		if(gameObject.active)
 			gameObject.SetActive(false);
 		else

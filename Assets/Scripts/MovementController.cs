@@ -15,7 +15,6 @@ public class MovementController : MonoBehaviour
     private Quaternion newRot;
     private bool move = false;
 
-
     // Use this for initialization
     void Start()
     {
