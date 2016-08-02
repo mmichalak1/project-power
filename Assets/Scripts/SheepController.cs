@@ -1,17 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.LogicSystem;
+using System.Collections.Generic;
 
-public class SheepController : MonoBehaviour {
+public class SheepController : MonoBehaviour
+{
 
-     RuntimePlatform platform = Application.platform;
+    RuntimePlatform platform = Application.platform;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    void Start()
+    {
+
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         if (platform == RuntimePlatform.Android || platform == RuntimePlatform.IPhonePlayer)
         {
@@ -25,21 +31,28 @@ public class SheepController : MonoBehaviour {
         }
         else if (platform == RuntimePlatform.WindowsEditor)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonUp(0))
             {
+                Debug.Log(Input.mousePosition);
                 checkTouch(Input.mousePosition);
             }
         }
-	}
+    }
 
     void checkTouch(Vector3 pos)
     {
-        Vector3 wp = Camera.main.ScreenToWorldPoint(pos);
-        Vector2 touchPos = new Vector2(wp.x, wp.y);
-        var hit = Physics2D.OverlapPoint(touchPos);
-        if (hit)
+        Ray ray = Camera.main.ScreenPointToRay(pos);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log(hit.transform.gameObject.name);
+            if(hit.transform.gameObject == gameObject)
+            {
+                Vector3 wp = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+                //Vector3 wp = Camera.main.ScreenToWorldPoint(pos);
+                Vector2 touchPos = new Vector2(wp.x, wp.y);
+                Debug.Log("hit :: " + hit.transform.gameObject.name + "   touchPos : " + touchPos);
+                Events.Instance.DispatchEvent(hit.transform.gameObject.name, touchPos);
+            }
         }
     }
 }

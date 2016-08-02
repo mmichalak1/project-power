@@ -3,6 +3,7 @@ using System.Collections;
 using Assets.Scripts.Interfaces;
 using System;
 using UnityEngine.UI;
+using Assets.LogicSystem;
 
 public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
 
@@ -30,7 +31,6 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
 
     void OnMouseDown()
     {
-        Debug.Log("hit: " + gameObject.name);
         if (Input.GetKey(KeyCode.LeftControl))
             DealDamage(10);
         else

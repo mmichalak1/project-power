@@ -159,7 +159,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -49, y: 57}
+  m_AnchoredPosition: {x: -50, y: 50}
   m_SizeDelta: {x: 100, y: 133}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &31704895
@@ -305,7 +305,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 152728, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_Name
-      value: sheepies (1)
+      value: sheep1
       objectReference: {fileID: 0}
     - target: {fileID: 486504, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_LocalScale.y
@@ -401,6 +401,7 @@ GameObject:
   - 223: {fileID: 652300932}
   - 114: {fileID: 652300931}
   - 114: {fileID: 652300930}
+  - 114: {fileID: 652300934}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -485,6 +486,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &652300934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 652300929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1836763cbd6cbdd4a8bafcd419dbf48a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIButtonPrefab: {fileID: 191054, guid: 14f3c1eb6ed31cf4bb89b2e92c28a32b, type: 2}
 --- !u!1001 &701199995
 Prefab:
   m_ObjectHideFlags: 0
@@ -846,7 +859,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 152728, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_Name
-      value: sheepies (3)
+      value: sheep3
       objectReference: {fileID: 0}
     - target: {fileID: 486504, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_LocalScale.y
@@ -995,7 +1008,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 152728, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_Name
-      value: sheepies (2)
+      value: sheep2
       objectReference: {fileID: 0}
     - target: {fileID: 486504, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_LocalScale.y
@@ -1050,6 +1063,10 @@ Prefab:
     - target: {fileID: 486504, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 152728, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
+      propertyPath: m_Name
+      value: sheep0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
