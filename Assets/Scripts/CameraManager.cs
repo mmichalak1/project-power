@@ -41,6 +41,7 @@ public class CameraManager : MonoBehaviour
             if (timeCounter > 10)
             {
                 flag = true;
+				TurnManager.ourTurn = true;
             }
             //if (flag == true)
             //{

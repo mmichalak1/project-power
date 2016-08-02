@@ -6,7 +6,8 @@ using System.Collections.Generic;
 
 public class FightingSceneUIScript : MonoBehaviour {
 
-    public GameObject UIButtonPrefab;
+    public GameObject[] SkillIconsPrefabs;
+
 
     private RectTransform containerRectTransform;
     private RectTransform prefabRectTransform;
@@ -15,8 +16,7 @@ public class FightingSceneUIScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
-        prefabRectTransform = UIButtonPrefab.GetComponent<RectTransform>();
+		
         containerRectTransform = gameObject.GetComponent<RectTransform>();
         sheeps = new List<GameObject>();
 
@@ -24,7 +24,7 @@ public class FightingSceneUIScript : MonoBehaviour {
 
         foreach(GameObject sheep in sheeps)
         {
-            Events.Instance.RegisterForEvent(sheep.name, CreateBubble);
+			Events.Instance.RegisterForEvent(sheep.name, CreateSkillButtons);
         }
 	}
 	
@@ -34,34 +34,53 @@ public class FightingSceneUIScript : MonoBehaviour {
 
 	}
 
-    void CreateBubble(object position)
+	void CreateSkillButtons(object obj)
+	{
+		List<GameObject> UIElementsToDestroy = new List<GameObject>();
+
+		UIElementsToDestroy.AddRange(GameObject.FindGameObjectsWithTag("Bubble"));
+
+		foreach (GameObject X in UIElementsToDestroy)
+		{
+			Debug.Log("Destroy " + X.name);
+			Destroy(X);
+		}
+
+		GameObject sheep = obj as GameObject;
+		Vector3 wp = Camera.main.WorldToScreenPoint(sheep.transform.position);
+		Vector2 touchPos = new Vector2(wp.x, wp.y);
+		Debug.Log ("Length " + SkillIconsPrefabs.Length);
+		for (int i = 0; i < SkillIconsPrefabs.Length; i++)
+			CreateBubble(touchPos, SkillIconsPrefabs[i], i, sheep);
+	}
+
+	void CreateBubble(Vector2 touchPos, GameObject prefab, int ordinal, GameObject sheep)
     {
-        Vector2 touchPos = (Vector2)position;
+		prefabRectTransform = prefab.GetComponent<RectTransform>();
+		float ratioX = containerRectTransform.rect.width / Camera.main.pixelWidth;
+		float ratioY = containerRectTransform.rect.height / Camera.main.pixelHeight;
+		float radius = 100f;
+		float angle = -Mathf.PI * 3 / 18;
 
-        List<GameObject> UIElementsToDestroy = new List<GameObject>();
-
-        UIElementsToDestroy.AddRange(GameObject.FindGameObjectsWithTag("Bubble"));
-
-        foreach (GameObject obj in UIElementsToDestroy)
-        {
-            Debug.Log("Destroy " + obj.name);
-            Destroy(obj);
-        }
         //create a new item, name it, and set the parent
-        GameObject newItem = Instantiate(UIButtonPrefab) as GameObject;
-        newItem.name = gameObject.name + " Bubble ";
+		GameObject newItem = Instantiate(prefab) as GameObject;
+		newItem.name = prefab.name;
         newItem.transform.parent = gameObject.transform;
+
+		newItem.GetComponent<Button> ().onClick.AddListener (() => {
+			TurnManager.isSkillActive = true;
+			TurnManager.skillName = prefab.name;
+		});
 
         //move and size the new item
         RectTransform rectTransform = newItem.GetComponent<RectTransform>();
-        float x = touchPos.x * containerRectTransform.rect.width / Camera.main.pixelWidth * 1.15f;
-        float y = touchPos.y * containerRectTransform.rect.height / Camera.main.pixelHeight * 1.15f;
+		float x = ratioX * (touchPos.x + Mathf.Cos((ordinal-1) * angle)*radius);
+		float y = ratioY * (touchPos.y + Mathf.Sin((ordinal-1) * angle)*radius);
         rectTransform.offsetMin = new Vector2(x, y);
 
-        Debug.Log(containerRectTransform.rect.width + "   " + containerRectTransform.rect.height);
-
-        x = rectTransform.offsetMin.x + prefabRectTransform.rect.width * 0.25f;
-        y = rectTransform.offsetMin.y + prefabRectTransform.rect.height * 0.25f;
+		x = rectTransform.offsetMin.x + prefabRectTransform.rect.width * ratioX * 0.5f;
+		y = rectTransform.offsetMin.y + prefabRectTransform.rect.height * ratioX * 0.5f;
         rectTransform.offsetMax = new Vector2(x, y);
     }
+		
 }

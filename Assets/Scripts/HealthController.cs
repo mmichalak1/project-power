@@ -12,7 +12,6 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
     [SerializeField]
     private int _currentHealth = 100;
 
-
     public int CurrentHealth
     {
         get { return _currentHealth; }
@@ -31,10 +30,10 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
 
     void OnMouseDown()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
-            DealDamage(10);
-        else
-            Heal(7);
+       // if (Input.GetKey(KeyCode.LeftControl))
+        //    DealDamage(10);
+        //else
+         //   Heal(7);
     }
 
     public void DealDamage(int value)

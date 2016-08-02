@@ -1324,7 +1324,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 113549848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 12}
+  m_LocalPosition: {x: 2, y: 0.037, z: 11.981}
   m_LocalScale: {x: 2, y: 0.2, z: 2}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -5562,7 +5562,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 486504, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.61
+      value: -2.18
       objectReference: {fileID: 0}
     - target: {fileID: 486504, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_LocalPosition.y
@@ -7474,7 +7474,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1836763cbd6cbdd4a8bafcd419dbf48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIButtonPrefab: {fileID: 191054, guid: 14f3c1eb6ed31cf4bb89b2e92c28a32b, type: 2}
+  SkillIconsPrefabs:
+  - {fileID: 196930, guid: 76aa7e78d7f9cb445ad5f7cbbba59671, type: 2}
+  - {fileID: 166026, guid: 3d9712dfe53a8c741bdd8ae51bbc480a, type: 2}
 --- !u!1 &652351737
 GameObject:
   m_ObjectHideFlags: 0
@@ -10701,7 +10703,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 486504, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.44
+      value: -2.01
       objectReference: {fileID: 0}
     - target: {fileID: 486504, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_LocalPosition.y
@@ -18997,6 +18999,10 @@ Prefab:
     - target: {fileID: 485220, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.2859955
+      objectReference: {fileID: 0}
+    - target: {fileID: 115622, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}

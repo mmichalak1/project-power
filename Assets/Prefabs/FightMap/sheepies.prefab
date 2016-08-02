@@ -11,7 +11,6 @@ GameObject:
   - 33: {fileID: 3385498}
   - 23: {fileID: 2317808}
   - 114: {fileID: 11408294}
-  - 114: {fileID: 11404918}
   - 65: {fileID: 6520930}
   m_Layer: 0
   m_Name: sheepies
@@ -78,17 +77,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.023793606, y: 0.007605099, z: 0.018054605}
   m_Center: {x: -0.006287026, y: -0.00009990184, z: 0.007045484}
---- !u!114 &11404918
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 152728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88068e2d2a8f5584e8007cd367be7c2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11408294
 MonoBehaviour:
   m_ObjectHideFlags: 1
