@@ -5594,7 +5594,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 152728, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_Name
-      value: sheepies (1)
+      value: sheep1
       objectReference: {fileID: 0}
     - target: {fileID: 486504, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_LocalScale.y
@@ -7378,6 +7378,7 @@ GameObject:
   - 223: {fileID: 652300932}
   - 114: {fileID: 652300931}
   - 114: {fileID: 652300930}
+  - 114: {fileID: 652300934}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7462,6 +7463,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &652300934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 652300929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1836763cbd6cbdd4a8bafcd419dbf48a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIButtonPrefab: {fileID: 191054, guid: 14f3c1eb6ed31cf4bb89b2e92c28a32b, type: 2}
 --- !u!1 &652351737
 GameObject:
   m_ObjectHideFlags: 0
@@ -10720,7 +10733,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 152728, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_Name
-      value: sheepies (3)
+      value: sheep3
       objectReference: {fileID: 0}
     - target: {fileID: 486504, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_LocalScale.y
@@ -11621,7 +11634,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 152728, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_Name
-      value: sheepies (2)
+      value: sheep2
       objectReference: {fileID: 0}
     - target: {fileID: 486504, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
       propertyPath: m_LocalScale.y
@@ -12231,18 +12244,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 486504, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 100.00004
+    - target: {fileID: 152728, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
+      propertyPath: m_Name
+      value: sheep0
       objectReference: {fileID: 0}
-    - target: {fileID: 486504, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2317808, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 86776ddc73c1abb4e9a8ccc69c5c4c46, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76e95525c7e6c2c4f982a08315987b80, type: 2}
   m_IsPrefabParent: 0

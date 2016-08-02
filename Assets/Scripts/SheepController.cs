@@ -33,7 +33,6 @@ public class SheepController : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(0))
             {
-                Debug.Log(Input.mousePosition);
                 checkTouch(Input.mousePosition);
             }
         }
@@ -48,7 +47,6 @@ public class SheepController : MonoBehaviour
             if(hit.transform.gameObject == gameObject)
             {
                 Vector3 wp = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-                //Vector3 wp = Camera.main.ScreenToWorldPoint(pos);
                 Vector2 touchPos = new Vector2(wp.x, wp.y);
                 Debug.Log("hit :: " + hit.transform.gameObject.name + "   touchPos : " + touchPos);
                 Events.Instance.DispatchEvent(hit.transform.gameObject.name, touchPos);

@@ -26,11 +26,6 @@ public class FightingSceneUIScript : MonoBehaviour {
         {
             Events.Instance.RegisterForEvent(sheep.name, CreateBubble);
         }
-
-        
-        //Events.Instance.RegisterForEvent("Display", x => RotateRight());
-
-
 	}
 	
 	// Update is called once per frame

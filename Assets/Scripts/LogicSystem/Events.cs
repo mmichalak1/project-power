@@ -32,7 +32,10 @@ namespace Assets.LogicSystem
         public void RegisterForEvent(string name, MyEvent function)
         {
             if (!_eventsMap.ContainsKey(name))
+            {
                 _eventsMap.Add(name, function);
+                Debug.Log("Event " + name + " created");
+            }
             else
                 _eventsMap[name] += function;
         }
