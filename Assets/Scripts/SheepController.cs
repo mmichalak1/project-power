@@ -49,7 +49,7 @@ public class SheepController : MonoBehaviour
                 Vector3 wp = Camera.main.WorldToScreenPoint(gameObject.transform.position);
                 Vector2 touchPos = new Vector2(wp.x, wp.y);
                 Debug.Log("hit :: " + hit.transform.gameObject.name + "   touchPos : " + touchPos);
-                Events.Instance.DispatchEvent(hit.transform.gameObject.name, touchPos);
+                Events.Instance.DispatchEvent(gameObject.name, new KeyValuePair<Vector2, Transform>(touchPos, transform));
             }
         }
     }

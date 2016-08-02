@@ -10,7 +10,6 @@ public class FightingSceneUIScript : MonoBehaviour {
 
     private RectTransform containerRectTransform;
     private RectTransform prefabRectTransform;
-
     private List<GameObject> sheeps;
 
 	// Use this for initialization
@@ -28,15 +27,12 @@ public class FightingSceneUIScript : MonoBehaviour {
         }
 	}
 	
-	// Update is called once per frame
-	void Update () {
-
-
-	}
-
-    void CreateBubble(object position)
+    void CreateBubble(object pair)
     {
-        Vector2 touchPos = (Vector2)position;
+
+        Vector2 touchPos = ((KeyValuePair<Vector2, Transform>)pair).Key;
+        Transform trans= ((KeyValuePair<Vector2, Transform>)pair).Value;
+
 
         List<GameObject> UIElementsToDestroy = new List<GameObject>();
 
@@ -44,12 +40,12 @@ public class FightingSceneUIScript : MonoBehaviour {
 
         foreach (GameObject obj in UIElementsToDestroy)
         {
-            Debug.Log("Destroy " + obj.name);
+            //Debug.Log("Destroy " + obj.name);
             Destroy(obj);
         }
         //create a new item, name it, and set the parent
         GameObject newItem = Instantiate(UIButtonPrefab) as GameObject;
-        newItem.name = gameObject.name + " Bubble ";
+        newItem.name = trans.name + " Bubble ";
         newItem.transform.parent = gameObject.transform;
 
         //move and size the new item
@@ -58,7 +54,7 @@ public class FightingSceneUIScript : MonoBehaviour {
         float y = touchPos.y * containerRectTransform.rect.height / Camera.main.pixelHeight * 1.15f;
         rectTransform.offsetMin = new Vector2(x, y);
 
-        Debug.Log(containerRectTransform.rect.width + "   " + containerRectTransform.rect.height);
+        //Debug.Log(containerRectTransform.rect.width + "   " + containerRectTransform.rect.height);
 
         x = rectTransform.offsetMin.x + prefabRectTransform.rect.width * 0.25f;
         y = rectTransform.offsetMin.y + prefabRectTransform.rect.height * 0.25f;

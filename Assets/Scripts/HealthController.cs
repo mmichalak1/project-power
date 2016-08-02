@@ -29,14 +29,6 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
             Destroy(gameObject);
     }
 
-    void OnMouseDown()
-    {
-        if (Input.GetKey(KeyCode.LeftControl))
-            DealDamage(10);
-        else
-            Heal(7);
-    }
-
     public void DealDamage(int value)
     {
         _currentHealth -= value;
