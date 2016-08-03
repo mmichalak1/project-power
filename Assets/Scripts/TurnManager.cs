@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using Assets.LogicSystem;
 using System.Collections.Generic;
 using Assets.LogicSystem;
+using Assets.Scripts.Interfaces;
+using System;
 
 public class TurnManager : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class TurnManager : MonoBehaviour
     public Button turnButton;
     public static bool isSkillActive;
     public static string skillName;
+    [SerializeField]
+    private GameObject selectedSheep;
     public const int maxResource = 10;
     public static int currentResource;
     RuntimePlatform platform = Application.platform;
@@ -24,6 +28,29 @@ public class TurnManager : MonoBehaviour
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         currentResource = 10;
         UpdateResource(0);
+
+        foreach (var item in GameObject.FindGameObjectsWithTag("Sheep"))
+        {
+            Events.Instance.RegisterForEvent(item.name, x =>
+            {
+                selectedSheep = ((KeyValuePair<Vector2, Transform>)x).Value.gameObject;
+            });
+        }
+
+        foreach (var item in enemies)
+        {
+            Events.Instance.RegisterForEvent(item.name, x =>
+            {
+                if (selectedSheep != null)
+                {
+                    TurnPlaner.Instance.AddPlan(selectedSheep.name, new Plan(selectedSheep, ((KeyValuePair<Vector2, Transform>)x).Value.gameObject, (act, tar) =>
+                    {
+                        tar.GetComponent<IReciveDamage>().DealDamage(10);
+                        Debug.Log(act + " dealt 10dmg to " + tar);
+                    }));
+                }
+            });
+        }
     }
 
     // Update is called once per frame
@@ -54,11 +81,17 @@ public class TurnManager : MonoBehaviour
 
     public void ChangeTurn()
     {
+
         ourTurn = false;
-        foreach (GameObject enemy in enemies)
+
+        if (!TurnPlaner.Instance.Execute())
+            return;
+
+        foreach(GameObject enemy in enemies)
         {
             enemy.GetComponent<AttackController>().PerformAction();
         }
+
         ourTurn = true;
         currentResource = 10;
         UpdateResource(0);

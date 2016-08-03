@@ -82,11 +82,6 @@ public class FightingSceneUIScript : MonoBehaviour {
 
         rectTransform.position = new Vector3(x, y, 0);
 
-        //rectTransform.offsetMin = new Vector2(x, y);
-
-        //x = rectTransform.offsetMin.x + prefabRectTransform.rect.width * ratioX * 0.5f;
-        //y = rectTransform.offsetMin.y + prefabRectTransform.rect.height * ratioX * 0.5f;
-        //rectTransform.offsetMax = new Vector2(x, y);
     }
 
 
