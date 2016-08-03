@@ -42,6 +42,7 @@ public class CameraManager : MonoBehaviour
             {
                 flag = true;
 				TurnManager.ourTurn = true;
+                TurnManager.UpdateResource(0);
             }
             //if (flag == true)
             //{

@@ -7,12 +7,13 @@ using System.Collections.Generic;
 public class FightingSceneUIScript : MonoBehaviour {
 
     public GameObject[] SkillIconsPrefabs;
-
+    public Text TextLabel;
 
     private RectTransform containerRectTransform;
     private RectTransform prefabRectTransform;
 
     private List<GameObject> sheeps;
+
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,8 @@ public class FightingSceneUIScript : MonoBehaviour {
         {
 			Events.Instance.RegisterForEvent(sheep.name, CreateSkillButtons);
         }
+
+        Events.Instance.RegisterForEvent("SetText", SetText);
 	}
 	
 	// Update is called once per frame
@@ -59,7 +62,7 @@ public class FightingSceneUIScript : MonoBehaviour {
 		prefabRectTransform = prefab.GetComponent<RectTransform>();
 		float ratioX = containerRectTransform.rect.width / Camera.main.pixelWidth;
 		float ratioY = containerRectTransform.rect.height / Camera.main.pixelHeight;
-		float radius = 100f;
+        float radius = 100 * Screen.currentResolution.width / containerRectTransform.rect.width;
 		float angle = -Mathf.PI * 3 / 18;
 
         //create a new item, name it, and set the parent
@@ -74,13 +77,27 @@ public class FightingSceneUIScript : MonoBehaviour {
 
         //move and size the new item
         RectTransform rectTransform = newItem.GetComponent<RectTransform>();
-		float x = ratioX * (touchPos.x + Mathf.Cos((ordinal-1) * angle)*radius);
-		float y = ratioY * (touchPos.y + Mathf.Sin((ordinal-1) * angle)*radius);
-        rectTransform.offsetMin = new Vector2(x, y);
+		float x =  (touchPos.x + Mathf.Cos((ordinal-1) * angle)*radius);
+		float y =  (touchPos.y + Mathf.Sin((ordinal-1) * angle)*radius);
 
-		x = rectTransform.offsetMin.x + prefabRectTransform.rect.width * ratioX * 0.5f;
-		y = rectTransform.offsetMin.y + prefabRectTransform.rect.height * ratioX * 0.5f;
-        rectTransform.offsetMax = new Vector2(x, y);
+        rectTransform.position = new Vector3(x, y, 0);
+
+        //rectTransform.offsetMin = new Vector2(x, y);
+
+        //x = rectTransform.offsetMin.x + prefabRectTransform.rect.width * ratioX * 0.5f;
+        //y = rectTransform.offsetMin.y + prefabRectTransform.rect.height * ratioX * 0.5f;
+        //rectTransform.offsetMax = new Vector2(x, y);
+    }
+
+
+    public void Cancel()
+    {
+        TurnManager.isSkillActive = false;
+    }
+
+    void SetText(object text)
+    {
+        TextLabel.text = (string)text;
     }
 		
 }
