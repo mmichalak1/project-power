@@ -25,7 +25,7 @@ public class FightingSceneUIScript : MonoBehaviour {
 
         foreach(GameObject sheep in sheeps)
         {
-			Events.Instance.RegisterForEvent(sheep.name, CreateSkillButtons);
+			Events.Instance.RegisterForEvent(sheep.name + "skill", CreateSkillButtons);
         }
 
         Events.Instance.RegisterForEvent("SetText", SetText);
@@ -52,7 +52,7 @@ public class FightingSceneUIScript : MonoBehaviour {
 		GameObject sheep = obj as GameObject;
 		Vector3 wp = Camera.main.WorldToScreenPoint(sheep.transform.position);
 		Vector2 touchPos = new Vector2(wp.x, wp.y);
-		Debug.Log ("Length " + SkillIconsPrefabs.Length);
+
 		for (int i = 0; i < SkillIconsPrefabs.Length; i++)
 			CreateBubble(touchPos, SkillIconsPrefabs[i], i, sheep);
 	}

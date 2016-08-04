@@ -56,7 +56,6 @@ public class TurnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Current Resolution : " + Screen.currentResolution);
         if (ourTurn)
         {
             if (platform == RuntimePlatform.Android || platform == RuntimePlatform.IPhonePlayer)
@@ -81,11 +80,23 @@ public class TurnManager : MonoBehaviour
 
     public void ChangeTurn()
     {
+        List<GameObject> UIElementsToDestroy = new List<GameObject>();
+
+        UIElementsToDestroy.AddRange(GameObject.FindGameObjectsWithTag("Bubble"));
+
+        foreach (GameObject X in UIElementsToDestroy)
+        {
+            Debug.Log("Destroy " + X.name);
+            Destroy(X);
+        }
+
+        isSkillActive = false;
+        skillName = null;
 
         ourTurn = false;
 
-        if (!TurnPlaner.Instance.Execute())
-            return;
+        //if (!TurnPlaner.Instance.Execute())
+        //    return;
 
         foreach(GameObject enemy in enemies)
         {
@@ -127,7 +138,7 @@ public class TurnManager : MonoBehaviour
             }
             else if (hit.transform.gameObject.tag == "Sheep")
             {
-                Events.Instance.DispatchEvent(hit.transform.gameObject.name, hit.transform.gameObject);
+                Events.Instance.DispatchEvent(hit.transform.gameObject.name + "skill", hit.transform.gameObject);
             }
             
         }
