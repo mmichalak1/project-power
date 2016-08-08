@@ -47,7 +47,7 @@ public class MovementController : MonoBehaviour
     {
         if (!move)
         {
-            newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.forward).normalized * 2;
+            newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.right).normalized * 2;
             move = true;
         }
     }
@@ -56,7 +56,7 @@ public class MovementController : MonoBehaviour
     {
         if (!move)
         {
-            newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.back).normalized * 2;
+            newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.left).normalized * 2;
             move = true;
         }
     }
