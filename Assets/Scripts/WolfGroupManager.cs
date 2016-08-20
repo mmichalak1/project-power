@@ -25,7 +25,7 @@ public class WolfGroupManager : MonoBehaviour
         wolvesCounter--;
         if (wolvesCounter == 0)
         {
-            Assets.LogicSystem.Events.Instance.DispatchEvent("GameWon", null);
+            Assets.LogicSystem.Events.Instance.DispatchEvent("BattleWon", null);
             Debug.Log("Battle won");
         }
     }

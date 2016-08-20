@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using Assets.LogicSystem;
 using System.Collections.Generic;
-using Assets.LogicSystem;
 using Assets.Scripts.Interfaces;
 using System;
 
@@ -97,11 +96,12 @@ public class TurnManager : MonoBehaviour
 
         //if (!TurnPlaner.Instance.Execute())
         //    return;
-
         foreach(GameObject enemy in enemies)
         {
             enemy.GetComponent<AttackController>().PerformAction();
+            
         }
+
 
         ourTurn = true;
         currentResource = 10;
@@ -110,9 +110,11 @@ public class TurnManager : MonoBehaviour
 
     void checkTouch(Vector3 pos)
     {
+        var ignoredLayer = (1 << 8);
+        ignoredLayer = ~ignoredLayer;
         Ray ray = Camera.main.ScreenPointToRay(pos);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ignoredLayer))
         {
             if (isSkillActive)
             {
@@ -139,6 +141,10 @@ public class TurnManager : MonoBehaviour
             else if (hit.transform.gameObject.tag == "Sheep")
             {
                 Events.Instance.DispatchEvent(hit.transform.gameObject.name + "skill", hit.transform.gameObject);
+            }
+            else
+            {
+                Debug.Log("Raycast hit: " + hit.transform.name);
             }
             
         }
