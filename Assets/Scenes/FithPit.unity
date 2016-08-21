@@ -271,7 +271,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnButton: {fileID: 0}
-  selectedSheep: {fileID: 0}
 --- !u!4 &8031939
 Transform:
   m_ObjectHideFlags: 0
@@ -10886,7 +10885,7 @@ GameObject:
   - 54: {fileID: 1128356636}
   - 114: {fileID: 1128356635}
   - 114: {fileID: 1128356638}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: WolfGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}

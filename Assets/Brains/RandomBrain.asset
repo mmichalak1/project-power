@@ -11,4 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddc663220f818a42af14eed75eb746d, type: 3}
   m_Name: RandomBrain
   m_EditorClassIdentifier: 
-  Targets: []
+  Targets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  MyDamage: 1

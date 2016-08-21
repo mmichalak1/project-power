@@ -29,8 +29,8 @@ public class CameraManager : MonoBehaviour
         Events.Instance.RegisterForEvent("EnterFight", x =>
         {
             isChanging = true;
-            explorationPosition = positionCamera;
-            explorationRotation = rotationCamera;
+            explorationPosition = cameraExploration.transform.position;
+            explorationRotation = cameraExploration.transform.rotation;
             positionCamera = new Vector3(cameraExploration.transform.position.x, cameraExploration.transform.position.y, cameraExploration.transform.position.z);
             positionCameraFight = new Vector3(cameraFight.transform.position.x, cameraFight.transform.position.y, cameraFight.transform.position.z);
             rotationCamera = new Quaternion(cameraExploration.transform.rotation.x, cameraExploration.transform.rotation.y, cameraExploration.transform.rotation.z, cameraExploration.transform.rotation.w);
@@ -55,12 +55,12 @@ public class CameraManager : MonoBehaviour
             timeCounter += Time.deltaTime;
             cameraExploration.transform.position = Vector3.Lerp(cameraExploration.transform.position, positionCameraFight, Time.deltaTime);
             cameraExploration.transform.rotation = Quaternion.Lerp(cameraExploration.transform.rotation, rotationCameraFight, Time.deltaTime);
-            if (timeCounter > 9)
+            if (timeCounter > 7)
             {
                 Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 0, Time.deltaTime);
             }
 
-            if (timeCounter > 10)
+            if (timeCounter > 8)
             {
                 isChanging = false;
 				TurnManager.ourTurn = true;
