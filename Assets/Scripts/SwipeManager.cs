@@ -53,7 +53,7 @@ public class SwipeManager : MonoBehaviour
             }
         }
 #endif
-#if UNITY_WP10
+#if UNITY_WP10 || UNITY_ANDROID || UNITY_IOS
         if (Input.touchCount > 0)
             {
                 Touch touch = Input.touches[0];

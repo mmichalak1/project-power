@@ -13,6 +13,16 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
     private int _currentHealth = 100;
 
 
+    void Update()
+    {
+        if (_currentHealth <= 0)
+        {
+            Events.Instance.DispatchEvent(gameObject.name + "death", gameObject);
+            Debug.Log(gameObject.name + " died.");
+            gameObject.SetActive(false);
+        }
+    }
+
     public int CurrentHealth
     {
         get { return _currentHealth; }
@@ -21,17 +31,6 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
     public int MaxHealth
     {
         get { return _maxHealth; }
-    }
-
-    void Update()
-    {
-        if (_currentHealth <= 0)
-        {
-            Events.Instance.DispatchEvent(gameObject.name, null);
-            Debug.Log(gameObject.name + " died.");
-            Destroy(gameObject);
-        }
-            
     }
 
     public void DealDamage(int value)
@@ -53,5 +52,10 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
             else
                 _currentHealth += value;
         }
+    }
+
+    public void HealToFull()
+    {
+        _currentHealth = _maxHealth;
     }
 }
