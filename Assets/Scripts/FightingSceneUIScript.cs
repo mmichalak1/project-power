@@ -9,6 +9,7 @@ public class FightingSceneUIScript : MonoBehaviour {
     public GameObject[] SkillIconsPrefabs;
     public Text TextLabel;
 
+    private List<GameObject> UIButtons = new List<GameObject>();
     private RectTransform containerRectTransform;
     private RectTransform prefabRectTransform;
 
@@ -39,16 +40,13 @@ public class FightingSceneUIScript : MonoBehaviour {
 
 	void CreateSkillButtons(object obj)
 	{
-		List<GameObject> UIElementsToDestroy = new List<GameObject>();
-
-		UIElementsToDestroy.AddRange(GameObject.FindGameObjectsWithTag("Bubble"));
-
-		foreach (GameObject X in UIElementsToDestroy)
+        UIButtons.Clear();
+        foreach (GameObject X in UIButtons)
 		{
 			Debug.Log("Destroy " + X.name);
 			Destroy(X);
 		}
-
+        
 		GameObject sheep = obj as GameObject;
 		Vector3 wp = Camera.main.WorldToScreenPoint(sheep.transform.position);
 		Vector2 touchPos = new Vector2(wp.x, wp.y);
@@ -83,6 +81,7 @@ public class FightingSceneUIScript : MonoBehaviour {
 
         rectTransform.position = new Vector3(x, y, 0);
 
+        UIButtons.Add(newItem);
     }
 
 

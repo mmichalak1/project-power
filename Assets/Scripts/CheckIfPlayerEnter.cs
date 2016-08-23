@@ -20,6 +20,7 @@ public class CheckIfPlayerEnter : MonoBehaviour {
 			ExplorationUI.SetActive (false);
 			TurnManager.ourTurn = true;
             Events.Instance.DispatchEvent("SetExplorationUI", ExplorationUI);
+            Events.Instance.DispatchEvent("SetBattleUI", BattleUI);
         }
 
     }

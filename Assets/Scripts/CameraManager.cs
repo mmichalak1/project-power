@@ -65,6 +65,7 @@ public class CameraManager : MonoBehaviour
                 isChanging = false;
 				TurnManager.ourTurn = true;
                 TurnManager.UpdateResource(0);
+                timeCounter = 0f;
             }
         }
 

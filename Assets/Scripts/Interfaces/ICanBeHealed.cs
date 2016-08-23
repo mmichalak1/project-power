@@ -8,5 +8,7 @@ namespace Assets.Scripts.Interfaces
     interface ICanBeHealed
     {
         void Heal(int value);
+
+        void HealToFull();
     }
 }
