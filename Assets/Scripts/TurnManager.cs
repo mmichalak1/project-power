@@ -110,14 +110,17 @@ public class TurnManager : MonoBehaviour
 
     void checkTouch(Vector3 pos)
     {
+		Debug.Log ("Click");
         Ray ray = Camera.main.ScreenPointToRay(pos);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
+			Debug.Log (hit.transform.tag);
             if (isSkillActive)
             {
                 if (hit.transform.gameObject.tag == "Sheep" || hit.transform.gameObject.tag == "Enemy")
                 {
+					Debug.Log ("Collider Hited");
                     if (skillName == "HealSkill")
                     {
                         if (currentResource - 2 >= 0)

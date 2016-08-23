@@ -8,6 +8,7 @@ TagManager:
   - Sheep
   - Enemy
   - Bubble
+  - Prop
   layers:
   - Default
   - TransparentFX
