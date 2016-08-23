@@ -7,8 +7,8 @@ using System.Collections.Generic;
 public class RandomBrain : AbstractBrain
 {
 
-    public GameObject[] Targets;
-
+    public GameObject[] Targets;    
+    public int MyDamage;
     public override void Initialize(GameObject[] targets)
     {
         Targets = targets;
@@ -26,8 +26,8 @@ public class RandomBrain : AbstractBrain
         {
             var sheep = availableTargets[Random.Range(0, availableTargets.Count - 1)];
             IReciveDamage controller = sheep.GetComponent<IReciveDamage>();
-            controller.DealDamage(5);
-            Debug.Log(parent.name + " dealt 5 damage to " + sheep.name);
+            controller.DealDamage(MyDamage);
+            Debug.Log(parent.name + " dealt " + MyDamage + " damage to " + sheep.name);
         }
     }
 }

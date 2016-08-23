@@ -24,6 +24,7 @@ namespace Assets.LogicSystem
         private Dictionary<string, Plan> plans = new Dictionary<string, Plan>() ;
         public void AddPlan(string sheepName, Plan plan)
         {
+            Debug.Log("Added plan for " + sheepName);
             if (plans.ContainsKey(sheepName))
                 plans.Remove(sheepName);
             plans.Add(sheepName, plan);
@@ -31,11 +32,11 @@ namespace Assets.LogicSystem
 
         public bool Execute()
         {
-            if (plans.Count < 4)
-            {
-                Debug.Log("Not all sheep declared move");
-                return false;
-            }
+            //if (plans.Count < 4)
+            //{
+            //    Debug.Log("Not all sheep declared move");
+            //    return false;
+            //}
             foreach (var plan in plans)
             {
                 plan.Value.Execute();

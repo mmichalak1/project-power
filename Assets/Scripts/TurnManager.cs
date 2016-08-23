@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using Assets.LogicSystem;
 using System.Collections.Generic;
-using Assets.LogicSystem;
 using Assets.Scripts.Interfaces;
 using System;
 
@@ -14,7 +13,6 @@ public class TurnManager : MonoBehaviour
     public Button turnButton;
     public static bool isSkillActive;
     public static string skillName;
-    [SerializeField]
     private GameObject selectedSheep;
     public const int maxResource = 10;
     public static int currentResource;
@@ -34,21 +32,6 @@ public class TurnManager : MonoBehaviour
             Events.Instance.RegisterForEvent(item.name, x =>
             {
                 selectedSheep = ((KeyValuePair<Vector2, Transform>)x).Value.gameObject;
-            });
-        }
-
-        foreach (var item in enemies)
-        {
-            Events.Instance.RegisterForEvent(item.name, x =>
-            {
-                if (selectedSheep != null)
-                {
-                    TurnPlaner.Instance.AddPlan(selectedSheep.name, new Plan(selectedSheep, ((KeyValuePair<Vector2, Transform>)x).Value.gameObject, (act, tar) =>
-                    {
-                        tar.GetComponent<IReciveDamage>().DealDamage(10);
-                        Debug.Log(act + " dealt 10dmg to " + tar);
-                    }));
-                }
             });
         }
     }
@@ -80,9 +63,7 @@ public class TurnManager : MonoBehaviour
 
     public void ChangeTurn()
     {
-        List<GameObject> UIElementsToDestroy = new List<GameObject>();
-
-        UIElementsToDestroy.AddRange(GameObject.FindGameObjectsWithTag("Bubble"));
+        var UIElementsToDestroy = GameObject.FindGameObjectsWithTag("Bubble");
 
         foreach (GameObject X in UIElementsToDestroy)
         {
@@ -95,13 +76,15 @@ public class TurnManager : MonoBehaviour
 
         ourTurn = false;
 
-        //if (!TurnPlaner.Instance.Execute())
-        //    return;
-
-        foreach(GameObject enemy in enemies)
+        if (!TurnPlaner.Instance.Execute())
+            return;
+        foreach (GameObject enemy in enemies)
         {
-            enemy.GetComponent<AttackController>().PerformAction();
+            if (enemy != null)
+                enemy.GetComponent<AttackController>().PerformAction();
+
         }
+
 
         ourTurn = true;
         currentResource = 10;
@@ -118,14 +101,27 @@ public class TurnManager : MonoBehaviour
 			Debug.Log (hit.transform.tag);
             if (isSkillActive)
             {
-                if (hit.transform.gameObject.tag == "Sheep" || hit.transform.gameObject.tag == "Enemy")
+                Debug.Log(hit.collider.transform.name);
+                if (hit.collider.tag == "Sheep" || hit.collider.tag == "Enemy")
                 {
 					Debug.Log ("Collider Hited");
                     if (skillName == "HealSkill")
                     {
                         if (currentResource - 2 >= 0)
                         {
-                            hit.transform.gameObject.GetComponent<HealthController>().Heal(5);
+                            TurnPlaner.Instance.AddPlan(selectedSheep.name, new Plan(
+                            selectedSheep, hit.collider.transform.gameObject, (actor, target) =>
+                            {
+                                target.GetComponent<HealthController>().Heal(5);
+                            }));
+                            var UIElementsToDestroy = GameObject.FindGameObjectsWithTag("Bubble");
+                            foreach (GameObject X in UIElementsToDestroy)
+                            {
+                                Debug.Log("Destroy " + X.name);
+                                Destroy(X);
+                            }
+                            isSkillActive = false;
+                            selectedSheep = null;
                             UpdateResource(2);
                         }
                     }
@@ -133,7 +129,20 @@ public class TurnManager : MonoBehaviour
                     {
                         if (currentResource - 3 >= 0)
                         {
-                            hit.transform.gameObject.GetComponent<HealthController>().DealDamage(10);
+                            TurnPlaner.Instance.AddPlan(selectedSheep.name, new Plan(
+                                selectedSheep, hit.collider.transform.gameObject, (actor, target) =>
+                                {
+                                    target.GetComponent<HealthController>().DealDamage(100);
+                                }));
+                            var UIElementsToDestroy = GameObject.FindGameObjectsWithTag("Bubble");
+
+                            foreach (GameObject X in UIElementsToDestroy)
+                            {
+                                Debug.Log("Destroy " + X.name);
+                                Destroy(X);
+                            }
+                            isSkillActive = false;
+                            selectedSheep = null;
                             UpdateResource(3);
                         }
                     }
@@ -141,9 +150,14 @@ public class TurnManager : MonoBehaviour
             }
             else if (hit.transform.gameObject.tag == "Sheep")
             {
+                selectedSheep = hit.transform.gameObject;
                 Events.Instance.DispatchEvent(hit.transform.gameObject.name + "skill", hit.transform.gameObject);
             }
-            
+            else
+            {
+                Debug.Log("Raycast hit: " + hit.collider.transform.name);
+            }
+
         }
     }
 

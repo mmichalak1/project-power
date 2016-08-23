@@ -73,6 +73,7 @@ public class FightingSceneUIScript : MonoBehaviour {
 		newItem.GetComponent<Button> ().onClick.AddListener (() => {
 			TurnManager.isSkillActive = true;
 			TurnManager.skillName = prefab.name;
+            Debug.Log("Active skill: " + prefab.name);
 		});
 
         //move and size the new item

@@ -11,7 +11,7 @@ public class CheckIfPlayerEnter : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Call");
+        //Debug.Log("Call");
         if (other.gameObject == Player && isDetecting)
         {
             isDetecting = !isDetecting;
@@ -19,6 +19,7 @@ public class CheckIfPlayerEnter : MonoBehaviour {
             BattleUI.SetActive(true);
 			ExplorationUI.SetActive (false);
 			TurnManager.ourTurn = true;
+            Events.Instance.DispatchEvent("SetExplorationUI", ExplorationUI);
         }
 
     }

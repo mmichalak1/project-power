@@ -26,7 +26,12 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
     void Update()
     {
         if (_currentHealth <= 0)
+        {
+            Events.Instance.DispatchEvent(gameObject.name, null);
+            Debug.Log(gameObject.name + " died.");
             Destroy(gameObject);
+        }
+            
     }
 
     public void DealDamage(int value)
