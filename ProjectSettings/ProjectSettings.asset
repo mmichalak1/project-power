@@ -338,11 +338,11 @@ PlayerSettings:
   scriptingDefineSymbols: {}
   metroPackageName: Sheep
   metroPackageVersion: 
-  metroCertificatePath: 
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 00b98c195f1cd301
   metroApplicationDescription: Sheep
   wsaImages: {}
   metroTileShortName: 
