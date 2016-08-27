@@ -55,12 +55,7 @@ public class CameraManager : MonoBehaviour
             timeCounter += Time.deltaTime;
             cameraExploration.transform.position = Vector3.Lerp(cameraExploration.transform.position, positionCameraFight, Time.deltaTime);
             cameraExploration.transform.rotation = Quaternion.Lerp(cameraExploration.transform.rotation, rotationCameraFight, Time.deltaTime);
-            if (timeCounter > 7)
-            {
-                Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 0, Time.deltaTime);
-            }
-
-            if (timeCounter > 8)
+            if (timeCounter > 5)
             {
                 isChanging = false;
 				TurnManager.ourTurn = true;
