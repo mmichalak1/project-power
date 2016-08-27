@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class SwitchBetweenScenes : MonoBehaviour {
 
@@ -7,6 +6,7 @@ public class SwitchBetweenScenes : MonoBehaviour {
 
 	public void LoadScene()
 	{
-		Application.LoadLevel (Destination);
+        Assets.LogicSystem.Events.Instance.Reset();
+		Application.LoadLevel(Destination);
 	}
 }

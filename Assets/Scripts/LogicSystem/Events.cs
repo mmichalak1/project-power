@@ -51,5 +51,10 @@ namespace Assets.LogicSystem
                 _eventsMap[name](parameter);
         }
 
+        public void Reset()
+        {
+            _eventsMap.Clear();
+        }
+
     }
 }
