@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Assets.LogicSystem;
+using UnityEngine.UI;
 
 public class SwipeManager : MonoBehaviour
 {
-
     Vector2 touchStart = -Vector2.one;
-
+    string value;
     const int MINDISTANCE = 75;
 
     // Use this for initialization
@@ -51,7 +51,9 @@ public class SwipeManager : MonoBehaviour
             {
                 Events.Instance.DispatchEvent("MoveDown", null);
             }
+            value = "Mouse: X: " + Mathf.Abs(touch.x - touchStart.x) + "Y: " + Mathf.Abs(touch.y - touchStart.y);
         }
+        
 #endif
 #if UNITY_WSA_10_0 || UNITY_IOS || UNITY_ANDROID
         if (Input.touchCount > 0)
@@ -73,9 +75,16 @@ public class SwipeManager : MonoBehaviour
                     {
                         Events.Instance.DispatchEvent("MoveForward", null);
                     }
-
-                }
+                    value = "Touch: X: " + Mathf.Abs(touch.position.x - touchStart.x) + "Y: " + Mathf.Abs(touch.position.y - touchStart.y);
             }
+        }
 #endif
     }
+
+    void OnGUI()
+    {
+        GUI.Label(new Rect(25, 25, 100, 100), value);
+    }
+
+    
 }
