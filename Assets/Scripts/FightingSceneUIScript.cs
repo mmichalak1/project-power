@@ -39,14 +39,7 @@ public class FightingSceneUIScript : MonoBehaviour {
 	}
 
 	void CreateSkillButtons(object obj)
-	{
-        UIButtons.Clear();
-        foreach (GameObject X in UIButtons)
-		{
-			Debug.Log("Destroy " + X.name);
-			Destroy(X);
-		}
-        
+	{   
 		GameObject sheep = obj as GameObject;
 		Vector3 wp = Camera.main.WorldToScreenPoint(sheep.transform.position);
 		Vector2 touchPos = new Vector2(wp.x, wp.y);
@@ -68,11 +61,11 @@ public class FightingSceneUIScript : MonoBehaviour {
 		newItem.name = prefab.name;
         newItem.transform.parent = gameObject.transform;
 
-		newItem.GetComponent<Button> ().onClick.AddListener (() => {
+		newItem.GetComponent<Button>().onClick.AddListener(() => {
 			TurnManager.isSkillActive = true;
 			TurnManager.skillName = prefab.name;
-            Debug.Log("Active skill: " + prefab.name);
-		});
+            TurnManager.ChangeFlag = true;
+        });
 
         //move and size the new item
         RectTransform rectTransform = newItem.GetComponent<RectTransform>();
@@ -88,11 +81,17 @@ public class FightingSceneUIScript : MonoBehaviour {
     public void Cancel()
     {
         TurnManager.isSkillActive = false;
+        var UIElementsToDestroy = GameObject.FindGameObjectsWithTag("Bubble");
+
+        foreach (GameObject X in UIElementsToDestroy)
+        {
+            Debug.Log("Destroy " + X.name);
+            Destroy(X);
+        }
     }
 
     void SetText(object text)
     {
         TextLabel.text = (string)text;
     }
-		
 }

@@ -7,8 +7,6 @@ using System;
 
 public class TurnManager : MonoBehaviour
 {
-
-    GameObject[] enemies;
     public static bool ourTurn;
     public Button turnButton;
     public static bool isSkillActive;
@@ -16,16 +14,38 @@ public class TurnManager : MonoBehaviour
     private GameObject selectedSheep;
     public const int maxResource = 10;
     public static int currentResource;
-    RuntimePlatform platform = Application.platform;
+    WolfGroupManager wolfManager;
+
+    public static bool ChangeFlag = false;
+    private bool SelectingTarget = true;
 
     // Use this for initialization
     void Start()
     {
         ourTurn = false;
         isSkillActive = false;
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        
         currentResource = 10;
         UpdateResource(0);
+
+        Events.Instance.RegisterForEvent("EnterFight", x =>
+        {
+            wolfManager = x as WolfGroupManager;
+
+        });
+
+        Events.Instance.RegisterForEvent("BattleWon", x =>
+        {
+            ourTurn = true;
+            SelectingTarget = true;
+            var UIElementsToDestroy = GameObject.FindGameObjectsWithTag("Bubble");
+
+            foreach (GameObject X in UIElementsToDestroy)
+            {
+                Debug.Log("Destroy " + X.name);
+                Destroy(X);
+            }
+        });
 
         foreach (var item in GameObject.FindGameObjectsWithTag("Sheep"))
         {
@@ -41,23 +61,21 @@ public class TurnManager : MonoBehaviour
     {
         if (ourTurn)
         {
-            if (platform == RuntimePlatform.Android || platform == RuntimePlatform.IPhonePlayer)
+#if UNITY_WSA_10_0 || UNITY_IOS || UNITY_ANDROID
+            if (Input.touchCount > 0)
             {
-                if (Input.touchCount > 0)
+                if (Input.GetTouch(0).phase == TouchPhase.Began)
                 {
-                    if (Input.GetTouch(0).phase == TouchPhase.Began)
-                    {
-                        checkTouch(Input.GetTouch(0).position);
-                    }
+                    checkTouch(Input.GetTouch(0).position);
                 }
             }
-            else if (platform == RuntimePlatform.WindowsEditor)
+#endif
+#if UNITY_EDITOR
+            if (Input.GetMouseButtonUp(0))
             {
-                if (Input.GetMouseButtonUp(0))
-                {
-                    checkTouch(Input.mousePosition);
-                }
+                checkTouch(Input.mousePosition);
             }
+#endif
         }
     }
 
@@ -70,6 +88,7 @@ public class TurnManager : MonoBehaviour
             Debug.Log("Destroy " + X.name);
             Destroy(X);
         }
+        SelectingTarget = true;
 
         isSkillActive = false;
         skillName = null;
@@ -78,14 +97,8 @@ public class TurnManager : MonoBehaviour
 
         if (!TurnPlaner.Instance.Execute())
             return;
-        foreach (GameObject enemy in enemies)
-        {
-            if (enemy != null)
-                enemy.GetComponent<AttackController>().PerformAction();
-
-        }
-
-
+        wolfManager.ApplyGroupTurn();
+       
         ourTurn = true;
         currentResource = 10;
         UpdateResource(0);
@@ -93,18 +106,17 @@ public class TurnManager : MonoBehaviour
 
     void checkTouch(Vector3 pos)
     {
-		Debug.Log ("Click");
         Ray ray = Camera.main.ScreenPointToRay(pos);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit) && SelectingTarget)
         {
-			Debug.Log (hit.transform.tag);
+            Debug.Log(hit.transform.tag);
             if (isSkillActive)
             {
                 Debug.Log(hit.collider.transform.name);
                 if (hit.collider.tag == "Sheep" || hit.collider.tag == "Enemy")
                 {
-					Debug.Log ("Collider Hited");
+                    Debug.Log("Collider Hited");
                     if (skillName == "HealSkill")
                     {
                         if (currentResource - 2 >= 0)
@@ -150,6 +162,7 @@ public class TurnManager : MonoBehaviour
             }
             else if (hit.transform.gameObject.tag == "Sheep")
             {
+                SelectingTarget = false;
                 selectedSheep = hit.transform.gameObject;
                 Events.Instance.DispatchEvent(hit.transform.gameObject.name + "skill", hit.transform.gameObject);
             }
@@ -159,6 +172,13 @@ public class TurnManager : MonoBehaviour
             }
 
         }
+
+        if (ChangeFlag)
+        {
+            ChangeFlag = false;
+            SelectingTarget = true;
+        }
+
     }
 
     public static void UpdateResource(int i)

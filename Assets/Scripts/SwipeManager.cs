@@ -53,7 +53,7 @@ public class SwipeManager : MonoBehaviour
             }
         }
 #endif
-#if UNITY_WP10 || UNITY_ANDROID || UNITY_IOS
+#if UNITY_WSA_10_0 || UNITY_IOS || UNITY_ANDROID
         if (Input.touchCount > 0)
             {
                 Touch touch = Input.touches[0];
@@ -61,15 +61,15 @@ public class SwipeManager : MonoBehaviour
                     touchStart = touch.position;
                 else if (touch.phase == TouchPhase.Ended)
                 {
-                    if (touch.position.x > touchStart.x)
+                    if (touch.position.x > touchStart.x && Mathf.Abs(touch.position.x - touchStart.x) > MINDISTANCE)
                     {
                         Events.Instance.DispatchEvent("TurnRight", null);
                     }
-                    else if (touch.position.x < touchStart.x)
+                    else if (touch.position.x < touchStart.x && Mathf.Abs(touch.position.x - touchStart.x) > MINDISTANCE)
                     {
                         Events.Instance.DispatchEvent("TurnLeft", null);
                     }
-                    else if (touch.position.y > touchStart.y)
+                    else if (touch.position.y > touchStart.y && Mathf.Abs(touch.position.y - touchStart.y) > MINDISTANCE)
                     {
                         Events.Instance.DispatchEvent("MoveForward", null);
                     }

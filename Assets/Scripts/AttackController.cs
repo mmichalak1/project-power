@@ -25,6 +25,7 @@ public class AttackController : MonoBehaviour
 
     public void PerformAction()
     {
-        MyBrain.Think(gameObject);
+        if (gameObject.activeSelf)
+            MyBrain.Think(gameObject);
     }
 }

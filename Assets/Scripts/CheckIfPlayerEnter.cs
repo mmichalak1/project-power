@@ -15,7 +15,7 @@ public class CheckIfPlayerEnter : MonoBehaviour {
         if (other.gameObject == Player && isDetecting)
         {
             isDetecting = !isDetecting;
-            Events.Instance.DispatchEvent("EnterFight", null);
+            Events.Instance.DispatchEvent("EnterFight", gameObject.GetComponent<WolfGroupManager>());
             BattleUI.SetActive(true);
 			ExplorationUI.SetActive (false);
 			TurnManager.ourTurn = true;

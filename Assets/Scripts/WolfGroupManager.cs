@@ -31,7 +31,11 @@ public class WolfGroupManager : MonoBehaviour
         });
     }
 
-
+    public void ApplyGroupTurn()
+    {
+        foreach (var attack in GetComponentsInChildren<AttackController>())
+            attack.PerformAction();
+    }
 
     public void OnWolfDeath(GameObject x)
     {
