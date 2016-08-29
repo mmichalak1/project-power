@@ -4,6 +4,8 @@ using Assets.LogicSystem;
 using Assets.Scripts.Interfaces;
 public class SheepGroupManager : MonoBehaviour {
 
+    [SerializeField]
+    private GameObject LostPanel;
     GameObject ExplorationUI, BattleUI;
     int SheepCount = 0;
     List<Transform> sheep = new List<Transform>();
@@ -23,6 +25,7 @@ public class SheepGroupManager : MonoBehaviour {
                     Events.Instance.DispatchEvent("BattleLost", null);
                     BattleUI.SetActive(false);
                     ExplorationUI.SetActive(true);
+                    LostPanel.SetActive(true);
                     Debug.Log("BattleLost");
                 }
             });

@@ -44,7 +44,7 @@ public class WolfGroupManager : MonoBehaviour
         wolvesCounter--;
         if (wolvesCounter == 0)
         {
-            Assets.LogicSystem.Events.Instance.DispatchEvent("BattleWon", null);
+            Assets.LogicSystem.Events.Instance.DispatchEvent("BattleWon", gameObject);
             BattleUI.SetActive(false);
             ExplorationUI.SetActive(true);
             Debug.Log("Battle won");
