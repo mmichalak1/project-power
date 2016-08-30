@@ -22,6 +22,7 @@ public class SheepGroupManager : MonoBehaviour {
                 SheepCount--;
                 if (SheepCount == 0)
                 {
+                    ExplorationResult.Instance.GameResult = Assets.Scripts.GameResult.Loss;
                     Events.Instance.DispatchEvent("BattleLost", null);
                     BattleUI.SetActive(false);
                     ExplorationUI.SetActive(true);

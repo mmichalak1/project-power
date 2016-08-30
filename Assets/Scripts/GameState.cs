@@ -11,6 +11,7 @@ public class GameState : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        ExplorationResult.Reset();
         Events.Instance.RegisterForEvent("BattleWon", x =>
          {
              EnemyGroups.Remove(x as GameObject);
@@ -21,6 +22,7 @@ public class GameState : MonoBehaviour {
 	
     void ExplorationWon()
     {
+        ExplorationResult.Instance.GameResult = Assets.Scripts.GameResult.Win;
         Panel.SetActive(true);
     }
 }
