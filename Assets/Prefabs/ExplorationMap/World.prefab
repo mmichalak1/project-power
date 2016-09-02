@@ -5803,7 +5803,6 @@ GameObject:
   - 33: {fileID: 3326210}
   - 65: {fileID: 6552192}
   - 23: {fileID: 2351726}
-  - 114: {fileID: 11483942}
   m_Layer: 0
   m_Name: Tile (82)
   m_TagString: Tile
@@ -22184,17 +22183,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11483942
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 176136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88ef8265b35dbf4438b35b4a88b744e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &13534578
 SphereCollider:
   m_ObjectHideFlags: 1
