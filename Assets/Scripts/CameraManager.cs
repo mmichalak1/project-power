@@ -8,6 +8,8 @@ public class CameraManager : MonoBehaviour
     private float FOV;
 
 
+
+
     public GameObject cameraExploration;
     public GameObject cameraFight;
 
@@ -20,12 +22,17 @@ public class CameraManager : MonoBehaviour
     private Vector3 explorationPosition;
     private Quaternion explorationRotation;
 
+    private float sourceSize;
+    private float targetSize;
+
     private float timeCounter = 0;
     private bool isChanging = false;
+
 
     // Use this for initialization
     void Start () {
         FOV = Camera.main.fieldOfView;
+        targetSize = cameraFight.GetComponent<Camera>().orthographicSize;
         Events.Instance.RegisterForEvent("EnterFight", x =>
         {
             isChanging = true;
@@ -34,12 +41,17 @@ public class CameraManager : MonoBehaviour
             positionCamera = new Vector3(cameraExploration.transform.position.x, cameraExploration.transform.position.y, cameraExploration.transform.position.z);
             positionCameraFight = new Vector3(cameraFight.transform.position.x, cameraFight.transform.position.y, cameraFight.transform.position.z);
             rotationCamera = new Quaternion(cameraExploration.transform.rotation.x, cameraExploration.transform.rotation.y, cameraExploration.transform.rotation.z, cameraExploration.transform.rotation.w);
-            rotationCameraFight = new Quaternion(cameraFight.transform.rotation.x, cameraFight.transform.rotation.y, cameraFight.transform.rotation.z, cameraFight.transform.rotation.w);      
+            rotationCameraFight = new Quaternion(cameraFight.transform.rotation.x, cameraFight.transform.rotation.y, cameraFight.transform.rotation.z, cameraFight.transform.rotation.w);
+            sourceSize = cameraExploration.GetComponent<Camera>().orthographicSize;
+
+
         });
         Events.Instance.RegisterForEvent("BattleWon", x =>
         {
             cameraExploration.transform.position = explorationPosition;
             cameraExploration.transform.rotation = explorationRotation;
+            cameraExploration.GetComponent<Camera>().orthographicSize = sourceSize;
+            cameraExploration.GetComponent<Camera>().orthographic = false;
             Camera.main.fieldOfView = FOV;
         });
     }
@@ -55,7 +67,15 @@ public class CameraManager : MonoBehaviour
             timeCounter += Time.deltaTime;
             cameraExploration.transform.position = Vector3.Lerp(cameraExploration.transform.position, positionCameraFight, Time.deltaTime);
             cameraExploration.transform.rotation = Quaternion.Lerp(cameraExploration.transform.rotation, rotationCameraFight, Time.deltaTime);
-            if (timeCounter > 5)
+            if(timeCounter > 4)
+            {
+                var camera = cameraExploration.GetComponent<Camera>();
+                if(!camera.orthographic)
+                    camera.orthographic = true;
+                camera.orthographicSize = Mathf.Lerp(sourceSize, targetSize, 1.0f);
+
+            }
+            if (timeCounter > 7)
             {
                 isChanging = false;
 				TurnManager.ourTurn = true;

@@ -30,6 +30,7 @@ public class FightingSceneUIScript : MonoBehaviour {
         }
 
         Events.Instance.RegisterForEvent("SetText", SetText);
+        gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame

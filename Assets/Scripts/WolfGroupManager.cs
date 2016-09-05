@@ -8,7 +8,8 @@ public class WolfGroupManager : MonoBehaviour
     GameObject BattleUI;
     int wolvesCounter;
 
-    List<Transform> enemies = new List<Transform>();
+    [HideInInspector]
+    public List<Transform> enemies = new List<Transform>();
 
     // Use this for initialization
     void Start()
@@ -47,7 +48,8 @@ public class WolfGroupManager : MonoBehaviour
             Assets.LogicSystem.Events.Instance.DispatchEvent("BattleWon", gameObject);
             BattleUI.SetActive(false);
             ExplorationUI.SetActive(true);
-            Debug.Log("Battle won");
+            Destroy(gameObject);
+            //Debug.Log("Battle won");
         }
     }
 }

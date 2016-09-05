@@ -35,14 +35,14 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
 
     public void DealDamage(int value)
     {
-        Debug.Log("Damaging");
+        //Debug.Log("Damaging");
         _currentHealth -= value;
     }
 
     public void Heal(int value)
     {
 
-        Debug.Log("Healing");
+        //Debug.Log("Healing");
         if (_currentHealth == _maxHealth)
             return;
         else

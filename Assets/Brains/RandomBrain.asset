@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  MyDamage: 1
+  MyDamage: 10

@@ -144,7 +144,7 @@ public class TurnManager : MonoBehaviour
                             TurnPlaner.Instance.AddPlan(selectedSheep.name, new Plan(
                                 selectedSheep, hit.collider.transform.gameObject, (actor, target) =>
                                 {
-                                    target.GetComponent<HealthController>().DealDamage(100);
+                                    target.GetComponent<HealthController>().DealDamage(55);
                                 }));
                             var UIElementsToDestroy = GameObject.FindGameObjectsWithTag("Bubble");
 
