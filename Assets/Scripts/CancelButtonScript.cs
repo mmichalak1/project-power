@@ -15,9 +15,9 @@ public class CancelButtonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (TurnManager.isSkillActive)
+        if (TurnManager.state == TurnManager.activeState.skillPicked)
         {
-            if (rectTransform.position.y < 10)
+            if (rectTransform.position.y < 20)
                 rectTransform.position += new Vector3(0, 300, 0) * Time.deltaTime;
         }
         else
