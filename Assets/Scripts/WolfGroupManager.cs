@@ -8,6 +8,8 @@ public class WolfGroupManager : MonoBehaviour
     GameObject BattleUI;
     int wolvesCounter;
 
+
+    public int WoolForFight = 100;
     [HideInInspector]
     public List<Transform> enemies = new List<Transform>();
 
@@ -55,6 +57,7 @@ public class WolfGroupManager : MonoBehaviour
             {
                 Assets.LogicSystem.Events.Instance.UnregisterForEvent(item.name + "death", wolfDeath);
             }
+            GameObject.FindGameObjectWithTag("GameStatus").GetComponent<GameStatus>().WoolCounter.WoolCount += WoolForFight;
             Destroy(gameObject);
             //Debug.Log("Battle won");
         }

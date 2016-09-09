@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Bubble
   - Prop
+  - GameStatus
+  - WoolCounter
   layers:
   - Default
   - TransparentFX
