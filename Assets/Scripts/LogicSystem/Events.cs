@@ -42,7 +42,7 @@ namespace Assets.LogicSystem
 
         public void UnregisterForEvent(string name, MyEvent function)
         {
-            _eventsMap[name] += function;
+            _eventsMap[name] -= function;
         }
 
         public void DispatchEvent(string name, object parameter)
@@ -53,6 +53,7 @@ namespace Assets.LogicSystem
 
         public void Reset()
         {
+
             _eventsMap.Clear();
         }
 

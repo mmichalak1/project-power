@@ -59,7 +59,7 @@ public class TurnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(state.ToString());
+        //Debug.Log(state.ToString());
         GetPointerPosition();
         if (ourTurn && hitedTarget != null)
             switch (state)

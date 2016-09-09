@@ -11,16 +11,19 @@ public class WolfGroupManager : MonoBehaviour
     [HideInInspector]
     public List<Transform> enemies = new List<Transform>();
 
+    private Assets.LogicSystem.Events.MyEvent wolfDeath;
+
     // Use this for initialization
     void Start()
     {
+        wolfDeath = x => { OnWolfDeath(x as GameObject); };
         foreach (Transform child in transform)
             if (child.CompareTag("Enemy"))
                 enemies.Add(child);
         wolvesCounter = enemies.Count;
-        foreach (var item in enemies)
+        foreach(var enemy in enemies)
         {
-            Assets.LogicSystem.Events.Instance.RegisterForEvent(item.name + "death", x => OnWolfDeath(x as GameObject));
+            Assets.LogicSystem.Events.Instance.RegisterForEvent(enemy.name + "death", wolfDeath);
         }
         Assets.LogicSystem.Events.Instance.RegisterForEvent("SetExplorationUI", x =>
         {
@@ -48,6 +51,10 @@ public class WolfGroupManager : MonoBehaviour
             Assets.LogicSystem.Events.Instance.DispatchEvent("BattleWon", gameObject);
             BattleUI.SetActive(false);
             ExplorationUI.SetActive(true);
+            foreach (var item in enemies)
+            {
+                Assets.LogicSystem.Events.Instance.UnregisterForEvent(item.name + "death", wolfDeath);
+            }
             Destroy(gameObject);
             //Debug.Log("Battle won");
         }

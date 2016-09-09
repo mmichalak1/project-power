@@ -13,14 +13,12 @@ public class DisplayHealth : MonoBehaviour
     [SerializeField]
     private HealthController[] _controllers = new HealthController[4];
 
-
-    void Start()
+    DisplayHealth()
     {
-        if (isStatic)
-            return;
         Assets.LogicSystem.Events.Instance.RegisterForEvent("EnterFight", x =>
         {
-            SetupHPBars(x);
+            if(!isStatic)
+                SetupHPBars(x);
         });
 
         Assets.LogicSystem.Events.Instance.RegisterForEvent("BattleWon", x =>
