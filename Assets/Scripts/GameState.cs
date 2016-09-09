@@ -8,6 +8,8 @@ public class GameState : MonoBehaviour {
     private List<GameObject> EnemyGroups;
     [SerializeField]
     private GameObject Panel;
+    [SerializeField]
+    private int WoolForWin = 100;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +24,7 @@ public class GameState : MonoBehaviour {
 	
     void ExplorationWon()
     {
+        GameObject.FindGameObjectWithTag("GameStatus").GetComponent<GameStatus>().WoolCounter.WoolCount += WoolForWin;
         ExplorationResult.Instance.GameResult = Assets.Scripts.GameResult.Win;
         Panel.SetActive(true);
     }

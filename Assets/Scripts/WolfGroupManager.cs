@@ -50,7 +50,6 @@ public class WolfGroupManager : MonoBehaviour
         wolvesCounter--;
         if (wolvesCounter == 0)
         {
-            Assets.LogicSystem.Events.Instance.DispatchEvent("BattleWon", gameObject);
             BattleUI.SetActive(false);
             ExplorationUI.SetActive(true);
             foreach (var item in enemies)
@@ -59,6 +58,7 @@ public class WolfGroupManager : MonoBehaviour
             }
             GameObject.FindGameObjectWithTag("GameStatus").GetComponent<GameStatus>().WoolCounter.WoolCount += WoolForFight;
             Destroy(gameObject);
+            Assets.LogicSystem.Events.Instance.DispatchEvent("BattleWon", gameObject);
             //Debug.Log("Battle won");
         }
     }
