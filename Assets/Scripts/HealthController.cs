@@ -31,6 +31,7 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
     public int MaxHealth
     {
         get { return _maxHealth; }
+        set { _maxHealth = value; }
     }
 
     public void DealDamage(int value)
