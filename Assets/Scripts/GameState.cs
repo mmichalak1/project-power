@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#pragma warning disable 0649
+using UnityEngine;
 using System.Collections.Generic;
 using Assets.LogicSystem;
 
@@ -24,8 +25,9 @@ public class GameState : MonoBehaviour {
 	
     void ExplorationWon()
     {
-        GameObject.FindGameObjectWithTag("GameStatus").GetComponent<GameStatus>().WoolCounter.WoolCount += WoolForWin;
         ExplorationResult.Instance.GameResult = Assets.Scripts.GameResult.Win;
         Panel.SetActive(true);
+        GameObject.FindGameObjectWithTag("GameStatus").GetComponent<GameStatus>().WoolCounter.WoolCount += WoolForWin;
+        
     }
 }

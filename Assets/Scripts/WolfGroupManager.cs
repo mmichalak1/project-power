@@ -56,9 +56,9 @@ public class WolfGroupManager : MonoBehaviour
             {
                 Assets.LogicSystem.Events.Instance.UnregisterForEvent(item.name + "death", wolfDeath);
             }
-            GameObject.FindGameObjectWithTag("GameStatus").GetComponent<GameStatus>().WoolCounter.WoolCount += WoolForFight;
             Destroy(gameObject);
             Assets.LogicSystem.Events.Instance.DispatchEvent("BattleWon", gameObject);
+            GameObject.FindGameObjectWithTag("GameStatus").GetComponent<GameStatus>().WoolCounter.WoolCount += WoolForFight;
             //Debug.Log("Battle won");
         }
     }

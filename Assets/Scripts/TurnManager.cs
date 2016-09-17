@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using Assets.LogicSystem;
 using System.Collections;
 using System.Collections.Generic;
-using Assets.Scripts.Interfaces;
 using System.Linq;
 
 public class TurnManager : MonoBehaviour
 {
     public static bool ourTurn;
     public static string skillName;
+    public SheepDataHolder[] DataHolders;
     private GameObject selectedSheep;
     public const int maxResource = 10;
     public static int currentResource;
@@ -38,6 +37,7 @@ public class TurnManager : MonoBehaviour
         {
             ourTurn = true;
             SelectingTarget = true;
+            state = activeState.nothingPicked;
             var UIElementsToDestroy = GameObject.FindGameObjectsWithTag("Bubble");
 
             foreach (GameObject X in UIElementsToDestroy)
@@ -107,6 +107,9 @@ public class TurnManager : MonoBehaviour
         if (!TurnPlaner.Instance.Execute())
             return;
         wolfManager.ApplyGroupTurn();
+
+        foreach (SheepDataHolder skills in DataHolders)
+            skills.SheepData.SheepSkills.UpdateCooldowns();
 
         ourTurn = true;
         currentResource = 10;

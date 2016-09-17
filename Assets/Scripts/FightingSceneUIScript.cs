@@ -38,13 +38,6 @@ public class FightingSceneUIScript : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-
-    }
-
     void CreateSkillButtons(object obj)
     {
         GameObject sheep = obj as GameObject;
@@ -75,16 +68,22 @@ public class FightingSceneUIScript : MonoBehaviour
         GameObject newItem = Instantiate(prefab) as GameObject;
         newItem.name = prefab.name;
         newItem.transform.SetParent(transform, false);
+        var skill = sheep.GetComponent<SheepDataHolder>().SheepData.SheepSkills.Skills[ordinal];
+        ApplySkillData(newItem, skill);
 
-        ApplySkillData(newItem, ordinal, sheep.GetComponent<SheepDataHolder>().SheepData.SheepSkills);
-
-        newItem.GetComponent<Button>().onClick.AddListener(() =>
+        if (skill != null)
         {
-            TurnManager.state = TurnManager.activeState.waiting;
-            TurnManager.skillName = newItem.name;
-            TurnManager.ChangeFlag = true;
-            TurnManager.hitedTarget = null;
-        });
+            if (skill.Cooldown <= 0)
+                newItem.GetComponent<Button>().onClick.AddListener(() =>
+                {
+                    TurnManager.state = TurnManager.activeState.waiting;
+                    TurnManager.skillName = newItem.name;
+                    TurnManager.ChangeFlag = true;
+                    TurnManager.hitedTarget = null;
+                });
+            else
+                newItem.GetComponent<Button>().enabled = false;
+        }
 
         //move and size the new item
         RectTransform rectTransform = newItem.GetComponent<RectTransform>();
@@ -114,12 +113,18 @@ public class FightingSceneUIScript : MonoBehaviour
         TextLabel.text = (string)text;
     }
 
-    void ApplySkillData(GameObject skillIcon, int number, SkillHolder holder)
+    void ApplySkillData(GameObject skillIcon, Skill Skill)
     {
-        if (holder.Skills[number] != null)
+        if (Skill != null)
         {
-            skillIcon.GetComponent<Image>().sprite = holder.Skills[number].Icon;
-            skillIcon.name = holder.Skills[number].name;
+            if (Skill.Cooldown > 0)
+            {
+                skillIcon.GetComponent<Image>().color = Color.gray;
+                skillIcon.GetComponentInChildren<Text>().enabled = true;
+                skillIcon.GetComponentInChildren<Text>().text = Skill.Cooldown + "";
+            }
+            skillIcon.GetComponent<Image>().sprite = Skill.Icon;
+            skillIcon.name = Skill.name;
         }
         else
         {

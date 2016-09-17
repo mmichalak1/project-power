@@ -251,7 +251,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 8031939}
-  - 114: {fileID: 8031938}
   m_Layer: 0
   m_Name: TurnManager
   m_TagString: Untagged
@@ -259,17 +258,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8031938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 8031937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a54c26768414e741a50d0d7ed59be13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8031939
 Transform:
   m_ObjectHideFlags: 0
@@ -536,7 +524,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8031938}
+      - m_Target: {fileID: 978717921}
         m_MethodName: ChangeTurn
         m_Mode: 1
         m_Arguments:
@@ -1802,8 +1790,35 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11455910, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+    - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: DataHolders.Array.data[0]
+      value: 
+      objectReference: {fileID: 1108122192}
+    - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: DataHolders.Array.data[1]
+      value: 
+      objectReference: {fileID: 514133658}
+    - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: DataHolders.Array.data[2]
+      value: 
+      objectReference: {fileID: 1050357902}
+    - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: DataHolders.Array.data[3]
+      value: 
+      objectReference: {fileID: 970738304}
+    - target: {fileID: 11491008, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: EnemyGroups.Array.data[0]
+      value: 
+      objectReference: {fileID: 1357289224}
+    - target: {fileID: 11491008, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: EnemyGroups.Array.data[1]
+      value: 
+      objectReference: {fileID: 1128356633}
+    - target: {fileID: 11491008, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: Panel
+      value: 
+      objectReference: {fileID: 999203592}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &192021621
@@ -7781,26 +7796,12 @@ MeshFilter:
 Transform:
   m_PrefabParentObject: {fileID: 475272, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
   m_PrefabInternal: {fileID: 1980931725}
---- !u!1 &978717919 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 130998, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
-  m_PrefabInternal: {fileID: 183555358}
---- !u!114 &978717920
+--- !u!114 &978717921 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 978717919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3758dc828ac1594d96916a98ccbcca1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyGroups:
-  - {fileID: 1357289224}
-  - {fileID: 1128356633}
-  Panel: {fileID: 999203592}
-  WoolForWin: 100
+  m_PrefabParentObject: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c,
+    type: 2}
+  m_PrefabInternal: {fileID: 183555358}
+  m_Script: {fileID: 11500000, guid: 1a54c26768414e741a50d0d7ed59be13, type: 3}
 --- !u!1 &981659338
 GameObject:
   m_ObjectHideFlags: 0

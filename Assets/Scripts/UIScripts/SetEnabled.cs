@@ -8,10 +8,10 @@ public class SetEnabled : MonoBehaviour {
 
 
 	public void TurnOnScreen(){
-        screenToView.active = true;
+        screenToView.SetActive(true);
         Debug.Log("Enabling" + screenToView.name);
 
         foreach (GameObject item in screensToHide)
-            item.active = false;
+            item.SetActive(false);
 	}
 }

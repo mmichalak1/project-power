@@ -21,11 +21,11 @@ namespace Assets.LogicSystem
             
         }
 
-        private Dictionary<string, Plan> plans = new Dictionary<string, Plan>() ;
+        private List<KeyValuePair<string, Plan>> plans = new List<KeyValuePair<string, Plan>>() ;
         public void AddPlan(string sheepName, Plan plan)
         {
             Debug.Log("Added plan for " + sheepName);
-            plans.Add(sheepName, plan);
+            plans.Add(new KeyValuePair<string, Plan>(sheepName, plan));
         }
 
         public bool Execute()

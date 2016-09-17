@@ -37,6 +37,8 @@ public class SheepGroupManager : MonoBehaviour {
                 child.gameObject.GetComponent<ICanBeHealed>().HealToFull();
                 child.gameObject.SetActive(true);
             }
+            foreach (var data in GetComponentsInChildren<SheepDataHolder>())
+                data.SheepData.SheepSkills.ResetCooldowns();
                 
         });
         Events.Instance.RegisterForEvent("SetExplorationUI", x =>
