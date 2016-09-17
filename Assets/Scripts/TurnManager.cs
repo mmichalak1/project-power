@@ -4,7 +4,7 @@ using Assets.LogicSystem;
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Interfaces;
-using System;
+using System.Linq;
 
 public class TurnManager : MonoBehaviour
 {
@@ -128,31 +128,13 @@ public class TurnManager : MonoBehaviour
         if (hitedTarget != null)
             if (hitedTarget.tag == "Sheep" || hitedTarget.tag == "Enemy")
             {
-                if (skillName == "HealSkill")
+                var comp = selectedSheep.GetComponent<SheepDataHolder>();
+                var skill = comp.SheepData.SheepSkills.Skills.Where(x => x != null).SingleOrDefault(x => x.name == skillName);
+                if (currentResource - skill.Cost >= 0)
                 {
-                    if (currentResource - 2 >= 0)
-                    {
-                        TurnPlaner.Instance.AddPlan(selectedSheep.name, new Plan(
-                        selectedSheep, hitedTarget.transform.gameObject, (actor, target) =>
-                        {
-                            target.GetComponent<HealthController>().Heal(5);
-                        }));
-                        hitedTarget = null;
-                        UpdateResource(2);
-                    }
-                }
-                else
-                {
-                    if (currentResource - 3 >= 0)
-                    {
-                        TurnPlaner.Instance.AddPlan(selectedSheep.name, new Plan(
-                            selectedSheep, hitedTarget.transform.gameObject, (actor, target) =>
-                            {
-                                target.GetComponent<HealthController>().DealDamage(55);
-                            }));
-                        hitedTarget = null;
-                        UpdateResource(3);
-                    }
+                    TurnPlaner.Instance.AddPlan(selectedSheep.name, new Plan(selectedSheep, hitedTarget.transform.gameObject, skill.Action));
+                    hitedTarget = null;
+                    UpdateResource(skill.Cost);
                 }
 
                 var UIElementsToDestroy = GameObject.FindGameObjectsWithTag("Bubble");

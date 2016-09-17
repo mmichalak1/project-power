@@ -13,14 +13,5 @@ public class SheepData : ScriptableObject {
     public int Defence = 0;
     public int Wool = 1;
     public int MaxWool = 3;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public SkillHolder SheepSkills;
 }

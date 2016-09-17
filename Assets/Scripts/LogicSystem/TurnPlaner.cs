@@ -25,8 +25,6 @@ namespace Assets.LogicSystem
         public void AddPlan(string sheepName, Plan plan)
         {
             Debug.Log("Added plan for " + sheepName);
-            if (plans.ContainsKey(sheepName))
-                plans.Remove(sheepName);
             plans.Add(sheepName, plan);
         }
 

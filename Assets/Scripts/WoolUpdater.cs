@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
 
-public class WoolUpdater : MonoBehaviour {
+public class WoolUpdater : MonoBehaviour
+{
 
     public UnityEngine.UI.Text text;
-	// Use this for initialization
-	void Start () {
+    [SerializeField]
+    private WoolCounter DefaultWoolCounter;
+    // Use this for initialization
+    void Start()
+    {
         UpdateWoolView();
-	}
+    }
 
     public void UpdateWoolView()
     {
-        text.text = "Wool: " + GameObject.FindGameObjectWithTag("GameStatus").GetComponent<GameStatus>().WoolCounter.WoolCount;
+        var go = GameObject.FindGameObjectWithTag("GameStatus");
+        if (go != null)
+            text.text = "Wool: " + go.GetComponent<GameStatus>().WoolCounter.WoolCount;
+        else
+            text.text = "Wool: " + DefaultWoolCounter.WoolCount;
     }
 }

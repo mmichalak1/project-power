@@ -12,7 +12,6 @@ public class SheepGroupManager : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        var go = GameObject.FindGameObjectWithTag("GameStatus");
         foreach (Transform child in transform)
             if (child.CompareTag("Sheep"))
                 sheep.Add(child);

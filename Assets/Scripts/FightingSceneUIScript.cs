@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#pragma warning disable 0649
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using Assets.LogicSystem;
@@ -7,9 +8,11 @@ using System.Collections.Generic;
 public class FightingSceneUIScript : MonoBehaviour
 {
 
-    public GameObject[] SkillIconsPrefabs;
+    public GameObject SkillIconsPrefab;
     public Text TextLabel;
 
+    [SerializeField]
+    private Sprite EmptySkillSprite;
     private List<GameObject> UIButtons = new List<GameObject>();
     private RectTransform containerRectTransform;
     private RectTransform prefabRectTransform;
@@ -56,8 +59,8 @@ public class FightingSceneUIScript : MonoBehaviour
             Destroy(X);
         }
 
-        for (int i = 0; i < SkillIconsPrefabs.Length; i++)
-            CreateBubble(touchPos, SkillIconsPrefabs[i], i, sheep);
+        for (int i = 0; i < 4; i++)
+            CreateBubble(touchPos, SkillIconsPrefab, i, sheep);
     }
 
     void CreateBubble(Vector2 touchPos, GameObject prefab, int ordinal, GameObject sheep)
@@ -71,12 +74,14 @@ public class FightingSceneUIScript : MonoBehaviour
         //create a new item, name it, and set the parent
         GameObject newItem = Instantiate(prefab) as GameObject;
         newItem.name = prefab.name;
-        newItem.transform.parent = gameObject.transform;
+        newItem.transform.SetParent(transform, false);
+
+        ApplySkillData(newItem, ordinal, sheep.GetComponent<SheepDataHolder>().SheepData.SheepSkills);
 
         newItem.GetComponent<Button>().onClick.AddListener(() =>
         {
             TurnManager.state = TurnManager.activeState.waiting;
-            TurnManager.skillName = prefab.name;
+            TurnManager.skillName = newItem.name;
             TurnManager.ChangeFlag = true;
             TurnManager.hitedTarget = null;
         });
@@ -107,5 +112,19 @@ public class FightingSceneUIScript : MonoBehaviour
     void SetText(object text)
     {
         TextLabel.text = (string)text;
+    }
+
+    void ApplySkillData(GameObject skillIcon, int number, SkillHolder holder)
+    {
+        if (holder.Skills[number] != null)
+        {
+            skillIcon.GetComponent<Image>().sprite = holder.Skills[number].Icon;
+            skillIcon.name = holder.Skills[number].name;
+        }
+        else
+        {
+            skillIcon.GetComponent<Image>().sprite = EmptySkillSprite;
+            skillIcon.name = "Empty Skill";
+        }
     }
 }

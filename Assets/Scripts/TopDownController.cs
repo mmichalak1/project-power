@@ -7,7 +7,6 @@ public class TopDownController : MonoBehaviour
 
     private float actionDelay = 0.5f;
     private float actionTimer = 0.0f;
-    private GameObject[] grid;
     private float movementSpeed = 5.0f;
     private float rotationSpeed = 180.0f;
     private Vector3 newPos;
@@ -18,7 +17,6 @@ public class TopDownController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        grid = GameObject.FindGameObjectsWithTag("Tile");
         newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         Events.Instance.RegisterForEvent("TurnRight", x => RotateRight());
         Events.Instance.RegisterForEvent("TurnLeft", x => RotateLeft());

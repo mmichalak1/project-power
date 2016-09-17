@@ -14,9 +14,10 @@ MonoBehaviour:
   Name: Stefan
   MaxHealth: 100
   Level: 0
-  Expirience: 0
-  ExpirienceToNextLevel: 100
+  Experience: 0
+  ExperienceToNextLevel: 100
   Attack: 20
   Defence: 0
   Wool: 1
   MaxWool: 3
+  SheepSkills: {fileID: 11400000, guid: 26a5bce2107293945be8aa5a3b9e30a7, type: 2}

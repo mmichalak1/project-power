@@ -14,9 +14,10 @@ MonoBehaviour:
   Name: Janusz
   MaxHealth: 100
   Level: 0
-  Expirience: 0
-  ExpirienceToNextLevel: 100
+  Experience: 0
+  ExperienceToNextLevel: 100
   Attack: 20
   Defence: 0
   Wool: 1
   MaxWool: 3
+  SheepSkills: {fileID: 11400000, guid: ff8b91b9b24184744a77d623289fd5c0, type: 2}

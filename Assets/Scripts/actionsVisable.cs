@@ -3,7 +3,7 @@ using System.Collections;
 
 public class actionsVisable : MonoBehaviour {
 
-	public GameObject gameObject;
+	public GameObject target;
 	// Use this for initialization
 	void Start () {
 	
@@ -16,9 +16,9 @@ public class actionsVisable : MonoBehaviour {
 
 	public void CheckVisabilit()
 	{     
-		if(gameObject.active)
-			gameObject.SetActive(false);
+		if(target.activeSelf)
+			target.SetActive(false);
 		else
-			gameObject.SetActive(true);
+			target.SetActive(true);
 	}
 }
