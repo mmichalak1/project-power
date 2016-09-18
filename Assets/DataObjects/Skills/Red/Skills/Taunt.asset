@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BasePower: 60
   BaseCost: 3
-  BaseCooldown: 1
+  BaseCooldown: 2
   SkillLevel: 0
   IsActive: 0
   RequiredSkills: []

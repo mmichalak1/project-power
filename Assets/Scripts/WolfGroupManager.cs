@@ -62,4 +62,20 @@ public class WolfGroupManager : MonoBehaviour
             //Debug.Log("Battle won");
         }
     }
+
+    public GameObject[] GetNeighbouringEnemies(GameObject enemy)
+    {
+        GameObject[] result = new GameObject[2];
+        int enemyPosition = enemies.IndexOf(enemy.transform);
+
+        if (enemyPosition < 3)
+            if (enemies[enemyPosition + 1].gameObject.activeSelf)
+                result[0] = enemies[enemyPosition + 1].gameObject;
+
+        if (enemyPosition > 0)
+            if (enemies[enemyPosition - 1].gameObject.activeSelf)
+                result[1] = enemies[enemyPosition - 1].gameObject;
+
+        return result;
+    }
 }

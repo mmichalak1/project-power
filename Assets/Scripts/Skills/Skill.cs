@@ -1,18 +1,16 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
 
 public abstract class Skill : ScriptableObject {
 
-    [SerializeField]
+    [SerializeField, Tooltip("Damage dealt by attack, shield power, heal power.")]
     private int BasePower = 60;
-    [SerializeField]
+    [SerializeField, Tooltip("Skill's cost.")]
     private int BaseCost = 3;
-    [SerializeField]
+    [SerializeField, Tooltip("Skill's cooldown, when declaring always add +1 to it. Example: if you want 1 turn cooldown write 2.")]
     private int BaseCooldown = 2;
     [SerializeField]
     private int SkillLevel = 0;
-    [SerializeField]
+    [SerializeField, Tooltip("Defines if skill was learned by given sheep")]
     private bool IsActive = false;
 
     public Skill[] RequiredSkills;

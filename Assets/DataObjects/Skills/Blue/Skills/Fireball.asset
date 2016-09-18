@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c773d28f0e544cd41a10986ea486636a, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: 
+  BasePower: 40
+  BaseCost: 5
+  BaseCooldown: 4
+  SkillLevel: 0
+  IsActive: 0
+  RequiredSkills: []
+  Icon: {fileID: 21300000, guid: d9667347331d6a84ea1a1c0997eb6435, type: 3}
+  SplashDamage: 30
