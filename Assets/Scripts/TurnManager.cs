@@ -133,9 +133,9 @@ public class TurnManager : MonoBehaviour
             {
                 var comp = selectedSheep.GetComponent<SheepDataHolder>();
                 var skill = comp.SheepData.SheepSkills.Skills.Where(x => x != null).SingleOrDefault(x => x.name == skillName);
-                if (currentResource - skill.Cost >= 0)
+                if (currentResource - skill.Cost >= 0 || TurnPlaner.Instance.ContainsPlanForSheepSkill(selectedSheep.name, skill))
                 {
-                    TurnPlaner.Instance.AddPlan(selectedSheep.name, new Plan(selectedSheep, hitedTarget.transform.gameObject, skill.Action));
+                    TurnPlaner.Instance.AddPlan(selectedSheep.name, new Plan(selectedSheep, hitedTarget.transform.gameObject, skill));
                     hitedTarget = null;
                     UpdateResource(skill.Cost);
                 }
@@ -143,7 +143,7 @@ public class TurnManager : MonoBehaviour
                 var UIElementsToDestroy = GameObject.FindGameObjectsWithTag("Bubble");
                 foreach (GameObject X in UIElementsToDestroy)
                 {
-                    Debug.Log("Destroy " + X.name);
+                    //Debug.Log("Destroy " + X.name);
                     Destroy(X);
                 }
 

@@ -48,7 +48,7 @@ public class FightingSceneUIScript : MonoBehaviour
 
         foreach (GameObject X in UIElementsToDestroy)
         {
-            Debug.Log("Destroy " + X.name);
+            //Debug.Log("Destroy " + X.name);
             Destroy(X);
         }
 

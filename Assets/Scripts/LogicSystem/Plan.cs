@@ -8,21 +8,26 @@ namespace Assets.LogicSystem
 {
     public class Plan
     {
-        public Plan(GameObject actor, GameObject target, Action<GameObject, GameObject> action)
+        public Plan(GameObject actor, GameObject target, Skill skill)
         {
             _actor = actor;
-            _action = action;
+            _skill = skill;
             _target = target;
         }
 
         public void Execute()
         {
-            _action.Invoke(_actor, _target);
+            _skill.Action.Invoke(_actor, _target);
+        }
+
+        public Skill Skill
+        {
+            get { return _skill; }
         }
 
         GameObject _actor;
         GameObject _target;
 
-        Action<GameObject, GameObject> _action;
+        Skill _skill;
     }
 }
