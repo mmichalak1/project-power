@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63fbf932f5b31ba4b8f96202c0dcee3b, type: 3}
   m_Name: BasicAttack
   m_EditorClassIdentifier: 
+  BasePower: 60
   BaseCost: 3
   BaseCooldown: 2
   SkillLevel: 0
   IsActive: 0
-  _power: 60
+  RequiredSkills: []
   Icon: {fileID: 21300000, guid: 45a3c0a2567fe154b8870e92871d9172, type: 3}

@@ -8,13 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ddc663220f818a42af14eed75eb746d, type: 3}
-  m_Name: RandomBrain
+  m_Script: {fileID: 11500000, guid: d09e292d809b97a4aae0e613ae5e8d52, type: 3}
+  m_Name: TauntedBrain
   m_EditorClassIdentifier: 
-  _importance: 0.05
-  Targets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  MyDamage: 10
+  _importance: 0.1
+  _duration: 1
+  Target: {fileID: 0}
+  MyDamage: 20
