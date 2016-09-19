@@ -4,6 +4,8 @@ using Assets.Scripts.ScriptableObjects;
 [CreateAssetMenu(fileName ="Taunt", menuName ="Game/Skills/Taunt")]
 public class Taunt : Skill {
 
+    [Range(0, 100)]
+    public int PowerPercentage = 20;
     public TauntedBrain TauntedBrain;
     private TauntedBrain _myClone;
 
@@ -17,6 +19,7 @@ public class Taunt : Skill {
     protected override void PerformAction(GameObject actor, GameObject target)
     {
         target.GetComponent<AttackController>().AddBrain(_myClone);
+        target.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage((Power * PowerPercentage)/100);
         base.PerformAction(actor, target);
     }
 }

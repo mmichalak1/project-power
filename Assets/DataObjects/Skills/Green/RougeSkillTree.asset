@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968e5aaacd17b1e499e5d562be2a7146, type: 3}
+  m_Name: RougeSkillTree
+  m_EditorClassIdentifier: 
+  BasicAttack: {fileID: 11400000, guid: 000b46fe29d1aac41ba069f97317351d, type: 2}
+  ClassAttack: {fileID: 11400000, guid: 550e7248e6e54c247ba26d1569451f28, type: 2}
+  Skill1: {fileID: 0}
+  Skill2: {fileID: 0}
+  Skill3: {fileID: 11400000, guid: 93f7bf00e171e79419c2d3c58e4d8d4e, type: 2}
+  Skill1Upgrade1: {fileID: 0}
+  Skill1Upgrade2: {fileID: 0}
+  Skill2Upgrade1: {fileID: 0}
+  Skill2Upgrade2: {fileID: 0}
+  Skill3Upgrade1: {fileID: 0}
+  Skill3Upgrade2: {fileID: 0}

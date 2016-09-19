@@ -17,11 +17,6 @@ MonoBehaviour:
   SkillLevel: 0
   IsActive: 0
   RequiredSkills: []
-  _power: 0
-  _cooldown: 0
-  _cost: 0
-  _parent: {fileID: 0}
   Icon: {fileID: 21300000, guid: a252c0d1fb40c674caa8a80d2ecfdc76, type: 3}
   StunDuration: 1
   StunnedBrain: {fileID: 11400000, guid: b1e2503b044958840a5d07291b809cc9, type: 2}
-  _myStunnedBrainCopy: {fileID: 0}
