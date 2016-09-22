@@ -17,6 +17,6 @@ MonoBehaviour:
   SkillLevel: 0
   IsActive: 0
   RequiredSkills: []
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 86905930a21cb9342aefa9adfa08cd4b, type: 3}
   HealPercentage: 30
   DamagePercentage: 50
