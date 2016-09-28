@@ -24,7 +24,13 @@ public class RandomBrain : AbstractBrain
         }
         if (availableTargets.Count > 0)
         {
-            var sheep = availableTargets[Random.Range(0, availableTargets.Count - 1)];
+            GameObject sheep;
+            do
+            {
+                sheep = availableTargets[Random.Range(0, availableTargets.Count)];
+            }
+            while (!sheep.activeSelf);
+
             IReciveDamage controller = sheep.GetComponent<IReciveDamage>();
             controller.DealDamage(MyDamage);
             Debug.Log(parent.name + " dealt " + MyDamage + " damage to " + sheep.name);
