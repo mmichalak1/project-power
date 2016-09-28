@@ -11,7 +11,7 @@ public class WolfGroupManager : MonoBehaviour
 
     public int WoolForFight = 100;
     [HideInInspector]
-    public List<Transform> enemies = new List<Transform>();
+    public List<GameObject> enemies = new List<GameObject>();
 
     private Assets.LogicSystem.Events.MyEvent wolfDeath;
 
@@ -21,7 +21,7 @@ public class WolfGroupManager : MonoBehaviour
         wolfDeath = x => { OnWolfDeath(x as GameObject); };
         foreach (Transform child in transform)
             if (child.CompareTag("Enemy"))
-                enemies.Add(child);
+                enemies.Add(child.gameObject);
         wolvesCounter = enemies.Count;
         foreach(var enemy in enemies)
         {
@@ -66,7 +66,7 @@ public class WolfGroupManager : MonoBehaviour
     public GameObject[] GetNeighbouringEnemies(GameObject enemy)
     {
         GameObject[] result = new GameObject[2];
-        int enemyPosition = enemies.IndexOf(enemy.transform);
+        int enemyPosition = enemies.IndexOf(enemy);
 
         if (enemyPosition < 3)
             if (enemies[enemyPosition + 1].gameObject.activeSelf)

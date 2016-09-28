@@ -3,12 +3,14 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using Assets.LogicSystem;
+using System.Linq;
 using System.Collections.Generic;
 
 public class FightingSceneUIScript : MonoBehaviour
 {
 
     public GameObject SkillIconsPrefab;
+    public GameObject HealthBarPrefab;
     public Text TextLabel;
 
     [SerializeField]
@@ -18,6 +20,7 @@ public class FightingSceneUIScript : MonoBehaviour
     private RectTransform prefabRectTransform;
 
     private List<GameObject> sheeps;
+    private List<GameObject> enemies;
 
 
     // Use this for initialization
@@ -34,6 +37,8 @@ public class FightingSceneUIScript : MonoBehaviour
             Events.Instance.RegisterForEvent(sheep.name + "skill", CreateSkillButtons);
         }
 
+        Events.Instance.RegisterForEvent("CreateHealthBars", CreateHealthBars);
+
         Events.Instance.RegisterForEvent("SetText", SetText);
         gameObject.SetActive(false);
     }
@@ -48,7 +53,6 @@ public class FightingSceneUIScript : MonoBehaviour
 
         foreach (GameObject X in UIElementsToDestroy)
         {
-            //Debug.Log("Destroy " + X.name);
             Destroy(X);
         }
 
@@ -91,10 +95,38 @@ public class FightingSceneUIScript : MonoBehaviour
         float y = (touchPos.y + Mathf.Sin((ordinal - 1) * angle) * radius);
 
         rectTransform.position = new Vector3(x, y, 0);
-
-        UIButtons.Add(newItem);
     }
 
+    void CreateHealthBars(object obj)
+    {
+        List<GameObject> entities = new List<GameObject>();
+
+        entities = sheeps.Union<GameObject>(TurnManager.WolfManager.enemies).ToList();
+
+        foreach(GameObject entity in entities)
+        {
+            Vector3 wp = Camera.main.WorldToScreenPoint(entity.transform.position);
+            Vector2 touchPos = new Vector2(wp.x, wp.y);
+
+            prefabRectTransform = HealthBarPrefab.GetComponent<RectTransform>();
+            float ratioX = containerRectTransform.rect.width / Camera.main.pixelWidth;
+            float ratioY = containerRectTransform.rect.height / Camera.main.pixelHeight;
+
+            //create a new item, name it, and set the parent
+            GameObject newItem = Instantiate(HealthBarPrefab) as GameObject;
+            newItem.name = HealthBarPrefab.name;
+            newItem.transform.SetParent(transform, false);
+
+            //move and size the new item
+            RectTransform rectTransform = newItem.GetComponent<RectTransform>();
+            float x = touchPos.x;
+            float y = (touchPos.y + ratioY * 75);
+
+            rectTransform.position = new Vector3(x, y, 0);
+
+            entity.GetComponent<HealthController>().HealthIndicator = newItem.GetComponent<Image>();
+        }
+    }
 
     public void Cancel()
     {

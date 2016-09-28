@@ -12,12 +12,18 @@ public class TurnManager : MonoBehaviour
     private GameObject selectedSheep;
     public const int maxResource = 10;
     public static int currentResource;
-    WolfGroupManager wolfManager;
+    static WolfGroupManager wolfManager;
     public static activeState state = activeState.nothingPicked;
     public static GameObject hitedTarget = null;
 
     public static bool ChangeFlag = false;
     private bool SelectingTarget = true;
+
+
+    public static WolfGroupManager WolfManager
+    {
+        get { return wolfManager; }
+    }
 
     // Use this for initialization
     void Start()

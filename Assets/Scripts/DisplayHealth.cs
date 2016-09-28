@@ -5,6 +5,8 @@ using System.Collections;
 
 public class DisplayHealth : MonoBehaviour
 {
+
+
     [SerializeField]
     private bool isStatic = false;
 

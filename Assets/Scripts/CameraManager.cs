@@ -80,6 +80,7 @@ public class CameraManager : MonoBehaviour
                 isChanging = false;
 				TurnManager.ourTurn = true;
                 TurnManager.UpdateResource(0);
+                Events.Instance.DispatchEvent("CreateHealthBars", null);
                 timeCounter = 0f;
             }
         }

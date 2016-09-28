@@ -12,6 +12,8 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
     [SerializeField]
     private int _currentHealth = 100;
 
+    public Image HealthIndicator;
+
 
     void Update()
     {
@@ -19,6 +21,7 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
         {
             Events.Instance.DispatchEvent(gameObject.name + "death", gameObject);
             Debug.Log(gameObject.name + " died.");
+            Destroy(HealthIndicator.gameObject);
             gameObject.SetActive(false);
         }
     }
@@ -38,6 +41,7 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
     {
         //Debug.Log("Damaging");
         _currentHealth -= value;
+        UpdateHealthBar();
     }
 
     public void Heal(int value)
@@ -52,7 +56,13 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
                 _currentHealth = _maxHealth;
             else
                 _currentHealth += value;
+            UpdateHealthBar();
         }
+    }
+
+    void UpdateHealthBar()
+    {
+        HealthIndicator.fillAmount = (float)_currentHealth / (float)_maxHealth;
     }
 
     public void HealToFull()
