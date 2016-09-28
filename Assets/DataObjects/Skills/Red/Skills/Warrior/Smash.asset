@@ -18,4 +18,4 @@ MonoBehaviour:
   IsActive: 0
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: 13faa21b2446293429c14374e583793e, type: 3}
-  PowerPercentage: 150
+  PowerPercentage: 204

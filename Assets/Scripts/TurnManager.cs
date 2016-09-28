@@ -135,6 +135,7 @@ public class TurnManager : MonoBehaviour
                 var skill = comp.SheepData.SheepSkills.Skills.Where(x => x != null).SingleOrDefault(x => x.name == skillName);
                 if (currentResource - skill.Cost >= 0 || TurnPlaner.Instance.ContainsPlanForSheepSkill(selectedSheep.name, skill))
                 {
+                    skill.OnSkillPlanned();
                     TurnPlaner.Instance.AddPlan(selectedSheep.name, new Plan(selectedSheep, hitedTarget.transform.gameObject, skill));
                     hitedTarget = null;
                     UpdateResource(skill.Cost);

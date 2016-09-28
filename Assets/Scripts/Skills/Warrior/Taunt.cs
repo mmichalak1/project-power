@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using Assets.Scripts.ScriptableObjects;
 
-[CreateAssetMenu(fileName ="Taunt", menuName ="Game/Skills/Taunt")]
-public class Taunt : Skill {
+[CreateAssetMenu(fileName = "Taunt", menuName = "Game/Skills/Taunt")]
+public class Taunt : Skill
+{
 
     [Range(0, 100)]
     public int PowerPercentage = 20;
@@ -18,8 +19,11 @@ public class Taunt : Skill {
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {
-        target.GetComponent<AttackController>().AddBrain(_myClone);
-        target.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage((Power * PowerPercentage)/100);
+        var attack = target.GetComponent<AttackController>();
+        if (attack == null)
+            return;
+        attack.AddBrain(_myClone);
+        target.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage((Power * PowerPercentage) / 100);
         base.PerformAction(actor, target);
     }
 }

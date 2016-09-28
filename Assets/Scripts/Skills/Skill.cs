@@ -26,11 +26,11 @@ public abstract class Skill : ScriptableObject {
     {
         get { return name; }
     }
-    [HideInInspector]
     public System.Action<GameObject, GameObject> Action
     {
         get { return _action; }
     }
+
     /// <summary>
     /// Defines shield's power, amount hp healed, dmg dealt by skill
     /// </summary>
@@ -49,10 +49,20 @@ public abstract class Skill : ScriptableObject {
         get { return _cooldown; }
     }
 
+    protected int _baseCooldown
+    {
+        get { return BaseCooldown; }
+    }
+
 
     protected virtual void PerformAction(GameObject actor, GameObject target)
     {
         _cooldown = BaseCooldown;
+    }
+
+    public virtual void OnSkillPlanned()
+    {
+
     }
     public virtual void Initialize(GameObject parent)
     {
