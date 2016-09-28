@@ -14,7 +14,7 @@ public class Taunt : Skill
     {
         _myClone = Instantiate(TauntedBrain);
         _myClone.Target = parent;
-        _action = PerformAction;
+        base.Initialize(parent);
     }
 
     protected override void PerformAction(GameObject actor, GameObject target)
