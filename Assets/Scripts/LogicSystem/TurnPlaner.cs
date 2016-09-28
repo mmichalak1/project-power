@@ -27,10 +27,11 @@ namespace Assets.LogicSystem
             var pair = plans.FirstOrDefault(x => x.Value.Skill == plan.Skill);
             if (!pair.Equals(default(KeyValuePair<string, Plan>)))
             {
-                Debug.Log("This skill was planned in this turn, swithing.");
+                Debug.Log("This skill was planned in this turn, switching.");
                 TurnManager.UpdateResource(0 - pair.Value.Skill.Cost);
                 plans.Remove(plans.First(x => x.Value.Skill == plan.Skill));
             }
+          
             plans.Add(new KeyValuePair<string, Plan>(sheepName, plan));
             Debug.Log("Added plan for " + sheepName);
         }
@@ -52,7 +53,13 @@ namespace Assets.LogicSystem
 
         public bool ContainsPlanForSheepSkill(string sheep, Skill skill)
         {
-            return (plans.Where(x => x.Key == sheep).Where(x => x.Value.Skill == skill) != null);
+            var sheepsPlans = plans.Where(x => x.Key == sheep);
+            var plan = sheepsPlans.FirstOrDefault(x => x.Value.Skill == skill);
+
+            if (plan.Equals(default(KeyValuePair<string, Plan>)))
+                return false;
+            else
+                return true;
         }
 
     }

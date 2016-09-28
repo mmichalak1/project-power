@@ -14,7 +14,7 @@ MonoBehaviour:
   BasicAttack: {fileID: 11400000, guid: a277fa7f2d0ff2a4bbe0270c72c0522c, type: 2}
   ClassAttack: {fileID: 11400000, guid: 21633fc87418bcf4e99836df0891f6f7, type: 2}
   Skill1: {fileID: 11400000, guid: 60ece36f6fba7c7428047f2f50ce2003, type: 2}
-  Skill2: {fileID: 0}
+  Skill2: {fileID: 11400000, guid: 89570dd37d21b3147bf401175f52ac8b, type: 2}
   Skill3: {fileID: 0}
   Skill1Upgrade1: {fileID: 0}
   Skill1Upgrade2: {fileID: 0}
