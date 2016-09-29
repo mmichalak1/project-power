@@ -60,7 +60,7 @@ public abstract class Skill : ScriptableObject {
         _cooldown = BaseCooldown;
     }
 
-    public virtual void OnSkillPlanned()
+    public virtual void OnSkillPlanned(GameObject actor, GameObject target)
     {
 
     }
