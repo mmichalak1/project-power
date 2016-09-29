@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[CreateAssetMenu(fileName = "AddResource", menuName = "Game/Skills/AddResource")]
-public class AddResource : Skill
-{
+[CreateAssetMenu(fileName = "Redirect Damage", menuName = "Game/Skills/Redirect Damage")]
+public class Protect : Skill {
+
+    [Range(1, 5)]
+    public int Duration; 
 
     public override void Initialize(GameObject parent)
     {
@@ -12,13 +14,10 @@ public class AddResource : Skill
 
     public override void OnSkillPlanned(GameObject actor, GameObject target)
     {
+        var comp = target.AddComponent<RedirectDamage>();
         _cooldown = _baseCooldown;
-        TurnManager.UpdateResource(0 - _power);
+        comp.newTarget = actor;
+        comp.RedirectCounter = Duration;
         base.OnSkillPlanned(actor, target);
-    }
-
-    protected override void PerformAction(GameObject actor, GameObject target)
-    {
-
     }
 }
