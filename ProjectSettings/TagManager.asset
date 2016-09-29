@@ -11,6 +11,7 @@ TagManager:
   - Prop
   - GameStatus
   - WoolCounter
+  - HPBar
   layers:
   - Default
   - TransparentFX

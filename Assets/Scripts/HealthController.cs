@@ -5,7 +5,8 @@ using System;
 using UnityEngine.UI;
 using Assets.LogicSystem;
 
-public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
+public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
+{
 
     [SerializeField]
     private int _maxHealth = 100;
@@ -21,7 +22,6 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
         {
             Events.Instance.DispatchEvent(gameObject.name + "death", gameObject);
             Debug.Log(gameObject.name + " died.");
-            Destroy(HealthIndicator.gameObject);
             gameObject.SetActive(false);
         }
     }
@@ -62,11 +62,13 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed {
 
     void UpdateHealthBar()
     {
-        HealthIndicator.fillAmount = (float)_currentHealth / (float)_maxHealth;
+        if (HealthIndicator != null)
+            HealthIndicator.fillAmount = (float)_currentHealth / (float)_maxHealth;
     }
 
     public void HealToFull()
     {
         _currentHealth = _maxHealth;
+        UpdateHealthBar();
     }
 }

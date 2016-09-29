@@ -39,6 +39,7 @@ public class SheepGroupManager : MonoBehaviour {
             }
             foreach (var data in GetComponentsInChildren<SheepDataHolder>())
                 data.SheepData.SheepSkills.ResetCooldowns();
+            Events.Instance.DispatchEvent("DestroyHealthBars", null);
                 
         });
         Events.Instance.RegisterForEvent("SetExplorationUI", x =>
