@@ -44,13 +44,7 @@ public class TurnManager : MonoBehaviour
             ourTurn = true;
             SelectingTarget = true;
             state = activeState.nothingPicked;
-            var UIElementsToDestroy = GameObject.FindGameObjectsWithTag("Bubble");
-
-            foreach (GameObject X in UIElementsToDestroy)
-            {
-                Debug.Log("Destroy " + X.name);
-                Destroy(X);
-            }
+            FightingSceneUIScript.DisableSkillCanvases();
         });
 
         foreach (var item in GameObject.FindGameObjectsWithTag("Sheep"))
@@ -97,13 +91,7 @@ public class TurnManager : MonoBehaviour
 
     public void ChangeTurn()
     {
-        var UIElementsToDestroy = GameObject.FindGameObjectsWithTag("Bubble");
-
-        foreach (GameObject X in UIElementsToDestroy)
-        {
-            Debug.Log("Destroy " + X.name);
-            Destroy(X);
-        }
+        FightingSceneUIScript.DisableSkillCanvases();
 
         state = activeState.nothingPicked;
         skillName = null;
@@ -154,13 +142,7 @@ public class TurnManager : MonoBehaviour
                     UpdateResource(skill.Cost);
                 }
 
-                var UIElementsToDestroy = GameObject.FindGameObjectsWithTag("Bubble");
-                foreach (GameObject X in UIElementsToDestroy)
-                {
-                    //Debug.Log("Destroy " + X.name);
-                    Destroy(X);
-                }
-
+                FightingSceneUIScript.DisableSkillCanvases();
                 state = activeState.nothingPicked;
             }
     }
@@ -214,6 +196,7 @@ public class TurnManager : MonoBehaviour
     public IEnumerator Wait(float time)
     {
         yield return new WaitForSeconds(time);
+        Debug.Log("Waiting");
         hitedTarget = null;
         state = activeState.skillPicked;
     }

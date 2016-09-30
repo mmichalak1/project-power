@@ -12,6 +12,7 @@ TagManager:
   - GameStatus
   - WoolCounter
   - HPBar
+  - SkillCanvas
   layers:
   - Default
   - TransparentFX
