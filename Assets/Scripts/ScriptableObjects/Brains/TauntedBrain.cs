@@ -18,7 +18,7 @@ namespace Assets.Scripts.ScriptableObjects
         {
             Debug.Log(parent.name + " attacks " + Target.name + " because he insulted his mother!");
             parent.GetComponent<AttackController>().BreakTurn = true;
-            Target.GetComponent<Interfaces.IReciveDamage>().DealDamage(MyDamage);
+            Target.GetComponent<Interfaces.IReciveDamage>().DealDamage(MyDamage, parent);
             base.Think(parent);
         }
     }

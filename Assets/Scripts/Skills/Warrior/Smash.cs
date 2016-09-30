@@ -15,7 +15,7 @@ public class Smash : Skill {
     protected override void PerformAction(GameObject actor, GameObject target)
     {
         Debug.Log(actor.name + " SMASHES " + target.name + " for " + (Power * PowerPercentage) / 100 + " damage.");
-        target.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage((Power * PowerPercentage) / 100);
+        target.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage((Power * PowerPercentage) / 100, actor);
         base.PerformAction(actor, target);
     }
 }

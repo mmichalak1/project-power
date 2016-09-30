@@ -25,7 +25,7 @@ namespace Assets.Scripts.ScriptableObjects
         public override void Think(GameObject parent)
         {
             Debug.Log(parent.name + " takes " + Damage + " damage from poison.");
-            parent.GetComponent<Interfaces.IReciveDamage>().DealDamage(Damage);
+            parent.GetComponent<Interfaces.IReciveDamage>().DealDamage(Damage, parent);
             base.Think(parent);
         }
 
