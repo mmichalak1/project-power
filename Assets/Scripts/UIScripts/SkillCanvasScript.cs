@@ -32,7 +32,7 @@ public class SkillCanvasScript : MonoBehaviour
         {
             if (skills[i] != null)
             {
-                Debug.Log(skills[i].name + "    " + skills[i].Cooldown);
+                //Debug.Log(skills[i].name + "    " + skills[i].Cooldown);
                 if (skills[i].Cooldown <= 0)
                 {
                     SkillButtons[i].GetComponent<Button>().enabled = true;
