@@ -19,26 +19,35 @@ public class SkillCanvasScript : MonoBehaviour
 
         for (int i = 0; i < SkillButtons.Length; i++)
         {
-            ApplySkillData(SkillButtons[i],skills[i]);
+            ApplySkillData(SkillButtons[i], skills[i]);
             SkillButtonAction(i);
         }
 
         gameObject.SetActive(false);
     }
 
-    void SkillButtonAction(int ordinal)
+    public void UpdateSkillsState()
     {
-        Debug.Log(skills[ordinal].Cooldown);
-        if (skills[ordinal].Cooldown <= 0)
-            SkillButtons[ordinal].GetComponent<Button>().onClick.AddListener(() =>
+        for (int i = 0; i < SkillButtons.Length; i++)
+        {
+            if (skills[i] != null)
             {
-                TurnManager.state = TurnManager.activeState.waiting;
-                TurnManager.skillName = skills[ordinal].name;
-                TurnManager.ChangeFlag = true;
-                TurnManager.hitedTarget = null;
-            });
-        else
-            SkillButtons[ordinal].GetComponent<Button>().enabled = false;
+                Debug.Log(skills[i].name + "    " + skills[i].Cooldown);
+                if (skills[i].Cooldown <= 0)
+                {
+                    SkillButtons[i].GetComponent<Button>().enabled = true;
+                    SkillButtons[i].transform.GetChild(0).GetComponent<Text>().enabled = false;
+                    SkillButtons[i].GetComponent<Image>().color = Color.white;
+                }
+                else
+                {
+                    SkillButtons[i].GetComponent<Button>().enabled = false;
+                    SkillButtons[i].GetComponent<Image>().color = Color.grey;
+                    SkillButtons[i].transform.GetChild(0).GetComponent<Text>().enabled = true;
+                    SkillButtons[i].transform.GetChild(0).GetComponent<Text>().text = skills[i].Cooldown.ToString();
+                }
+            }
+        }
     }
 
     void ApplySkillData(GameObject skillIcon, Skill Skill)
@@ -59,5 +68,21 @@ public class SkillCanvasScript : MonoBehaviour
             skillIcon.GetComponent<Image>().sprite = EmptySkillSprite;
             skillIcon.name = "Empty Skill";
         }
+    }
+
+    void SkillButtonAction(int ordinal)
+    {
+        if (skills[ordinal] != null)
+            //Debug.Log(skills[ordinal].Cooldown);
+            if (skills[ordinal].Cooldown <= 0)
+                SkillButtons[ordinal].GetComponent<Button>().onClick.AddListener(() =>
+                {
+                    TurnManager.state = TurnManager.activeState.waiting;
+                    TurnManager.skillName = skills[ordinal].name;
+                    TurnManager.ChangeFlag = true;
+                    TurnManager.hitedTarget = null;
+                });
+        //else
+        //    SkillButtons[ordinal].GetComponent<Button>().enabled = false;
     }
 }

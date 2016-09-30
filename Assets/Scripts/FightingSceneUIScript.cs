@@ -69,24 +69,4 @@ public class FightingSceneUIScript : MonoBehaviour
             }
         }
     }
-
-    void ApplySkillData(GameObject skillIcon, Skill Skill)
-    {
-        if (Skill != null)
-        {
-            if (Skill.Cooldown > 0)
-            {
-                skillIcon.GetComponent<Image>().color = Color.gray;
-                skillIcon.GetComponentInChildren<Text>().enabled = true;
-                skillIcon.GetComponentInChildren<Text>().text = Skill.Cooldown + "";
-            }
-            skillIcon.GetComponent<Image>().sprite = Skill.Icon;
-            skillIcon.name = Skill.name;
-        }
-        else
-        {
-            skillIcon.GetComponent<Image>().sprite = EmptySkillSprite;
-            skillIcon.name = "Empty Skill";
-        }
-    }
 }

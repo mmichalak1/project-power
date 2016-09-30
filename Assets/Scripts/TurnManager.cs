@@ -107,6 +107,7 @@ public class TurnManager : MonoBehaviour
 
         foreach(GameObject go in GameObject.FindGameObjectsWithTag("Sheep"))
         {
+            go.transform.GetChild(1).GetComponent<SkillCanvasScript>().UpdateSkillsState();
             var objs = go.GetComponents<Assets.Scripts.Interfaces.IDisappearAfterTurn>();
             foreach (var item in objs)
                 item.Tick();
@@ -196,7 +197,6 @@ public class TurnManager : MonoBehaviour
     public IEnumerator Wait(float time)
     {
         yield return new WaitForSeconds(time);
-        Debug.Log("Waiting");
         hitedTarget = null;
         state = activeState.skillPicked;
     }
