@@ -14,5 +14,5 @@ MonoBehaviour:
   _skills:
   - {fileID: 11400000, guid: 8e98fbce14608c749b0bbd4861193165, type: 2}
   - {fileID: 11400000, guid: f8da3c8233f0977499ea841da3f6a99c, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: b0c15aa5c66c1c14eb71726a5ddfe691, type: 2}
+  - {fileID: 11400000, guid: 269786df7539f7c409b9792cc2b96547, type: 2}

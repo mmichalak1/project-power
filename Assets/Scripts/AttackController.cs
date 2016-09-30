@@ -23,7 +23,7 @@ public class AttackController : MonoBehaviour
 
     public void PerformAction()
     {
-        _brainsList = _brainsList.OrderByDescending(x => x.Importance).ToList<AbstractBrain>();
+        _brainsList = _brainsList.OrderByDescending(x => x.Importance).ToList();
         if (gameObject.activeSelf)
         {
             foreach (var brain in _brainsList.ToArray())

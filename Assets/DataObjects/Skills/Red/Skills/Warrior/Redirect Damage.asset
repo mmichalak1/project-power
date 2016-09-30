@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BasePower: 60
   BaseCost: 3
-  BaseCooldown: 2
+  BaseCooldown: 3
   SkillLevel: 0
   IsActive: 0
   RequiredSkills: []
-  Icon: {fileID: 0}
-  Duration: 0
+  Icon: {fileID: 21300000, guid: 7417d8df1a0990644815d3409e65a7d7, type: 3}
+  Duration: 2

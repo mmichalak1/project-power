@@ -37,16 +37,33 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
         set { _maxHealth = value; }
     }
 
-    public void DealDamage(int value)
+    /// <summary>
+    /// Use when want to calculate for damage returningm taunting and so on
+    /// </summary>
+    /// <param name="value"> Damage to deal</param>
+    /// <param name="source"> Source of the damage</param>
+    public void DealDamage(int value, GameObject source)
     {
         //Debug.Log("Damaging");
         var redirectComponent = gameObject.GetComponent<RedirectDamage>();
         if (redirectComponent != null)
         {
             Debug.Log("Damage to " + gameObject.name + " redirected to " + redirectComponent.newTarget.name + ".");
-            redirectComponent.newTarget.GetComponent<IReciveDamage>().DealDamage(value);
+            redirectComponent.newTarget.GetComponent<IReciveDamage>().DealDamage(value, source);
             return;
         }
+
+        var fightBackComp = gameObject.GetComponent<GiveAwayDamage>();
+        if (fightBackComp != null)
+            fightBackComp.FightBack(value, source);
+        DealDamage(value);
+    }
+
+    ///<summary>
+    ///Ignores special states like redirection or damage returning
+    ///</summary>
+    public void DealDamage(int value)
+    {
         _currentHealth -= value;
         UpdateHealthBar();
     }
