@@ -10,15 +10,28 @@ namespace Assets.Scripts.ScriptableObjects
         [HideInInspector]
         public GameObject Target;
         public int MyDamage = 0;
+
+        private int _myRealDamage;
         public override void Initialize(GameObject[] targets)
         {
         }
 
         public override void Think(GameObject parent)
         {
+            _myRealDamage = MyDamage;
+            var debuffs = parent.GetComponents<DamageDebuff>();
+             
+            if(debuffs.Length != 0)
+            {
+                foreach (var item in debuffs)
+                {
+                    _myRealDamage -= (_myRealDamage * item.DebuffValue) / 100;
+                }
+            }
+
             Debug.Log(parent.name + " attacks " + Target.name + " because he insulted his mother!");
             parent.GetComponent<AttackController>().BreakTurn = true;
-            Target.GetComponent<Interfaces.IReciveDamage>().DealDamage(MyDamage, parent);
+            Target.GetComponent<Interfaces.IReciveDamage>().DealDamage(_myRealDamage, parent);
             base.Think(parent);
         }
     }

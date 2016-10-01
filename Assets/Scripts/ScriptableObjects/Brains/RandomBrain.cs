@@ -10,6 +10,8 @@ public class RandomBrain : AbstractBrain
     public GameObject[] Targets;    
     public int MyDamage;
 
+    private int _myRealDamage;
+
     private List<GameObject> _checkedTargets = new List<GameObject>(4);
     public override void Initialize(GameObject[] targets)
     {
@@ -18,6 +20,17 @@ public class RandomBrain : AbstractBrain
 
     public override void Think(GameObject parent)
     {
+        _myRealDamage = MyDamage;
+        var debuffs = parent.GetComponents<DamageDebuff>();
+
+        if (debuffs.Length != 0)
+        {
+            foreach (var debuff in debuffs)
+            {
+                _myRealDamage -= (_myRealDamage * debuff.DebuffValue) / 100;
+            }
+        }
+
         List<GameObject> availableTargets = new List<GameObject>();
         foreach (GameObject x in Targets)
         {
@@ -41,7 +54,7 @@ public class RandomBrain : AbstractBrain
                 }
                 else
                 {
-                    Debug.Log("Can't target " + sheep.name + " because is dead.");
+                    Debug.Log("Can't target " + sheep.name + " because it's dead.");
                 }
             }
             while (true);
@@ -52,8 +65,8 @@ public class RandomBrain : AbstractBrain
                 return;
             }
             IReciveDamage controller = sheep.GetComponent<IReciveDamage>();
-            controller.DealDamage(MyDamage, parent);
-            Debug.Log(parent.name + " dealt " + MyDamage + " damage to " + sheep.name);
+            controller.DealDamage(_myRealDamage, parent);
+            Debug.Log(parent.name + " dealt " + _myRealDamage + " damage to " + sheep.name);
         }
 
         base.Think(parent);
