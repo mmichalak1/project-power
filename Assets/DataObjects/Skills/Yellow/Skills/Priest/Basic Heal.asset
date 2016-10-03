@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236738eb2a002c34c8d95b0752a4993b, type: 3}
   m_Name: Basic Heal
   m_EditorClassIdentifier: 
-  BasePower: 60
+  StatsMultiplier: 50
   BaseCost: 3
   BaseCooldown: 2
   SkillLevel: 0

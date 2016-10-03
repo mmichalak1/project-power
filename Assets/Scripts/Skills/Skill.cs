@@ -2,8 +2,8 @@
 
 public abstract class Skill : ScriptableObject {
 
-    [SerializeField, Tooltip("Damage dealt by attack, shield power, heal power.")]
-    private int BasePower = 60;
+    [SerializeField, Tooltip("Basic percentage of power's value calculated from sheep's stats."), Range(0, 100)]
+    private int StatsMultiplier = 70;
     [SerializeField, Tooltip("Skill's cost.")]
     private int BaseCost = 3;
     [SerializeField, Tooltip("Skill's cooldown, when declaring always add +1 to it. Example: if you want 1 turn cooldown write 2.")]
@@ -68,7 +68,7 @@ public abstract class Skill : ScriptableObject {
     {
         _cooldown = 0;
         _cost = BaseCost;
-        _power = BasePower;
+        _power = (parent.GetComponent<SheepDataHolder>().SheepData.Attack * StatsMultiplier)/100;
         _parent = parent;
         _action = PerformAction;
     }

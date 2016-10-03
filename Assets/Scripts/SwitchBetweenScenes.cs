@@ -7,6 +7,6 @@ public class SwitchBetweenScenes : MonoBehaviour {
 	public void LoadScene()
 	{
         Assets.LogicSystem.Events.Instance.Reset();
-		Application.LoadLevel(Destination);
+		UnityEngine.SceneManagement.SceneManager.LoadScene(Destination);
 	}
 }

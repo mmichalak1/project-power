@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c773d28f0e544cd41a10986ea486636a, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  BasePower: 40
+  StatsMultiplier: 70
   BaseCost: 5
   BaseCooldown: 4
   SkillLevel: 0

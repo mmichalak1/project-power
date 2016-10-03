@@ -4,8 +4,7 @@ using Assets.Scripts.Interfaces;
 [CreateAssetMenu(fileName = "Fireball", menuName = "Game/Skills/Fireball")]
 public class Fireball : Skill
 {
-
-    [Range(0, 100), Tooltip("Percent of Skill's Power which is dealt to neighbouring enemies")]
+    [Range(0, 100), Tooltip("Percent of Skill's Power which is dealt to neighbouring enemies (base to target * this value)")]
     public int SplashDamage = 10;
 
     public override void Initialize(GameObject parent)

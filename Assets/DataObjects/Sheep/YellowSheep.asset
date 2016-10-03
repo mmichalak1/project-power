@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Name: YellowSheep
   m_EditorClassIdentifier: 
   Name: Zygmunt
+  BasicMaxHealth: 100
+  BasicAttack: 20
+  BasicDefence: 0
   MaxHealth: 100
+  Attack: 50
+  Defence: 0
   Level: 0
   Experience: 0
   ExperienceToNextLevel: 100
-  Attack: 20
-  Defence: 0
   Wool: 1
   MaxWool: 3
   SheepSkills: {fileID: 11400000, guid: 0f164399f85b4aa4db81ae6be1732b21, type: 2}
+  OffensiveItem: {fileID: 0}
+  DefensiveItem: {fileID: 0}
