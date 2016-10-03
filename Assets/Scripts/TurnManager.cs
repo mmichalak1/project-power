@@ -41,8 +41,8 @@ public class TurnManager : MonoBehaviour
 
         Events.Instance.RegisterForEvent("BattleWon", x =>
         {
-            ourTurn = true;
-            SelectingTarget = true;
+            ourTurn = false;
+            SelectingTarget = false;
             state = activeState.nothingPicked;
             FightingSceneUIScript.DisableSkillCanvases();
         });

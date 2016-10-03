@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using Assets.LogicSystem;
 
 public class SkillCanvasScript : MonoBehaviour
 {
@@ -22,6 +23,13 @@ public class SkillCanvasScript : MonoBehaviour
             ApplySkillData(SkillButtons[i], skills[i]);
             SkillButtonAction(i);
         }
+
+        Events.Instance.RegisterForEvent("EnterFight", x =>
+        {
+            UpdateSkillsState();
+        }
+
+        );
 
         gameObject.SetActive(false);
     }
@@ -73,7 +81,6 @@ public class SkillCanvasScript : MonoBehaviour
     void SkillButtonAction(int ordinal)
     {
         if (skills[ordinal] != null)
-            //Debug.Log(skills[ordinal].Cooldown);
             if (skills[ordinal].Cooldown <= 0)
                 SkillButtons[ordinal].GetComponent<Button>().onClick.AddListener(() =>
                 {
@@ -82,7 +89,5 @@ public class SkillCanvasScript : MonoBehaviour
                     TurnManager.ChangeFlag = true;
                     TurnManager.hitedTarget = null;
                 });
-        //else
-        //    SkillButtons[ordinal].GetComponent<Button>().enabled = false;
     }
 }
