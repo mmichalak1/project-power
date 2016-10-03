@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede36b2ef3a8c534e9aab759c2f4b315, type: 3}
   m_Name: Smash
   m_EditorClassIdentifier: 
-  BasePower: 60
+  StatsMultiplier: 100
   BaseCost: 3
   BaseCooldown: 2
   SkillLevel: 0
   IsActive: 0
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: 13faa21b2446293429c14374e583793e, type: 3}
-  PowerPercentage: 204
+  PowerPercentage: 211

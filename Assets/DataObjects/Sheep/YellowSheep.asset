@@ -16,7 +16,7 @@ MonoBehaviour:
   Level: 0
   Experience: 0
   ExperienceToNextLevel: 100
-  Attack: 20
+  Attack: 50
   Defence: 0
   Wool: 1
   MaxWool: 3

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1113dc99966dc1458e1d5a65db475fb, type: 3}
   m_Name: Double Attack
   m_EditorClassIdentifier: 
-  BasePower: 20
+  StatsMultiplier: 50
   BaseCost: 3
   BaseCooldown: 2
   SkillLevel: 0
