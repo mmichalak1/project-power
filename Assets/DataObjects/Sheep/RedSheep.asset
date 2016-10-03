@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Name: RedSheep
   m_EditorClassIdentifier: 
   Name: Stefan
+  BasicMaxHealth: 100
+  BasicAttack: 20
+  BasicDefence: 0
   MaxHealth: 100
+  Attack: 50
+  Defence: 0
   Level: 0
   Experience: 0
   ExperienceToNextLevel: 100
-  Attack: 50
-  Defence: 0
   Wool: 1
   MaxWool: 3
   SheepSkills: {fileID: 11400000, guid: 26a5bce2107293945be8aa5a3b9e30a7, type: 2}
+  OffensiveItem: {fileID: 11400000, guid: 48466c81d952e254caab2f2114fd21af, type: 2}
+  DefensiveItem: {fileID: 0}

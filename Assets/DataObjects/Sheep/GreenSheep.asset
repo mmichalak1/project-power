@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Name: GreenSheep
   m_EditorClassIdentifier: 
   Name: "Wac\u0142aw"
+  BasicMaxHealth: 100
+  BasicAttack: 20
+  BasicDefence: 0
   MaxHealth: 100
+  Attack: 50
+  Defence: 0
   Level: 0
   Experience: 0
   ExperienceToNextLevel: 100
-  Attack: 50
-  Defence: 0
   Wool: 1
   MaxWool: 3
   SheepSkills: {fileID: 11400000, guid: 40a8808a270a3b64c97b5b65038dd217, type: 2}
+  OffensiveItem: {fileID: 0}
+  DefensiveItem: {fileID: 0}

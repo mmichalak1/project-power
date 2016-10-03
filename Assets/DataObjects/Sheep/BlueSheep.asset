@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Name: BlueSheep
   m_EditorClassIdentifier: 
   Name: Janusz
+  BasicMaxHealth: 100
+  BasicAttack: 20
+  BasicDefence: 0
   MaxHealth: 100
+  Attack: 50
+  Defence: 0
   Level: 0
   Experience: 0
   ExperienceToNextLevel: 100
-  Attack: 50
-  Defence: 0
   Wool: 1
   MaxWool: 3
   SheepSkills: {fileID: 11400000, guid: ff8b91b9b24184744a77d623289fd5c0, type: 2}
+  OffensiveItem: {fileID: 0}
+  DefensiveItem: {fileID: 0}

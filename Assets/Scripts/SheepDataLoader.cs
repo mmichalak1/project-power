@@ -23,8 +23,7 @@ public class SheepDataLoader : MonoBehaviour
         foreach (var sh in sheep)
         {
             Children[i].GetComponent<SheepDataHolder>().LoadSheepData(sh);
-            i++;
+            i++; 
         }
     }
-
 }
