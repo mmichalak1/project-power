@@ -15,7 +15,7 @@ public class DoubleAttack : Skill {
         Debug.Log(actor.name + " attacks " + target.name + " " + AttackCount + " times.");
         for (int i = 0; i < AttackCount; i++)
         {
-            target.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage(Power);
+            target.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage(Power, actor);
         }
         base.PerformAction(actor, target);
     }

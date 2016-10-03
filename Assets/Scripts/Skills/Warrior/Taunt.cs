@@ -23,7 +23,7 @@ public class Taunt : Skill
         if (attack == null)
             return;
         attack.AddBrain(_myClone);
-        target.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage((Power * PowerPercentage) / 100);
+        target.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage((Power * PowerPercentage) / 100, actor);
         base.PerformAction(actor, target);
     }
 }
