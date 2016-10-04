@@ -20,7 +20,7 @@ public class SheepDataHolder : MonoBehaviour
         foreach (var x in SheepData.SheepSkills.Skills)
             if (x != null)
                 x.Initialize(gameObject);
-    }
+    }   
 
     public void ApplyItemsChange()
     {
