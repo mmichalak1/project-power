@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 898e0ac194f25e946801361fe7aecf04, type: 3}
   m_Name: Lighting Shield
   m_EditorClassIdentifier: 
-  BasePower: 60
+  StatsMultiplier: 70
   BaseCost: 3
   BaseCooldown: 2
   SkillLevel: 0
   IsActive: 0
   RequiredSkills: []
-  Icon: {fileID: 21300000, guid: 7417d8df1a0990644815d3409e65a7d7, type: 3}
+  Icon: {fileID: 21300000, guid: c103a3de73d1b964a8c1e3a62e7d4b61, type: 3}
   ShieldDuration: 2

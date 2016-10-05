@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa00e636f04ae44ab6759cc0e24185d, type: 3}
   m_Name: Taunt
   m_EditorClassIdentifier: 
-  StatsMultiplier: 46
+  StatsMultiplier: 100
   BaseCost: 3
   BaseCooldown: 2
   SkillLevel: 0
   IsActive: 0
   RequiredSkills: []
-  Icon: {fileID: 21300000, guid: 687863b3bfd5ee648a3d8fbe18c7f73d, type: 3}
+  Icon: {fileID: 21300000, guid: 5d0038f35e6004943b92b5ca07d1015c, type: 3}
   TauntedBrain: {fileID: 11400000, guid: e87a4360823f3fe4e9f0954934f2e569, type: 2}

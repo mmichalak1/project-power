@@ -17,5 +17,5 @@ MonoBehaviour:
   SkillLevel: 0
   IsActive: 0
   RequiredSkills: []
-  Icon: {fileID: 21300000, guid: 13faa21b2446293429c14374e583793e, type: 3}
+  Icon: {fileID: 21300000, guid: 05ec5689a5af14b44ac91efb21670c0a, type: 3}
   PowerPercentage: 211
