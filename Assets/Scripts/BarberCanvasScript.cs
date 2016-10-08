@@ -32,6 +32,26 @@ public class BarberCanvasScript : MonoBehaviour
         SlidersValue[number].text = sliders[number].value.ToString();
     }
 
+    public void ApplyChanges()
+    {
+        var go = GameObject.FindGameObjectWithTag("GameStatus");
+        if(go!=null)
+        {
+            var counter = go.GetComponent<GameStatus>();
+            for (int i = 0; i < SheepCounter; i++)
+            {
+                if(sliders[i].value<sliders[i].maxValue)
+                {
+                    counter.WoolCounter.WoolCount += System.Convert.ToInt32(sliders[i].maxValue) - System.Convert.ToInt32(sliders[i].value);
+                    sheepData[i].Wool = System.Convert.ToInt32(sliders[i].value);
+                }
+            }
+        }
+        else
+        {
+            Debug.LogError("No WoolCounter script found.");
+        }
+    }
 
 
 }
