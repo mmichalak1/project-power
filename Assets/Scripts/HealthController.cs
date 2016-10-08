@@ -13,6 +13,9 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     [SerializeField]
     private int _currentHealth = 100;
 
+    public DamageIndicatorScript DamageIndicator;
+
+
     public Image HealthIndicator;
 
 
@@ -65,6 +68,8 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     public void DealDamage(int value)
     {
         _currentHealth -= value;
+        if (DamageIndicator != null)
+            DamageIndicator.BeginIndication(0 - value);
         UpdateHealthBar();
     }
 
@@ -77,9 +82,16 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
         else
         {
             if (_currentHealth + value > _maxHealth)
+            {
+                DamageIndicator.BeginIndication(_maxHealth - _currentHealth);
                 _currentHealth = _maxHealth;
+
+            }
             else
+            {
                 _currentHealth += value;
+                DamageIndicator.BeginIndication(value);
+            }
             UpdateHealthBar();
         }
     }

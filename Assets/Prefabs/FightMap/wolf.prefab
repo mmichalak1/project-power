@@ -592,6 +592,7 @@ GameObject:
   - 114: {fileID: 11465460}
   - 114: {fileID: 11435322}
   - 114: {fileID: 11428702}
+  - 114: {fileID: 11473624}
   m_Layer: 0
   m_Name: EnemyCanvas
   m_TagString: Untagged
@@ -1155,7 +1156,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163654}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 1.8824468, y: -0.1, z: 1.2595696}
+  m_LocalPosition: {x: 1.8799996, y: -0.1, z: -5.7404304}
   m_LocalScale: {x: 0.64999986, y: 0.65, z: 0.64999986}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_Children:
@@ -1461,7 +1462,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _currentHealth: 100
+  DamageIndicator: {fileID: 11473624}
   HealthIndicator: {fileID: 11408760}
+--- !u!114 &11473624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8a24c64ac6d844e90c68b0cff10608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IndicationSpeed: 0.5
+  IndicationTime: 10
+  DealtDamageColor: {r: 0, g: 0, b: 0, a: 0}
+  HealedColor: {r: 0, g: 0, b: 0, a: 0}
+  IndicatorPrefab: {fileID: 170614, guid: 3a6262a74c345be4790d69b0c2e43b7b, type: 2}
 --- !u!114 &11479920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1490,7 +1508,7 @@ SkinnedMeshRenderer:
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 3
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
@@ -1610,8 +1628,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 6.23}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 11.17}
+  m_SizeDelta: {x: 100, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22489098
 RectTransform:
@@ -1627,9 +1645,9 @@ RectTransform:
   - {fileID: 22422354}
   m_Father: {fileID: 22460792}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -27.2}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 65}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &100100000
