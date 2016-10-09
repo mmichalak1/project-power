@@ -86,6 +86,7 @@ public class SkillCanvasScript : MonoBehaviour
                 {
                     TurnManager.state = TurnManager.activeState.waiting;
                     TurnManager.skillName = skills[ordinal].name;
+                    Events.Instance.DispatchEvent("SetText", "Resource Left : " + TurnManager.currentResource + " - " + skills[ordinal].Cost);
                     TurnManager.ChangeFlag = true;
                     TurnManager.hitedTarget = null;
                 });

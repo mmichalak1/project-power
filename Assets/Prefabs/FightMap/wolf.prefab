@@ -1156,7 +1156,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163654}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -0.11755287, y: -0.09999998, z: -1.7404354}
+  m_LocalPosition: {x: -0.117553234, y: -0.1, z: 5.2595696}
   m_LocalScale: {x: 0.64999986, y: 0.65, z: 0.64999986}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_Children:
@@ -1460,8 +1460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8a400ccec370445bef0cf32d92c9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _currentHealth: 100
+  _maxHealth: 80
+  _currentHealth: 80
   DamageIndicator: {fileID: 11473624}
   HealthIndicator: {fileID: 11408760}
 --- !u!114 &11473624

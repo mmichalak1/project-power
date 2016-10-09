@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c773d28f0e544cd41a10986ea486636a, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  StatsMultiplier: 70
+  StatsMultiplier: 200
   BaseCost: 5
   BaseCooldown: 4
   SkillLevel: 0
   IsActive: 0
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: 4602560ed1aaa72458ffde6692769228, type: 3}
-  SplashDamage: 30
+  SplashDamage: 50

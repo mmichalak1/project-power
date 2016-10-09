@@ -982,12 +982,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 68019525}
   m_Mesh: {fileID: 4300000, guid: 2f7ddfcb4508cb046872d25faf7a63bb, type: 3}
---- !u!114 &112169059 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11473624, guid: 30bf5005508ed6b45be4e7b963e0560f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1495530327}
-  m_Script: {fileID: 11500000, guid: 1c8a24c64ac6d844e90c68b0cff10608, type: 3}
 --- !u!1 &113549848
 GameObject:
   m_ObjectHideFlags: 0
@@ -5686,6 +5680,14 @@ Prefab:
       propertyPath: DamageIndicator
       value: 
       objectReference: {fileID: 902394837}
+    - target: {fileID: 11470218, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
+      propertyPath: _maxHealth
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470218, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
+      propertyPath: _currentHealth
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
   m_IsPrefabParent: 0
@@ -8350,6 +8352,14 @@ Prefab:
       propertyPath: DamageIndicator
       value: 
       objectReference: {fileID: 1039642447}
+    - target: {fileID: 11470218, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
+      propertyPath: _maxHealth
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470218, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
+      propertyPath: _currentHealth
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
   m_IsPrefabParent: 0
@@ -9992,39 +10002,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 163654, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
-      propertyPath: m_Name
-      value: wolf
-      objectReference: {fileID: 0}
-    - target: {fileID: 475272, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.6499996
-      objectReference: {fileID: 0}
-    - target: {fileID: 475272, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.6499996
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: MyBrain
-      value: 
-      objectReference: {fileID: 11400000, guid: ef09a6bbab2eb464f8243b7eba89adaf,
-        type: 2}
-    - target: {fileID: 163654, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 13742338, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 45af2083ab1d57947a6ec2ef434c7f2d, type: 2}
-    - target: {fileID: 163654, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11470218, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
-      propertyPath: DamageIndicator
-      value: 
-      objectReference: {fileID: 1723320476}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
   m_IsPrefabParent: 0
@@ -12524,59 +12501,6 @@ Prefab:
       propertyPath: m_Name
       value: wolf (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 475272, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.64999986
-      objectReference: {fileID: 0}
-    - target: {fileID: 475272, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.64999986
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: enemies.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: enemies.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: enemies.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: enemies.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: MyBrain
-      value: 
-      objectReference: {fileID: 11400000, guid: ef09a6bbab2eb464f8243b7eba89adaf,
-        type: 2}
-    - target: {fileID: 163654, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 13742338, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 45af2083ab1d57947a6ec2ef434c7f2d, type: 2}
-    - target: {fileID: 461474, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 477238, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 163654, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11470218, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
-      propertyPath: DamageIndicator
-      value: 
-      objectReference: {fileID: 112169059}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
   m_IsPrefabParent: 0
@@ -14596,12 +14520,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1685316107}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1723320476 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11473624, guid: 30bf5005508ed6b45be4e7b963e0560f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1172714098}
-  m_Script: {fileID: 11500000, guid: 1c8a24c64ac6d844e90c68b0cff10608, type: 3}
 --- !u!1 &1732790905
 GameObject:
   m_ObjectHideFlags: 0
