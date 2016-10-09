@@ -22,11 +22,6 @@ public class DamageIndicatorScript : MonoBehaviour
 
     public void BeginIndication(int HealthPointChange)
     {
-        //var go = Instantiate(IndicatorPrefab);
-        //var Text = go.GetComponent<Text>();
-        //go.transform.SetParent(gameObject.GetComponentInChildren<RectTransform>(), false);
-        //go.GetComponent<RectTransform>().position= new Vector3(0, 10, 0);
-
 
         RectTransform prefabRectTransform = IndicatorPrefab.GetComponent<RectTransform>();
         RectTransform containerRectTransform = gameObject.GetComponent<RectTransform>();
@@ -48,8 +43,6 @@ public class DamageIndicatorScript : MonoBehaviour
         rectTransform.offsetMax = new Vector2(x, y);
 
         var text = newItem.GetComponent<Text>();
-
-        text.text = "YOLO";
 
         //Setup indication direction and speed
         var indicator = newItem.GetComponent<MoveInDirection>();

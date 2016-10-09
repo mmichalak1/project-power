@@ -1476,7 +1476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IndicationSpeed: 0.5
-  IndicationTime: 10
+  IndicationTime: 2
   DealtDamageColor: {r: 1, g: 0, b: 0, a: 1}
   HealedColor: {r: 0, g: 1, b: 0, a: 1}
   IndicatorPrefab: {fileID: 170614, guid: 3a6262a74c345be4790d69b0c2e43b7b, type: 2}
