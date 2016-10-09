@@ -105,7 +105,7 @@ public class TurnManager : MonoBehaviour
         foreach (SheepDataHolder skills in DataHolders)
             skills.SheepData.SheepSkills.UpdateCooldowns();
 
-        foreach(GameObject go in GameObject.FindGameObjectsWithTag("Sheep"))
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Sheep"))
         {
             go.transform.GetChild(1).GetComponent<SkillCanvasScript>().UpdateSkillsState();
             var objs = go.GetComponents<Assets.Scripts.Interfaces.IDisappearAfterTurn>();
@@ -155,7 +155,9 @@ public class TurnManager : MonoBehaviour
             state = activeState.sheepPicked;
             selectedSheep = hitedTarget.transform.gameObject;
             Events.Instance.DispatchEvent(hitedTarget.transform.gameObject.name + "skill", hitedTarget.transform.gameObject);
+            return;
         }
+
     }
 
     void GetPointerPosition()
