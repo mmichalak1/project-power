@@ -59,6 +59,17 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
         var fightBackComp = gameObject.GetComponent<GiveAwayDamage>();
         if (fightBackComp != null)
             fightBackComp.FightBack(value, source);
+
+        var damageReductor = gameObject.GetComponent<DamageReductor>();
+        if (damageReductor != null)
+        {
+            Debug.Log("Damage reduced from " + value + " by " + damageReductor.DamageReduced + "%");
+            value = (value * damageReductor.DamageReduced) / 100;
+        }
+
+       
+
+
         DealDamage(value);
     }
 
@@ -83,14 +94,16 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
         {
             if (_currentHealth + value > _maxHealth)
             {
-                DamageIndicator.BeginIndication(_maxHealth - _currentHealth);
                 _currentHealth = _maxHealth;
+                if (DamageIndicator != null)
+                    DamageIndicator.BeginIndication(_maxHealth - _currentHealth);
 
             }
             else
             {
                 _currentHealth += value;
-                DamageIndicator.BeginIndication(value);
+                if (DamageIndicator != null)
+                    DamageIndicator.BeginIndication(value);
             }
             UpdateHealthBar();
         }

@@ -2,7 +2,7 @@
 
 public abstract class Skill : ScriptableObject {
 
-    [SerializeField, Tooltip("Basic percentage of power's value calculated from sheep's stats."), Range(0, 100)]
+    [SerializeField, Tooltip("Basic percentage of power's value calculated from sheep's stats."), Range(0, 500)]
     private int StatsMultiplier = 70;
     [SerializeField, Tooltip("Skill's cost.")]
     private int BaseCost = 3;

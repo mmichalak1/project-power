@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700d480382b21294b8d7d3b3c0ac5e1f, type: 3}
   m_Name: Lighting Storm
   m_EditorClassIdentifier: 
-  StatsMultiplier: 70
+  StatsMultiplier: 90
   BaseCost: 5
   BaseCooldown: 3
   SkillLevel: 0

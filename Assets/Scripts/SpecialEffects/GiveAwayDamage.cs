@@ -10,11 +10,13 @@ public class GiveAwayDamage : MonoBehaviour, Assets.Scripts.Interfaces.IDisappea
     [Range(10, 100)]
     public int DamagePercentReturned = 20;
 
+    public int BaseDamage = 0;
+
     public void FightBack(int sourceDamage, GameObject target)
     {
         if (target == gameObject)
             return;
-        Debug.Log(gameObject.name + "'s shield returns " + (sourceDamage * DamagePercentReturned) / 100 + " damage to " + target.name);
+        Debug.Log(gameObject.name + "'s shield returns " + BaseDamage + " + " + (sourceDamage * DamagePercentReturned) / 100 + " damage to " + target.name);
         target.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage((sourceDamage * DamagePercentReturned) / 100);
     }
 
