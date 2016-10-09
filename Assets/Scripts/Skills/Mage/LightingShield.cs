@@ -6,6 +6,10 @@ public class LightingShield : Skill {
 
     [Range(1,5)]
     public int ShieldDuration = 2;
+    [Range(20, 100)]
+    public int DamagePercentReturned = 50;
+
+    int baseDamage = 0; 
 
     public override void Initialize(GameObject parent)
     {
@@ -16,6 +20,8 @@ public class LightingShield : Skill {
     {
         var newTarget = target.AddComponent<GiveAwayDamage>();
         newTarget.Duration = ShieldDuration;
+        newTarget.BaseDamage = Power;
+        newTarget.DamagePercentReturned = DamagePercentReturned;
         base.PerformAction(actor, target);
     }
 }

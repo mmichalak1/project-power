@@ -18,7 +18,7 @@ namespace Assets.Scripts.ScriptableObjects
         public int Duration
         {
             get { return _duration; }
-            protected set { _duration = value; }
+            set { _duration = value; }
         }
 
         public abstract void Initialize(GameObject[] targets);
