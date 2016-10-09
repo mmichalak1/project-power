@@ -22,25 +22,53 @@ public class DamageIndicatorScript : MonoBehaviour
 
     public void BeginIndication(int HealthPointChange)
     {
-        var go = Instantiate(IndicatorPrefab);
-        var Text = go.GetComponent<Text>();
-        go.transform.SetParent(gameObject.GetComponentInChildren<RectTransform>(), false);
-        go.GetComponent<RectTransform>().position= new Vector3(0, 10, 0);
+        //var go = Instantiate(IndicatorPrefab);
+        //var Text = go.GetComponent<Text>();
+        //go.transform.SetParent(gameObject.GetComponentInChildren<RectTransform>(), false);
+        //go.GetComponent<RectTransform>().position= new Vector3(0, 10, 0);
+
+
+        RectTransform prefabRectTransform = IndicatorPrefab.GetComponent<RectTransform>();
+        RectTransform containerRectTransform = gameObject.GetComponent<RectTransform>();
+
+        //create a new item, name it, and set the parent
+        GameObject newItem = Instantiate(IndicatorPrefab) as GameObject;
+        newItem.name = "item";
+        newItem.transform.parent = gameObject.transform;
+        
+        //move and size the new item
+        RectTransform rectTransform = newItem.GetComponent<RectTransform>();
+        rectTransform.localScale = new Vector3(1, 1, 1);
+        rectTransform.localRotation = Quaternion.identity;
+        rectTransform.localPosition = Vector3.zero;
+        rectTransform.offsetMin = new Vector2(0,0);
+
+        float x = containerRectTransform.rect.width;
+        float y = 150;
+        rectTransform.offsetMax = new Vector2(x, y);
+
+        var text = newItem.GetComponent<Text>();
+
+        text.text = "YOLO";
 
         //Setup indication direction and speed
-        var indicator = go.GetComponent<MoveInDirection>();
+        var indicator = newItem.GetComponent<MoveInDirection>();
         indicator.Direction = Vector3.up;
         indicator.LifeTime = IndicationTime;
         indicator.Speed = IndicationSpeed;
+
+        text.text = HealthPointChange.ToString();
+
         if (HealthPointChange > 0)
         {
-            Text.color = HealedColor;
+            text.color = HealedColor;
         }
         else
         {
-            Text.color = DealtDamageColor;
+            text.color = DealtDamageColor;
         }
-        Text.enabled = true;
+
+        text.enabled = true;
     }
 
 
