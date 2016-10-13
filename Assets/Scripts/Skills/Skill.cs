@@ -13,6 +13,8 @@ public abstract class Skill : ScriptableObject {
     [SerializeField, Tooltip("Defines if skill was learned by given sheep")]
     private bool IsActive = false;
 
+    public string Description = "This is Skill's Description";
+
     public Skill[] RequiredSkills;
 
     protected int _power;
@@ -82,4 +84,5 @@ public abstract class Skill : ScriptableObject {
     {
         _cooldown = 0;
     }
+
 }

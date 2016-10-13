@@ -3542,9 +3542,8 @@ GameObject:
   - 222: {fileID: 209922771}
   - 114: {fileID: 209922770}
   - 114: {fileID: 209922769}
-  - 114: {fileID: 209922768}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Continue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3569,18 +3568,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000030517578, y: 47.9}
   m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &209922768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 209922766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5d52223d1aea324b97cea58a125ba42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Destination: 3464363136393665353336333635366536353230326432303436363137323664
 --- !u!114 &209922769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3620,9 +3607,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 209922768}
-        m_MethodName: LoadScene
-        m_Mode: 1
+      - m_Target: {fileID: 1690070467}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13336,7 +13323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d52223d1aea324b97cea58a125ba42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: 3464363136393665353336333635366536353230326432303436363137323664
+  Destination: MainScene - Farm
 --- !u!114 &949116715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14593,7 +14580,7 @@ GameObject:
   - 114: {fileID: 1010154881}
   - 114: {fileID: 1010154880}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14629,7 +14616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d52223d1aea324b97cea58a125ba42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: 3464363136393665353336333635366536353230326432303436363137323664
+  Destination: MainScene - Farm
 --- !u!114 &1010154881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14669,9 +14656,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1690070467}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1010154880}
+        m_MethodName: LoadScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -20398,7 +20385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d52223d1aea324b97cea58a125ba42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: 3464363136393665353336333635366536353230326432303436363137323664
+  Destination: MainScene - Farm
 --- !u!114 &1375355194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24217,6 +24204,22 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11490956, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1690070467}
+    - target: {fileID: 11490956, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490956, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490956, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
   m_IsPrefabParent: 0
@@ -25505,7 +25508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1690070468
 RectTransform:
   m_ObjectHideFlags: 0
