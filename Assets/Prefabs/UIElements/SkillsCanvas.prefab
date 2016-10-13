@@ -29,6 +29,7 @@ GameObject:
   - 114: {fileID: 11480248}
   - 114: {fileID: 11468948}
   - 95: {fileID: 9506932}
+  - 114: {fileID: 11457502}
   m_Layer: 5
   m_Name: Skill3
   m_TagString: Bubble
@@ -119,6 +120,7 @@ GameObject:
   - 114: {fileID: 11411258}
   - 114: {fileID: 11463896}
   - 95: {fileID: 9588908}
+  - 114: {fileID: 11486270}
   m_Layer: 5
   m_Name: Skill1
   m_TagString: Bubble
@@ -138,6 +140,7 @@ GameObject:
   - 114: {fileID: 11453310}
   - 114: {fileID: 11493828}
   - 95: {fileID: 9560148}
+  - 114: {fileID: 11488326}
   m_Layer: 5
   m_Name: Skill0
   m_TagString: Bubble
@@ -157,6 +160,7 @@ GameObject:
   - 114: {fileID: 11436510}
   - 114: {fileID: 11481228}
   - 95: {fileID: 9508712}
+  - 114: {fileID: 11442630}
   m_Layer: 5
   m_Name: Skill2
   m_TagString: Bubble
@@ -368,6 +372,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11442630
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a804914bca6448468ae1366be82a8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MySkill: {fileID: 0}
+  SkillDescription: {fileID: 0}
+  RequestedTouchTime: 0.75
 --- !u!114 &11453310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -395,6 +413,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11457502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a804914bca6448468ae1366be82a8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MySkill: {fileID: 0}
+  SkillDescription: {fileID: 0}
+  RequestedTouchTime: 0.75
 --- !u!114 &11463896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -616,6 +648,34 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11486270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a804914bca6448468ae1366be82a8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MySkill: {fileID: 0}
+  SkillDescription: {fileID: 0}
+  RequestedTouchTime: 0.75
+--- !u!114 &11488326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a804914bca6448468ae1366be82a8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MySkill: {fileID: 0}
+  SkillDescription: {fileID: 0}
+  RequestedTouchTime: 0.75
 --- !u!114 &11493828
 MonoBehaviour:
   m_ObjectHideFlags: 1

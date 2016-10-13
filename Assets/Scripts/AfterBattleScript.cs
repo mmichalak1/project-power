@@ -24,7 +24,7 @@ public class AfterBattleScript : MonoBehaviour {
                 ExplorationResult.Instance.LevelPlayed.OnLevelLost();
                 break;
             case Assets.Scripts.GameResult.None:
-                //ResultsPanel.SetActive(false);
+                ResultsPanel.SetActive(false);
                 ResultsPanel.GetComponent<AfterBattlePanelScript>().addingExperience = false;
                 break;
             default:

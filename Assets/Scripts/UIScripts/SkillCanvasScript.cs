@@ -68,6 +68,7 @@ public class SkillCanvasScript : MonoBehaviour
                 skillIcon.GetComponentInChildren<Text>().enabled = true;
                 skillIcon.GetComponentInChildren<Text>().text = Skill.Cooldown + "";
             }
+            skillIcon.GetComponent<ButtonHoldScript>().MySkill = Skill;
             skillIcon.GetComponent<Image>().sprite = Skill.Icon;
             skillIcon.name = Skill.name;
         }

@@ -5,20 +5,22 @@ using Assets.LogicSystem;
 
 public class MovementController : MonoBehaviour
 {
+    readonly Vector3 targetDirection = new Vector3(2, 1, 0).normalized;
 
     private float actionDelay = 0.5f;
     private float actionTimer = 0.0f;
-    private GameObject[] grid;
     private float movementSpeed = 5.0f;
     private float rotationSpeed = 180.0f;
     private Vector3 newPos;
     private Quaternion newRot;
     private bool move = false;
+    private Ray myRay;
+
+    public Transform forward;
 
     // Use this for initialization
     void Start()
     {
-        grid = GameObject.FindGameObjectsWithTag("Tile");
         newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         Events.Instance.RegisterForEvent("TurnRight", x => RotateRight());
         Events.Instance.RegisterForEvent("TurnLeft", x => RotateLeft());
@@ -29,6 +31,8 @@ public class MovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Ray myRay = new Ray(transform.position + Vector3.up, (forward.position - transform.position).normalized);
+        Debug.DrawLine(myRay.origin, myRay.origin + myRay.direction * 3);
         if (move)
         {
             transform.position = Vector3.MoveTowards(transform.position, newPos, Time.deltaTime * movementSpeed);
@@ -47,6 +51,18 @@ public class MovementController : MonoBehaviour
     {
         if (!move)
         {
+            RaycastHit res;
+
+            if (Physics.Raycast(myRay.origin, myRay.origin + myRay.direction * 3, out res))
+            {
+                Debug.Log("Detected " + res.collider.gameObject.name);
+                if (res.collider.gameObject.transform.root.tag == "Unpassable")
+                {
+                    Debug.Log("Tried to walk into " + res.collider.gameObject.name);
+                    return;
+                }
+            }
+
             newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.right).normalized * 2;
             move = true;
         }

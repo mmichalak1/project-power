@@ -23,7 +23,7 @@ public class WolfGroupManager : MonoBehaviour
             if (child.CompareTag("Enemy"))
                 enemies.Add(child.gameObject);
         wolvesCounter = enemies.Count;
-        foreach(var enemy in enemies)
+        foreach (var enemy in enemies)
         {
             Assets.LogicSystem.Events.Instance.RegisterForEvent(enemy.name + "death", wolfDeath);
         }
@@ -67,18 +67,12 @@ public class WolfGroupManager : MonoBehaviour
     {
         GameObject[] result = new GameObject[2];
         int enemyPosition = enemies.IndexOf(enemy);
-
-        if (enemyPosition < 3)
-            if (enemies[enemyPosition + 1].gameObject.activeSelf)
-                result[0] = enemies[enemyPosition + 1].gameObject;
-
-        if (enemyPosition > 0)
-            if (enemies[enemyPosition - 1].gameObject.activeSelf)
-                result[1] = enemies[enemyPosition - 1].gameObject;
+        result[0] = enemies.ElementAtOrDefault(enemyPosition + 1);
+        result[1] = enemies.ElementAtOrDefault(enemyPosition - 1);
 
         return result;
-    }
 
+    }
     public void CheckForDeadAndApplyExperience()
     {
         foreach (var item in enemies)

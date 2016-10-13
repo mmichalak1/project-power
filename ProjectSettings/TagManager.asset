@@ -13,6 +13,7 @@ TagManager:
   - WoolCounter
   - HPBar
   - SkillCanvas
+  - Unpassable
   layers:
   - Default
   - TransparentFX

@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11472838}
   - 114: {fileID: 11482826}
   - 95: {fileID: 9519530}
+  - 114: {fileID: 11404496}
   m_Layer: 5
   m_Name: Bubble
   m_TagString: Bubble
@@ -36,6 +37,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11404496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a804914bca6448468ae1366be82a8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11472838
 MonoBehaviour:
   m_ObjectHideFlags: 1
