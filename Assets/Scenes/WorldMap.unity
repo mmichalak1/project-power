@@ -214,6 +214,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1669440506}
+        m_MethodName: Setup
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: LevelData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!222 &215729041
@@ -222,34 +234,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 215729036}
---- !u!1 &218911123
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 218911124}
-  m_Layer: 0
-  m_Name: GlobalData
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &218911124
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 218911123}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 491.8849, y: 193.04916, z: 8.386383}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
 --- !u!1 &301398785
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,6 +595,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 1669440504}
   - 114: {fileID: 1669440505}
+  - 114: {fileID: 1669440506}
   m_Layer: 5
   m_Name: Listener
   m_TagString: Untagged
@@ -650,6 +635,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Destination: FithPit
+--- !u!114 &1669440506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1669440503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faff4d34876992c4b80f9fd234f0021a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1724278405
 GameObject:
   m_ObjectHideFlags: 0

@@ -78,4 +78,13 @@ public class WolfGroupManager : MonoBehaviour
 
         return result;
     }
+
+    public void CheckForDeadAndApplyExperience()
+    {
+        foreach (var item in enemies)
+        {
+            item.GetComponent<ProvideExperience>().ProvideExp();
+        }
+    }
+
 }

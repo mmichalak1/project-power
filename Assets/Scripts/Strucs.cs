@@ -9,6 +9,7 @@ namespace Assets.Scripts
     {
         Win,
         Loss,
+        Exited,
         None
     };
 }

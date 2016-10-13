@@ -340,9 +340,9 @@ PlayerSettings:
   metroPackageVersion: 1.0.0.0
   metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: DefaultCompany
-  metroCertificateIssuer: DefaultCompany
-  metroCertificateNotAfter: 00b98c195f1cd301
+  metroCertificateSubject: Workgroup
+  metroCertificateIssuer: Workgroup
+  metroCertificateNotAfter: 00bceb869642d301
   metroApplicationDescription: Sheep
   wsaImages: {}
   metroTileShortName: Sheep

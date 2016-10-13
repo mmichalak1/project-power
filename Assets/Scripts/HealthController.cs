@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
 using Assets.Scripts.Interfaces;
-using System;
 using UnityEngine.UI;
 using Assets.LogicSystem;
 
@@ -12,6 +10,8 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     private int _maxHealth = 100;
     [SerializeField]
     private int _currentHealth = 100;
+
+    public GameObject LastAttacker = null;
 
     public DamageIndicatorScript DamageIndicator;
 
@@ -47,6 +47,9 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     /// <param name="source"> Source of the damage</param>
     public void DealDamage(int value, GameObject source)
     {
+        if (CurrentHealth <= 0)
+            return;
+        LastAttacker = source;
         //Debug.Log("Damaging");
         var redirectComponent = gameObject.GetComponent<RedirectDamage>();
         if (redirectComponent != null)
@@ -88,7 +91,7 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     {
 
         //Debug.Log("Healing");
-        if (_currentHealth == _maxHealth)
+        if (_currentHealth == _maxHealth || _currentHealth <= 0)
             return;
         else
         {

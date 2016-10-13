@@ -100,7 +100,9 @@ public class TurnManager : MonoBehaviour
 
         if (!TurnPlaner.Instance.Execute())
             return;
+        wolfManager.CheckForDeadAndApplyExperience();
         wolfManager.ApplyGroupTurn();
+
 
         foreach (SheepDataHolder skills in DataHolders)
             skills.SheepData.SheepSkills.UpdateCooldowns();

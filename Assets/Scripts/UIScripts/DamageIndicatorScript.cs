@@ -29,7 +29,7 @@ public class DamageIndicatorScript : MonoBehaviour
         //create a new item, name it, and set the parent
         GameObject newItem = Instantiate(IndicatorPrefab) as GameObject;
         newItem.name = "item";
-        newItem.transform.parent = gameObject.transform;
+        newItem.transform.SetParent(gameObject.transform);
         
         //move and size the new item
         RectTransform rectTransform = newItem.GetComponent<RectTransform>();
