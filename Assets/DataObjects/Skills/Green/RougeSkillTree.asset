@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968e5aaacd17b1e499e5d562be2a7146, type: 3}
   m_Name: RougeSkillTree
   m_EditorClassIdentifier: 
-  BasicAttack: {fileID: 11400000, guid: 000b46fe29d1aac41ba069f97317351d, type: 2}
+  BasicAttack: {fileID: 0}
   ClassAttack: {fileID: 11400000, guid: 550e7248e6e54c247ba26d1569451f28, type: 2}
-  Skill1: {fileID: 0}
-  Skill2: {fileID: 0}
-  Skill3: {fileID: 11400000, guid: 93f7bf00e171e79419c2d3c58e4d8d4e, type: 2}
+  Skill1: {fileID: 11400000, guid: 0b00ca1dff539744d82369186e17ce28, type: 2}
+  Skill2: {fileID: 11400000, guid: 93f7bf00e171e79419c2d3c58e4d8d4e, type: 2}
+  Skill3: {fileID: 11400000, guid: dc0c473d40afb5a4e9dd1b6305faa80b, type: 2}
   Skill1Upgrade1: {fileID: 0}
   Skill1Upgrade2: {fileID: 0}
   Skill2Upgrade1: {fileID: 0}
