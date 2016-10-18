@@ -3,7 +3,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Button))]
-public class ButtonHoldScript : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
+public class ButtonHoldScript : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+{
 
     private bool isShown = false;
     private bool isBeingClicked = false;
@@ -12,10 +13,11 @@ public class ButtonHoldScript : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     public Skill MySkill;
     public SkillDescription SkillDescription;
 
+    
 
     public float RequestedTouchTime = 2f;
     private float timer = 0.0f;
-    
+
 
     void Start()
     {
@@ -30,29 +32,35 @@ public class ButtonHoldScript : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     public void OnPointerUp(PointerEventData eventData)
     {
         isBeingClicked = false;
-        SkillDescription.gameObject.SetActive(false);
-        isShown = false;
-        timer = 0.0f;
-        FightingSceneUIScript.DisableSkillCanvases();
+        if (isShown)
+        {
+            isShown = false;
+            timer = 0.0f;
+            FightingSceneUIScript.DisableSkillCanvases();
+            SkillDescription.gameObject.SetActive(false);
+        }
+
     }
-	
-	// Update is called once per frame
-	void Update () {
-	    if(isBeingClicked)
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (isBeingClicked)
         {
             timer += Time.deltaTime;
-            if(timer > RequestedTouchTime)
+            if (timer > RequestedTouchTime)
             {
-                if(!isShown)
+                if (!isShown)
                 {
+                    TurnManager.state = TurnManager.activeState.nothingPicked;
                     isShown = true;
                     MyButton.onClick.RemoveAllListeners();
                     SkillDescription.gameObject.SetActive(true);
                     SkillDescription.LoadSkillData(MySkill);
-                    Debug.Log("Hey, I was held for more than " +    RequestedTouchTime);
+                    Debug.Log("Hey, I was held for more than " + RequestedTouchTime);
                 }
             }
         }
-	}
+    }
 
 }

@@ -11,7 +11,9 @@ public abstract class Skill : ScriptableObject {
     [SerializeField]
     private int SkillLevel = 0;
     [SerializeField, Tooltip("Defines if skill was learned by given sheep")]
-    private bool IsActive = false;
+    private bool isActive = false;
+    [SerializeField, Tooltip("Cost of unlocking and upgrading skill")]
+    private int[] unlockCosts;
 
     public string Description = "This is Skill's Description";
 
@@ -54,6 +56,12 @@ public abstract class Skill : ScriptableObject {
     protected int _baseCooldown
     {
         get { return BaseCooldown; }
+    }
+
+    public bool IsActive
+    {
+        get { return isActive; }
+        set { isActive = value; }
     }
 
 
