@@ -5,22 +5,28 @@ using UnityEngine.UI;
 
 public class SkillsMenuScript : MonoBehaviour {
 
+    public WoolCounter WoolCounter;
+
     public SheepData[] SheepData;
     public int SheepNumber;
 
     public Image[] SheepIcon;
 
-    public Button[] SheepButton;
+    public Button[] SkillsButtons;
 
+    public GameObject Unlocker;
     public GameObject SkillDesc;
     public Text Name;
     public Text Description;
-    public Image Icon;
-    public Text UnlockLabel;
     public Text UnlockCost;
+    public Text CurrentWool;
+    public Button UnlockButton;
+    public Image Icon;
 
     public static Color pushed = new Color(0.83F, 0.83F, 0.83F, 1.0F);
     public static Color unpushed = new Color(0.73F, 0.73F, 0.73F, 1.0F);
+    public Color UnlockedColor = Color.white;
+    public Color LockedColor = Color.gray; 
 
     void Start()
     {
@@ -33,9 +39,11 @@ public class SkillsMenuScript : MonoBehaviour {
         for(int i = 0; i<4; i++)
         {
             var skill = SheepData[SheepNumber].SheepSkills.Skills[i];
-            SheepButton[i].image.sprite = skill.Icon;
+            SkillsButtons[i].image.sprite = skill.Icon;
             if (!skill.IsActive)
-                SheepButton[i].image.color = Color.grey;
+                SkillsButtons[i].image.color = LockedColor;
+            else
+                SkillsButtons[i].image.color = UnlockedColor;
         }
         ColorChange(SheepNumber);
     }
@@ -58,14 +66,19 @@ public class SkillsMenuScript : MonoBehaviour {
         Icon.sprite = skill.Icon;
         if(!skill.IsActive)
         {
-            UnlockLabel.gameObject.SetActive(true);
-            UnlockCost.gameObject.SetActive(true);
+            Unlocker.SetActive(true);
+            UnlockCost.text = skill.UnlockCost.ToString();
+            CurrentWool.text = WoolCounter.WoolCount.ToString();
+            UnlockButton.onClick.AddListener(() =>
+            {
+                if(WoolCounter.WoolCount>=skill.UnlockCost)
+                {
+                    skill.IsActive = true;
+                    WoolCounter.WoolCount -= skill.UnlockCost;
+                    Unlocker.SetActive(false);
+                }
+            });
         }
 
-    }
-
-    public void ButtonExit()
-    {
-        SkillDesc.SetActive(false);
     }
 }
