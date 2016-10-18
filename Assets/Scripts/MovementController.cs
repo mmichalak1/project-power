@@ -15,7 +15,10 @@ public class MovementController : MonoBehaviour
     private Quaternion newRot;
     private bool move = false;
     private Ray myRay;
+    private int x = 2;
+    private int z = 9;
 
+    public World World;
     public Transform forward;
 
     // Use this for initialization
@@ -51,20 +54,22 @@ public class MovementController : MonoBehaviour
     {
         if (!move)
         {
-            RaycastHit res;
+            //RaycastHit res;
 
-            if (Physics.Raycast(myRay.origin, myRay.origin + myRay.direction * 3, out res))
+            //if (Physics.Raycast(myRay.origin, myRay.origin + myRay.direction * 3, out res))
+            //{
+            //    Debug.Log("Detected " + res.collider.gameObject.name);
+            //    if (res.collider.gameObject.transform.root.tag == "Unpassable")
+            //    {
+            //        Debug.Log("Tried to walk into " + res.collider.gameObject.name);
+            //        return;
+            //    }
+            //}
+            if (CheckIfAccessible())
             {
-                Debug.Log("Detected " + res.collider.gameObject.name);
-                if (res.collider.gameObject.transform.root.tag == "Unpassable")
-                {
-                    Debug.Log("Tried to walk into " + res.collider.gameObject.name);
-                    return;
-                }
+                newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.right).normalized * 2;
+                move = true;
             }
-
-            newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.right).normalized * 2;
-            move = true;
         }
     }
 
@@ -93,6 +98,67 @@ public class MovementController : MonoBehaviour
             newRot = transform.rotation * Quaternion.AngleAxis(90f, Vector3.up);
             move = true;
         }
+    }
+
+    private bool CheckIfAccessible()
+    {
+        switch (Round(transform.eulerAngles.y))
+        {
+            case 0:
+                {
+                    if (x + 1 < World.width)
+                        if (World.Paths[z, x + 1])
+                        {
+                            x++;
+                            return true;
+                        }
+
+                } break;
+            case 90:
+                {
+                    if (z - 1 >= 0)
+                        if (World.Paths[z - 1, x])
+                        {
+                            z--;
+                            return true;
+                        }
+                } break;
+            case 180:
+                {
+                    if (x - 1 >= 0)
+                        if (World.Paths[z, x - 1])
+                        {
+                            x--;
+                            return true;
+                        }
+                } break;
+            case 270:
+                {
+                    if (z + 1 < World.heigth)
+                        if (World.Paths[z + 1, x])
+                        {
+                            z++;
+                            return true;
+                        }
+                } break;
+            default: { return false; }
+                break;
+        }
+
+        return false;
+    }
+
+
+    private int Round(float number)
+    {
+        if (80 < number && number < 100)
+            return 90;
+        if (170 < number && number < 190)
+            return 180;
+        if (260 < number && number < 280)
+            return 270;
+        else
+            return 0;
     }
 
 }
