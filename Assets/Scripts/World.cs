@@ -10,6 +10,8 @@ public class World : MonoBehaviour
     public bool[,] Paths;
     public int width;
     public int heigth;
+    public int SpawnPointZ;
+    public int SpawnPointX;
 
     // Use this for initialization
     void Start()
@@ -30,6 +32,6 @@ public class World : MonoBehaviour
                 if (query[i * j + j].GetComponent<TileProperties>().Accessible)
                     k++;
             }
-
     }
+
 }
