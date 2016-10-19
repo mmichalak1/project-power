@@ -3686,7 +3686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c54c2508349d654e97e981729879422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Accessible: 0
+  Accessible: 1
 --- !u!4 &202196478 stripped
 Transform:
   m_PrefabParentObject: {fileID: 417640, guid: c8a2cf893b362b14784799d9219265da, type: 2}
@@ -14864,7 +14864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c54c2508349d654e97e981729879422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Accessible: 0
+  Accessible: 1
 --- !u!114 &992993429 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11473624, guid: 30bf5005508ed6b45be4e7b963e0560f,
@@ -29524,6 +29524,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 13
   heigth: 12
+  SpawnPointZ: 2
+  SpawnPointX: 9
 --- !u!4 &1950709766 stripped
 Transform:
   m_PrefabParentObject: {fileID: 408656, guid: 6a67aaef2f6b30443ac78ea7d762a346, type: 2}

@@ -15,8 +15,8 @@ public class MovementController : MonoBehaviour
     private Quaternion newRot;
     private bool move = false;
     private Ray myRay;
-    private int x = 2;
-    private int z = 9;
+    private int x;
+    private int z;
 
     public World World;
     public Transform forward;
@@ -24,11 +24,14 @@ public class MovementController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        x = World.SpawnPointX;
+        z = World.SpawnPointZ;
+
         newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        Events.Instance.RegisterForEvent("TurnRight", x => RotateRight());
-        Events.Instance.RegisterForEvent("TurnLeft", x => RotateLeft());
-        Events.Instance.RegisterForEvent("MoveForward", x => MoveForward());
-        Events.Instance.RegisterForEvent("MoveDown", x => MoveBack());
+        Events.Instance.RegisterForEvent("TurnRight", a => RotateRight());
+        Events.Instance.RegisterForEvent("TurnLeft", a => RotateLeft());
+        Events.Instance.RegisterForEvent("MoveForward", a => MoveForward());
+        Events.Instance.RegisterForEvent("MoveDown", a => MoveBack());
     }
 
     // Update is called once per frame
@@ -65,7 +68,7 @@ public class MovementController : MonoBehaviour
             //        return;
             //    }
             //}
-            if (CheckIfAccessible())
+            if (CheckIfAccessible(true))
             {
                 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.right).normalized * 2;
                 move = true;
@@ -77,8 +80,11 @@ public class MovementController : MonoBehaviour
     {
         if (!move)
         {
-            newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.left).normalized * 2;
-            move = true;
+            if (CheckIfAccessible(false))
+            {
+                newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.left).normalized * 2;
+                move = true;
+            }
         }
     }
 
@@ -100,44 +106,46 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    private bool CheckIfAccessible()
+    private bool CheckIfAccessible(bool forward)
     {
+        int signal = forward ? 1 : -1;
+
         switch (Round(transform.eulerAngles.y))
         {
             case 0:
                 {
-                    if (x + 1 < World.width)
-                        if (World.Paths[z, x + 1])
+                    if (x + signal < World.width)
+                        if (World.Paths[z, x + signal])
                         {
-                            x++;
+                            x += signal;
                             return true;
                         }
 
                 } break;
             case 90:
                 {
-                    if (z - 1 >= 0)
-                        if (World.Paths[z - 1, x])
+                    if (z - signal >= 0)
+                        if (World.Paths[z - signal, x])
                         {
-                            z--;
+                            z -= signal;
                             return true;
                         }
                 } break;
             case 180:
                 {
-                    if (x - 1 >= 0)
-                        if (World.Paths[z, x - 1])
+                    if (x - signal >= 0)
+                        if (World.Paths[z, x - signal])
                         {
-                            x--;
+                            x -= signal;
                             return true;
                         }
                 } break;
             case 270:
                 {
-                    if (z + 1 < World.heigth)
-                        if (World.Paths[z + 1, x])
+                    if (z + signal < World.heigth)
+                        if (World.Paths[z + signal, x])
                         {
-                            z++;
+                            z += signal;
                             return true;
                         }
                 } break;
