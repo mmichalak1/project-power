@@ -23,8 +23,8 @@ public class SkillsMenuScript : MonoBehaviour {
     public Button UnlockButton;
     public Image Icon;
 
-    public static Color pushed = new Color(0.83F, 0.83F, 0.83F, 1.0F);
-    public static Color unpushed = new Color(0.73F, 0.73F, 0.73F, 1.0F);
+    public static Color pushed = new Color(212, 212, 212, 255);
+    public static Color unpushed = new Color(168, 168, 168, 255);
     public Color UnlockedColor = Color.white;
     public Color LockedColor = Color.gray; 
 

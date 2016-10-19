@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class Item : ScriptableObject {
 
     public ItemType Type = ItemType.Defensive;
-    public Image Icon;
+    public Sprite Icon;
+    public Rariry Rarity = Rariry.Common;
+    public int Cost = 10;
+    public bool Bought = false;
 
     public Stats[] StatsList;
     public int[] ValueList;
@@ -82,5 +85,12 @@ public class Item : ScriptableObject {
         Defense,
         WoolCounter,
         Health,
+    }
+
+    public enum Rariry
+    {
+        Common,
+        Rare,
+        Epic
     }
 }

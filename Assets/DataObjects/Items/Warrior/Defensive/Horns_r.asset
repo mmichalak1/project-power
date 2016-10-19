@@ -9,9 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33050b0e059cb544fac9f0e86ec94bb5, type: 3}
-  m_Name: Sword
+  m_Name: Horns_r
   m_EditorClassIdentifier: 
   Type: 1
-  Icon: {fileID: 0}
-  StatsList: 0000000003000000
-  ValueList: 1400000032000000
+  Icon: {fileID: 21300000, guid: b9adc9c5fb0ce814fa63d91f44d20939, type: 3}
+  Rarity: 1
+  Cost: 100
+  StatsList: 
+  ValueList: 
