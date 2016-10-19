@@ -4,6 +4,7 @@ using System.Collections;
 [CreateAssetMenu(menuName = "Game/WoolCounter")]
 public class WoolCounter : ScriptableObject {
 
+    [SerializeField]
     private int _woolCount = 0;
 
     public int WoolCount
@@ -12,7 +13,7 @@ public class WoolCounter : ScriptableObject {
         set
         {
             _woolCount = value;
-            GameObject.FindGameObjectWithTag("WoolCounter").GetComponent<WoolUpdater>().UpdateWoolView();
+            //GameObject.FindGameObjectWithTag("WoolCounter").GetComponent<WoolUpdater>().UpdateWoolView();
         }
     }
 

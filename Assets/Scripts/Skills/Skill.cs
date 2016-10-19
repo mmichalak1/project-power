@@ -13,7 +13,7 @@ public abstract class Skill : ScriptableObject {
     [SerializeField, Tooltip("Defines if skill was learned by given sheep")]
     private bool isActive = false;
     [SerializeField, Tooltip("Cost of unlocking and upgrading skill")]
-    private int[] unlockCosts;
+    private int unlockCost = 20;
 
     public string Description = "This is Skill's Description";
 
@@ -62,6 +62,11 @@ public abstract class Skill : ScriptableObject {
     {
         get { return isActive; }
         set { isActive = value; }
+    }
+
+    public int UnlockCost
+    {
+        get { return unlockCost; }
     }
 
 
