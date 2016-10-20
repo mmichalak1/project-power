@@ -45,18 +45,8 @@ public class SkillsMenuScript : MonoBehaviour {
             else
                 SkillsButtons[i].image.color = UnlockedColor;
         }
-        ColorChange(SheepNumber);
     }
 
-    public void ColorChange(int SheepNumber)
-    {
-        foreach (Image image in SheepIcon)
-        {
-            image.color = unpushed;
-        }
-        SheepIcon[SheepNumber].color = pushed;
-
-    }
     public void ButtonClick(int SheepButton)
     {
         var skill = SheepData[SheepNumber].SheepSkills.Skills[SheepButton];

@@ -29,16 +29,6 @@ public class StatisticsMenuScript : MonoBehaviour {
         Wool_Cap.text = "/" + data.MaxWool.ToString();
         Exp.text = "Exp " + data.Experience.ToString() + "/" + data.ExperienceForNextLevel.ToString();
         ExpBar.fillAmount = (float)data.Experience / (float)data.ExperienceForNextLevel;
-        ColorChange(SheepNumber);
     }
 
-    public void ColorChange(int SheepNumber)
-    {
-        foreach (Image image in SheepIcon)
-        {
-            image.color = unpushed;
-        }
-        SheepIcon[SheepNumber].color = pushed;
-
-    }
 }
