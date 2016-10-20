@@ -29524,8 +29524,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 13
   heigth: 12
-  SpawnPointZ: 2
-  SpawnPointX: 9
+  SpawnPointZ: 9
+  SpawnPointX: 2
 --- !u!4 &1950709766 stripped
 Transform:
   m_PrefabParentObject: {fileID: 408656, guid: 6a67aaef2f6b30443ac78ea7d762a346, type: 2}
