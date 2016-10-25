@@ -13,7 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   Icon: {fileID: 21300000, guid: b9adc9c5fb0ce814fa63d91f44d20939, type: 3}
-  Rarity: 1
-  Cost: 100
-  StatsList: 
-  ValueList: 
+  rarity: 1
+  Tier: 1
+  Cost: 50
+  Bought: 0
+  StatsList: 01000000
+  ValueList: 1e000000

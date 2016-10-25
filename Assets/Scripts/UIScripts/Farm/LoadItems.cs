@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine.UI;
 
 public class LoadItems : MonoBehaviour
 {
@@ -7,8 +9,9 @@ public class LoadItems : MonoBehaviour
     public SheepData[] Sheep;
     public GameObject ItemPrefab;
     public ItemsLists ItemsLists;
+    public ItemDataPanel DataPanel;
 
-
+    private int selectedSheep;
     private List<GameObject> ItemsIcons = new List<GameObject>();
 
     void Start()
@@ -18,40 +21,14 @@ public class LoadItems : MonoBehaviour
 
     public void Load(int sheepNumber)
     {
+        selectedSheep = sheepNumber;
         List<Item> Items = null;
         foreach (var item in ItemsIcons)
         {
             Destroy(item);
         }
-        switch (Sheep[sheepNumber].SheepClass)
-        {
-            case SheepData.Class.Warrior:
-                if (type == Item.ItemType.Offensive)
-                    Items = ItemsLists.WarriorOffensive;
-                else
-                    Items = ItemsLists.WarriorDefensive;
-                break;
-            case SheepData.Class.Mage:
-                if (type == Item.ItemType.Offensive)
-                    Items = ItemsLists.MageOffensive;
-                else
-                    Items = ItemsLists.MageDefensive;
-                break;
-            case SheepData.Class.Cleric:
-                if (type == Item.ItemType.Offensive)
-                    Items = ItemsLists.ClericOffensive;
-                else
-                    Items = ItemsLists.ClericDefensive;
-                break;
-            case SheepData.Class.Rouge:
-                if (type == Item.ItemType.Offensive)
-                    Items = ItemsLists.RogueOffensive;
-                else
-                    Items = ItemsLists.RogueDefensive;
-                break;
-            default:
-                break;
-        }
+        Items = ItemsLists.LoadItems(Sheep[sheepNumber].SheepClass, type);
+        Items.Sort(new Item.ItemComparer());
 
         foreach (var item in Items)
         {
@@ -59,7 +36,17 @@ public class LoadItems : MonoBehaviour
             ItemsIcons.Add(newItem);
             newItem.transform.SetParent(gameObject.transform, false);
             newItem.GetComponent<LoadItemData>().LoadData(item, Sheep[sheepNumber]);
+            newItem.GetComponentInChildren<Button>().onClick.AddListener(() =>
+           {
+               DataPanel.gameObject.SetActive(true);
+               DataPanel.Load(newItem.GetComponent<LoadItemData>());
+           });
 
         }
+    }
+
+    public void Refresh()
+    {
+        Load(selectedSheep);
     }
 }

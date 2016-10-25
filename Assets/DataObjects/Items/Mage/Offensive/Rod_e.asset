@@ -9,13 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33050b0e059cb544fac9f0e86ec94bb5, type: 3}
-  m_Name: Horns_e
+  m_Name: Rod_e
   m_EditorClassIdentifier: 
-  Type: 1
-  Icon: {fileID: 21300000, guid: b9adc9c5fb0ce814fa63d91f44d20939, type: 3}
+  Type: 0
+  Icon: {fileID: 21300000, guid: 28e0511d6528ae947af12c6b3eaa4051, type: 3}
   rarity: 2
   Tier: 1
   Cost: 100
   Bought: 0
-  StatsList: 0100000000000000
-  ValueList: 3200000014000000
+  StatsList: 00000000
+  ValueList: 32000000

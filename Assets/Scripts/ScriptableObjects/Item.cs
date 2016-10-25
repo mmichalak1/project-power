@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "Item", menuName = "Game/Item")]
 public class Item : ScriptableObject {
 
     public ItemType Type = ItemType.Defensive;
     public Sprite Icon;
-    public Rariry Rarity = Rariry.Common;
+    public Rariry rarity = Rariry.Common;
+    public int Tier = 1;
     public int Cost = 10;
     public bool Bought = false;
 
@@ -65,13 +67,17 @@ public class Item : ScriptableObject {
             }
         }
     }
-    
 
+    public override string ToString()
+    {
+        string result = "";
+        for (int i = 0; i < StatsList.Length; i++)
+        {
+            result += StatsList[i].ToString() + ": " + ValueList[i] + "\n";
+        }
 
-
-
-
-
+        return result;
+    }
 
     public enum ItemType
     {
@@ -89,8 +95,20 @@ public class Item : ScriptableObject {
 
     public enum Rariry
     {
-        Common,
-        Rare,
-        Epic
+        Common = 0,
+        Epic = 2,
+        Rare = 1
+        
+    }
+
+    public class ItemComparer : IComparer<Item>
+    {
+        public int Compare(Item x, Item y)
+        {
+            if (x.Tier != y.Tier)
+                return x.Tier.CompareTo(y.Tier);
+
+            return (x.rarity.CompareTo(y.rarity));
+        }
     }
 }
