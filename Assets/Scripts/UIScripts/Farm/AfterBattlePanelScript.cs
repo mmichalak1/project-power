@@ -8,7 +8,8 @@ public class AfterBattlePanelScript : MonoBehaviour
     public Text ExplorationResultText;
     public GameObject ExitButton;
 
-    public Image[] ExperienceIndicators;
+    public Image[] StaticExpIndicator;
+    public Image[] DynamicExpIndicator;
     public GameObject[] LevelUpIndicators;
     public SheepData[] sheepData;
     public bool addingExperience = false;
@@ -21,7 +22,7 @@ public class AfterBattlePanelScript : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            ExperienceIndicators[i].fillAmount = (float)(sheepData[i].Experience * 1.0f / sheepData[i].ExperienceForNextLevel * 1.0f);
+            StaticExpIndicator[i].fillAmount = DynamicExpIndicator[i].fillAmount = (float)sheepData[i].Experience / (float)sheepData[i].ExperienceForNextLevel;
             isFinished[i] = false;
             ExplorationResultText.text = ExplorationResult.Instance.GameResult.ToString();
         }
@@ -36,7 +37,8 @@ public class AfterBattlePanelScript : MonoBehaviour
             for (int i = 0; i < 4; i++)
             {
                 var data = sheepData[i];
-                var indicator = ExperienceIndicators[i];
+                var indicator = DynamicExpIndicator[i];
+
                 if(data.ExperienceGained>0)
                 {
                     data.Experience++;
@@ -45,6 +47,8 @@ public class AfterBattlePanelScript : MonoBehaviour
                     {
                         LevelUpIndicators[i].SetActive(true);
                         data.LevelUp();
+                        indicator.fillAmount = 0.0f;
+                        StaticExpIndicator[i].fillAmount = 0.0f;
                     }
                     indicator.fillAmount = data.Experience * 1.0f / data.ExperienceForNextLevel * 1.0f;
                 }
@@ -52,7 +56,10 @@ public class AfterBattlePanelScript : MonoBehaviour
                     isFinished[i] = true;
             }
             if (isFinished[1] && isFinished[2] && isFinished[3] && isFinished[0])
+            {
+                addingExperience = false;
                 ExitButton.SetActive(true);
+            }
 
 
         }

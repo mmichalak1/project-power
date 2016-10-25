@@ -38,7 +38,8 @@ public class SheepData : ScriptableObject {
     {
         Level++;
         Experience = 0;
-        ExperienceForNextLevel = 50 * Level * (--Level);
+        if (Level > 1)
+            ExperienceForNextLevel += 120 * Level;
         switch (SheepClass)
         {
             case Class.Warrior:

@@ -54,6 +54,12 @@ public class SkillCanvasScript : MonoBehaviour
                     SkillButtons[i].transform.GetChild(0).GetComponent<Text>().enabled = true;
                     SkillButtons[i].transform.GetChild(0).GetComponent<Text>().text = skills[i].Cooldown.ToString();
                 }
+
+                if(!skills[i].IsActive)
+                {
+                    SkillButtons[i].GetComponent<Button>().enabled = false;
+                    SkillButtons[i].GetComponent<Image>().color = Color.grey;
+                }
             }
         }
     }
