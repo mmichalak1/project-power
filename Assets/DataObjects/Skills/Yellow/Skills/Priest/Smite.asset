@@ -17,7 +17,7 @@ MonoBehaviour:
   SkillLevel: 0
   isActive: 1
   unlockCost: 20
-  Description: This is Skill's Description
+  Description: Attack that also heal skill user.
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: c098843ee0915184c8034e3d7fa52ef7, type: 3}
   HealPercentage: 66

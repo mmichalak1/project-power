@@ -22,6 +22,8 @@ public class SkillsMenuScript : MonoBehaviour {
     public Text CurrentWool;
     public Button UnlockButton;
     public Image Icon;
+    public Text Cooldown;
+    public Text Cost;
 
     public static Color pushed = new Color(212, 212, 212, 255);
     public static Color unpushed = new Color(168, 168, 168, 255);
@@ -49,12 +51,14 @@ public class SkillsMenuScript : MonoBehaviour {
 
     public void ButtonClick(int SheepButton)
     {
-        var skill = SheepData[SheepNumber].SheepSkills.Skills[SheepButton];
+        Skill skill = SheepData[SheepNumber].SheepSkills.Skills[SheepButton];
         SkillDesc.SetActive(true);
         Name.text = skill.Name;
         Description.text = skill.Description;
         Icon.sprite = skill.Icon;
-        if(!skill.IsActive)
+        Cooldown.text = "Cooldown: " + skill.CooldownBase.ToString();
+        Cost.text = "Cost: " + skill.Cost.ToString();
+        if (!skill.IsActive)
         {
             Unlocker.SetActive(true);
             UnlockCost.text = skill.UnlockCost.ToString();

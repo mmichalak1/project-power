@@ -52,6 +52,10 @@ public abstract class Skill : ScriptableObject {
     {
         get { return _cooldown; }
     }
+    public int CooldownBase
+    {
+        get { return BaseCooldown; }
+    }
 
     protected int _baseCooldown
     {
