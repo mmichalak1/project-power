@@ -342,7 +342,7 @@ PlayerSettings:
   metroCertificatePassword: 
   metroCertificateSubject: Workgroup
   metroCertificateIssuer: Workgroup
-  metroCertificateNotAfter: 00bceb869642d301
+  metroCertificateNotAfter: 007852db0e4ed301
   metroApplicationDescription: Sheep
   wsaImages: {}
   metroTileShortName: Sheep
