@@ -38,6 +38,7 @@ public class ItemDataPanel : MonoBehaviour {
             WoolCounter.WoolCount -= data.item.Cost;
             data.item.Bought = true;
             BuyButton.SetActive(false);
+            GameObject.FindGameObjectWithTag("WoolCounter").GetComponent<WoolUpdater>().UpdateWoolView(); 
         }
     }
 

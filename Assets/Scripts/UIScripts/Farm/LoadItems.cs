@@ -10,9 +10,11 @@ public class LoadItems : MonoBehaviour
     public GameObject ItemPrefab;
     public ItemsLists ItemsLists;
     public ItemDataPanel DataPanel;
+    public WoolUpdater WoolUpdater;
 
     private int selectedSheep;
     private List<GameObject> ItemsIcons = new List<GameObject>();
+
 
     void Start()
     {
