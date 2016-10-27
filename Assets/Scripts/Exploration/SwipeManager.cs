@@ -7,7 +7,7 @@ public class SwipeManager : MonoBehaviour
 {
     Vector2 touchStart = -Vector2.one;
     string value;
-    int MINDISTANCE = 75;
+    int MINDISTANCE = 100;
 
     // Use this for initialization
     void Start()
@@ -51,7 +51,6 @@ public class SwipeManager : MonoBehaviour
             {
                 Events.Instance.DispatchEvent("MoveDown", null);
             }
-            value = "Mouse: X: " + Mathf.Abs(touch.x - touchStart.x) + "Y: " + Mathf.Abs(touch.y - touchStart.y);
         }
         
 #endif
@@ -75,15 +74,13 @@ public class SwipeManager : MonoBehaviour
                     {
                         Events.Instance.DispatchEvent("MoveForward", null);
                     }
-                    value = "Touch: X: " + Mathf.Abs(touch.position.x - touchStart.x) + "Y: " + Mathf.Abs(touch.position.y - touchStart.y);
+                    else if (touch.position.y < touchStart.y && Mathf.Abs(touch.position.y - touchStart.y) > MINDISTANCE)
+                    {
+                        Events.Instance.DispatchEvent("MoveDown", null);
+                    }
             }
         }
 #endif
-    }
-
-    void OnGUI()
-    {
-        GUI.Label(new Rect(25, 25, 100, 100), value);
     }
 
     

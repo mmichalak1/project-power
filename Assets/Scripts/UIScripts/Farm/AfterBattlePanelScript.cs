@@ -58,6 +58,7 @@ public class AfterBattlePanelScript : MonoBehaviour
             if (isFinished[1] && isFinished[2] && isFinished[3] && isFinished[0])
             {
                 addingExperience = false;
+                ExplorationResult.Reset();
                 ExitButton.SetActive(true);
             }
 

@@ -733,7 +733,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_ForceModuleActive: 1
 --- !u!114 &712403816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1322,6 +1322,7 @@ MonoBehaviour:
   ItemPrefab: {fileID: 198380, guid: 32af07f0e333e994ba4d0584b200a4dd, type: 2}
   ItemsLists: {fileID: 11400000, guid: 4402c174e9839ff45a398590166aa6bf, type: 2}
   DataPanel: {fileID: 2067968502}
+  WoolUpdater: {fileID: 1844396940}
 --- !u!1 &1308304896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1926,6 +1927,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1834320684}
+--- !u!114 &1844396940 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11454634, guid: 9c8c28e5eae5b4f4b867b2743a135612,
+    type: 2}
+  m_PrefabInternal: {fileID: 223529913}
+  m_Script: {fileID: 11500000, guid: 2dcace8590ecd034f8991f89bf89edda, type: 3}
 --- !u!1 &1920821470
 GameObject:
   m_ObjectHideFlags: 0
@@ -2039,6 +2046,7 @@ MonoBehaviour:
   ItemPrefab: {fileID: 198380, guid: 32af07f0e333e994ba4d0584b200a4dd, type: 2}
   ItemsLists: {fileID: 11400000, guid: 4402c174e9839ff45a398590166aa6bf, type: 2}
   DataPanel: {fileID: 2067968502}
+  WoolUpdater: {fileID: 1844396940}
 --- !u!1 &1960762795
 GameObject:
   m_ObjectHideFlags: 0
