@@ -66,7 +66,7 @@ public class RandomBrain : AbstractBrain
             }
             IReciveDamage controller = sheep.GetComponent<IReciveDamage>();
             controller.DealDamage(_myRealDamage, parent);
-            Debug.Log(parent.name + " dealt " + _myRealDamage + " damage to " + sheep.name);
+          //  Debug.Log(parent.name + " dealt " + _myRealDamage + " damage to " + sheep.name);
         }
 
         base.Think(parent);

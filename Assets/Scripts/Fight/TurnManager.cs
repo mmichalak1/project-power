@@ -6,7 +6,7 @@ using System.Linq;
 
 public class TurnManager : MonoBehaviour
 {
-    public static bool ourTurn;
+    public static bool ourTurn = false;
     public static string skillName;
     public SheepDataHolder[] DataHolders;
     private GameObject selectedSheep;
@@ -56,12 +56,9 @@ public class TurnManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //Debug.Log(state.ToString());
-        GetPointerPosition();
-        if (ourTurn && hitedTarget != null)
+        if (ourTurn && GetPointerPosition() && hitedTarget != null)
             switch (state)
             {
                 case activeState.sheepPicked:
@@ -162,7 +159,7 @@ public class TurnManager : MonoBehaviour
 
     }
 
-    void GetPointerPosition()
+    bool GetPointerPosition()
     {
 #if UNITY_WSA_10_0 || UNITY_IOS || UNITY_ANDROID
         if (Input.touchCount > 0)
@@ -177,7 +174,9 @@ public class TurnManager : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             CheckTouch(Input.mousePosition);
+            return true;
         }
+        return false;
 #endif
     }
 
