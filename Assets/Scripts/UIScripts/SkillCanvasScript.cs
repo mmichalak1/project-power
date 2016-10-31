@@ -43,13 +43,15 @@ public class SkillCanvasScript : MonoBehaviour
                 //Debug.Log(skills[i].name + "    " + skills[i].Cooldown);
                 if (skills[i].Cooldown <= 0)
                 {
-                    SkillButtons[i].GetComponent<Button>().enabled = true;
+                    //SkillButtons[i].GetComponent<Button>().enabled = true;
+                    SkillButtons[i].GetComponent<CanvasGroup>().blocksRaycasts = true;
                     SkillButtons[i].transform.GetComponentInChildren<Text>().enabled = false;
                     SkillButtons[i].GetComponent<Image>().color = Color.white;
                 }
                 else
                 {
-                    SkillButtons[i].GetComponent<Button>().enabled = false;
+                    //SkillButtons[i].GetComponent<Button>().enabled = false;
+                    SkillButtons[i].GetComponent<CanvasGroup>().blocksRaycasts = false;
                     SkillButtons[i].GetComponent<Image>().color = Color.grey;
                     SkillButtons[i].transform.GetComponentInChildren<Text>().enabled = true;
                     SkillButtons[i].transform.GetComponentInChildren<Text>().text = skills[i].Cooldown.ToString();
@@ -57,7 +59,8 @@ public class SkillCanvasScript : MonoBehaviour
 
                 if(!skills[i].IsActive)
                 {
-                    SkillButtons[i].GetComponent<Button>().enabled = false;
+                    //SkillButtons[i].GetComponent<Button>().enabled = false;
+                    SkillButtons[i].GetComponent<CanvasGroup>().blocksRaycasts = false;
                     SkillButtons[i].GetComponent<Image>().color = Color.grey;
                 }
             }

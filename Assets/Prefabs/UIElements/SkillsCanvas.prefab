@@ -30,6 +30,7 @@ GameObject:
   - 114: {fileID: 11468948}
   - 95: {fileID: 9506932}
   - 114: {fileID: 11457502}
+  - 225: {fileID: 22549828}
   m_Layer: 5
   m_Name: Skill3
   m_TagString: Bubble
@@ -121,6 +122,7 @@ GameObject:
   - 114: {fileID: 11463896}
   - 95: {fileID: 9588908}
   - 114: {fileID: 11486270}
+  - 225: {fileID: 22539458}
   m_Layer: 5
   m_Name: Skill1
   m_TagString: Bubble
@@ -141,6 +143,7 @@ GameObject:
   - 114: {fileID: 11493828}
   - 95: {fileID: 9560148}
   - 114: {fileID: 11488326}
+  - 225: {fileID: 22554410}
   m_Layer: 5
   m_Name: Skill0
   m_TagString: Bubble
@@ -161,6 +164,7 @@ GameObject:
   - 114: {fileID: 11481228}
   - 95: {fileID: 9508712}
   - 114: {fileID: 11442630}
+  - 225: {fileID: 22568298}
   m_Layer: 5
   m_Name: Skill2
   m_TagString: Bubble
@@ -835,8 +839,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160482}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0332}
-  m_LocalScale: {x: 0.0004, y: 0.0004, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0519}
+  m_LocalScale: {x: 0.0006, y: 0.0006, z: 1}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_Children:
   - {fileID: 22476766}
@@ -847,7 +851,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.025918387, y: -0.021301284}
+  m_AnchoredPosition: {x: -0.032154486, y: -0.029209495}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22440896
@@ -998,6 +1002,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &22539458
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172980}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!225 &22549828
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124022}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!225 &22554410
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187332}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!225 &22568298
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193550}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
