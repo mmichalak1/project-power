@@ -150,7 +150,6 @@ public class MovementController : MonoBehaviour
                         }
                 } break;
             default: { return false; }
-                break;
         }
 
         return false;

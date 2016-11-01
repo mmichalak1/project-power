@@ -57,7 +57,7 @@ public class SkillCanvasScript : MonoBehaviour
                     SkillButtons[i].transform.GetComponentInChildren<Text>().text = skills[i].Cooldown.ToString();
                 }
 
-                if(!skills[i].IsActive)
+                if (!skills[i].IsActive)
                 {
                     //SkillButtons[i].GetComponent<Button>().enabled = false;
                     SkillButtons[i].GetComponent<CanvasGroup>().blocksRaycasts = false;
@@ -96,7 +96,8 @@ public class SkillCanvasScript : MonoBehaviour
                 {
                     TurnManager.state = TurnManager.activeState.waiting;
                     TurnManager.skillName = skills[ordinal].name;
-                    Events.Instance.DispatchEvent("SetText", "Resource Left : " + TurnManager.currentResource + " - " + skills[ordinal].Cost);
+                    if (!TurnPlaner.Instance.ContainsPlanForSheepSkill(transform.parent.name, skills[ordinal]))
+                        Events.Instance.DispatchEvent("SetText", "Resource Left : " + TurnManager.currentResource + " - " + skills[ordinal].Cost);
                     TurnManager.ChangeFlag = true;
                     TurnManager.hitedTarget = null;
                 });
