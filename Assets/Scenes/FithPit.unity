@@ -10349,11 +10349,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 11457502, guid: e2db556ee93dc1e4cb71590fb0c511ff, type: 2}
-      propertyPath: SkillDescription
+    - target: {fileID: 22378094, guid: e2db556ee93dc1e4cb71590fb0c511ff, type: 2}
+      propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 1726257463}
-    - target: {fileID: 11442630, guid: e2db556ee93dc1e4cb71590fb0c511ff, type: 2}
+      objectReference: {fileID: 1746547623}
+    - target: {fileID: 11488326, guid: e2db556ee93dc1e4cb71590fb0c511ff, type: 2}
       propertyPath: SkillDescription
       value: 
       objectReference: {fileID: 1726257463}
@@ -10361,22 +10361,14 @@ Prefab:
       propertyPath: SkillDescription
       value: 
       objectReference: {fileID: 1726257463}
-    - target: {fileID: 11488326, guid: e2db556ee93dc1e4cb71590fb0c511ff, type: 2}
+    - target: {fileID: 11442630, guid: e2db556ee93dc1e4cb71590fb0c511ff, type: 2}
       propertyPath: SkillDescription
       value: 
       objectReference: {fileID: 1726257463}
-    - target: {fileID: 22378094, guid: e2db556ee93dc1e4cb71590fb0c511ff, type: 2}
-      propertyPath: m_Camera
+    - target: {fileID: 11457502, guid: e2db556ee93dc1e4cb71590fb0c511ff, type: 2}
+      propertyPath: SkillDescription
       value: 
-      objectReference: {fileID: 1746547623}
-    - target: {fileID: 22409456, guid: e2db556ee93dc1e4cb71590fb0c511ff, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.0006
-      objectReference: {fileID: 0}
-    - target: {fileID: 22409456, guid: e2db556ee93dc1e4cb71590fb0c511ff, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.0006
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1726257463}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2db556ee93dc1e4cb71590fb0c511ff, type: 2}
   m_IsPrefabParent: 0
@@ -19494,6 +19486,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 163654, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
   m_IsPrefabParent: 0
@@ -24675,6 +24671,14 @@ Prefab:
     - target: {fileID: 163654, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
       propertyPath: m_Name
       value: wolf (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470218, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
+      propertyPath: _maxHealth
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470218, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}
+      propertyPath: _currentHealth
+      value: 1500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30bf5005508ed6b45be4e7b963e0560f, type: 2}

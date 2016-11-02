@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using Assets.LogicSystem;
 
 public class SkillCanvasScript : MonoBehaviour
@@ -21,7 +22,7 @@ public class SkillCanvasScript : MonoBehaviour
         for (int i = 0; i < SkillButtons.Length; i++)
         {
             ApplySkillData(SkillButtons[i], skills[i]);
-            SkillButtonAction(i);
+            //SkillButtonAction(i);
         }
 
         Events.Instance.RegisterForEvent("EnterFight", x =>
@@ -57,7 +58,7 @@ public class SkillCanvasScript : MonoBehaviour
                     SkillButtons[i].transform.GetComponentInChildren<Text>().text = skills[i].Cooldown.ToString();
                 }
 
-                if(!skills[i].IsActive)
+                if (!skills[i].IsActive)
                 {
                     //SkillButtons[i].GetComponent<Button>().enabled = false;
                     SkillButtons[i].GetComponent<CanvasGroup>().blocksRaycasts = false;
@@ -88,17 +89,4 @@ public class SkillCanvasScript : MonoBehaviour
         }
     }
 
-    void SkillButtonAction(int ordinal)
-    {
-        if (skills[ordinal] != null)
-            if (skills[ordinal].Cooldown <= 0)
-                SkillButtons[ordinal].GetComponent<Button>().onClick.AddListener(() =>
-                {
-                    TurnManager.state = TurnManager.activeState.waiting;
-                    TurnManager.skillName = skills[ordinal].name;
-                    Events.Instance.DispatchEvent("SetText", "Resource Left : " + TurnManager.currentResource + " - " + skills[ordinal].Cost);
-                    TurnManager.ChangeFlag = true;
-                    TurnManager.hitedTarget = null;
-                });
-    }
 }
