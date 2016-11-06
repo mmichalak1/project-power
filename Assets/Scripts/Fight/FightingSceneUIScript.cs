@@ -45,7 +45,7 @@ public class FightingSceneUIScript : MonoBehaviour
     {
         GameObject sheep = obj as GameObject;
         DisableSkillCanvases();
-        sheep.transform.GetChild(1).gameObject.SetActive(true);
+        sheep.transform.GetChild(0).gameObject.SetActive(true);
     }
 
     public void Cancel()
@@ -66,7 +66,7 @@ public class FightingSceneUIScript : MonoBehaviour
         {
             if (sheeps[i] != null)
             {
-                sheeps[i].transform.GetChild(1).gameObject.SetActive(false);
+                sheeps[i].transform.GetChild(0).gameObject.SetActive(false);
             }
         }
     }

@@ -106,7 +106,7 @@ public class TurnManager : MonoBehaviour
 
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Sheep"))
         {
-            go.transform.GetChild(1).GetComponent<SkillCanvasScript>().UpdateSkillsState();
+            go.transform.GetChild(0).GetComponent<SkillCanvasScript>().UpdateSkillsState();
             var objs = go.GetComponents<Assets.Scripts.Interfaces.IDisappearAfterTurn>();
             foreach (var item in objs)
                 item.Tick();
