@@ -7,7 +7,7 @@ using System.Linq;
 public class TurnManager : MonoBehaviour
 {
     public static bool ourTurn = false;
-    public static string skillName;
+    public static Skill pickedSkill;
     public SheepDataHolder[] DataHolders;
     private GameObject selectedSheep;
     public const int maxResource = 10;
@@ -91,7 +91,7 @@ public class TurnManager : MonoBehaviour
         FightingSceneUIScript.DisableSkillCanvases();
 
         state = activeState.nothingPicked;
-        skillName = null;
+        //pickedSkill = null;
 
         ourTurn = false;
 
@@ -106,7 +106,7 @@ public class TurnManager : MonoBehaviour
 
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Sheep"))
         {
-            go.transform.GetChild(1).GetComponent<SkillCanvasScript>().UpdateSkillsState();
+            go.transform.GetChild(0).GetComponent<SkillCanvasScript>().UpdateSkillsState();
             var objs = go.GetComponents<Assets.Scripts.Interfaces.IDisappearAfterTurn>();
             foreach (var item in objs)
                 item.Tick();
@@ -132,8 +132,7 @@ public class TurnManager : MonoBehaviour
         if (hitedTarget != null)
             if (hitedTarget.tag == "Sheep" || hitedTarget.tag == "Enemy")
             {
-                var comp = selectedSheep.GetComponent<SheepDataHolder>();
-                var skill = comp.SheepData.SheepSkills.Skills.Where(x => x != null).SingleOrDefault(x => x.name == skillName);
+                var skill = pickedSkill;
                 if (currentResource - skill.Cost >= 0 || TurnPlaner.Instance.ContainsPlanForSheepSkill(selectedSheep.name, skill))
                 {
                     skill.OnSkillPlanned(selectedSheep, hitedTarget.transform.gameObject);
