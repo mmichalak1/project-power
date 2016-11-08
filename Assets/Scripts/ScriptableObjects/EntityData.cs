@@ -10,6 +10,8 @@ public class EntityData : ScriptableObject {
     public int BasicAttack = 20;
     public int BasicDefence = 0;
 
+    public Sprite Portrait;
+
     [HideInInspector]
     public int MaxHealth = 100;
     public int Attack = 20;
@@ -37,7 +39,7 @@ public class EntityData : ScriptableObject {
     public void LevelUp()
     {
         Level++;
-        Experience = 0;
+        Experience -= ExperienceForNextLevel;
         if (Level > 1)
             ExperienceForNextLevel += 120 * Level;
         switch (SheepClass)

@@ -7,11 +7,13 @@ public class AfterBattlePanelScript : MonoBehaviour
 
     public Text ExplorationResultText;
     public GameObject ExitButton;
+    public int incomePerTick;
 
     public Image[] StaticExpIndicator;
     public Image[] DynamicExpIndicator;
     public GameObject[] LevelUpIndicators;
     public EntityData[] sheepData;
+    public Image[] Avatars;
     public bool addingExperience = false;
 
     private bool[] isFinished = new bool[4];
@@ -25,6 +27,7 @@ public class AfterBattlePanelScript : MonoBehaviour
             StaticExpIndicator[i].fillAmount = DynamicExpIndicator[i].fillAmount = (float)sheepData[i].Experience / (float)sheepData[i].ExperienceForNextLevel;
             isFinished[i] = false;
             ExplorationResultText.text = ExplorationResult.Instance.GameResult.ToString();
+            Avatars[i].sprite = sheepData[i].Portrait;
         }
 
     }
@@ -41,8 +44,16 @@ public class AfterBattlePanelScript : MonoBehaviour
 
                 if(data.ExperienceGained>0)
                 {
-                    data.Experience++;
-                    data.ExperienceGained--;
+                    if(data.ExperienceGained < incomePerTick)
+                    {
+                        data.Experience += data.ExperienceGained;
+                        data.ExperienceGained = 0;
+                    }
+                    else
+                    {
+                        data.Experience += incomePerTick;
+                        data.ExperienceGained -= 10;
+                    }
                     if (data.Experience == data.ExperienceForNextLevel)
                     {
                         LevelUpIndicators[i].SetActive(true);

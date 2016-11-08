@@ -15,6 +15,7 @@ MonoBehaviour:
   BasicMaxHealth: 100
   BasicAttack: 25
   BasicDefence: 0
+  Portrait: {fileID: 21300000, guid: 72c86b84ff9ec264d8fa5c4b4c8556d8, type: 3}
   MaxHealth: 100
   Attack: 25
   Defence: 0
@@ -26,5 +27,5 @@ MonoBehaviour:
   SheepSkills: {fileID: 11400000, guid: 26a5bce2107293945be8aa5a3b9e30a7, type: 2}
   OffensiveItem: {fileID: 0}
   DefensiveItem: {fileID: 0}
-  ExperienceGained: 0
+  ExperienceGained: 100
   SheepClass: 0

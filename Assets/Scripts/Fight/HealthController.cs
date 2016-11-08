@@ -89,9 +89,9 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     public void DealDamage(int value)
     {
         if (_defence >= 60)
-            value *= 60 / 100;
+            value *= 60 / 1000;
         else
-            value *= _defence / 100;
+            value *= _defence / 1000;
         _currentHealth -= value;
         if (DamageIndicator != null)
             DamageIndicator.BeginIndication(0 - value);

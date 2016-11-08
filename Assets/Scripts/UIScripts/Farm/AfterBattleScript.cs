@@ -5,7 +5,7 @@ using Assets.LogicSystem;
 public class AfterBattleScript : MonoBehaviour {
 
     public GameObject ResultsPanel;
-
+    public Button[] SceneButtons;
 
 	// Use this for initialization
 	void Start () {
@@ -16,8 +16,9 @@ public class AfterBattleScript : MonoBehaviour {
                 ExplorationResult.Instance.LevelPlayed.OnLevelWon();
                 break;
             case Assets.Scripts.GameResult.Loss:
-                ResultsPanel.GetComponent<AfterBattlePanelScript>().addingExperience = true;
+                ResultsPanel.GetComponent<AfterBattlePanelScript>().addingExperience = false;
                 ExplorationResult.Instance.LevelPlayed.OnLevelLost();
+                EnableButtons();
                 break;
             case Assets.Scripts.GameResult.Exited:
                 ResultsPanel.GetComponent<AfterBattlePanelScript>().addingExperience = true;
@@ -26,10 +27,18 @@ public class AfterBattleScript : MonoBehaviour {
             case Assets.Scripts.GameResult.None:
                 ResultsPanel.SetActive(false);
                 ResultsPanel.GetComponent<AfterBattlePanelScript>().addingExperience = false;
+                EnableButtons();
                 break;
             default:
                 break;
         }
+    }
 
+    public void EnableButtons()
+    {
+        foreach (var button in SceneButtons)
+        {
+            button.interactable = true;
+        }
     }
 }
