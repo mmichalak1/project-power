@@ -8,7 +8,7 @@ public class BarberCanvasScript : MonoBehaviour
 
     public Slider[] sliders;
     public Text[] Names;
-    public SheepData[] sheepData;
+    public EntityData[] sheepData;
     public Text[] SlidersValue;
     public Text[] MaxWoolText;
 

@@ -29,9 +29,8 @@ public class GameState : MonoBehaviour {
         Panel.SetActive(true);
         foreach (var item in GameObject.FindGameObjectsWithTag("Sheep"))
         {
-            item.GetComponent<SheepDataHolder>().RevertItemsChange();
+            item.GetComponent<EntityDataHolder>().RevertItemsChange();
         }
-        GameObject.FindGameObjectWithTag("GameStatus").GetComponent<GameStatus>().WoolCounter.WoolCount += WoolForWin;
         
     }
 }

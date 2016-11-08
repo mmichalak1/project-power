@@ -17,7 +17,7 @@ public class SkillCanvasScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        skills = gameObject.GetComponentInParent<SheepDataHolder>().SheepData.SheepSkills.Skills;
+        skills = gameObject.GetComponentInParent<EntityDataHolder>().SheepData.SheepSkills.Skills;
 
         for (int i = 0; i < SkillButtons.Length; i++)
         {

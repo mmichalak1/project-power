@@ -7,23 +7,21 @@ public class SheepDataLoader : MonoBehaviour
     [SerializeField]
     private GameObject[] Children;
     [SerializeField]
-    private SheepData[] DefaultLoadout;
+    private EntityData[] DefaultLoadout;
 
     // Use this for initialization
     void Start()
     {
         var go = GameObject.FindGameObjectWithTag("GameStatus");
-        SheepData[] sheep;
+        EntityData[] sheep;
         if (go != null)
             sheep = go.GetComponent<GameStatus>().Sheep;
         else
             sheep = DefaultLoadout;
 
-        int i = 0;
-        foreach (var sh in sheep)
+        for (int i = 0; i < sheep.Length; i++)
         {
-            Children[i].GetComponent<SheepDataHolder>().LoadSheepData(sh);
-            i++; 
+            Children[i].GetComponent<EntityDataHolder>().LoadSheepData(sheep[i]);
         }
     }
 }

@@ -24,7 +24,7 @@ public class SheepGroupManager : MonoBehaviour {
                 {
                     ExplorationResult.Instance.GameResult = Assets.Scripts.GameResult.Loss;
                     Events.Instance.DispatchEvent("BattleLost", null);
-                    foreach (var item in gameObject.GetComponentsInChildren<SheepDataHolder>())
+                    foreach (var item in gameObject.GetComponentsInChildren<EntityDataHolder>())
                         item.RevertItemsChange();
                     BattleUI.SetActive(false);
                     ExplorationUI.SetActive(true);
@@ -39,7 +39,7 @@ public class SheepGroupManager : MonoBehaviour {
                 child.gameObject.GetComponent<ICanBeHealed>().HealToFull();
                 child.gameObject.SetActive(true);
             }
-            foreach (var data in GetComponentsInChildren<SheepDataHolder>())
+            foreach (var data in GetComponentsInChildren<EntityDataHolder>())
                 data.SheepData.SheepSkills.ResetCooldowns();
             Events.Instance.DispatchEvent("DestroyHealthBars", null);
                 

@@ -15,13 +15,13 @@ public class ItemsLists : ScriptableObject {
     public List<Item> RogueOffensive;
     public List<Item> RogueDefensive;
 
-    public List<Item> LoadItems(SheepData.Class sheepClass, Item.ItemType type)
+    public List<Item> LoadItems(EntityData.Class sheepClass, Item.ItemType type)
     {
         var result = new List<Item>();
 
         switch (sheepClass)
         {
-            case SheepData.Class.Warrior:
+            case EntityData.Class.Warrior:
                 if(type == Item.ItemType.Defensive)
                 {
                     if (TierLower != null)
@@ -35,7 +35,7 @@ public class ItemsLists : ScriptableObject {
                     result.AddRange(WarriorOffensive);
                 }
                 break;
-            case SheepData.Class.Mage:
+            case EntityData.Class.Mage:
                 if(type == Item.ItemType.Defensive)
                 {
                     if (TierLower != null)
@@ -49,7 +49,7 @@ public class ItemsLists : ScriptableObject {
                     result.AddRange(MageOffensive);
                 }
                 break;
-            case SheepData.Class.Cleric:
+            case EntityData.Class.Cleric:
                 if (type == Item.ItemType.Defensive)
                 {
                     if (TierLower != null)
@@ -63,7 +63,7 @@ public class ItemsLists : ScriptableObject {
                     result.AddRange(ClericOffensive);
                 }
                 break;
-            case SheepData.Class.Rouge:
+            case EntityData.Class.Rouge:
                 if (type == Item.ItemType.Defensive)
                 {
                     if (TierLower != null)

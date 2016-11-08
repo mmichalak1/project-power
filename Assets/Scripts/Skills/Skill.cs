@@ -87,7 +87,7 @@ public abstract class Skill : ScriptableObject {
     {
         _cooldown = 0;
         _cost = BaseCost;
-        _power = (parent.GetComponent<SheepDataHolder>().SheepData.Attack * StatsMultiplier)/100;
+        _power = (parent.GetComponent<EntityDataHolder>().SheepData.Attack * StatsMultiplier)/100;
         _parent = parent;
         _action = PerformAction;
     }

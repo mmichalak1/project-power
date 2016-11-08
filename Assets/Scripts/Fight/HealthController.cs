@@ -10,11 +10,18 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     private int _maxHealth = 100;
     [SerializeField]
     private int _currentHealth = 100;
+    private int _defence = 0;
+
+    public int Defence
+    {
+        get { return _defence; }
+        set { _defence = value; }
+    }
+        
 
     public GameObject LastAttacker = null;
 
     public DamageIndicatorScript DamageIndicator;
-
 
     public Image HealthIndicator;
 
@@ -81,6 +88,10 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     ///</summary>
     public void DealDamage(int value)
     {
+        if (_defence >= 60)
+            value *= 60 / 100;
+        else
+            value *= _defence / 100;
         _currentHealth -= value;
         if (DamageIndicator != null)
             DamageIndicator.BeginIndication(0 - value);

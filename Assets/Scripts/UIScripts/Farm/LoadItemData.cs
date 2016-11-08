@@ -9,10 +9,10 @@ public class LoadItemData : MonoBehaviour {
     public Text ItemCost;
 
     public Item item;
-    public SheepData Sheep;
+    public EntityData Sheep;
 
 
-    public void LoadData(Item item, SheepData selectedSheep)
+    public void LoadData(Item item, EntityData selectedSheep)
     {
         this.item = item;
         Sheep = selectedSheep;
