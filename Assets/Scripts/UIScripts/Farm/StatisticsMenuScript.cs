@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class StatisticsMenuScript : MonoBehaviour {
 
-    public SheepData[] SheepData;
+    public EntityData[] SheepData;
 
     public Text Name, Attack, HP, WoolCapacity, Defence, Defence_Bonus_Counter, Wool, Wool_Cap, Exp;
     public Image[] SheepIcon;
@@ -18,7 +18,7 @@ public class StatisticsMenuScript : MonoBehaviour {
 
 	public void LoadData(int SheepNumber)
     {
-        SheepData data = SheepData[SheepNumber];
+        EntityData data = SheepData[SheepNumber];
         Name.text = data.Name;
         Attack.text = data.BasicAttack.ToString();
         HP.text = data.BasicMaxHealth.ToString();

@@ -7,7 +7,7 @@ public class SkillsMenuScript : MonoBehaviour {
 
     public WoolCounter WoolCounter;
 
-    public SheepData[] SheepData;
+    public EntityData[] SheepData;
     public int SheepNumber;
 
     public Image[] SheepIcon;

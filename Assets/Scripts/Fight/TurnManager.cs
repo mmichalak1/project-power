@@ -8,7 +8,7 @@ public class TurnManager : MonoBehaviour
 {
     public static bool ourTurn = false;
     public static Skill pickedSkill;
-    public SheepDataHolder[] DataHolders;
+    public EntityDataHolder[] DataHolders;
     private GameObject selectedSheep;
     public const int maxResource = 10;
     public static int currentResource;
@@ -101,7 +101,7 @@ public class TurnManager : MonoBehaviour
         wolfManager.ApplyGroupTurn();
 
 
-        foreach (SheepDataHolder skills in DataHolders)
+        foreach (EntityDataHolder skills in DataHolders)
             skills.SheepData.SheepSkills.UpdateCooldowns();
 
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Sheep"))

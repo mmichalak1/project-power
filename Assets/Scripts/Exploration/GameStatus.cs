@@ -3,8 +3,8 @@ using System.Collections;
 
 public class GameStatus : MonoBehaviour {
 
+    public EntityData[] Sheep;
     public WoolCounter WoolCounter;
-    public SheepData[] Sheep;
 	// Use this for initialization
 	void Start () {
         var scripts = GameObject.FindGameObjectsWithTag("GameStatus");

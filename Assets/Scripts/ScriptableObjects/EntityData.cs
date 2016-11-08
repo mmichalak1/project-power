@@ -2,7 +2,7 @@
 using System.Collections;
 
 [CreateAssetMenu(menuName = "Game/Sheep")]
-public class SheepData : ScriptableObject {
+public class EntityData : ScriptableObject {
 
     public string Name = "Wacław";
 

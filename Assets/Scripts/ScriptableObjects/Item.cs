@@ -16,7 +16,7 @@ public class Item : ScriptableObject {
     public Stats[] StatsList;
     public int[] ValueList;
 
-    public void ApplyItemChanges(SheepData data)
+    public void ApplyItemChanges(EntityData data)
     {
         for(int i=0; i<StatsList.Length; i++)
         {
@@ -43,7 +43,7 @@ public class Item : ScriptableObject {
     }
 
 
-    public void ReverseItemChanges(SheepData data)
+    public void ReverseItemChanges(EntityData data)
     {
         for (int i = 0; i < StatsList.Length; i++)
         {

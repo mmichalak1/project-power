@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LoadItems : MonoBehaviour
 {
     public Item.ItemType type = Item.ItemType.Defensive;
-    public SheepData[] Sheep;
+    public EntityData[] Sheep;
     public GameObject ItemPrefab;
     public ItemsLists ItemsLists;
     public ItemDataPanel DataPanel;

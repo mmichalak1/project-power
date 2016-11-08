@@ -15,9 +15,9 @@ public class ProvideExperience : MonoBehaviour {
         foreach (var item in sheep)
         {
             if(item == hp.LastAttacker)
-                item.GetComponent<SheepDataHolder>().SheepData.ExperienceGained += Experience;
+                item.GetComponent<EntityDataHolder>().SheepData.ExperienceGained += Experience;
             else
-                item.GetComponent<SheepDataHolder>().SheepData.ExperienceGained += (Experience * PartialExperience)/100;
+                item.GetComponent<EntityDataHolder>().SheepData.ExperienceGained += (Experience * PartialExperience)/100;
         }
     }
 

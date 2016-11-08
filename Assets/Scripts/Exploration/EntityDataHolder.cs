@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class SheepDataHolder : MonoBehaviour
+public class EntityDataHolder : MonoBehaviour
 {
 
     [SerializeField]
-    private SheepData _sheepData;
-    public void LoadSheepData(SheepData data)
+    private EntityData _sheepData;
+    public void LoadSheepData(EntityData data)
     {
         SheepData = data;
         gameObject.name = data.Name;
@@ -39,7 +39,7 @@ public class SheepDataHolder : MonoBehaviour
     }
 
 
-    public SheepData SheepData
+    public EntityData SheepData
     {
         get { return _sheepData; }
         private set { _sheepData = value; }

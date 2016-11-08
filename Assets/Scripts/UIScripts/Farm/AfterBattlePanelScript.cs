@@ -11,7 +11,7 @@ public class AfterBattlePanelScript : MonoBehaviour
     public Image[] StaticExpIndicator;
     public Image[] DynamicExpIndicator;
     public GameObject[] LevelUpIndicators;
-    public SheepData[] sheepData;
+    public EntityData[] sheepData;
     public bool addingExperience = false;
 
     private bool[] isFinished = new bool[4];
