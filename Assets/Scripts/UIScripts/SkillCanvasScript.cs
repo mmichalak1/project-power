@@ -31,6 +31,12 @@ public class SkillCanvasScript : MonoBehaviour
         }
 
         );
+  
+        Events.Instance.RegisterForEvent(transform.parent.gameObject.name + "skill", x =>
+        {
+            UpdateSkillsState();
+        }
+        );
 
         gameObject.SetActive(false);
     }
