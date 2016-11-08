@@ -166,6 +166,7 @@ public class TurnManager : MonoBehaviour
             if (Input.GetTouch(0).phase == TouchPhase.Ended)
             {
                 CheckTouch(Input.GetTouch(0).position);
+                return true;
             }
         }
 #endif
@@ -175,8 +176,8 @@ public class TurnManager : MonoBehaviour
             CheckTouch(Input.mousePosition);
             return true;
         }
-        return false;
 #endif
+        return false;
     }
 
     void CheckTouch(Vector3 pos)
