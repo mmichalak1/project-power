@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 using Assets.LogicSystem;
 
@@ -17,7 +18,9 @@ public class MovementController : MonoBehaviour
     private Ray myRay;
     private int x;
     private int z;
+    private bool shallNotPassControl = false;
 
+    public Image ShallNotPass;
     public World World;
     public Transform forward;
 
@@ -37,6 +40,11 @@ public class MovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (shallNotPassControl)
+            Appear();
+        else
+            Fade();
+
         Ray myRay = new Ray(transform.position + Vector3.up, (forward.position - transform.position).normalized);
         Debug.DrawLine(myRay.origin, myRay.origin + myRay.direction * 3);
         if (move)
@@ -57,21 +65,14 @@ public class MovementController : MonoBehaviour
     {
         if (!move)
         {
-            //RaycastHit res;
-
-            //if (Physics.Raycast(myRay.origin, myRay.origin + myRay.direction * 3, out res))
-            //{
-            //    Debug.Log("Detected " + res.collider.gameObject.name);
-            //    if (res.collider.gameObject.transform.root.tag == "Unpassable")
-            //    {
-            //        Debug.Log("Tried to walk into " + res.collider.gameObject.name);
-            //        return;
-            //    }
-            //}
             if (CheckIfAccessible(true))
             {
                 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.right).normalized * 2;
                 move = true;
+            }
+            else
+            {
+                shallNotPassControl = true;
             }
         }
     }
@@ -84,6 +85,10 @@ public class MovementController : MonoBehaviour
             {
                 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.left).normalized * 2;
                 move = true;
+            }
+            else
+            {
+                shallNotPassControl = true;
             }
         }
     }
@@ -121,7 +126,8 @@ public class MovementController : MonoBehaviour
                             return true;
                         }
 
-                } break;
+                }
+                break;
             case 90:
                 {
                     if (z - signal >= 0)
@@ -130,7 +136,8 @@ public class MovementController : MonoBehaviour
                             z -= signal;
                             return true;
                         }
-                } break;
+                }
+                break;
             case 180:
                 {
                     if (x - signal >= 0)
@@ -139,7 +146,8 @@ public class MovementController : MonoBehaviour
                             x -= signal;
                             return true;
                         }
-                } break;
+                }
+                break;
             case 270:
                 {
                     if (z + signal < World.heigth)
@@ -148,7 +156,8 @@ public class MovementController : MonoBehaviour
                             z += signal;
                             return true;
                         }
-                } break;
+                }
+                break;
             default: { return false; }
         }
 
@@ -166,6 +175,27 @@ public class MovementController : MonoBehaviour
             return 270;
         else
             return 0;
+    }
+
+    void Appear()
+    {
+        if (ShallNotPass.color.a < 1.0)
+        {
+            ShallNotPass.color += new Color(0, 0, 0, 10 * Time.deltaTime);
+            Debug.Log(ShallNotPass.color.a);
+        }
+        else
+        {
+            shallNotPassControl = false;
+        }
+    }
+
+    void Fade()
+    {
+        if (ShallNotPass.color.a > 0)
+        {
+            ShallNotPass.color -= new Color(0, 0, 0,  Time.deltaTime);
+        }
     }
 
 }
