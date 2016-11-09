@@ -27,5 +27,5 @@ MonoBehaviour:
   SheepSkills: {fileID: 11400000, guid: 26a5bce2107293945be8aa5a3b9e30a7, type: 2}
   OffensiveItem: {fileID: 0}
   DefensiveItem: {fileID: 0}
-  ExperienceGained: 100
+  ExperienceGained: 0
   SheepClass: 0

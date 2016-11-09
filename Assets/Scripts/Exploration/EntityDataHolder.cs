@@ -14,6 +14,7 @@ public class EntityDataHolder : MonoBehaviour
         var comp = gameObject.GetComponent<HealthController>();
         comp.MaxHealth = data.MaxHealth;
         comp.HealToFull();
+        comp.Defence = data.Defence;
         data.ResetStats();
         ApplyItemsChange();
 

@@ -15,7 +15,7 @@ MonoBehaviour:
   BaseCost: 4
   BaseCooldown: 3
   SkillLevel: 0
-  isActive: 1
+  isActive: 0
   unlockCost: 20
   Description: Skill user will be hidden for enemy attack for two turn.
   RequiredSkills: []

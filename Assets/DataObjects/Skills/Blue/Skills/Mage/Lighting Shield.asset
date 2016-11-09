@@ -15,7 +15,7 @@ MonoBehaviour:
   BaseCost: 3
   BaseCooldown: 2
   SkillLevel: 0
-  isActive: 1
+  isActive: 0
   unlockCost: 20
   Description: 'Target sheep will be cover with shield that deal damage to attacker.
     Stays two turns. '

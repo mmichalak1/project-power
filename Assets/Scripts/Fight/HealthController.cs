@@ -17,7 +17,7 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
         get { return _defence; }
         set { _defence = value; }
     }
-        
+
 
     public GameObject LastAttacker = null;
 
@@ -77,7 +77,7 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
             value = (value * damageReductor.DamageReduced) / 100;
         }
 
-       
+
 
 
         DealDamage(value);
@@ -88,10 +88,13 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     ///</summary>
     public void DealDamage(int value)
     {
-        if (_defence >= 60)
-            value *= 60 / 1000;
-        else
-            value *= _defence / 1000;
+        if (_defence > 0)
+        {
+            if (_defence >= 60)
+                value *= 60 / 1000;
+            else
+                value *= _defence / 1000;
+        }
         _currentHealth -= value;
         if (DamageIndicator != null)
             DamageIndicator.BeginIndication(0 - value);
