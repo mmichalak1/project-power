@@ -155,6 +155,11 @@ public class TurnManager : MonoBehaviour
             Events.Instance.DispatchEvent(hitedTarget.transform.gameObject.name + "skill", hitedTarget.transform.gameObject);
             return;
         }
+        else
+        {
+            FightingSceneUIScript.DisableSkillCanvases();
+            selectedSheep = null;
+        }
 
     }
 
