@@ -12,12 +12,15 @@ public class GameState : MonoBehaviour {
     [SerializeField]
     private int WoolForWin = 100;
 
+    public GameObject Map;
+
 	// Use this for initialization
 	void Start () {
        // ExplorationResult.Reset();
         Events.Instance.RegisterForEvent("BattleWon", x =>
          {
              EnemyGroups.Remove(x as GameObject);
+             Map.SetActive(true);
              if (EnemyGroups.Count == 0)
                  ExplorationWon();
          });
@@ -27,6 +30,7 @@ public class GameState : MonoBehaviour {
     {
         ExplorationResult.Instance.GameResult = Assets.Scripts.GameResult.Win;
         Panel.SetActive(true);
+        Map.SetActive(false);
         foreach (var item in GameObject.FindGameObjectsWithTag("Sheep"))
         {
             item.GetComponent<EntityDataHolder>().RevertItemsChange();
