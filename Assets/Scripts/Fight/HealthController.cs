@@ -57,7 +57,6 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
         if (CurrentHealth <= 0)
             return;
         LastAttacker = source;
-        //Debug.Log("Damaging");
         var redirectComponent = gameObject.GetComponent<RedirectDamage>();
         if (redirectComponent != null)
         {

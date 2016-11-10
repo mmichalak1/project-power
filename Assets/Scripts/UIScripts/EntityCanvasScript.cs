@@ -15,6 +15,7 @@ public class EntityCanvasScript : MonoBehaviour {
     void Show(object obj)
     {
         gameObject.SetActive(true);
+        ClearDamageIndicators();
     }
 
     void Hide(object obj)
@@ -27,5 +28,11 @@ public class EntityCanvasScript : MonoBehaviour {
         Events.Instance.UnregisterForEvent("ShowHealthBar", Show);
         Events.Instance.UnregisterForEvent("BattleWon", Hide);
         Events.Instance.UnregisterForEvent("BattleLost", Hide);
+    }
+
+    public void ClearDamageIndicators()
+    {
+        for (int i = transform.childCount - 1; i > 0; i--)
+            Destroy(transform.GetChild(i).gameObject);
     }
 }

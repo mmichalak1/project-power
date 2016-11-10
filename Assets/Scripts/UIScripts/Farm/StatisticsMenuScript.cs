@@ -5,7 +5,7 @@ public class StatisticsMenuScript : MonoBehaviour {
 
     public EntityData[] SheepData;
 
-    public Text Name, Attack, HP, WoolCapacity, Defence, Defence_Bonus_Counter, Wool, Wool_Cap, Exp;
+    public Text Name, Attack, HP, WoolCapacity, Defence, Defence_Bonus_Counter, Wool, Wool_Cap, Exp, Level;
     public Image[] SheepIcon;
     public Image ExpBar;
     public static Color pushed = new Color(0.83F,0.83F,0.83F,1.0F);
@@ -29,6 +29,7 @@ public class StatisticsMenuScript : MonoBehaviour {
         Wool_Cap.text = "/" + data.MaxWool.ToString();
         Exp.text = "Exp " + data.Experience.ToString() + "/" + data.ExperienceForNextLevel.ToString();
         ExpBar.fillAmount = (float)data.Experience / (float)data.ExperienceForNextLevel;
+        Level.text = data.Level.ToString();
     }
 
 }

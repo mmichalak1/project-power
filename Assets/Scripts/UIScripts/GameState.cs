@@ -14,7 +14,7 @@ public class GameState : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ExplorationResult.Reset();
+       // ExplorationResult.Reset();
         Events.Instance.RegisterForEvent("BattleWon", x =>
          {
              EnemyGroups.Remove(x as GameObject);

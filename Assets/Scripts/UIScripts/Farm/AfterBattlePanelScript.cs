@@ -14,6 +14,7 @@ public class AfterBattlePanelScript : MonoBehaviour
     public GameObject[] LevelUpIndicators;
     public EntityData[] sheepData;
     public Image[] Avatars;
+    public Text[] SheepLevels;
     public bool addingExperience = false;
 
     private bool[] isFinished = new bool[4];
@@ -28,6 +29,7 @@ public class AfterBattlePanelScript : MonoBehaviour
             isFinished[i] = false;
             ExplorationResultText.text = ExplorationResult.Instance.GameResult.ToString();
             Avatars[i].sprite = sheepData[i].Portrait;
+            SheepLevels[i].text = sheepData[i].Level.ToString();
         }
 
     }
@@ -60,6 +62,7 @@ public class AfterBattlePanelScript : MonoBehaviour
                         data.LevelUp();
                         indicator.fillAmount = 0.0f;
                         StaticExpIndicator[i].fillAmount = 0.0f;
+                        SheepLevels[i].text = sheepData[i].Level.ToString();
                     }
                     indicator.fillAmount = data.Experience * 1.0f / data.ExperienceForNextLevel * 1.0f;
                 }

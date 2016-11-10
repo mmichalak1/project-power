@@ -94,5 +94,4 @@ public class SkillCanvasScript : MonoBehaviour
             skillIcon.name = "Empty Skill";
         }
     }
-
 }
