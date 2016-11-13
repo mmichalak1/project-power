@@ -7,6 +7,9 @@ namespace Assets.Scripts
     {
 
         public LevelData levelData;
+        public bool IsLocked;
+        public Image Padlock;
+        public Button Backgroung;
 
         [SerializeField]
         private Text ProgressData;
@@ -18,6 +21,22 @@ namespace Assets.Scripts
                 ProcessResult();
 
             ProgressData.text = levelData.Progress + "/" + levelData.TargetProgress;
+        }
+
+        void OnLevelWasLoaded()
+        {
+            if (!IsLocked)
+            {
+                Padlock.gameObject.SetActive(false);
+                Backgroung.interactable = true;
+                ProgressData.gameObject.SetActive(true);
+            }
+            else
+            {
+                Padlock.gameObject.SetActive(true);
+                Backgroung.interactable = false;
+                ProgressData.gameObject.SetActive(false);
+            }
         }
 
 
