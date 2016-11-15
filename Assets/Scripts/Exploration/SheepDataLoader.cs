@@ -22,6 +22,7 @@ public class SheepDataLoader : MonoBehaviour
         for (int i = 0; i < sheep.Length; i++)
         {
             Children[i].GetComponent<EntityDataHolder>().LoadSheepData(sheep[i]);
+            Children[i].GetComponent<SheepWoolDisplay>().SetupWoolModels();
         }
     }
 }

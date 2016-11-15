@@ -45,8 +45,6 @@ public class MovementController : MonoBehaviour
         else
             Fade();
 
-        Ray myRay = new Ray(transform.position + Vector3.up, (forward.position - transform.position).normalized);
-        Debug.DrawLine(myRay.origin, myRay.origin + myRay.direction * 3);
         if (move)
         {
             transform.position = Vector3.MoveTowards(transform.position, newPos, Time.deltaTime * movementSpeed);
