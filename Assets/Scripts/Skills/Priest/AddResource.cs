@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [CreateAssetMenu(fileName = "AddResource", menuName = "Game/Skills/AddResource")]
 public class AddResource : Skill
@@ -7,9 +8,9 @@ public class AddResource : Skill
     [Range(1, 10)]
     public int ResourceAdded = 5;
 
-    public override void Initialize(GameObject parent)
+    public override string Description()
     {
-        base.Initialize(parent);
+        return string.Format(_description, ResourceAdded);
     }
 
     public override void OnSkillPlanned(GameObject actor, GameObject target)

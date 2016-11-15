@@ -17,6 +17,7 @@ MonoBehaviour:
   SkillLevel: 0
   isActive: 0
   unlockCost: 20
-  Description: Making a lighting storm that deal damage to all enemies.
+  _rawDescription: Create a lighting storm which deals every enemy <damage>{0}</damage>
+    points of damage.
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: 9338b9201a8845d4d8b16a0cc87f3de6, type: 3}

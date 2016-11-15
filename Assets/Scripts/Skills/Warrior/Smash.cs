@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [CreateAssetMenu(fileName ="Smash", menuName = "Game/Skills/SMASH")]
 public class Smash : Skill {
@@ -7,9 +8,9 @@ public class Smash : Skill {
     [Range(100, 300)]
     public int PowerPercentage = 120;
 
-    public override void Initialize(GameObject parent)
+    public override string Description()
     {
-        base.Initialize(parent);
+        return string.Format(_description, (Power * PowerPercentage) / 100);
     }
 
     protected override void PerformAction(GameObject actor, GameObject target)

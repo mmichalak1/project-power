@@ -17,7 +17,7 @@ MonoBehaviour:
   SkillLevel: 0
   isActive: 0
   unlockCost: 20
-  Description: Freezing target enemy for two turns.
+  _rawDescription: <stun>Freezes</stun> target for {0} turns.
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: da402ad352b1bba4e813e1511cabb017, type: 3}
   StunDuration: 2

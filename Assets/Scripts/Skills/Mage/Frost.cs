@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Assets.Scripts.ScriptableObjects;
+using System;
 
 [CreateAssetMenu(fileName = "Frost", menuName = "Game/Skills/Frost")]
 public class Frost : Skill
@@ -9,11 +10,23 @@ public class Frost : Skill
     public StunnedBrain StunnedBrain;
     private StunnedBrain _stunnedBrainCopy;
 
+    public override string Description()
+    {
+        return string.Format(_description, StunDuration);
+    }
+
     public override void Initialize(GameObject parent)
     {
         _stunnedBrainCopy = Instantiate(StunnedBrain);
         _stunnedBrainCopy.SetDuration(StunDuration);
         base.Initialize(parent);
+    }
+
+    public override void Initialize(EntityData data)
+    {
+        _stunnedBrainCopy = Instantiate(StunnedBrain);
+        _stunnedBrainCopy.SetDuration(StunDuration);
+        base.Initialize(data);
     }
 
     protected override void PerformAction(GameObject actor, GameObject target)

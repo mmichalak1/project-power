@@ -12,7 +12,7 @@ public class SkillDescription : MonoBehaviour {
     public void LoadSkillData (Skill skill)
     {
         Name.text = skill.name;
-        Description.text = skill.Description;
+        Description.text = skill.Description();
         Icon.sprite = skill.Icon;
     }
 

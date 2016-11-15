@@ -17,7 +17,8 @@ MonoBehaviour:
   SkillLevel: 0
   isActive: 0
   unlockCost: 20
-  Description: Target sheep will be guarded by skill user for two turn.
+  _rawDescription: For {0} turns every attack into target will be redirected into
+    warrior.
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: 2dc08ecdc0fb3ba4da52ae6d31bd731d, type: 3}
   Duration: 2

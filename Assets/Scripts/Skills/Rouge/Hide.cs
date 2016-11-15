@@ -1,13 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "Hide", menuName = "Game/Skills/Hide")]
 public class Hide : Skill {
 
     public int Duration = 2;
 
-    public override void Initialize(GameObject parent)
+    public override string Description()
     {
-        base.Initialize(parent);
+        return string.Format(_description, Duration);
     }
 
     protected override void PerformAction(GameObject actor, GameObject target)

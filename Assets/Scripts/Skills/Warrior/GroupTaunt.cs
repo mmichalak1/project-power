@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+
 [CreateAssetMenu(fileName = "Group Taunt", menuName = "Game/Skills/GroupTaunt")]
 public class GroupTaunt : Skill {
 
@@ -18,6 +20,13 @@ public class GroupTaunt : Skill {
         _myCopy.Target = parent;
         _myCopy.Duration = SkillDuration;
         base.Initialize(parent);
+    }
+
+    public override void Initialize(EntityData data)
+    {
+        _myCopy = Instantiate(TauntedBrain);
+        _myCopy.Duration = SkillDuration;
+        base.Initialize(data);
     }
 
     protected override void PerformAction(GameObject actor, GameObject target)
@@ -39,5 +48,8 @@ public class GroupTaunt : Skill {
         base.PerformAction(actor, target);
     }
 
-
+    public override string Description()
+    {
+        return string.Format(_description, SkillDuration, DamagePercentReduced);
+    }
 }

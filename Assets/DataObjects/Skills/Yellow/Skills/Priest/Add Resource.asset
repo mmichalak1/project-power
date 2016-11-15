@@ -17,7 +17,7 @@ MonoBehaviour:
   SkillLevel: 0
   isActive: 0
   unlockCost: 20
-  Description: Gives five resources to pool.
+  _rawDescription: Adds {0} to to resource pool for this turn.
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: e5c1884370327e64fba46f6f2ec595f1, type: 3}
   ResourceAdded: 5

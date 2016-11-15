@@ -17,7 +17,7 @@ MonoBehaviour:
   SkillLevel: 0
   isActive: 0
   unlockCost: 20
-  Description: Skill user will be hidden for enemy attack for two turn.
+  _rawDescription: Hides for {0} turns causing being non-targetable.
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: 73eaa86e4a253a04784121fc92a2a364, type: 3}
   Duration: 2

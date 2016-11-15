@@ -41,6 +41,7 @@ public class SkillsMenuScript : MonoBehaviour {
         for(int i = 0; i<4; i++)
         {
             var skill = SheepData[SheepNumber].SheepSkills.Skills[i];
+            skill.Initialize(SheepData[SheepNumber]);
             SkillsButtons[i].image.sprite = skill.Icon;
             if (!skill.IsActive)
                 SkillsButtons[i].image.color = LockedColor;
@@ -54,7 +55,7 @@ public class SkillsMenuScript : MonoBehaviour {
         Skill skill = SheepData[SheepNumber].SheepSkills.Skills[SheepButton];
         SkillDesc.SetActive(true);
         Name.text = skill.Name;
-        Description.text = skill.Description;
+        Description.text = skill.Description();
         Icon.sprite = skill.Icon;
         Cooldown.text = "Cooldown: " + skill.CooldownBase.ToString();
         Cost.text = "Cost: " + skill.Cost.ToString();

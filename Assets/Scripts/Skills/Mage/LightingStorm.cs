@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [CreateAssetMenu(fileName = "Lighting Storm", menuName = "Game/Skills/Lighting Storm")]
 public class LightingStorm : Skill {
-
-    public override void Initialize(GameObject parent)
+    public override string Description()
     {
-        base.Initialize(parent);
+        return string.Format(_description, Power);
     }
+
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [CreateAssetMenu (fileName = "Damage Debuff", menuName = "Game/Skills/Damage Debuff")]
 public class Debuff : Skill {
@@ -17,5 +18,8 @@ public class Debuff : Skill {
         base.PerformAction(actor, target);
     }
 
-
+    public override string Description()
+    {
+        return string.Format(_description, Duration, DebuffValue);
+    }
 }

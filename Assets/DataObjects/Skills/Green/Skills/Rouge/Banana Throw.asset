@@ -17,7 +17,7 @@ MonoBehaviour:
   SkillLevel: 0
   isActive: 0
   unlockCost: 20
-  Description: Stun target enemy. With banana.
+  _rawDescription: Throws a banana <stun>stunning</stun> enemy for {0} turns.
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: b0a72ecee16ccbd4da6f6979e32f3a17, type: 3}
   StunDuration: 1

@@ -4,11 +4,10 @@ using System;
 
 [CreateAssetMenu(menuName = "Game/Skills/BasicAttack")]
 public class Attack : Skill {
-
-	// Use this for initialization
-	public override void Initialize (GameObject parent) {
-        base.Initialize(parent);
-	}
+    public override string Description()
+    {
+        return string.Format(_description, Power);
+    }
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {

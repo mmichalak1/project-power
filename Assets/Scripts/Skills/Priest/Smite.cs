@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [CreateAssetMenu(fileName ="Smite", menuName ="Game/Skills/Smite")]
 public class Smite : Skill {
@@ -7,10 +8,11 @@ public class Smite : Skill {
     [Range(0,100), Tooltip("Healing value based on skill's power.")]
     public int HealPercentage = 10;
 
-    public override void Initialize(GameObject parent)
+    public override string Description()
     {
-        base.Initialize(parent);
+        return string.Format(_description, Power, (Power * HealPercentage) / 100);
     }
+
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {

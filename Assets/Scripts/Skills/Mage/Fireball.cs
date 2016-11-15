@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Interfaces;
+using System;
 
 [CreateAssetMenu(fileName = "Fireball", menuName = "Game/Skills/Fireball")]
 public class Fireball : Skill
@@ -7,9 +8,9 @@ public class Fireball : Skill
     [Range(0, 100), Tooltip("Percent of Skill's Power which is dealt to neighbouring enemies (base to target * this value)")]
     public int SplashDamage = 10;
 
-    public override void Initialize(GameObject parent)
+    public override string Description()
     {
-        base.Initialize(parent);
+        return string.Format(_description, Power, (Power * SplashDamage) / 100);
     }
 
     protected override void PerformAction(GameObject actor, GameObject target)

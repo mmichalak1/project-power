@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [CreateAssetMenu(fileName ="Double Attack", menuName ="Game/Skills/Double Attack")]
 public class DoubleAttack : Skill {
 
     public int AttackCount = 2;
-    public override void Initialize(GameObject parent)
+
+    public override string Description()
     {
-        base.Initialize(parent);
+        return string.Format(_description, AttackCount, Power);
     }
 
     protected override void PerformAction(GameObject actor, GameObject target)
