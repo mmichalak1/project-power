@@ -22,7 +22,6 @@ namespace Assets.LogicSystem
 
         public Scripts.GameResult GameResult = Scripts.GameResult.None;
         public int BattlesFought = 0;
-        public int WoolGathered = 0;
         public LevelData LevelPlayed = null;
 
 

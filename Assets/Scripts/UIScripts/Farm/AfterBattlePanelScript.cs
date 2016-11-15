@@ -30,6 +30,7 @@ public class AfterBattlePanelScript : MonoBehaviour
             ExplorationResultText.text = ExplorationResult.Instance.GameResult.ToString();
             Avatars[i].sprite = sheepData[i].Portrait;
             SheepLevels[i].text = sheepData[i].Level.ToString();
+            sheepData[i].GrowWool();
         }
 
     }

@@ -23,6 +23,7 @@ public class EntityData : ScriptableObject {
     public int ExperienceForNextLevel = 100;
     public int Wool = 1;
     public int MaxWool = 3;
+    public float WoolGrowth = 0.0f;
     public SkillHolder SheepSkills;
     public Item OffensiveItem, DefensiveItem;
     public int ExperienceGained;
@@ -91,5 +92,12 @@ public class EntityData : ScriptableObject {
     {
         BasicMaxHealth += 20;
         BasicAttack += 5;
+    }
+
+    public void GrowWool()
+    {
+        int additionalWool = Mathf.FloorToInt(WoolGrowth);
+        WoolGrowth -= additionalWool;
+        Wool += additionalWool;
     }
 }

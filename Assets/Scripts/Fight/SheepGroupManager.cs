@@ -6,6 +6,8 @@ public class SheepGroupManager : MonoBehaviour {
 
     [SerializeField]
     private GameObject LostPanel;
+    [SerializeField, Range(0, 1)]
+    private float WoolGrowthMultiplier;
     GameObject ExplorationUI, BattleUI;
     int SheepCount = 0;
     List<Transform> sheep = new List<Transform>();
@@ -40,7 +42,15 @@ public class SheepGroupManager : MonoBehaviour {
                 child.gameObject.SetActive(true);
             }
             foreach (var data in GetComponentsInChildren<EntityDataHolder>())
-                data.SheepData.SheepSkills.ResetCooldowns();
+            {
+                var sheepData = data.SheepData;
+                sheepData.SheepSkills.ResetCooldowns();
+                if (sheepData.WoolGrowth == 0)
+                    sheepData.WoolGrowth = 1;
+                else
+                    data.SheepData.WoolGrowth += (sheepData.MaxWool - sheepData.Wool) * WoolGrowthMultiplier;
+            }
+
             Events.Instance.DispatchEvent("DestroyHealthBars", null);
                 
         });

@@ -10,6 +10,11 @@ public class AfterBattleScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        foreach (var item in Data)
+        {
+            item.GrowWool();
+        }
+
         switch (ExplorationResult.Instance.GameResult)
         {
             case Assets.Scripts.GameResult.Win:
