@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class BarberCanvasScript : MonoBehaviour
 {
-
+    private WoolCounter Counter;
     const int SheepCounter = 4;
 
     public Slider[] sliders;
@@ -20,36 +20,25 @@ public class BarberCanvasScript : MonoBehaviour
             sliders[i].wholeNumbers = true;
             sliders[i].maxValue = sheepData[i].Wool;
             sliders[i].minValue = 0;
-            sliders[i].value = sheepData[i].Wool;
-            Names[i].text = sheepData[i].Name;
+            Names[i].text = sheepData[i].Name + " (" + sheepData[i].Wool + ")";
             MaxWoolText[i].text = sheepData[i].Wool.ToString();
-            
+
         }
     }
 
     public void UpdateSliderText(int number)
     {
         SlidersValue[number].text = sliders[number].value.ToString();
+        Names[number].text = sheepData[number].Name + " (" + (sheepData[number].Wool - sliders[number].value) + ")";
     }
 
     public void ApplyChanges()
     {
-        var go = GameObject.FindGameObjectWithTag("GameStatus");
-        if(go!=null)
+
+        for (int i = 0; i < SheepCounter; i++)
         {
-            var counter = go.GetComponent<GameStatus>();
-            for (int i = 0; i < SheepCounter; i++)
-            {
-                if(sliders[i].value<sliders[i].maxValue)
-                {
-                    counter.WoolCounter.WoolCount += System.Convert.ToInt32(sliders[i].maxValue) - System.Convert.ToInt32(sliders[i].value);
-                    sheepData[i].Wool = System.Convert.ToInt32(sliders[i].value);
-                }
-            }
-        }
-        else
-        {
-            Debug.LogError("No WoolCounter script found.");
+            Counter.WoolCount += (int)sliders[i].value;
+            sheepData[i].Wool -= (int)sliders[i].value;
         }
     }
 

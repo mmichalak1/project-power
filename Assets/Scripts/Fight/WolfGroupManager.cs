@@ -4,6 +4,9 @@ using System.Linq;
 
 public class WolfGroupManager : MonoBehaviour
 {
+    [SerializeField]
+    WoolCounter Counter;
+
     GameObject ExplorationUI;
     GameObject BattleUI;
     int wolvesCounter;
@@ -57,6 +60,7 @@ public class WolfGroupManager : MonoBehaviour
                 Assets.LogicSystem.Events.Instance.UnregisterForEvent(item.name + "death", wolfDeath);
             }
             Destroy(gameObject);
+            Counter.WoolCount += WoolForFight;
             Assets.LogicSystem.Events.Instance.DispatchEvent("BattleWon", gameObject);
         }
     }

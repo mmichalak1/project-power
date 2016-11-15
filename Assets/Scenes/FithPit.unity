@@ -22029,6 +22029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924a866b0b21b9b42a6477414fa1359e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Counter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
   WoolForFight: 100
   enemies: []
 --- !u!1001 &1132847107
@@ -26545,6 +26546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924a866b0b21b9b42a6477414fa1359e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Counter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
   WoolForFight: 50
   enemies: []
 --- !u!114 &1357289226
@@ -29106,6 +29108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924a866b0b21b9b42a6477414fa1359e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Counter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
   WoolForFight: 50
   enemies: []
 --- !u!114 &1476189207
