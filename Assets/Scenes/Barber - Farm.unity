@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8dac2a7a5a34bd459568aa14e847160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Counter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
   sliders:
   - {fileID: 1955232410}
   - {fileID: 79397826}

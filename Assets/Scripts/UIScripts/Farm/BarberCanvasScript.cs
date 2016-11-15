@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class BarberCanvasScript : MonoBehaviour
 {
+    [SerializeField]
     private WoolCounter Counter;
     const int SheepCounter = 4;
 

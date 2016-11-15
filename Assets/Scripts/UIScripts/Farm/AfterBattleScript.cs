@@ -6,6 +6,7 @@ public class AfterBattleScript : MonoBehaviour {
 
     public GameObject ResultsPanel;
     public Button[] SceneButtons;
+    public EntityData[] Data;
 
 	// Use this for initialization
 	void Start () {
