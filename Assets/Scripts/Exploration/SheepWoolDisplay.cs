@@ -18,7 +18,7 @@ public class SheepWoolDisplay : MonoBehaviour {
         {
             item.SetActive(false);
         }
-        for (int i = 0; i < WoolModels.Length; i++)
+        for (int i = 0; i < WoolModels.Length-1; i++)
         {
             if(woolPercentage > Boudaries[i])
             {
@@ -26,5 +26,6 @@ public class SheepWoolDisplay : MonoBehaviour {
                 return;
             }
         }
+        WoolModels[3].SetActive(true);
     }
 }
