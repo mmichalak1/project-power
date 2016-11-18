@@ -7,7 +7,7 @@ public class AfterBattlePanelScript : MonoBehaviour
 
     public Text ExplorationResultText;
     public GameObject ExitButton;
-    public int incomePerTick;
+    public float incomeSpeed;
 
     public Image[] StaticExpIndicator;
     public Image[] DynamicExpIndicator;
@@ -17,6 +17,7 @@ public class AfterBattlePanelScript : MonoBehaviour
     public Text[] SheepLevels;
     public bool addingExperience = false;
 
+    private int[] speedFactor = new int[4];
     private bool[] isFinished = new bool[4];
 
 
@@ -31,6 +32,7 @@ public class AfterBattlePanelScript : MonoBehaviour
             Avatars[i].sprite = sheepData[i].Portrait;
             SheepLevels[i].text = sheepData[i].Level.ToString();
             sheepData[i].GrowWool();
+            speedFactor[i] = (int)(sheepData[i].ExperienceForNextLevel / (1 / incomeSpeed));
         }
 
     }
@@ -45,19 +47,19 @@ public class AfterBattlePanelScript : MonoBehaviour
                 var data = sheepData[i];
                 var indicator = DynamicExpIndicator[i];
 
-                if(data.ExperienceGained>0)
+                if (data.ExperienceGained > 0)
                 {
-                    if(data.ExperienceGained < incomePerTick)
+                    if (data.ExperienceGained < speedFactor[i])
                     {
                         data.Experience += data.ExperienceGained;
                         data.ExperienceGained = 0;
                     }
                     else
                     {
-                        data.Experience += incomePerTick;
-                        data.ExperienceGained -= 10;
+                        data.Experience += speedFactor[i];
+                        data.ExperienceGained -= speedFactor[i];
                     }
-                    if (data.Experience == data.ExperienceForNextLevel)
+                    if (data.Experience >= data.ExperienceForNextLevel)
                     {
                         LevelUpIndicators[i].SetActive(true);
                         data.LevelUp();

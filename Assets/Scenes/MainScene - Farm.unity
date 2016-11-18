@@ -1907,7 +1907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExplorationResultText: {fileID: 758020493}
   ExitButton: {fileID: 580722460}
-  incomePerTick: 10
+  incomeSpeed: 0.01
   StaticExpIndicator:
   - {fileID: 1760256223}
   - {fileID: 1601582938}
@@ -3195,6 +3195,7 @@ MonoBehaviour:
   - {fileID: 1795188833}
   - {fileID: 1361112456}
   - {fileID: 1934673104}
+  Data: []
 --- !u!1 &1913398228
 GameObject:
   m_ObjectHideFlags: 0
