@@ -27,7 +27,10 @@ namespace Assets.LogicSystem
 
         public static void Reset()
         {
-            _instance = new ExplorationResult();
+            //_instance = new ExplorationResult();
+            _instance.BattlesFought = 0;
+            _instance.GameResult = Scripts.GameResult.None;
+            //_instance.LevelPlayed = null;
         }
     }
 }

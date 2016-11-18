@@ -17,7 +17,7 @@ namespace Assets.Scripts
         // Use this for initialization
         void Start()
         {
-            if (LogicSystem.ExplorationResult.Instance.GameResult != GameResult.None)
+            if (LogicSystem.ExplorationResult.Instance.GameResult != GameResult.None && !IsLocked)
                 ProcessResult();
 
             ProgressData.text = levelData.Progress + "/" + levelData.TargetProgress;

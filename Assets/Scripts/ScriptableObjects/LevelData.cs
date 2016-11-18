@@ -2,7 +2,8 @@
 using System.Collections;
 
 [CreateAssetMenu(menuName = "Game/LevelData")]
-public class LevelData : ScriptableObject {
+public class LevelData : ScriptableObject
+{
 
     public string Name = "Name";
     public int Progress = 0;
@@ -11,10 +12,11 @@ public class LevelData : ScriptableObject {
     [SerializeField]
     private int ProgressPerCompletion = 10;
 
-    public void  OnLevelWon()
+    public void OnLevelWon()
     {
         Visited++;
-        Progress += ProgressPerCompletion;
+        if (Progress < TargetProgress)
+            Progress += ProgressPerCompletion;
     }
 
     public void OnLevelLost()

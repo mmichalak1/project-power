@@ -71,6 +71,7 @@ public class SkillsMenuScript : MonoBehaviour {
                     skill.IsActive = true;
                     WoolCounter.WoolCount -= skill.UnlockCost;
                     Unlocker.SetActive(false);
+                    LoadData(SheepNumber);
                 }
             });
         }
