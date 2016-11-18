@@ -25,10 +25,9 @@ namespace Assets.LogicSystem
         public void AddPlan(string sheepName, Plan plan)
         {
             var pair = plans.FirstOrDefault(x => x.Value.Skill == plan.Skill);
-            if (!pair.Equals(default(KeyValuePair<string, Plan>)))
+            if(ContainsPlanForSheepSkill(sheepName, plan.Skill))
             {
                 Debug.Log("This skill was planned in this turn, switching.");
-                TurnManager.UpdateResource(0 - pair.Value.Skill.Cost);
                 plans.Remove(plans.First(x => x.Value.Skill == plan.Skill));
             }
           
