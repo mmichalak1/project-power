@@ -6,17 +6,20 @@ using System.Linq;
 
 public class TurnManager : MonoBehaviour
 {
-    public static bool ourTurn = false;
-    public static Skill pickedSkill;
-    public EntityDataHolder[] DataHolders;
-    private GameObject selectedSheep;
-    public const int maxResource = 10;
-    public static int currentResource;
+    private static TurnManager Instance;
     static WolfGroupManager wolfManager;
     public static activeState state = activeState.nothingPicked;
     public static GameObject hitedTarget = null;
-
+    public static int currentResource;
+    public static bool ourTurn = false;
+    public static Skill pickedSkill;
     public static bool ChangeFlag = false;
+
+
+    public FadeInAndOut Fader;
+    public EntityDataHolder[] DataHolders;
+    private GameObject selectedSheep;
+    public const int maxResource = 10;
     private bool SelectingTarget = true;
 
 
@@ -29,6 +32,7 @@ public class TurnManager : MonoBehaviour
     void Start()
     {
         ourTurn = false;
+        Instance = this;
 
         currentResource = 10;
         UpdateResource(0);
@@ -78,7 +82,12 @@ public class TurnManager : MonoBehaviour
                     break;
                 case activeState.waiting:
                     {
-                        StartCoroutine(Wait(0.1f));
+                        StartCoroutine(Wait(0.1f, activeState.skillPicked));
+                    }
+                    break;
+                case activeState.reseting:
+                    {
+                        StartCoroutine(Wait(0.1f, activeState.nothingPicked));
                     }
                     break;
                 default:
@@ -132,14 +141,11 @@ public class TurnManager : MonoBehaviour
         if (hitedTarget != null)
             if (hitedTarget.tag == "Sheep" || hitedTarget.tag == "Enemy")
             {
-                var skill = pickedSkill;
-                if (currentResource - skill.Cost >= 0 || TurnPlaner.Instance.ContainsPlanForSheepSkill(selectedSheep.name, skill))
-                {
-                    skill.OnSkillPlanned(selectedSheep, hitedTarget.transform.gameObject);
-                    TurnPlaner.Instance.AddPlan(selectedSheep.name, new Plan(selectedSheep, hitedTarget.transform.gameObject, skill));
-                    hitedTarget = null;
-                    UpdateResource(skill.Cost);
-                }
+                if(!TurnPlaner.Instance.ContainsPlanForSheepSkill(hitedTarget.name, pickedSkill))
+                    UpdateResource(pickedSkill.Cost);
+                pickedSkill.OnSkillPlanned(selectedSheep, hitedTarget.transform.gameObject);
+                TurnPlaner.Instance.AddPlan(selectedSheep.name, new Plan(selectedSheep, hitedTarget.transform.gameObject, pickedSkill));
+                hitedTarget = null;
 
                 FightingSceneUIScript.DisableSkillCanvases();
                 state = activeState.nothingPicked;
@@ -202,11 +208,35 @@ public class TurnManager : MonoBehaviour
         Events.Instance.DispatchEvent("SetText", "Resource Left : " + currentResource);
     }
 
-    public IEnumerator Wait(float time)
+    public static void SelectSkill(Skill selectedSkill)
+    {
+
+        if (currentResource > selectedSkill.Cost || TurnPlaner.Instance.ContainsPlanForSheepSkill(hitedTarget.name, selectedSkill))
+        {
+            pickedSkill = selectedSkill;
+            state = activeState.waiting;
+        }
+        else
+        {
+            Instance.OnNotEnoughResources();
+            FightingSceneUIScript.DisableSkillCanvases();
+            state = activeState.reseting;
+        }
+        ChangeFlag = true;
+        hitedTarget = null;
+
+    }
+
+    private void OnNotEnoughResources()
+    {
+        Fader.Play();
+    }
+
+    public IEnumerator Wait(float time, activeState targetState)
     {
         yield return new WaitForSeconds(time);
         hitedTarget = null;
-        state = activeState.skillPicked;
+        state = targetState;
     }
 
     public enum activeState
@@ -214,6 +244,7 @@ public class TurnManager : MonoBehaviour
         sheepPicked,
         skillPicked,
         nothingPicked,
+        reseting,
         waiting
     };
 }
