@@ -484,7 +484,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &339528948
 GameObject:
   m_ObjectHideFlags: 0
@@ -3058,6 +3058,7 @@ GameObject:
   - 222: {fileID: 1834065850}
   - 114: {fileID: 1834065849}
   - 114: {fileID: 1834065851}
+  - 114: {fileID: 1834065852}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3139,7 +3140,7 @@ RectTransform:
   - {fileID: 1325754440}
   - {fileID: 989267371}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -3196,6 +3197,20 @@ MonoBehaviour:
   - {fileID: 1361112456}
   - {fileID: 1934673104}
   Data: []
+--- !u!114 &1834065852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1834065844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 451cfe9c89c8c8a4d817e06d8b080363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Save: {fileID: 11400000, guid: 25308824fbae9e140aa83092a62e67aa, type: 2}
+  ToSaveGame: 0
+  ToLoadGame: 1
 --- !u!1 &1913398228
 GameObject:
   m_ObjectHideFlags: 0

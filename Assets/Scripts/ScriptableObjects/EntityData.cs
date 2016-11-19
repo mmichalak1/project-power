@@ -14,6 +14,7 @@ public class EntityData : ScriptableObject {
 
     [HideInInspector]
     public int MaxHealth = 100;
+    [HideInInspector]
     public int Attack = 20;
     [HideInInspector]
     public int Defence = 0;
