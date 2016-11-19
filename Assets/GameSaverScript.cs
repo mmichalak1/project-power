@@ -28,6 +28,11 @@ public class GameSaverScript : MonoBehaviour
     public void LoadGame()
     {
         var gs = Saver.Load();
+        if (gs == null)
+        {
+            Debug.Log("Load Error");
+            return;
+        }
         GameSaveData.ToGameSave(ref Save, gs);
         Debug.Log("Game Loaded Successfully");
 
