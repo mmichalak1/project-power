@@ -144,7 +144,7 @@ public class TurnManager : MonoBehaviour
         if (hitedTarget != null)
             if (hitedTarget.tag == "Sheep" || hitedTarget.tag == "Enemy")
             {
-                if(!TurnPlaner.Instance.ContainsPlanForSheepSkill(hitedTarget.name, pickedSkill))
+                if(!TurnPlaner.Instance.ContainsPlanForSheepSkill(selectedSheep.name, pickedSkill))
                     UpdateResource(pickedSkill.Cost);
                 pickedSkill.OnSkillPlanned(selectedSheep, hitedTarget.transform.gameObject);
                 TurnPlaner.Instance.AddPlan(selectedSheep.name, new Plan(selectedSheep, hitedTarget.transform.gameObject, pickedSkill));
