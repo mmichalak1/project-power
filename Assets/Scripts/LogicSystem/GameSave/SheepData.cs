@@ -3,28 +3,33 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Text;
 
-[Serializable]
 public class SheepData
 {
-    public string IconPath;
-    public string Name;
-    public EntityData.Class Class;
+    private List<string> _skills = new List<string>();
 
-    public int Health;
-    public int Attack;
-    public int Defence;
+    public string IconPath { get; set; }
+    public string Name { get; set; }
+    public EntityData.Class Class { get; set; }
 
-    public int Level;
-    public int ExperienceGained;
-    public int Experience;
-    public int ExperienceForNexLevel;
+    public int Health { get; set; }
+    public int Attack { get; set; }
+    public int Defence { get; set; }
 
-    public int Wool;
-    public int MaxWool;
-    public float WoolGrowth;
+    public int Level { get; set; }
+    public int ExperienceGained { get; set; }
+    public int Experience { get; set; }
+    public int ExperienceForNexLevel { get; set; }
 
-    public List<string> CurrentSkills = new List<string>();
-    public string OffensiveItemPath, DefensiveItemPath;
+    public int Wool { get; set; }
+    public int MaxWool { get; set; }
+    public float WoolGrowth { get; set; }
+    public string OffensiveItemPath { get; set; }
+    public string DefensiveItemPath { get; set; }
+    public List<string> CurrentSkills
+    {
+        get { return _skills; }
+        set { _skills = value; }
+    }
 
     public static SheepData CreateFromRuntime(EntityData data)
     {
