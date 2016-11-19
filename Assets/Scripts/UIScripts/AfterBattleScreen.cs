@@ -45,7 +45,7 @@ public class AfterBattleScreen : MonoBehaviour {
     {
         Counter.WoolCount += woolForFight;
         gameObject.SetActive(false);
-        //Assets.LogicSystem.Events.Instance.DispatchEvent("EndFight", null);
+        Assets.LogicSystem.Events.Instance.DispatchEvent("EndFight", null);
     }
 
     public void OnEvoke(object obj)

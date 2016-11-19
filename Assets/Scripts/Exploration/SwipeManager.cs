@@ -16,7 +16,7 @@ public class SwipeManager : MonoBehaviour
         {
             enabled = false;
         });
-        Events.Instance.RegisterForEvent("BattleWon", x =>
+        Events.Instance.RegisterForEvent("EndFight", x =>
         {
             enabled = true;
         });
