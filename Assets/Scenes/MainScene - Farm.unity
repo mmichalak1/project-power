@@ -1150,6 +1150,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1834065852}
+        m_MethodName: SaveGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &580722463
@@ -2120,6 +2131,7 @@ MonoBehaviour:
   ExplorationResultText: {fileID: 758020493}
   ExitButton: {fileID: 580722460}
   incomeSpeed: 0.05
+  Saver: {fileID: 1834065852}
   StaticExpIndicator:
   - {fileID: 1760256223}
   - {fileID: 1601582938}
@@ -3746,7 +3758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Save: {fileID: 11400000, guid: 25308824fbae9e140aa83092a62e67aa, type: 2}
-  ToSaveGame: 1
+  ToSaveGame: 0
   ToLoadGame: 0
 --- !u!1 &1836965093
 GameObject:

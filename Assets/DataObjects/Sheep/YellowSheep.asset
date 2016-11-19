@@ -13,13 +13,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: "Wac\u0142aw"
   BasicMaxHealth: 100
-  BasicAttack: 50
+  BasicAttack: 55
   BasicDefence: 0
   Portrait: {fileID: 21300000, guid: 1059b0cd3e380e64db28741672c83a9d, type: 3}
   MaxHealth: 120
   Attack: 55
   Defence: 0
-  Level: 1
+  Level: 0
   Experience: 0
   ExperienceForNextLevel: 200
   Wool: 0
@@ -28,5 +28,5 @@ MonoBehaviour:
   SheepSkills: {fileID: 11400000, guid: 0f164399f85b4aa4db81ae6be1732b21, type: 2}
   OffensiveItem: {fileID: 0}
   DefensiveItem: {fileID: 0}
-  ExperienceGained: 0
-  SheepClass: 2
+  ExperienceGained: 2
+  SheepClass: 3

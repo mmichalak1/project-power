@@ -12,6 +12,7 @@ public class SwipeManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
         Events.Instance.RegisterForEvent("EnterFight", x =>
         {
             enabled = false;
