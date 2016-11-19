@@ -66,6 +66,7 @@ public class AfterBattlePanelScript : MonoBehaviour
                         indicator.fillAmount = 0.0f;
                         StaticExpIndicator[i].fillAmount = 0.0f;
                         SheepLevels[i].text = sheepData[i].Level.ToString();
+                        speedFactor[i] = (int)(sheepData[i].ExperienceForNextLevel / (1 / incomeSpeed));
                     }
                     indicator.fillAmount = data.Experience * 1.0f / data.ExperienceForNextLevel * 1.0f;
                 }

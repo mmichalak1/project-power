@@ -519,8 +519,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 105, y: 147.68}
-  m_SizeDelta: {x: 186, y: 295.36}
+  m_AnchoredPosition: {x: 106, y: 159.21}
+  m_SizeDelta: {x: 212, y: 318.42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &339528950
 MonoBehaviour:
@@ -1090,19 +1090,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22444430, guid: 9c8c28e5eae5b4f4b867b2743a135612, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 22444430, guid: 9c8c28e5eae5b4f4b867b2743a135612, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 22444430, guid: 9c8c28e5eae5b4f4b867b2743a135612, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 22444430, guid: 9c8c28e5eae5b4f4b867b2743a135612, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 22444430, guid: 9c8c28e5eae5b4f4b867b2743a135612, type: 2}
       propertyPath: m_AnchorMin.x
@@ -1907,7 +1907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExplorationResultText: {fileID: 758020493}
   ExitButton: {fileID: 580722460}
-  incomeSpeed: 0.01
+  incomeSpeed: 0.05
   StaticExpIndicator:
   - {fileID: 1760256223}
   - {fileID: 1601582938}
@@ -2888,7 +2888,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -149, y: 147.68}
+  m_AnchoredPosition: {x: -103.99997, y: 147.68}
   m_SizeDelta: {x: 208, y: 295.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1795188833
