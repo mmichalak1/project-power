@@ -21,7 +21,7 @@ public class CancelButtonScript : MonoBehaviour
                 rectTransform.position += new Vector3(0, 300, 0) * Time.deltaTime;
         }
         else
-            if (rectTransform.position.y > -50)
+            if (rectTransform.position.y > -125)
                 rectTransform.position -= new Vector3(0, 300, 0) * Time.deltaTime;
     }
 }
