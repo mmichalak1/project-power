@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0dc3bdfcccb138428ae4349a921deb3, type: 3}
+  m_Name: GameSave
+  m_EditorClassIdentifier: 
+  SheepData:
+  - {fileID: 11400000, guid: c13b86d4881a696429ba84d6671a5180, type: 2}
+  - {fileID: 11400000, guid: 4d03a8ab49effa145b022c882a6ac0b1, type: 2}
+  - {fileID: 11400000, guid: 59f28c451a1d6e0448db8ebd10154c18, type: 2}
+  - {fileID: 11400000, guid: e80254ae7e39e7448aa75f84019250fd, type: 2}
+  LevelData:
+  - {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
