@@ -1908,6 +1908,7 @@ MonoBehaviour:
   ExplorationResultText: {fileID: 758020493}
   ExitButton: {fileID: 580722460}
   incomeSpeed: 0.05
+  Saver: {fileID: 1834065852}
   StaticExpIndicator:
   - {fileID: 1760256223}
   - {fileID: 1601582938}
@@ -3210,7 +3211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Save: {fileID: 11400000, guid: 25308824fbae9e140aa83092a62e67aa, type: 2}
   ToSaveGame: 0
-  ToLoadGame: 1
+  ToLoadGame: 0
 --- !u!1 &1913398228
 GameObject:
   m_ObjectHideFlags: 0

@@ -4043,6 +4043,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &183555359 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 130998, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+  m_PrefabInternal: {fileID: 183555358}
+--- !u!114 &183555360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183555359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 451cfe9c89c8c8a4d817e06d8b080363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Save: {fileID: 11400000, guid: 25308824fbae9e140aa83092a62e67aa, type: 2}
+  ToSaveGame: 0
+  ToLoadGame: 0
 --- !u!4 &185391689 stripped
 Transform:
   m_PrefabParentObject: {fileID: 417640, guid: c8a2cf893b362b14784799d9219265da, type: 2}
@@ -17994,6 +18012,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 183555360}
+        m_MethodName: SaveGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &949116716
@@ -19578,6 +19607,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1010154880}
         m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 183555360}
+        m_MethodName: SaveGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22089,6 +22129,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1124146050}
         m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 183555360}
+        m_MethodName: SaveGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -33221,6 +33272,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1618518014}
     m_Modifications:
+    - target: {fileID: 11490956, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 22431316, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -33312,6 +33367,18 @@ Prefab:
     - target: {fileID: 131136, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490956, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490956, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490956, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}

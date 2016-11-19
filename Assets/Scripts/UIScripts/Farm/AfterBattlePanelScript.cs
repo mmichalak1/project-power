@@ -8,6 +8,7 @@ public class AfterBattlePanelScript : MonoBehaviour
     public Text ExplorationResultText;
     public GameObject ExitButton;
     public float incomeSpeed;
+    public GameSaverScript Saver;
 
     public Image[] StaticExpIndicator;
     public Image[] DynamicExpIndicator;
@@ -24,6 +25,7 @@ public class AfterBattlePanelScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Saver.LoadGame();
         for (int i = 0; i < 4; i++)
         {
             StaticExpIndicator[i].fillAmount = DynamicExpIndicator[i].fillAmount = (float)sheepData[i].Experience / (float)sheepData[i].ExperienceForNextLevel;
@@ -34,7 +36,7 @@ public class AfterBattlePanelScript : MonoBehaviour
             sheepData[i].GrowWool();
             speedFactor[i] = (int)(sheepData[i].ExperienceForNextLevel / (1 / incomeSpeed));
         }
-
+        Saver.SaveGame();
     }
 
     // Update is called once per frame
