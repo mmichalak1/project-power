@@ -13,18 +13,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Janusz
   BasicMaxHealth: 100
-  BasicAttack: 20
+  BasicAttack: 30
   BasicDefence: 0
   Portrait: {fileID: 21300000, guid: 1959db1d8336df94182e179482e748ff, type: 3}
   MaxHealth: 100
   Attack: 20
   Defence: 0
-  Level: 3
-  Experience: 470
-  ExperienceForNextLevel: 800
-  Wool: 6
+  Level: 1
+  Experience: 0
+  ExperienceForNextLevel: 200
+  Wool: 0
   MaxWool: 10
-  WoolGrowth: 0.75
+  WoolGrowth: 0
   SheepSkills: {fileID: 11400000, guid: ff8b91b9b24184744a77d623289fd5c0, type: 2}
   OffensiveItem: {fileID: 0}
   DefensiveItem: {fileID: 0}

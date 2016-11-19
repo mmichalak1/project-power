@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Name: GreenSheep
   m_EditorClassIdentifier: 
   Name: Stefan
-  BasicMaxHealth: 130
-  BasicAttack: 44
+  BasicMaxHealth: 100
+  BasicAttack: 45
   BasicDefence: 0
   Portrait: {fileID: 21300000, guid: 6b8e073e4398979458315a12397ea81c, type: 3}
   MaxHealth: 130
   Attack: 44
   Defence: 0
-  Level: 3
-  Experience: 140
-  ExperienceForNextLevel: 800
-  Wool: 6
+  Level: 1
+  Experience: 0
+  ExperienceForNextLevel: 200
+  Wool: 0
   MaxWool: 10
-  WoolGrowth: 0.75
+  WoolGrowth: 0
   SheepSkills: {fileID: 11400000, guid: 40a8808a270a3b64c97b5b65038dd217, type: 2}
   OffensiveItem: {fileID: 0}
   DefensiveItem: {fileID: 0}

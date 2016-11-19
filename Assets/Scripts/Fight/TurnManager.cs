@@ -211,7 +211,7 @@ public class TurnManager : MonoBehaviour
     public static void SelectSkill(Skill selectedSkill)
     {
 
-        if (currentResource > selectedSkill.Cost || TurnPlaner.Instance.ContainsPlanForSheepSkill(hitedTarget.name, selectedSkill))
+        if (currentResource >= selectedSkill.Cost || TurnPlaner.Instance.ContainsPlanForSheepSkill(hitedTarget.name, selectedSkill))
         {
             pickedSkill = selectedSkill;
             state = activeState.waiting;
