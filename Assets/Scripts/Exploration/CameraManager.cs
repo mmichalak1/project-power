@@ -81,6 +81,7 @@ public class CameraManager : MonoBehaviour
 				TurnManager.ourTurn = true;
                 TurnManager.UpdateResource(0);
                 Events.Instance.DispatchEvent("ShowHealthBar", null);
+                Events.Instance.DispatchEvent("ShowChangeTurnButton", null);
                 timeCounter = 0f;
             }
         }

@@ -14,10 +14,11 @@ public class TurnManager : MonoBehaviour
     public static bool ourTurn = false;
     public static Skill pickedSkill;
     public static bool ChangeFlag = false;
-
+    public GameObject ChangeTurnButton;
 
     public FadeInAndOut Fader;
     public EntityDataHolder[] DataHolders;
+
     private GameObject selectedSheep;
     public const int maxResource = 10;
     private bool SelectingTarget = true;
@@ -40,7 +41,7 @@ public class TurnManager : MonoBehaviour
         Events.Instance.RegisterForEvent("EnterFight", x =>
         {
             wolfManager = x as WolfGroupManager;
-
+            ChangeTurnButton.SetActive(false);
         });
 
         Events.Instance.RegisterForEvent("BattleWon", x =>
@@ -50,6 +51,8 @@ public class TurnManager : MonoBehaviour
             state = activeState.nothingPicked;
             FightingSceneUIScript.DisableSkillCanvases();
         });
+
+        Events.Instance.RegisterForEvent("ShowChangeTurnButton", x => { ChangeTurnButton.SetActive(true); });
 
         foreach (var item in GameObject.FindGameObjectsWithTag("Sheep"))
         {

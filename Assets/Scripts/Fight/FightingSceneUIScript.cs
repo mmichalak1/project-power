@@ -8,26 +8,13 @@ using System.Collections.Generic;
 
 public class FightingSceneUIScript : MonoBehaviour
 {
-
-    public GameObject SkillIconsPrefab;
-    public GameObject HealthBarPrefab;
     public Text TextLabel;
 
-    [SerializeField]
-    private Sprite EmptySkillSprite;
-    private List<GameObject> UIButtons = new List<GameObject>();
-    private RectTransform containerRectTransform;
-    private RectTransform prefabRectTransform;
-
     private static List<GameObject> sheeps;
-    private List<GameObject> enemies;
-
 
     // Use this for initialization
     void Start()
     {
-
-        containerRectTransform = gameObject.GetComponent<RectTransform>();
         sheeps = new List<GameObject>();
 
         sheeps.AddRange(GameObject.FindGameObjectsWithTag("Sheep"));
