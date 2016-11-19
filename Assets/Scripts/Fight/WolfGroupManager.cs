@@ -61,6 +61,7 @@ public class WolfGroupManager : MonoBehaviour
             }
             Destroy(gameObject);
             Counter.WoolCount += WoolForFight;
+            Assets.LogicSystem.Events.Instance.DispatchEvent("AfterBattleScreen", WoolForFight);
             Assets.LogicSystem.Events.Instance.DispatchEvent("BattleWon", gameObject);
         }
     }

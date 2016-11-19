@@ -13,7 +13,7 @@ public class WoolCounter : ScriptableObject {
         set
         {
             _woolCount = value;
-            //GameObject.FindGameObjectWithTag("WoolCounter").GetComponent<WoolUpdater>().UpdateWoolView();
+            GameObject.FindGameObjectWithTag("WoolCounter").GetComponent<WoolUpdater>().UpdateWoolView();
         }
     }
 

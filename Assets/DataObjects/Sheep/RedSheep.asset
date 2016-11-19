@@ -11,20 +11,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f6bf9d4f60d464dbb040ecba8aa40a, type: 3}
   m_Name: RedSheep
   m_EditorClassIdentifier: 
-  Name: RedSheep
-  BasicMaxHealth: 100
-  BasicAttack: 30
+  Name: Tomasz
+  BasicMaxHealth: 160
+  BasicAttack: 35
   BasicDefence: 0
-  Portrait: {fileID: 0}
-  MaxHealth: 100
-  Attack: 25
+  Portrait: {fileID: 21300000, guid: 72c86b84ff9ec264d8fa5c4b4c8556d8, type: 3}
+  MaxHealth: 160
+  Attack: 35
   Defence: 0
   Level: 3
-  Experience: 0
-  ExperienceForNextLevel: 300
-  Wool: 0
+  Experience: 170
+  ExperienceForNextLevel: 800
+  Wool: 6
   MaxWool: 10
-  WoolGrowth: 0
+  WoolGrowth: 0.75
   SheepSkills: {fileID: 11400000, guid: 26a5bce2107293945be8aa5a3b9e30a7, type: 2}
   OffensiveItem: {fileID: 0}
   DefensiveItem: {fileID: 0}

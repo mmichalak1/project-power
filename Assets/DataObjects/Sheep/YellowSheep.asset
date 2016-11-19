@@ -11,20 +11,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f6bf9d4f60d464dbb040ecba8aa40a, type: 3}
   m_Name: YellowSheep
   m_EditorClassIdentifier: 
-  Name: YellowSheep
-  BasicMaxHealth: 100
-  BasicAttack: 40
+  Name: "Wac\u0142aw"
+  BasicMaxHealth: 120
+  BasicAttack: 55
   BasicDefence: 0
-  Portrait: {fileID: 0}
-  MaxHealth: 100
-  Attack: 50
+  Portrait: {fileID: 21300000, guid: 1059b0cd3e380e64db28741672c83a9d, type: 3}
+  MaxHealth: 120
+  Attack: 55
   Defence: 0
   Level: 2
-  Experience: 0
-  ExperienceForNextLevel: 300
-  Wool: 0
+  Experience: 400
+  ExperienceForNextLevel: 440
+  Wool: 6
   MaxWool: 10
-  WoolGrowth: 0
+  WoolGrowth: 0.75
   SheepSkills: {fileID: 11400000, guid: 0f164399f85b4aa4db81ae6be1732b21, type: 2}
   OffensiveItem: {fileID: 0}
   DefensiveItem: {fileID: 0}
