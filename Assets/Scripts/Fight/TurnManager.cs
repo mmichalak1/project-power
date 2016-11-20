@@ -15,11 +15,12 @@ public class TurnManager : MonoBehaviour
     public static Skill pickedSkill;
     public static bool ChangeFlag = false;
 
+    [SerializeField]
+    private WoolCounter DefaultWoolCounter; 
 
     public FadeInAndOut Fader;
     public EntityDataHolder[] DataHolders;
     private GameObject selectedSheep;
-    public const int maxResource = 10;
     private bool SelectingTarget = true;
 
 
@@ -34,7 +35,7 @@ public class TurnManager : MonoBehaviour
         ourTurn = false;
         Instance = this;
 
-        currentResource = 10;
+        currentResource = DefaultWoolCounter.Resources;
         UpdateResource(0);
 
         Events.Instance.RegisterForEvent("EnterFight", x =>
@@ -122,7 +123,7 @@ public class TurnManager : MonoBehaviour
         }
 
         ourTurn = true;
-        currentResource = 10;
+        currentResource = DefaultWoolCounter.Resources;
         UpdateResource(0);
     }
 
