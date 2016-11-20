@@ -24,7 +24,10 @@ namespace Assets.LogicSystem
         {
             get { return _skill; }
         }
-
+        public GameObject Actor
+        {
+            get { return _actor; }
+        }
         GameObject _actor;
         GameObject _target;
 
