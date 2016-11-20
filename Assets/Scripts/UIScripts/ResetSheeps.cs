@@ -32,6 +32,7 @@ public class ResetSheeps : MonoBehaviour {
             SheepData[i].Wool = SheepDataBackup[i].Wool;
             SheepData[i].MaxWool = SheepDataBackup[i].MaxWool;
             SheepData[i].WoolGrowth = SheepDataBackup[i].WoolGrowth;
+            SheepData[i].SheepClass = SheepDataBackup[i].SheepClass;
             for (int j = 0; j < 4; j++)
             {
                 if(j != 1) // for class skill
