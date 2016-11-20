@@ -14,6 +14,7 @@ public class ResetSheeps : MonoBehaviour {
     public void Reset()
     {
         DefaultWoolCounter.WoolCount = 0;
+        DefaultWoolCounter.Resources = DefaultWoolCounter.BasicResources;
         woolUpdater.UpdateWoolView();
 
         foreach (LevelData item in levelData)

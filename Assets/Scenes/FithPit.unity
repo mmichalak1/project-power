@@ -4041,6 +4041,11 @@ Prefab:
       value: 
       objectReference: {fileID: 69326006}
     - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: DefaultWoolCounter
+      value: 
+      objectReference: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f,
+        type: 2}
+    - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
       propertyPath: ChangeTurnButton
       value: 
       objectReference: {fileID: 31704893}
