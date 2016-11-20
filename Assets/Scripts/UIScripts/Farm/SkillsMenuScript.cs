@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 
 
-public class SkillsMenuScript : MonoBehaviour {
+public class SkillsMenuScript : MonoBehaviour
+{
 
     public WoolCounter WoolCounter;
 
@@ -28,7 +29,9 @@ public class SkillsMenuScript : MonoBehaviour {
     public static Color pushed = new Color(212, 212, 212, 255);
     public static Color unpushed = new Color(168, 168, 168, 255);
     public Color UnlockedColor = Color.white;
-    public Color LockedColor = Color.gray; 
+    public Color LockedColor = Color.gray;
+
+    private Skill currentlyPickedSkill;
 
     void Start()
     {
@@ -38,7 +41,7 @@ public class SkillsMenuScript : MonoBehaviour {
     public void LoadData(int SheepNumber)
     {
         this.SheepNumber = SheepNumber;
-        for(int i = 0; i<4; i++)
+        for (int i = 0; i < 4; i++)
         {
             var skill = SheepData[SheepNumber].SheepSkills.Skills[i];
             skill.Initialize(SheepData[SheepNumber]);
@@ -52,29 +55,31 @@ public class SkillsMenuScript : MonoBehaviour {
 
     public void ButtonClick(int SheepButton)
     {
-        Skill skill = SheepData[SheepNumber].SheepSkills.Skills[SheepButton];
+        currentlyPickedSkill = SheepData[SheepNumber].SheepSkills.Skills[SheepButton];
         SkillDesc.SetActive(true);
-        Name.text = skill.Name;
-        Description.text = skill.Description();
-        Icon.sprite = skill.Icon;
-        Cooldown.text = "Cooldown: " + skill.CooldownBase.ToString();
-        Cost.text = "Cost: " + skill.Cost.ToString();
-        if (!skill.IsActive)
+        Name.text = currentlyPickedSkill.Name;
+        Description.text = currentlyPickedSkill.Description();
+        Icon.sprite = currentlyPickedSkill.Icon;
+        Cooldown.text = "Cooldown: " + currentlyPickedSkill.CooldownBase.ToString();
+        Cost.text = "Cost: " + currentlyPickedSkill.Cost.ToString();
+        if (!currentlyPickedSkill.IsActive)
         {
             Unlocker.SetActive(true);
-            UnlockCost.text = skill.UnlockCost.ToString();
+            UnlockCost.text = currentlyPickedSkill.UnlockCost.ToString();
             CurrentWool.text = WoolCounter.WoolCount.ToString();
-            UnlockButton.onClick.AddListener(() =>
-            {
-                if(WoolCounter.WoolCount>=skill.UnlockCost)
-                {
-                    skill.IsActive = true;
-                    WoolCounter.WoolCount -= skill.UnlockCost;
-                    Unlocker.SetActive(false);
-                    LoadData(SheepNumber);
-                }
-            });
         }
+    }
 
+
+    public void UnlockAction()
+    {
+        if (WoolCounter.WoolCount >= currentlyPickedSkill.UnlockCost)
+            if (currentlyPickedSkill != null)
+            {
+                currentlyPickedSkill.IsActive = true;
+                WoolCounter.WoolCount -= currentlyPickedSkill.UnlockCost;
+                Unlocker.SetActive(false);
+                LoadData(SheepNumber);
+            }
     }
 }

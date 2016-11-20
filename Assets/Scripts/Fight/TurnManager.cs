@@ -14,12 +14,14 @@ public class TurnManager : MonoBehaviour
     public static bool ourTurn = false;
     public static Skill pickedSkill;
     public static bool ChangeFlag = false;
+    public GameObject ChangeTurnButton;
 
     [SerializeField]
     private WoolCounter DefaultWoolCounter; 
 
     public FadeInAndOut Fader;
     public EntityDataHolder[] DataHolders;
+
     private GameObject selectedSheep;
     private bool SelectingTarget = true;
 
@@ -41,7 +43,7 @@ public class TurnManager : MonoBehaviour
         Events.Instance.RegisterForEvent("EnterFight", x =>
         {
             wolfManager = x as WolfGroupManager;
-
+            ChangeTurnButton.SetActive(false);
         });
 
         Events.Instance.RegisterForEvent("BattleWon", x =>
@@ -51,6 +53,8 @@ public class TurnManager : MonoBehaviour
             state = activeState.nothingPicked;
             FightingSceneUIScript.DisableSkillCanvases();
         });
+
+        Events.Instance.RegisterForEvent("ShowChangeTurnButton", x => { ChangeTurnButton.SetActive(true); });
 
         foreach (var item in GameObject.FindGameObjectsWithTag("Sheep"))
         {
@@ -142,7 +146,7 @@ public class TurnManager : MonoBehaviour
         if (hitedTarget != null)
             if (hitedTarget.tag == "Sheep" || hitedTarget.tag == "Enemy")
             {
-                if(!TurnPlaner.Instance.ContainsPlanForSheepSkill(hitedTarget.name, pickedSkill))
+                if(!TurnPlaner.Instance.ContainsPlanForSheepSkill(selectedSheep.name, pickedSkill))
                     UpdateResource(pickedSkill.Cost);
                 pickedSkill.OnSkillPlanned(selectedSheep, hitedTarget.transform.gameObject);
                 TurnPlaner.Instance.AddPlan(selectedSheep.name, new Plan(selectedSheep, hitedTarget.transform.gameObject, pickedSkill));

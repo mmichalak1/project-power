@@ -2,7 +2,8 @@
 using System.Collections;
 
 [RequireComponent(typeof(EntityDataHolder))]
-public class SheepWoolDisplay : MonoBehaviour {
+public class SheepWoolDisplay : MonoBehaviour
+{
 
     public GameObject[] WoolModels;
     [Range(0, 1)]
@@ -18,14 +19,16 @@ public class SheepWoolDisplay : MonoBehaviour {
         {
             item.SetActive(false);
         }
-        for (int i = 0; i < WoolModels.Length-1; i++)
+        for (int i = 0; i < WoolModels.Length - 1; i++)
         {
-            if(woolPercentage > Boudaries[i])
+            if (woolPercentage > Boudaries[i])
             {
                 WoolModels[i].SetActive(true);
                 return;
             }
         }
-        WoolModels[3].SetActive(true);
+        if (currentWool != 0)
+            WoolModels[3].SetActive(true);
+
     }
 }

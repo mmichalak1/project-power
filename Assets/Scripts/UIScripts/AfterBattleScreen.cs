@@ -43,8 +43,8 @@ public class AfterBattleScreen : MonoBehaviour {
 
     public void ContinueButton()
     {
-        Counter.WoolCount += woolForFight;
         gameObject.SetActive(false);
+        Counter.WoolCount += woolForFight;
         Assets.LogicSystem.Events.Instance.DispatchEvent("EndFight", null);
     }
 
