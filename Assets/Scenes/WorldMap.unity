@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd97108b6a3b637438b6a8a6851cb7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
   levelData: {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
   IsLocked: 0
   Padlock: {fileID: 1534528070}
@@ -1021,6 +1022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faff4d34876992c4b80f9fd234f0021a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
 --- !u!114 &1289850138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1333,6 +1335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd97108b6a3b637438b6a8a6851cb7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
   levelData: {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
   IsLocked: 1
   Padlock: {fileID: 564286715}
@@ -1536,6 +1539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faff4d34876992c4b80f9fd234f0021a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
 --- !u!1 &1724278405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1763,6 +1767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd97108b6a3b637438b6a8a6851cb7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
   levelData: {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
   IsLocked: 1
   Padlock: {fileID: 1509410928}
@@ -1885,6 +1890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faff4d34876992c4b80f9fd234f0021a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
 --- !u!114 &1879890423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1976,6 +1982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd97108b6a3b637438b6a8a6851cb7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
   levelData: {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
   IsLocked: 1
   Padlock: {fileID: 2053433271}
@@ -2098,6 +2105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faff4d34876992c4b80f9fd234f0021a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
 --- !u!114 &1997023318
 MonoBehaviour:
   m_ObjectHideFlags: 0

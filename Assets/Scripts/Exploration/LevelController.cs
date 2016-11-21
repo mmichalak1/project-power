@@ -5,7 +5,7 @@ namespace Assets.Scripts
 {
     public class LevelController : MonoBehaviour
     {
-
+        public ExplorationHolder holder;
         public LevelData levelData;
         public bool IsLocked;
         public Image Padlock;
@@ -17,8 +17,8 @@ namespace Assets.Scripts
         // Use this for initialization
         void Start()
         {
-            if (LogicSystem.ExplorationResult.Instance.GameResult != GameResult.None && !IsLocked)
-                ProcessResult();
+            //if (holder.GameResult != GameResult.None && !IsLocked)
+            //    ProcessResult();
 
             ProgressData.text = levelData.Progress + "/" + levelData.TargetProgress;
         }
@@ -42,7 +42,7 @@ namespace Assets.Scripts
 
         private void ProcessResult()
         {
-            if (LogicSystem.ExplorationResult.Instance.GameResult == GameResult.Win)
+            if (holder.GameResult == GameResult.Win)
                 levelData.OnLevelWon();
             else
                 levelData.OnLevelLost();        

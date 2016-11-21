@@ -22,7 +22,6 @@ public class MovementController : MonoBehaviour
 
     public Image ShallNotPass;
     public World World;
-    public Transform forward;
 
     // Use this for initialization
     void Start()

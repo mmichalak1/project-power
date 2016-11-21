@@ -6,9 +6,11 @@ using Assets.LogicSystem;
 public class GameState : MonoBehaviour {
 
     [SerializeField]
+    private ExplorationHolder holder;
+    [SerializeField]
     private List<GameObject> EnemyGroups;
     [SerializeField]
-    private GameObject Panel;
+    private GameObject WinWindow;
     [SerializeField]
     private int WoolForWin = 100;
 
@@ -28,8 +30,8 @@ public class GameState : MonoBehaviour {
 	
     void ExplorationWon()
     {
-        ExplorationResult.Instance.GameResult = Assets.Scripts.GameResult.Win;
-        Panel.SetActive(true);
+        holder.GameResult = Assets.Scripts.GameResult.Win;
+        WinWindow.SetActive(true);
         Map.SetActive(false);
         foreach (var item in GameObject.FindGameObjectsWithTag("Sheep"))
         {

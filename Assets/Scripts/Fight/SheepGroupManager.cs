@@ -5,6 +5,8 @@ using Assets.Scripts.Interfaces;
 public class SheepGroupManager : MonoBehaviour {
 
     [SerializeField]
+    ExplorationHolder holder;
+    [SerializeField]
     private GameObject LostPanel;
     [SerializeField, Range(0, 1)]
     private float WoolGrowthMultiplier;
@@ -24,7 +26,7 @@ public class SheepGroupManager : MonoBehaviour {
                 SheepCount--;
                 if (SheepCount == 0)
                 {
-                    ExplorationResult.Instance.GameResult = Assets.Scripts.GameResult.Loss;
+                    holder.GameResult = Assets.Scripts.GameResult.Loss;
                     Events.Instance.DispatchEvent("BattleLost", null);
                     foreach (var item in gameObject.GetComponentsInChildren<EntityDataHolder>())
                         item.RevertItemsChange();

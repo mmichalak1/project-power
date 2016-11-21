@@ -2128,6 +2128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d33ba0cd812cdbb46b5d209cff7f8eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
   ExplorationResultText: {fileID: 758020493}
   ExitButton: {fileID: 580722460}
   incomeSpeed: 0.05
@@ -3750,6 +3751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07430e12fb1286b43afdb15dfe96e5ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
   ResultsPanel: {fileID: 989267370}
   SceneButtons:
   - {fileID: 339528950}

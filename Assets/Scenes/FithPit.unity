@@ -4108,6 +4108,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11491008, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: EnemyGroups.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: DataHolders.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 484858, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4185,6 +4193,15 @@ Prefab:
       propertyPath: ChangeTurnButton
       value: 
       objectReference: {fileID: 31704893}
+    - target: {fileID: 11491008, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: holder
+      value: 
+      objectReference: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a,
+        type: 2}
+    - target: {fileID: 11491008, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: WinWindow
+      value: 
+      objectReference: {fileID: 999203592}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
   m_IsPrefabParent: 0
@@ -15479,6 +15496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4510cad8ceb94d1439e7757b442990a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
   LostPanel: {fileID: 1507109539}
   WoolGrowthMultiplier: 0.15
 --- !u!114 &836859326

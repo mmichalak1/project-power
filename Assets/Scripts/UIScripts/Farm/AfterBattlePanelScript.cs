@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class AfterBattlePanelScript : MonoBehaviour
 {
-
+    public ExplorationHolder holder;
     public Text ExplorationResultText;
     public GameObject ExitButton;
     public float incomeSpeed;
@@ -30,7 +30,7 @@ public class AfterBattlePanelScript : MonoBehaviour
         {
             StaticExpIndicator[i].fillAmount = DynamicExpIndicator[i].fillAmount = (float)sheepData[i].Experience / (float)sheepData[i].ExperienceForNextLevel;
             isFinished[i] = false;
-            ExplorationResultText.text = ExplorationResult.Instance.GameResult.ToString();
+            ExplorationResultText.text = holder.GameResult.ToString();
             Avatars[i].sprite = sheepData[i].Portrait;
             SheepLevels[i].text = sheepData[i].Level.ToString();
             sheepData[i].GrowWool();
@@ -78,7 +78,7 @@ public class AfterBattlePanelScript : MonoBehaviour
             if (isFinished[1] && isFinished[2] && isFinished[3] && isFinished[0])
             {
                 addingExperience = false;
-                ExplorationResult.Reset();
+                holder.Reset();
                 ExitButton.SetActive(true);
             }
 
