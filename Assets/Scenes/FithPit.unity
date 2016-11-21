@@ -4634,7 +4634,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5591755118c39174190224dcfb306266, type: 2}
+  - {fileID: 2100000, guid: 520f7f68c776bd2439645fe2bf19f769, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -4682,7 +4682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c54c2508349d654e97e981729879422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Accessible: 0
+  Accessible: 1
 --- !u!4 &202196478 stripped
 Transform:
   m_PrefabParentObject: {fileID: 417640, guid: c8a2cf893b362b14784799d9219265da, type: 2}
@@ -15696,7 +15696,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 842524834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24, y: 0, z: 14}
+  m_LocalPosition: {x: 24.02, y: 0, z: 14}
   m_LocalScale: {x: 2, y: 0.2, z: 2}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -19587,7 +19587,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5591755118c39174190224dcfb306266, type: 2}
+  - {fileID: 2100000, guid: 520f7f68c776bd2439645fe2bf19f769, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -23221,7 +23221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c54c2508349d654e97e981729879422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Accessible: 1
+  Accessible: 0
 --- !u!1 &1140282485
 GameObject:
   m_ObjectHideFlags: 0
