@@ -10,13 +10,11 @@ public class ChestScript : MonoBehaviour {
 
     public int WoolForFight = 20;
 
-    private bool isDetecting = true;
-
 	void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == Player && isDetecting)
+        if(other.gameObject == Player)
         {
-            isDetecting = !isDetecting;
+            GetComponent<Collider>().enabled = false;
             WoolWindow.SetActive(true);
             WoolWindow.GetComponent<AfterBattleScreen>().OnEvoke(WoolForFight);
             Manager.enabled = false;

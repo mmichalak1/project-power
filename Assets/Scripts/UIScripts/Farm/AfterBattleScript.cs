@@ -23,6 +23,7 @@ public class AfterBattleScript : MonoBehaviour {
                 EnableButtons();
                 break;
             case Assets.Scripts.GameResult.Exited:
+                ResultsPanel.SetActive(true);
                 ResultsPanel.GetComponent<AfterBattlePanelScript>().addingExperience = true;
                 holder.LevelPlayed.OnLevelLost();
                 break;

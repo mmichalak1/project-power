@@ -12,9 +12,14 @@ public static class Saver
     public static GameSaveData Load()
     {
         GameSaveData state;
-        var file = KnownFolders.
-        
-        return null;
+        var storageFolder = ApplicationData.Current.LocalFolder;
+        StorageFile file = await storageFolder.GetFileAsync(FILENAME);
+        if (file == null)
+            return null;
+        var stream = await file.OpenAsync(FileAccessMode.ReadWrite);
+        SharpSerializer reader = new SharpSerializer(true);
+        state = reader.Deserialize(stream) as GameSaveData;
+        stream.C
     }
 #else
     public static GameSaveData Load()
