@@ -1,18 +1,23 @@
 ﻿using Polenter.Serialization;
 using UnityEngine;
+#if NETFX_CORE
+using Windows.Storage;
+#else
 using System.IO;
-
+#endif
 public static class Saver
 {
     private static string FILENAME = "Save.dat";
-
-
-
-
+#if NETFX_CORE
+        public static GameSaveData Load()
+    {
+    return null;
+    }
+#else
     public static GameSaveData Load()
     {
-        string path = Application.persistentDataPath + FILENAME;
         GameSaveData state;
+        string path = Application.persistentDataPath + FILENAME;
         if (!File.Exists(path))
             return null;
         using (var stream = File.Open(path, FileMode.Open))
@@ -22,11 +27,18 @@ public static class Saver
         }
         return state;
     }
+#endif
 
+
+
+#if NETFX_CORE
+    public static void Save(GameSaveData state)
+    {
+    }
+#else
     public static void Save(GameSaveData state)
     {
         string path = Application.persistentDataPath + FILENAME;
-
         if (File.Exists(path))
             File.Delete(path);
         using (var stream = File.Open(path, FileMode.CreateNew))
@@ -35,5 +47,7 @@ public static class Saver
             writer.Serialize(state, stream);
         }
     }
+#endif
+
 
 }

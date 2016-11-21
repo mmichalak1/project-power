@@ -20,7 +20,7 @@ public class RandomBrain : AbstractBrain
 
     public override void Think(GameObject parent)
     {
-        _myRealDamage = MyDamage;
+        _myRealDamage = parent.GetComponent<AttackController>().Damage;
         var debuffs = parent.GetComponents<DamageDebuff>();
 
         if (debuffs.Length != 0)
