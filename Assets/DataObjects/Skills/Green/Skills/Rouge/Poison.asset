@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ce85d12d3c56744970608561a0db3b, type: 3}
   m_Name: Poison
   m_EditorClassIdentifier: 
-  StatsMultiplier: 50
+  StatsMultiplier: 25
   BaseCost: 3
-  BaseCooldown: 2
+  BaseCooldown: 3
   SkillLevel: 0
   isActive: 0
   unlockCost: 20

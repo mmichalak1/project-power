@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Redirect Damage
   m_EditorClassIdentifier: 
   StatsMultiplier: 70
-  BaseCost: 3
+  BaseCost: 2
   BaseCooldown: 3
   SkillLevel: 0
   isActive: 0
@@ -21,4 +21,4 @@ MonoBehaviour:
     warrior.
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: 2dc08ecdc0fb3ba4da52ae6d31bd731d, type: 3}
-  Duration: 2
+  Duration: 3

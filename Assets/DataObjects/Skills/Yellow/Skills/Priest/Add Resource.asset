@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StatsMultiplier: 70
   BaseCost: 0
-  BaseCooldown: 3
+  BaseCooldown: 4
   SkillLevel: 0
   isActive: 0
   unlockCost: 20

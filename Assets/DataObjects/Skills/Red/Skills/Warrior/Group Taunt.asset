@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StatsMultiplier: 70
   BaseCost: 5
-  BaseCooldown: 3
+  BaseCooldown: 4
   SkillLevel: 0
   isActive: 0
   unlockCost: 20
@@ -23,4 +23,4 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: c136c0b369d93844296d0153c6d1991d, type: 3}
   TauntedBrain: {fileID: 11400000, guid: e87a4360823f3fe4e9f0954934f2e569, type: 2}
   SkillDuration: 1
-  DamagePercentReduced: 33
+  DamagePercentReduced: 40

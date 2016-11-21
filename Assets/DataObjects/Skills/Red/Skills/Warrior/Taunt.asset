@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa00e636f04ae44ab6759cc0e24185d, type: 3}
   m_Name: Taunt
   m_EditorClassIdentifier: 
-  StatsMultiplier: 120
-  BaseCost: 3
-  BaseCooldown: 2
+  StatsMultiplier: 100
+  BaseCost: 2
+  BaseCooldown: 3
   SkillLevel: 0
   isActive: 0
   unlockCost: 20
