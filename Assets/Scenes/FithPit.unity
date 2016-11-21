@@ -4138,7 +4138,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484858, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
       propertyPath: DataHolders.Array.data[0]
@@ -35139,7 +35139,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485220, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 485220, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
