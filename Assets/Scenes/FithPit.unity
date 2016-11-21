@@ -4233,6 +4233,19 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 183555358}
   m_Script: {fileID: 11500000, guid: b64828a4d7a728649b011081899fcd35, type: 3}
+--- !u!114 &183555362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183555359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c11cda4f1f70fd4587cabbde87c0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
+  Result: 2
 --- !u!4 &185391689 stripped
 Transform:
   m_PrefabParentObject: {fileID: 417640, guid: c8a2cf893b362b14784799d9219265da, type: 2}
@@ -20497,6 +20510,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 183555360}
         m_MethodName: SaveGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 183555362}
+        m_MethodName: SetResult
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
