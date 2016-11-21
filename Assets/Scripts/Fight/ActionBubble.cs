@@ -6,14 +6,7 @@ public class ActionBubble : MonoBehaviour {
 
     public Image[] skillImage;
     private int whichIcon = 0;
-    ActionBubble()
-    {
-
-    }
-    void Start()
-    {
-
-    }
+    public Sprite imageForNull;
     public void SetImage(Sprite sprite)
     {
         if(whichIcon<3)
@@ -27,7 +20,7 @@ public class ActionBubble : MonoBehaviour {
     {
         whichIcon = 0;
         foreach (Image item in skillImage)
-            item.sprite = null;
+            item.sprite = imageForNull;
     }
     public void TurnOn()
     {
