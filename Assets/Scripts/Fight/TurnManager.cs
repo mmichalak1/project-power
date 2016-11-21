@@ -16,6 +16,11 @@ public class TurnManager : MonoBehaviour
     public static bool ChangeFlag = false;
     public GameObject ChangeTurnButton;
 
+    public ActionBubble actionBubbleCleric;
+    public ActionBubble actionBubbleMage;
+    public ActionBubble actionBubbleRouge;
+    public ActionBubble actionBubbleWarrior;
+
     [SerializeField]
     private WoolCounter DefaultWoolCounter; 
 
@@ -63,6 +68,14 @@ public class TurnManager : MonoBehaviour
                 selectedSheep = ((KeyValuePair<Vector2, Transform>)x).Value.gameObject;
             });
         }
+
+        GameObject player = GameObject.Find("Player");
+        List<RectTransform> listyOfAllImages = player.transform.GetComponentsInChildren<RectTransform>(true).ToList<RectTransform>();
+
+        actionBubbleCleric = (ActionBubble)listyOfAllImages.Find(x => x.name == "actionBubbleCleric").GetComponent(typeof(ActionBubble));
+        actionBubbleMage = (ActionBubble)listyOfAllImages.Find(x => x.name == "actionBubbleMage").GetComponent(typeof(ActionBubble));
+        actionBubbleRouge = (ActionBubble)listyOfAllImages.Find(x => x.name == "actionBubbleRouge").GetComponent(typeof(ActionBubble));
+        actionBubbleWarrior = (ActionBubble)listyOfAllImages.Find(x => x.name == "actionBubbleWarrior").GetComponent(typeof(ActionBubble));
     }
 
     void Update()
@@ -102,6 +115,11 @@ public class TurnManager : MonoBehaviour
 
     public void ChangeTurn()
     {
+        actionBubbleCleric.TurnOff();
+        actionBubbleMage.TurnOff();
+        actionBubbleRouge.TurnOff();
+        actionBubbleWarrior.TurnOff();
+
         FightingSceneUIScript.DisableSkillCanvases();
 
         state = activeState.nothingPicked;
@@ -110,7 +128,10 @@ public class TurnManager : MonoBehaviour
         ourTurn = false;
 
         if (!TurnPlaner.Instance.Execute())
+        {
             return;
+        }
+            
         wolfManager.CheckForDeadAndApplyExperience();
         wolfManager.ApplyGroupTurn();
 
@@ -146,10 +167,36 @@ public class TurnManager : MonoBehaviour
         if (hitedTarget != null)
             if (hitedTarget.tag == "Sheep" || hitedTarget.tag == "Enemy")
             {
-                if(!TurnPlaner.Instance.ContainsPlanForSheepSkill(selectedSheep.name, pickedSkill))
+                Plan plan = new Plan(selectedSheep, hitedTarget.transform.gameObject, pickedSkill);
+
+                if (!TurnPlaner.Instance.ContainsPlanForSheepSkill(selectedSheep.name, pickedSkill))
+                {
                     UpdateResource(pickedSkill.Cost);
+                    EntityDataHolder sheepDataHolder = (EntityDataHolder)plan.Actor.GetComponent(typeof(EntityDataHolder));
+                    switch (sheepDataHolder.SheepData.SheepClass)
+                    {
+                        case EntityData.Class.Cleric:
+                            actionBubbleCleric.TurnOn();
+                            actionBubbleCleric.SetImage(plan.Skill.Icon);
+                            break;
+                        case EntityData.Class.Mage:
+                            actionBubbleMage.TurnOn();
+                            actionBubbleMage.SetImage(plan.Skill.Icon);
+                            break;
+                        case EntityData.Class.Rouge:
+                            actionBubbleRouge.TurnOn();
+                            actionBubbleRouge.SetImage(plan.Skill.Icon);
+                            break;
+                        case EntityData.Class.Warrior:
+                            actionBubbleWarrior.TurnOn();
+                            actionBubbleWarrior.SetImage(plan.Skill.Icon);
+                            break;
+                        default:
+                            break;
+                    }
+                }                   
                 pickedSkill.OnSkillPlanned(selectedSheep, hitedTarget.transform.gameObject);
-                TurnPlaner.Instance.AddPlan(selectedSheep.name, new Plan(selectedSheep, hitedTarget.transform.gameObject, pickedSkill));
+                TurnPlaner.Instance.AddPlan(selectedSheep.name, plan);
                 hitedTarget = null;
 
                 FightingSceneUIScript.DisableSkillCanvases();

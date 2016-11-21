@@ -4,9 +4,16 @@ using UnityEngine.UI;
 
 public class ActionBubble : MonoBehaviour {
 
-    public GameObject actionView;
     public Image[] skillImage;
     private int whichIcon = 0;
+    ActionBubble()
+    {
+
+    }
+    void Start()
+    {
+
+    }
     public void SetImage(Sprite sprite)
     {
         if(whichIcon<3)
@@ -24,13 +31,13 @@ public class ActionBubble : MonoBehaviour {
     }
     public void TurnOn()
     {
-        actionView.SetActive(true);
-        Debug.Log("Enabling" + actionView.name);
+        this.gameObject.SetActive(true);
+        Debug.Log("Enabling" + this.gameObject.name);
     }
     public void TurnOff()
     {
         Clear();
-        actionView.SetActive(false);
-        Debug.Log("Disabling" + actionView.name);
+        this.gameObject.SetActive(false);
+        Debug.Log("Disabling" + this.gameObject.name);
     }
 }

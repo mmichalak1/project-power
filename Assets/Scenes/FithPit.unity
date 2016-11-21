@@ -7841,6 +7841,10 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1746547623}
+    - target: {fileID: 22438038, guid: fe7992718b643ee439cab07a276e350a, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe7992718b643ee439cab07a276e350a, type: 2}
   m_IsPrefabParent: 0
@@ -20005,7 +20009,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 44.9, y: -27.1}
+  m_AnchoredPosition: {x: 44.9, y: -27.099987}
   m_SizeDelta: {x: 60, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1004053035
@@ -20052,7 +20056,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf6d2dd9428bab48b3bfa625dc32da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionView: {fileID: 1004053033}
   skillImage:
   - {fileID: 99990921}
   - {fileID: 1547555740}
@@ -29445,7 +29448,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1422264713}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -29456,7 +29459,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 46, y: -27}
+  m_AnchoredPosition: {x: 46, y: -26.999977}
   m_SizeDelta: {x: 60, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1422264715
@@ -29470,7 +29473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf6d2dd9428bab48b3bfa625dc32da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionView: {fileID: 1422264713}
   skillImage:
   - {fileID: 1390315153}
   - {fileID: 226146640}
@@ -34041,7 +34043,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 51.7, y: -33.1}
+  m_AnchoredPosition: {x: 51.7, y: -33.100018}
   m_SizeDelta: {x: 60, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1622641823
@@ -34055,7 +34057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf6d2dd9428bab48b3bfa625dc32da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionView: {fileID: 1622641821}
   skillImage:
   - {fileID: 2051169888}
   - {fileID: 2128463277}
@@ -38665,6 +38666,10 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1746547623}
+    - target: {fileID: 22438038, guid: fe7992718b643ee439cab07a276e350a, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe7992718b643ee439cab07a276e350a, type: 2}
   m_IsPrefabParent: 0
@@ -38785,7 +38790,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1804837830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -38796,7 +38801,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 45.1, y: -31.1}
+  m_AnchoredPosition: {x: 45.1, y: -31.100014}
   m_SizeDelta: {x: 60, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1804837832
@@ -38810,7 +38815,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf6d2dd9428bab48b3bfa625dc32da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionView: {fileID: 1804837830}
   skillImage:
   - {fileID: 1001768026}
   - {fileID: 100749826}
@@ -39982,6 +39986,10 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1746547623}
+    - target: {fileID: 22438038, guid: fe7992718b643ee439cab07a276e350a, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe7992718b643ee439cab07a276e350a, type: 2}
   m_IsPrefabParent: 0
