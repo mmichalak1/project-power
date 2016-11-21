@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Stefan
   BasicMaxHealth: 100
-  BasicAttack: 45
+  BasicAttack: 10
   BasicDefence: 0
   Portrait: {fileID: 21300000, guid: 6b8e073e4398979458315a12397ea81c, type: 3}
   MaxHealth: 130

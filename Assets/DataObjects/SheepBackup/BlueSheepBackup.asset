@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Janusz
   BasicMaxHealth: 100
-  BasicAttack: 30
+  BasicAttack: 10
   BasicDefence: 0
   Portrait: {fileID: 21300000, guid: 1959db1d8336df94182e179482e748ff, type: 3}
   MaxHealth: 100
