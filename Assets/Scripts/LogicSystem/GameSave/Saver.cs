@@ -9,10 +9,12 @@ public static class Saver
 {
     private static string FILENAME = "Save.dat";
 #if NETFX_CORE
-        public static GameSaveData Load()
+    public static GameSaveData Load()
     {
-    
-    return null;
+        GameSaveData state;
+        var file = KnownFolders.
+        
+        return null;
     }
 #else
     public static GameSaveData Load()
