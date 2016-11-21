@@ -9,7 +9,6 @@ namespace Assets.Scripts.ScriptableObjects
 
         [HideInInspector]
         public GameObject Target;
-        public int MyDamage = 0;
 
         private int _myRealDamage;
         public override void Initialize(GameObject[] targets)
@@ -18,7 +17,7 @@ namespace Assets.Scripts.ScriptableObjects
 
         public override void Think(GameObject parent)
         {
-            _myRealDamage = MyDamage;
+            _myRealDamage = parent.GetComponent<AttackController>().Damage;
             var debuffs = parent.GetComponents<DamageDebuff>();
              
             if(debuffs.Length != 0)

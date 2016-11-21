@@ -7,6 +7,7 @@ public class AttackController : MonoBehaviour
 {
     private float timer;
     public float WaitTime = 2f;
+    public int Damage = 30;
     [SerializeField]
     private AbstractBrain MyBrain;
 
