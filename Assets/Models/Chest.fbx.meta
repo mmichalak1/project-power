@@ -1,26 +1,12 @@
 fileFormatVersion: 2
-guid: c13d2b094f538af45a5e39d37e9d9a3e
-timeCreated: 1479751206
-licenseType: Free
+guid: bc46296565b00064d977b76b34dc9548
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Armature
-    100002: Bone
-    100004: Bone_end
-    100006: Bone_end_end
-    100008: //RootNode
-    100010: Skrzynia
-    400000: Armature
-    400002: Bone
-    400004: Bone_end
-    400006: Bone_end_end
-    400008: //RootNode
-    400010: Skrzynia
-    4300000: Skrzynia
-    7400000: Armature|Armature|Armature|AmciamAmciam|Armature|AmciamAmciam
-    9500000: //RootNode
-    13700000: Skrzynia
+    4300000: open
+    4300002: lock
+    4300004: chest
+    4300006: chest00
   materials:
     importMaterials: 1
     materialName: 0
@@ -45,7 +31,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.01
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -59,11 +45,11 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
+    tangentImportMode: 4
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -79,7 +65,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
