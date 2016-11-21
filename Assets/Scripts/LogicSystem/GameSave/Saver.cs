@@ -11,6 +11,7 @@ public static class Saver
 #if NETFX_CORE
         public static GameSaveData Load()
     {
+    
     return null;
     }
 #else

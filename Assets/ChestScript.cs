@@ -5,7 +5,6 @@ using UnityEngine.Events;
 public class ChestScript : MonoBehaviour {
 
     public GameObject Player;
-    public int WoolForChest = 10;
     public UnityEvent OnPlayerEnter;
 
 
