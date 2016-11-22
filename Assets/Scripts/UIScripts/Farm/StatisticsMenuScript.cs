@@ -6,17 +6,12 @@ public class StatisticsMenuScript : MonoBehaviour {
     public EntityData[] SheepData;
 
     public Text Name, Attack, HP, WoolCapacity, Defence, Defence_Bonus_Counter, Wool, Wool_Cap, Exp, Level;
-    public Image[] SheepIcon;
     public Image ExpBar;
     public static Color pushed = new Color(0.83F,0.83F,0.83F,1.0F);
     public static Color unpushed = new Color(0.73F, 0.73F, 0.73F, 1.0F);
 
     void Start()
     {
-        for (int i = 0; i < SheepData.Length; i++)
-        {
-            SheepIcon[i].sprite = SheepData[i].Portrait;
-        }
         LoadData(0);
     }
 

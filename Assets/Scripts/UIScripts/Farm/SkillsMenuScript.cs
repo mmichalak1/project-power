@@ -11,7 +11,6 @@ public class SkillsMenuScript : MonoBehaviour
     public EntityData[] SheepData;
     public int SheepNumber;
 
-    public Image[] SheepIconOnBar;
     public Image SelectedSheepIcon;
     public Button[] SkillsButtons;
 
@@ -35,8 +34,6 @@ public class SkillsMenuScript : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < SheepData.Length; i++)
-            SheepIconOnBar[i].sprite = SheepData[i].Portrait;
         LoadData(0);
     }
 

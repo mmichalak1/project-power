@@ -4,9 +4,15 @@ using System.Collections;
 [CreateAssetMenu(menuName = "Game/LevelData")]
 public class LevelData : ScriptableObject
 {
+    [SerializeField]
+    private int _progress = 0;
 
     public string Name = "Name";
-    public int Progress = 0;
+    public int Progress
+    {
+        get { return _progress; }
+        set { _progress = value; }
+    }
     public int TargetProgress = 100;
     public int Visited = 0;
     [SerializeField]
