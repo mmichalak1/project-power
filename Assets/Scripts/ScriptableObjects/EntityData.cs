@@ -27,7 +27,10 @@ public class EntityData : ScriptableObject {
     public float WoolGrowth = 0.0f;
     public SkillHolder SheepSkills;
     public Item OffensiveItem, DefensiveItem;
-    public int ExperienceGained;
+    public int ExperienceGained
+    {
+        get;
+        set; }
     public Class SheepClass;
 
     public void ResetStats()

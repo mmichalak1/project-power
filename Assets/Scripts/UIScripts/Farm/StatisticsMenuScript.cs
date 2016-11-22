@@ -13,6 +13,10 @@ public class StatisticsMenuScript : MonoBehaviour {
 
     void Start()
     {
+        for (int i = 0; i < SheepData.Length; i++)
+        {
+            SheepIcon[i].sprite = SheepData[i].Portrait;
+        }
         LoadData(0);
     }
 

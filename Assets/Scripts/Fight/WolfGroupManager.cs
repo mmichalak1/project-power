@@ -80,7 +80,8 @@ public class WolfGroupManager : MonoBehaviour
     {
         foreach (var item in enemies)
         {
-            item.GetComponent<ProvideExperience>().ProvideExp();
+            if(!item.activeInHierarchy)
+                item.GetComponent<ProvideExperience>().ProvideExp();
         }
     }
 
