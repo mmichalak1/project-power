@@ -1,9 +1,9 @@
 ﻿using Polenter.Serialization;
+using System.IO;
 using UnityEngine;
 #if NETFX_CORE
 using Windows.Storage;
-#else
-using System.IO;
+using System.Threading.Tasks;
 #endif
 public static class Saver
 {
@@ -13,13 +13,16 @@ public static class Saver
     {
         GameSaveData state;
         var storageFolder = ApplicationData.Current.LocalFolder;
-        StorageFile file = await storageFolder.GetFileAsync(FILENAME);
+        var file = storageFolder.GetFileAsync(FILENAME).GetResults();
         if (file == null)
             return null;
-        var stream = await file.OpenAsync(FileAccessMode.ReadWrite);
-        SharpSerializer reader = new SharpSerializer(true);
-        state = reader.Deserialize(stream) as GameSaveData;
-        stream.C
+        var stream = file.OpenAsync(FileAccessMode.ReadWrite).GetResults();
+        using (System.IO.Stream inputStream = stream.AsStream())
+        {
+            SharpSerializer reader = new SharpSerializer(true);
+            state = reader.Deserialize(inputStream);
+        }
+        return state;
     }
 #else
     public static GameSaveData Load()
@@ -42,6 +45,14 @@ public static class Saver
 #if NETFX_CORE
     public static void Save(GameSaveData state)
     {
+        var folder = ApplicationData.Current.LocalFolder;
+        StorageFile file = folder.CreateFileAsync(FILENAME, CreationCollisionOption.ReplaceExisting).GetResults();
+        var stream = file.OpenAsync(FileAccessMode.ReadWrite).GetResults();
+        using (var inputStream = stream.AsStream())
+        {
+            SharpSerializer writer = new SharpSerializer(true);
+            writer.Serialize(state, inputStream);
+        }
     }
 #else
     public static void Save(GameSaveData state)
