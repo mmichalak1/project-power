@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ExplorationResultHolder : MonoBehaviour {
+public class ExplorationResultHolder : MonoBehaviour
+{
 
     public ExplorationHolder holder;
 
@@ -9,6 +10,7 @@ public class ExplorationResultHolder : MonoBehaviour {
 
     public void SetResult()
     {
-        holder.GameResult = Result;
+        if (holder.GameResult != Assets.Scripts.GameResult.Win)
+            holder.GameResult = Result;
     }
 }
