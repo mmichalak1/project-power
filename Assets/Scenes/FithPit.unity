@@ -4241,7 +4241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
-  Result: 2
+  Result: 1
 --- !u!4 &185391689 stripped
 Transform:
   m_PrefabParentObject: {fileID: 417640, guid: c8a2cf893b362b14784799d9219265da, type: 2}
