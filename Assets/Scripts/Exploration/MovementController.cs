@@ -13,13 +13,13 @@ public class MovementController : MonoBehaviour
     private float movementSpeed = 5.0f;
     private float rotationSpeed = 180.0f;
     private Vector3 newPos;
-    private Quaternion newRot;
     private bool move = false;
     private Ray myRay;
     private int x;
     private int z;
     private bool shallNotPassControl = false;
 
+    public Quaternion newRot;
     public Image ShallNotPass;
     public World World;
 
