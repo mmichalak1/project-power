@@ -51,6 +51,7 @@ public class WolfGroupManager : MonoBehaviour
         if (x.transform.parent.name != gameObject.name)
             return;
         wolvesCounter--;
+        x.GetComponent<ProvideExperience>().ProvideExp();
         if (wolvesCounter == 0)
         {
             BattleUI.SetActive(false);
@@ -76,13 +77,4 @@ public class WolfGroupManager : MonoBehaviour
         return result;
 
     }
-    public void CheckForDeadAndApplyExperience()
-    {
-        foreach (var item in enemies)
-        {
-            if(!item.activeInHierarchy)
-                item.GetComponent<ProvideExperience>().ProvideExp();
-        }
-    }
-
 }

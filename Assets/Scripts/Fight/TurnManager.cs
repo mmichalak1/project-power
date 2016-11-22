@@ -132,7 +132,6 @@ public class TurnManager : MonoBehaviour
             return;
         }
             
-        wolfManager.CheckForDeadAndApplyExperience();
         wolfManager.ApplyGroupTurn();
 
 
