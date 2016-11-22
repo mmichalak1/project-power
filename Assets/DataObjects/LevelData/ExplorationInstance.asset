@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e7336984b1ef045a560f5da5c19a27, type: 3}
   m_Name: ExplorationInstance
   m_EditorClassIdentifier: 
-  GameResult: 3
+  GameResult: 2
   LevelPlayed: {fileID: 0}

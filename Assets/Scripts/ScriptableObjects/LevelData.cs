@@ -16,7 +16,13 @@ public class LevelData : ScriptableObject
     {
         Visited++;
         if (Progress < TargetProgress)
-            Progress += ProgressPerCompletion;
+        {
+            if (Progress + ProgressPerCompletion > TargetProgress)
+                Progress = TargetProgress;
+            else
+                Progress += ProgressPerCompletion;
+
+        }
     }
 
     public void OnLevelLost()

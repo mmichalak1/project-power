@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: GreenValley
   m_EditorClassIdentifier: 
   Name: GreenValley
-  Progress: 0
+  Progress: 60
   TargetProgress: 100
+  Visited: 10
   ProgressPerCompletion: 10
