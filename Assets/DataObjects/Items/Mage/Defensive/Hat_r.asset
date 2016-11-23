@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33050b0e059cb544fac9f0e86ec94bb5, type: 3}
   m_Name: Hat_r
   m_EditorClassIdentifier: 
+  SheepClass: 1
   Type: 1
   Icon: {fileID: 21300000, guid: 97959ffc4961c644d875bfd3fa406943, type: 3}
   rarity: 1
