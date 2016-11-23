@@ -1279,6 +1279,12 @@ Prefab:
       propertyPath: m_TagString
       value: WoolCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 11442122, guid: 9c8c28e5eae5b4f4b867b2743a135612, type: 2}
+      propertyPath: m_Text
+      value: '0
+
+'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c8c28e5eae5b4f4b867b2743a135612, type: 2}
   m_IsPrefabParent: 0
@@ -3031,6 +3037,7 @@ MonoBehaviour:
   levelData:
   - {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
   DefaultWoolCounter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
+  DefaultResourceCounter: {fileID: 0}
 --- !u!1 &1704094291
 GameObject:
   m_ObjectHideFlags: 0

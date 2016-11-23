@@ -14,6 +14,6 @@ public class WoolUpdater : MonoBehaviour
 
     public void UpdateWoolView()
     {
-            text.text = "Wool: " + DefaultWoolCounter.WoolCount;
+            text.text = DefaultWoolCounter.WoolCount.ToString();
     }
 }

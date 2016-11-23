@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class BuyResource : MonoBehaviour {
 
+    public ResourceCounter resourceCounter;
     public WoolCounter woolCounter;
     public Text resources;
     public Text resourcesCost;
@@ -18,7 +19,7 @@ public class BuyResource : MonoBehaviour {
     {
         if(woolCounter.WoolCount >= cost)
         {
-            woolCounter.Resources++;
+            resourceCounter.Resources++;
             woolCounter.WoolCount -= cost;
             updateActualResourcesAndCost();
         }
@@ -26,12 +27,12 @@ public class BuyResource : MonoBehaviour {
     void updateActualResourcesAndCost()
     {
         updateCost();
-        resources.text = "Resources: "+ woolCounter.Resources.ToString();
+        resources.text = "Resources: "+ resourceCounter.Resources.ToString();
         resourcesCost.text = "Buy more for: " + cost;
 
     }
     void updateCost()
     {
-        cost = (woolCounter.Resources - woolCounter.BasicResources + 1) * 5 + 5;
+        cost = (resourceCounter.Resources - resourceCounter.BasicResources + 1) * 5 + 5;
     }
 }

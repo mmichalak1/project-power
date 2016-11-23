@@ -10,11 +10,14 @@ public class ResetSheeps : MonoBehaviour {
 
     [SerializeField]
     private WoolCounter DefaultWoolCounter;
+    [SerializeField]
+    private ResourceCounter DefaultResourceCounter;
+
 
     public void Reset()
     {
         DefaultWoolCounter.WoolCount = 0;
-        DefaultWoolCounter.Resources = DefaultWoolCounter.BasicResources;
+        DefaultResourceCounter.Resources = DefaultResourceCounter.BasicResources;
         woolUpdater.UpdateWoolView();
 
         foreach (LevelData item in levelData)

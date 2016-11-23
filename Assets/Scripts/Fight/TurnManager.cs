@@ -22,7 +22,7 @@ public class TurnManager : MonoBehaviour
     private ActionBubble actionBubbleWarrior;
 
     [SerializeField]
-    private WoolCounter DefaultWoolCounter; 
+    private ResourceCounter DefaultResourceCounter; 
 
     public FadeInAndOut Fader;
     public EntityDataHolder[] DataHolders;
@@ -42,7 +42,7 @@ public class TurnManager : MonoBehaviour
         ourTurn = false;
         Instance = this;
 
-        currentResource = DefaultWoolCounter.Resources;
+        currentResource = DefaultResourceCounter.Resources;
         UpdateResource(0);
 
         Events.Instance.RegisterForEvent("EnterFight", x =>
@@ -147,7 +147,7 @@ public class TurnManager : MonoBehaviour
         }
 
         ourTurn = true;
-        currentResource = DefaultWoolCounter.Resources;
+        currentResource = DefaultResourceCounter.Resources;
         UpdateResource(0);
     }
 
