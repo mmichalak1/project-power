@@ -46,11 +46,12 @@ public class SheepGroupManager : MonoBehaviour {
             foreach (var data in GetComponentsInChildren<EntityDataHolder>())
             {
                 var sheepData = data.SheepData;
+                float income = (sheepData.MaxWool - sheepData.Wool) * WoolGrowthMultiplier;
                 sheepData.SheepSkills.ResetCooldowns();
                 if (sheepData.WoolGrowth == 0)
-                    sheepData.WoolGrowth = 2; 
+                    sheepData.WoolGrowth = 2;
                 else
-                    data.SheepData.WoolGrowth += (sheepData.MaxWool - sheepData.Wool) * WoolGrowthMultiplier;
+                    data.SheepData.WoolGrowth += income;
             }
 
             Events.Instance.DispatchEvent("DestroyHealthBars", null);

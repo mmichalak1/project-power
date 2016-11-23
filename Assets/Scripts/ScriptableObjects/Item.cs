@@ -6,6 +6,7 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "Item", menuName = "Game/Item")]
 public class Item : ScriptableObject {
 
+    public EntityData.Class SheepClass = EntityData.Class.Warrior;
     public ItemType Type = ItemType.Defensive;
     public Sprite Icon;
     public Rariry rarity = Rariry.Common;

@@ -23,7 +23,7 @@ public class EntityData : ScriptableObject {
     public int Experience = 0;
     public int ExperienceForNextLevel = 100;
     public int Wool = 1;
-    public int MaxWool = 3;
+    public int MaxWool { get; set; }
     public float WoolGrowth = 0.0f;
     public SkillHolder SheepSkills;
     public Item OffensiveItem, DefensiveItem;
@@ -44,6 +44,7 @@ public class EntityData : ScriptableObject {
         Experience -= ExperienceForNextLevel;
         if (Level > 1)
             ExperienceForNextLevel = ExperienceForNextLevel * 5;
+        //TODO DELETE IT!
         MaxWool += 2;
         switch (SheepClass)
         {

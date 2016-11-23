@@ -5,14 +5,14 @@ public class GameSaverScript : MonoBehaviour
 {
 
     public GameSave Save;
-    public bool ToSaveGame = false, ToLoadGame = false;
+    public bool SaveOnStart = false, LoadOnStart = false;
 
     void Start()
     {
-        if (ToSaveGame)
+        if (SaveOnStart)
             SaveGame();
 
-        if (ToLoadGame)
+        if (LoadOnStart)
             LoadGame();
     }
 
@@ -20,7 +20,7 @@ public class GameSaverScript : MonoBehaviour
     {
         //Debug.Log(Application.persistentDataPath);
 
-        Saver.Save(GameSaveData.ToDataSave(Save));
+        Saver.Save(GameSaveData.ToBinaryForm(Save));
 
         Debug.Log("Game Saved Successfully");
     }
@@ -33,7 +33,7 @@ public class GameSaverScript : MonoBehaviour
             Debug.Log("Load Error");
             return;
         }
-        GameSaveData.ToGameSave(ref Save, gs);
+        GameSaveData.ToGameForm(ref Save, gs);
         Debug.Log("Game Loaded Successfully");
 
     }
