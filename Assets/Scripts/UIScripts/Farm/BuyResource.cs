@@ -32,6 +32,6 @@ public class BuyResource : MonoBehaviour {
     }
     void updateCost()
     {
-        cost = (woolCounter.Resources - 4) * 100;
+        cost = (woolCounter.Resources - woolCounter.BasicResources + 1) * 5 + 5;
     }
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   BaseCooldown: 3
   SkillLevel: 0
   isActive: 0
-  unlockCost: 20
+  unlockCost: 50
   _rawDescription: Poisons target for {0} turns causing it to take <damage>{1}</damage>
     per turn.
   RequiredSkills: []

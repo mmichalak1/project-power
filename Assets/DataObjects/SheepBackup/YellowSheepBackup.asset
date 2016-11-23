@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f6bf9d4f60d464dbb040ecba8aa40a, type: 3}
   m_Name: YellowSheepBackup
   m_EditorClassIdentifier: 
-  Name: "Wac\u0142aw"
+  Name: Priest Paul
   BasicMaxHealth: 100
   BasicAttack: 10
   BasicDefence: 0
@@ -21,12 +21,11 @@ MonoBehaviour:
   Defence: 0
   Level: 1
   Experience: 0
-  ExperienceForNextLevel: 200
+  ExperienceForNextLevel: 100
   Wool: 0
   MaxWool: 10
   WoolGrowth: 0
   SheepSkills: {fileID: 11400000, guid: 0f164399f85b4aa4db81ae6be1732b21, type: 2}
   OffensiveItem: {fileID: 0}
   DefensiveItem: {fileID: 0}
-  ExperienceGained: 0
   SheepClass: 2

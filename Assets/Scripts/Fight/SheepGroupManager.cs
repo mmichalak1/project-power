@@ -48,7 +48,7 @@ public class SheepGroupManager : MonoBehaviour {
                 var sheepData = data.SheepData;
                 sheepData.SheepSkills.ResetCooldowns();
                 if (sheepData.WoolGrowth == 0)
-                    sheepData.WoolGrowth = 1;
+                    sheepData.WoolGrowth = 2; 
                 else
                     data.SheepData.WoolGrowth += (sheepData.MaxWool - sheepData.Wool) * WoolGrowthMultiplier;
             }

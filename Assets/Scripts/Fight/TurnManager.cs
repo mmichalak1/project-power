@@ -16,10 +16,10 @@ public class TurnManager : MonoBehaviour
     public static bool ChangeFlag = false;
     public GameObject ChangeTurnButton;
 
-    public ActionBubble actionBubbleCleric;
-    public ActionBubble actionBubbleMage;
-    public ActionBubble actionBubbleRouge;
-    public ActionBubble actionBubbleWarrior;
+    private ActionBubble actionBubbleCleric;
+    private ActionBubble actionBubbleMage;
+    private ActionBubble actionBubbleRouge;
+    private ActionBubble actionBubbleWarrior;
 
     [SerializeField]
     private WoolCounter DefaultWoolCounter; 

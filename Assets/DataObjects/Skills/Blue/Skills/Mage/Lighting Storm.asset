@@ -16,7 +16,7 @@ MonoBehaviour:
   BaseCooldown: 4
   SkillLevel: 0
   isActive: 0
-  unlockCost: 20
+  unlockCost: 50
   _rawDescription: Create a lighting storm which deals every enemy <damage>{0}</damage>
     points of damage.
   RequiredSkills: []

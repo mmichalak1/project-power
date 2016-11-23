@@ -46,7 +46,8 @@ public class EntityData : ScriptableObject {
         Level++;
         Experience -= ExperienceForNextLevel;
         if (Level > 1)
-            ExperienceForNextLevel += 120 * Level;
+            ExperienceForNextLevel = ExperienceForNextLevel * 5;
+        MaxWool += 2;
         switch (SheepClass)
         {
             case Class.Warrior:
@@ -83,7 +84,7 @@ public class EntityData : ScriptableObject {
     private void LevelUpMage()
     {
         BasicMaxHealth += 10;
-        BasicAttack += 10;
+        BasicAttack += 7;
     }
 
     private void LevelUpRouge()
