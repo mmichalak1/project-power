@@ -3037,7 +3037,8 @@ MonoBehaviour:
   levelData:
   - {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
   DefaultWoolCounter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
-  DefaultResourceCounter: {fileID: 0}
+  DefaultResourceCounter: {fileID: 11400000, guid: 522d4c5f0b0b01c4895c2b88faec721e,
+    type: 2}
 --- !u!1 &1704094291
 GameObject:
   m_ObjectHideFlags: 0
@@ -3778,8 +3779,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Save: {fileID: 11400000, guid: 25308824fbae9e140aa83092a62e67aa, type: 2}
-  ToSaveGame: 0
-  ToLoadGame: 0
+  SaveOnStart: 0
+  LoadOnStart: 0
 --- !u!1 &1836965093
 GameObject:
   m_ObjectHideFlags: 0

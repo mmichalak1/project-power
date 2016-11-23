@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 #endif
 public static class Saver
 {
-    private static string FILENAME = "Save.xml";
+    private static string FILENAME = "Save.dat";
 #if NETFX_CORE
     public static GameSaveData Load()
     {
@@ -33,7 +33,7 @@ public static class Saver
             return null;
         using (var stream = File.Open(path, FileMode.Open))
         {
-            SharpSerializer reader = new SharpSerializer();
+            SharpSerializer reader = new SharpSerializer(true);
             state = reader.Deserialize(stream) as GameSaveData;
         }
         return state;
@@ -62,7 +62,7 @@ public static class Saver
             File.Delete(path);
         using (var stream = File.Open(path, FileMode.CreateNew))
         {
-            SharpSerializer writer = new SharpSerializer();
+            SharpSerializer writer = new SharpSerializer(true);
             writer.Serialize(state, stream);
         }
     }
