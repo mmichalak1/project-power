@@ -18,7 +18,10 @@ public class GameSaveData {
         //Read and unlock all items listed
         foreach (var item in data.UnlockedItems)
             save.AllItems.Items.Where(x => x.name == item).First().Bought = true;
-        //
+        //Read current wool and resources data
+        save.ResourceCounter.BasicResources = data.BasicResources;
+        save.ResourceCounter.Resources = data.Resources;
+        save.WoolCounter.WoolCount = data.WoolAmount;
 
     }
 
@@ -34,6 +37,10 @@ public class GameSaveData {
         foreach (var item in save.AllItems.Items)
             if (item.Bought)
                 result.UnlockedItems.Add(item.name);
+        //Serialize Wool and resources
+        result.WoolAmount = save.WoolCounter.WoolCount;
+        result.Resources = save.ResourceCounter.Resources;
+        result.BasicResources = save.ResourceCounter.BasicResources;
         return result;
     }
 
@@ -48,6 +55,8 @@ public class GameSaveData {
         get;
         set;
     }
-
+    public int WoolAmount { get; set; }
+    public int Resources { get; set; }
+    public int BasicResources { get; set; }
 
 }

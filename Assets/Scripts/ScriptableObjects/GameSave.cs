@@ -7,4 +7,6 @@ public class GameSave : ScriptableObject {
     public EntityData[] SheepData;
     public ItemsLists AllItems;
     public SkillsHolder AllSkills;
+    public WoolCounter WoolCounter;
+    public ResourceCounter ResourceCounter;
 }
