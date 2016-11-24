@@ -19,7 +19,6 @@ public class SkillsMenuScript : MonoBehaviour
     public Text Name;
     public Text Description;
     public Text UnlockCost;
-    public Text CurrentWool;
     public Button UnlockButton;
     public Image Icon;
     public Text Cooldown;
@@ -55,18 +54,18 @@ public class SkillsMenuScript : MonoBehaviour
 
     public void ButtonClick(int SheepButton)
     {
+        Unlocker.SetActive(false);
         currentlyPickedSkill = SheepData[SheepNumber].SheepSkills.Skills[SheepButton];
         SkillDesc.SetActive(true);
         Name.text = currentlyPickedSkill.Name;
         Description.text = currentlyPickedSkill.Description();
         Icon.sprite = currentlyPickedSkill.Icon;
-        Cooldown.text = "Cooldown: " + currentlyPickedSkill.CooldownBase.ToString();
-        Cost.text = "Cost: " + currentlyPickedSkill.Cost.ToString();
+        Cooldown.text = currentlyPickedSkill.CooldownBase.ToString();
+        Cost.text = currentlyPickedSkill.Cost.ToString();
         if (!currentlyPickedSkill.IsActive)
         {
             Unlocker.SetActive(true);
             UnlockCost.text = currentlyPickedSkill.UnlockCost.ToString();
-            CurrentWool.text = WoolCounter.WoolCount.ToString();
         }
     }
 
