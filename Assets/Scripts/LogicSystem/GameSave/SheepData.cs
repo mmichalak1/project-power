@@ -72,6 +72,5 @@ public class SheepData
         entity.Wool = data.Wool;
         entity.MaxWool = data.MaxWool;
         entity.WoolGrowth = data.WoolGrowth;
-
     }
 }
