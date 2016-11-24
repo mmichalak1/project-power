@@ -2,7 +2,8 @@
 using System.Linq;
 using System;
 
-public class GameSaveData {
+public class GameSaveData
+{
 
     public static void ToGameForm(ref GameSave save, GameSaveData data)
     {
@@ -18,6 +19,12 @@ public class GameSaveData {
         //Read and unlock all items listed
         foreach (var item in data.UnlockedItems)
             save.AllItems.Items.Where(x => x.name == item).First().Bought = true;
+        //Load LevelData from save
+        for (int i = 0; i < save.LevelData.Length; i++)
+        {
+            Level.CreateFromSavedData(ref save.LevelData[i], data.Levels[i]);
+        }
+
         //Read current wool and resources data
         save.ResourceCounter.BasicResources = data.BasicResources;
         save.ResourceCounter.Resources = data.Resources;
@@ -30,6 +37,7 @@ public class GameSaveData {
         var result = new GameSaveData();
         result.Sheep = new List<SheepData>();
         result.UnlockedItems = new List<string>();
+        result.Levels = new List<Level>();
         //Serialize Sheep data to store on disc
         for (int i = 0; i < save.SheepData.Length; i++)
             result.Sheep.Add(SheepData.CreateFromRuntime(save.SheepData[i]));
@@ -37,6 +45,9 @@ public class GameSaveData {
         foreach (var item in save.AllItems.Items)
             if (item.Bought)
                 result.UnlockedItems.Add(item.name);
+        //Serialize All Levels Data
+        for (int i = 0; i < save.LevelData.Length; i++)
+            result.Levels.Add(Level.CreateFromRuntime(save.LevelData[i]));
         //Serialize Wool and resources
         result.WoolAmount = save.WoolCounter.WoolCount;
         result.Resources = save.ResourceCounter.Resources;
@@ -55,6 +66,14 @@ public class GameSaveData {
         get;
         set;
     }
+
+    public List<Level> Levels
+    {
+        get;
+        set;
+    }
+
+
     public int WoolAmount { get; set; }
     public int Resources { get; set; }
     public int BasicResources { get; set; }

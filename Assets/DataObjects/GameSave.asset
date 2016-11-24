@@ -16,6 +16,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d03a8ab49effa145b022c882a6ac0b1, type: 2}
   - {fileID: 11400000, guid: 59f28c451a1d6e0448db8ebd10154c18, type: 2}
   - {fileID: 11400000, guid: e80254ae7e39e7448aa75f84019250fd, type: 2}
+  LevelData:
+  - {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
   AllItems: {fileID: 11400000, guid: 4402c174e9839ff45a398590166aa6bf, type: 2}
   AllSkills: {fileID: 11400000, guid: 46572e8f02e9b084a8367ea12ffae591, type: 2}
   WoolCounter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
