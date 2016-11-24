@@ -7,18 +7,20 @@ public class GameSaveData
 
     public static void ToGameForm(ref GameSave save, GameSaveData data)
     {
+        //Read and unlock all items listed
+        foreach (var item in data.UnlockedItems)
+            save.AllItems.Items.Where(x => x.name == item).First().Bought = true;
         //Load SheepData to runtime and apply which skills are applied to given sheep
         for (int i = 0; i < save.SheepData.Length; i++)
         {
+            save.SheepData[i].OffensiveItem = save.AllItems.Items.FirstOrDefault(x => x.name == data.Sheep[i].OffensiveItem);
+            save.SheepData[i].DefensiveItem = save.AllItems.Items.FirstOrDefault(x => x.name == data.Sheep[i].DefensiveItem);
             SheepData.CreateFromSavedData(ref save.SheepData[i], data.Sheep[i]);
             for (int j = 0; j < data.Sheep[i].CurrentSkills.Count; j++)
             {
                 save.SheepData[i].SheepSkills.Skills[j] = save.AllSkills.Skills.First(x => x.Name == data.Sheep[i].CurrentSkills[j]);
             }
         }
-        //Read and unlock all items listed
-        foreach (var item in data.UnlockedItems)
-            save.AllItems.Items.Where(x => x.name == item).First().Bought = true;
         //Load LevelData from save
         for (int i = 0; i < save.LevelData.Length; i++)
         {
@@ -26,7 +28,6 @@ public class GameSaveData
         }
 
         //Read current wool and resources data
-        save.ResourceCounter.BasicResources = data.BasicResources;
         save.ResourceCounter.Resources = data.Resources;
         save.WoolCounter.WoolCount = data.WoolAmount;
 
@@ -51,7 +52,6 @@ public class GameSaveData
         //Serialize Wool and resources
         result.WoolAmount = save.WoolCounter.WoolCount;
         result.Resources = save.ResourceCounter.Resources;
-        result.BasicResources = save.ResourceCounter.BasicResources;
         return result;
     }
 
@@ -76,6 +76,5 @@ public class GameSaveData
 
     public int WoolAmount { get; set; }
     public int Resources { get; set; }
-    public int BasicResources { get; set; }
 
 }

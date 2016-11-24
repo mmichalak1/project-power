@@ -19,6 +19,7 @@ MonoBehaviour:
   unlockCost: 20
   _rawDescription: Deals <damage>{0}</damage> points of damage to target and <damage>{1}</damage>
     to neighbours.
+  isBasicSkill: 1
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: 4602560ed1aaa72458ffde6692769228, type: 3}
   SplashDamage: 50

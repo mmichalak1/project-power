@@ -35,6 +35,8 @@ public abstract class Skill : ScriptableObject {
     private int unlockCost = 20;
     [SerializeField, TextArea(3,5)]
     private string _rawDescription = "This is Skill's Description";
+    [SerializeField]
+    private bool isBasicSkill = false;
 
 
 
@@ -90,7 +92,15 @@ public abstract class Skill : ScriptableObject {
     public bool IsActive
     {
         get { return isActive; }
-        set { isActive = value; }
+        set
+        {
+            if (isBasicSkill)
+            {
+                isActive = true;
+                return;
+            }
+            isActive = value;
+        }
     }
 
     public int UnlockCost

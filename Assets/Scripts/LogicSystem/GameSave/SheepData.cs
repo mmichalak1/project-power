@@ -23,8 +23,8 @@ public class SheepData
     public int Wool { get; set; }
     public int MaxWool { get; set; }
     public float WoolGrowth { get; set; }
-    public string OffensiveItemPath { get; set; }
-    public string DefensiveItemPath { get; set; }
+    public string OffensiveItem { get; set; }
+    public string DefensiveItem { get; set; }
     public List<string> CurrentSkills
     {
         get { return _skills; }
@@ -50,9 +50,9 @@ public class SheepData
         foreach (var item in data.SheepSkills.Skills)
             result.CurrentSkills.Add(item.name);
         if (data.OffensiveItem != null)
-            result.OffensiveItemPath = data.OffensiveItem.name;
+            result.OffensiveItem = data.OffensiveItem.name;
         if (data.DefensiveItem != null)
-            result.DefensiveItemPath = data.DefensiveItem.name;
+            result.DefensiveItem = data.DefensiveItem.name;
 
         return result;
     }

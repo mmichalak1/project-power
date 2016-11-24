@@ -2241,12 +2241,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1004102077}
---- !u!114 &1015514715 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11454634, guid: 9c8c28e5eae5b4f4b867b2743a135612,
-    type: 2}
-  m_PrefabInternal: {fileID: 620250488}
-  m_Script: {fileID: 11500000, guid: 2dcace8590ecd034f8991f89bf89edda, type: 3}
 --- !u!1 &1023520715
 GameObject:
   m_ObjectHideFlags: 0
@@ -3033,12 +3027,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b49cf030cee88e849b4dccd13d357532, type: 2}
   - {fileID: 11400000, guid: 1f7b6c6a4e8ec0f41b4d1e4ed63b3d46, type: 2}
   - {fileID: 11400000, guid: a568dec7d7712cd4b82d33b54723b7da, type: 2}
-  woolUpdater: {fileID: 1015514715}
+  ResourceCounter: {fileID: 11400000, guid: 522d4c5f0b0b01c4895c2b88faec721e, type: 2}
+  WoolCounter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
   levelData:
   - {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
-  DefaultWoolCounter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
-  DefaultResourceCounter: {fileID: 11400000, guid: 522d4c5f0b0b01c4895c2b88faec721e,
-    type: 2}
+  Items: {fileID: 11400000, guid: 4402c174e9839ff45a398590166aa6bf, type: 2}
+  AllSkkills: {fileID: 11400000, guid: 46572e8f02e9b084a8367ea12ffae591, type: 2}
 --- !u!1 &1704094291
 GameObject:
   m_ObjectHideFlags: 0

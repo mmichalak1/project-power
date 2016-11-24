@@ -1,24 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ResetSheeps : MonoBehaviour {
+public class ResetSheeps : MonoBehaviour
+{
 
     public EntityData[] SheepData;
     public EntityData[] SheepDataBackup;
-    public WoolUpdater woolUpdater;
+    public ResourceCounter ResourceCounter;
+    public WoolCounter WoolCounter;
     public LevelData[] levelData;
-
-    [SerializeField]
-    private WoolCounter DefaultWoolCounter;
-    [SerializeField]
-    private ResourceCounter DefaultResourceCounter;
+    public ItemsLists Items;
+    public AllSkills AllSkkills;
 
 
     public void Reset()
     {
-        DefaultWoolCounter.WoolCount = 0;
-        DefaultResourceCounter.Resources = DefaultResourceCounter.BasicResources;
-        woolUpdater.UpdateWoolView();
+        WoolCounter.WoolCount = 0;
+        ResourceCounter.Resources = ResourceCounter.BasicResources;
+
+        foreach (var item in Items.Items)
+            item.Bought = false;
+
+        foreach (var skill in AllSkkills.Skills)
+            skill.IsActive = false;
+
 
         foreach (LevelData item in levelData)
         {
@@ -38,8 +43,7 @@ public class ResetSheeps : MonoBehaviour {
             SheepData[i].SheepClass = SheepDataBackup[i].SheepClass;
             for (int j = 0; j < 4; j++)
             {
-                if(j != 1) // for class skill
-                    SheepData[i].SheepSkills.Skills[j].IsActive = false;
+                SheepData[i].SheepSkills.Skills[j] = SheepDataBackup[i].SheepSkills.Skills[j];
             }
             SheepData[i].OffensiveItem = null;
             SheepData[i].DefensiveItem = null;
