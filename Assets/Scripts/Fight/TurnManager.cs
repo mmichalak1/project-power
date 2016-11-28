@@ -15,6 +15,7 @@ public class TurnManager : MonoBehaviour
     public static Skill pickedSkill;
     public static bool ChangeFlag = false;
     public GameObject ChangeTurnButton;
+    public GameObject ConfirmEndTurn;
 
     private ActionBubble actionBubbleCleric;
     private ActionBubble actionBubbleMage;
@@ -113,8 +114,15 @@ public class TurnManager : MonoBehaviour
             }
     }
 
-    public void ChangeTurn()
+    public void ChangeTurn(bool forced)
     {
+        if(!forced && currentResource == DefaultResourceCounter.BasicResources)
+        {
+            ConfirmEndTurn.SetActive(true);
+            return;
+        }
+
+
         actionBubbleCleric.TurnOff();
         actionBubbleMage.TurnOff();
         actionBubbleRouge.TurnOff();
