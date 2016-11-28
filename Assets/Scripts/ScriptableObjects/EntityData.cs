@@ -5,25 +5,46 @@ using System.Collections;
 public class EntityData : ScriptableObject {
 
     public string Name = "Wacław";
+    public Sprite Portrait;
 
     public int BasicMaxHealth = 100;
     public int BasicAttack = 20;
     public int BasicDefence = 0;
 
-    public Sprite Portrait;
+    [HideInInspector]
+    public int MaxHealthFromItems = 100;
+    [HideInInspector]
+    public int AttackFromItems = 20;
+    [HideInInspector]
+    public int DefenceFromItems = 0;
+    
+    public int TotalHealth
+    {
+        get { return BasicMaxHealth + MaxHealthFromItems; }
+    }
+    public int TotalDefence
+    {
+        get
+        {
+            float defenceFromWool = (Wool / MaxWool) * 0.3f;
+            float defenceSum = (BasicDefence + DefenceFromItems / 60) * 0.3f;
+            float result = defenceFromWool + defenceSum;
+            if (result > 60)
+                result = 60.0f;
+            return (int)result;
+        }
+    }
+    public int TotalAttack
+    {
+        get { return AttackFromItems + BasicAttack; }
+    }
 
-    [HideInInspector]
-    public int MaxHealth = 100;
-    [HideInInspector]
-    public int Attack = 20;
-    [HideInInspector]
-    public int Defence = 0;
 
     public int Level = 0;
     public int Experience = 0;
     public int ExperienceForNextLevel = 100;
     public int Wool = 1;
-    public int MaxWool { get; set; }
+    public int MaxWool = 3;
     public float WoolGrowth = 0.0f;
     public SkillHolder SheepSkills;
     public Item OffensiveItem, DefensiveItem;
@@ -33,9 +54,9 @@ public class EntityData : ScriptableObject {
     public void ResetStats()
     {
         ExperienceGained = 0;
-        MaxHealth = BasicMaxHealth;
-        Attack = BasicAttack;
-        Defence = BasicDefence;
+        MaxHealthFromItems = 0;
+        AttackFromItems = 0;
+        DefenceFromItems = 0;
     }
 
     public void LevelUp()

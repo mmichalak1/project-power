@@ -14,30 +14,15 @@ public class EntityDataHolder : MonoBehaviour
         HealthController comp = gameObject.GetComponent<HealthController>();
         data.ResetStats();
         ApplyItemsChange();
-        comp.MaxHealth = data.MaxHealth;
+        comp.MaxHealth = data.TotalHealth;
         comp.HealToFull();
-        comp.Defence = calculateDefence(data);
+        comp.Defence = data.TotalDefence;
 
 
         foreach (var x in SheepData.SheepSkills.Skills)
             if (x != null)
                 x.Initialize(gameObject);
     }   
-    public double calculateDefence(EntityData data)
-    {
-        double maxDefenceFromItem = 60;
-        double wool = data.Wool;
-        double maxWool = data.MaxWool;
-        double defence = data.BasicDefence;
-        //maximum defence from wool is 30 %, plus warrior can make another 30 % from items
-        double defenceFromWool =  (wool / maxWool) * 0.3;
-        double defenceFromItems = (defence / maxDefenceFromItem) * 0.3;
-        double result = defenceFromWool + defenceFromItems;
-        if (result > 60)
-            return 60;
-        return result;
-
-    }
     public void ApplyItemsChange()
     {
         if (SheepData.DefensiveItem != null)

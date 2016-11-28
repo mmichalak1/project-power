@@ -10,9 +10,9 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     private int _maxHealth = 100;
     [SerializeField]
     private int _currentHealth = 100;
-    private double _defence = 0;
+    private float _defence = 0;
 
-    public double Defence
+    public float Defence
     {
         get { return _defence; }
         set { _defence = value; }
@@ -89,7 +89,7 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     {
         Debug.Log(_defence);
         if(_defence > 0)
-            value -= (int) (value * _defence);
+            value -= (int) (value * _defence/100.0f);
         _currentHealth -= value;
         if (DamageIndicator != null)
             DamageIndicator.BeginIndication(0 - value);

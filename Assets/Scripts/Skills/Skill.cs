@@ -124,14 +124,14 @@ public abstract class Skill : ScriptableObject {
     {
         _cooldown = 0;
         _cost = BaseCost;
-        _power = (parent.GetComponent<EntityDataHolder>().SheepData.Attack * StatsMultiplier)/100;
+        _power = (parent.GetComponent<EntityDataHolder>().SheepData.TotalAttack * StatsMultiplier)/100;
         _parent = parent;
         _action = PerformAction;
     }
 
     public virtual void Initialize(EntityData data)
     {
-        _power = (data.Attack * StatsMultiplier) / 100;
+        _power = (data.TotalAttack * StatsMultiplier) / 100;
     }
 
     public void UpdateCooldown()
