@@ -4146,7 +4146,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484858, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
       propertyPath: DataHolders.Array.data[0]
@@ -7794,10 +7794,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9551884, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: bc74318b2a26e034f9f1ed14f69fd3d1, type: 2}
     - target: {fileID: 11492982, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
       propertyPath: Player
       value: 
@@ -7810,18 +7806,10 @@ Prefab:
       propertyPath: Manager
       value: 
       objectReference: {fileID: 183555361}
-    - target: {fileID: 13516240, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
-      propertyPath: m_Radius
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492982, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
-      propertyPath: WoolForFight
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 100348, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 9551884, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bc74318b2a26e034f9f1ed14f69fd3d1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
   m_IsPrefabParent: 0

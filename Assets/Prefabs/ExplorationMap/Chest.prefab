@@ -12,7 +12,7 @@ GameObject:
   - 54: {fileID: 5445464}
   - 135: {fileID: 13516240}
   - 114: {fileID: 11492982}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 4: {fileID: 477108}
   - 33: {fileID: 3392454}
   - 23: {fileID: 2333696}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 408354}
   - 111: {fileID: 11113036}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Chest (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - 4: {fileID: 407544}
   - 33: {fileID: 3317960}
   - 23: {fileID: 2390900}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - 4: {fileID: 431326}
   - 33: {fileID: 3367536}
   - 23: {fileID: 2369136}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: chest00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - 4: {fileID: 430928}
   - 33: {fileID: 3310136}
   - 23: {fileID: 2301976}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100348}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 26.3, y: 0, z: 13.72}
+  m_LocalPosition: {x: 29.3, y: 0, z: 9.96}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children:
@@ -378,7 +378,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   WoolWindow: {fileID: 0}
   Manager: {fileID: 0}
-  WoolForFight: 20
+  WoolForFight: 200
 --- !u!135 &13516240
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -389,7 +389,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 5
   m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1001 &100100000
 Prefab:
