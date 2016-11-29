@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Text;
 using UnityEngine.UI;
 
 
@@ -19,6 +19,7 @@ public class SkillsMenuScript : MonoBehaviour
     public Text Name;
     public Text Description;
     public Text UnlockCost;
+    public Text RequiredLevel;
     public Button UnlockButton;
     public Image Icon;
     public Text Cooldown;
@@ -65,6 +66,12 @@ public class SkillsMenuScript : MonoBehaviour
         if (!currentlyPickedSkill.IsActive)
         {
             Unlocker.SetActive(true);
+            if (SheepData[SheepButton].Level<currentlyPickedSkill.RequiredSheepLevel)
+            {
+                UnlockButton.interactable = false;
+                RequiredLevel.gameObject.SetActive(true);
+                RequiredLevel.text = string.Format(RequiredLevel.text, currentlyPickedSkill.RequiredSheepLevel);
+            }
             UnlockCost.text = currentlyPickedSkill.UnlockCost.ToString();
         }
     }

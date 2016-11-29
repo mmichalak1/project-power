@@ -19,6 +19,7 @@ MonoBehaviour:
   unlockCost: 20
   _rawDescription: Powerfull attack causing <damage>{0}</damage> points of damage.
   isBasicSkill: 1
+  _requiredSheepLevel: 0
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: 05ec5689a5af14b44ac91efb21670c0a, type: 3}
   PowerPercentage: 150

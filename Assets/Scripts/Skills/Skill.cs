@@ -37,6 +37,8 @@ public abstract class Skill : ScriptableObject {
     private string _rawDescription = "This is Skill's Description";
     [SerializeField]
     private bool isBasicSkill = false;
+    [SerializeField]
+    public int _requiredSheepLevel = 5;
 
 
 
@@ -108,6 +110,12 @@ public abstract class Skill : ScriptableObject {
         get { return unlockCost; }
     }
 
+    public int RequiredSheepLevel
+    {
+        get { return _requiredSheepLevel; }
+    }
+
+
     public abstract string Description();
 
 
@@ -143,5 +151,6 @@ public abstract class Skill : ScriptableObject {
     {
         _cooldown = 0;
     }
+
 
 }
