@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class BuyResource : MonoBehaviour {
 
+    public GameObject BuyButton;
     public ResourceCounter resourceCounter;
     public WoolCounter woolCounter;
     public Text resources;
@@ -26,6 +27,10 @@ public class BuyResource : MonoBehaviour {
     }
     void updateActualResourcesAndCost()
     {
+        if(resourceCounter.Resources == resourceCounter.MaxResources)
+        {
+            BuyButton.SetActive(false);
+        }
         updateCost();
         resources.text = "Resources: "+ resourceCounter.Resources.ToString();
         resourcesCost.text = "Buy more for: " + cost;

@@ -28,15 +28,12 @@ public class SkillCanvasScript : MonoBehaviour
         {
             SkillButtons[i].SetActive(true);
             ApplySkillData(SkillButtons[i], skills[i]);
-            //SkillButtonAction(i);
         }
 
         Events.Instance.RegisterForEvent("EnterFight", x =>
         {
             UpdateSkillsState();
-        }
-
-        );
+        });
 
         Events.Instance.RegisterForEvent(transform.parent.gameObject.name + "skill", x =>
         {

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resources: 5
   _basicResources: 5
+  _maxResources: 10

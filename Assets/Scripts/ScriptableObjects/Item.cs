@@ -12,11 +12,7 @@ public class Item : ScriptableObject {
     public Rariry rarity = Rariry.Common;
     public int Tier = 1;
     public int Cost = 10;
-    public bool Bought
-    {
-        get;
-        set;
-    }
+    public bool Bought = false;
 
     public Stats[] StatsList;
     public int[] ValueList;

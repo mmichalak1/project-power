@@ -714,7 +714,6 @@ RectTransform:
   m_Children:
   - {fileID: 1694874373}
   - {fileID: 1939601303}
-  - {fileID: 1579336866}
   m_Father: {fileID: 208425965}
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0}
@@ -733,6 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c99d128f26d4d4b81c9c34d3a3ab0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BuyButton: {fileID: 1694874372}
   resourceCounter: {fileID: 11400000, guid: 522d4c5f0b0b01c4895c2b88faec721e, type: 2}
   woolCounter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
   resources: {fileID: 1939601304}
@@ -3886,11 +3886,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 350129597}
-  m_RootOrder: 2
+  m_Father: {fileID: 1694874373}
+  m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 312.02, y: -0.6}
+  m_AnchoredPosition: {x: 77.22002, y: -0.6}
   m_SizeDelta: {x: 33.45, y: 30}
   m_Pivot: {x: 0.5, y: 0.36137158}
 --- !u!114 &1579336867
@@ -4500,6 +4500,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 420006096}
+  - {fileID: 1579336866}
   m_Father: {fileID: 350129597}
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}

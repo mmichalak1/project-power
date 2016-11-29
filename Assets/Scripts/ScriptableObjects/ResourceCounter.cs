@@ -9,6 +9,14 @@ public class ResourceCounter : ScriptableObject {
     [SerializeField]
     private int _basicResources = 7;
 
+    [SerializeField]
+    private int _maxResources = 10;
+
+    public int MaxResources
+    {
+        get { return _maxResources; }
+    }
+
     public int Resources
     {
         get { return _resources; }
