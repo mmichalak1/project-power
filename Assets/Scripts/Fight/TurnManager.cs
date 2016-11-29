@@ -146,6 +146,16 @@ public class TurnManager : MonoBehaviour
         foreach (EntityDataHolder skills in DataHolders)
             skills.SheepData.SheepSkills.UpdateCooldowns();
 
+        foreach (var item in WolfManager.enemies)
+        {
+            var debuffs = item.GetComponentsInChildren<Assets.Scripts.Interfaces.IDisappearAfterTurn>();
+            foreach (var debuff in debuffs)
+            {
+                debuff.Tick();
+            }
+        }
+
+
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Sheep"))
         {
             go.transform.GetChild(0).GetComponent<SkillCanvasScript>().UpdateSkillsState();
