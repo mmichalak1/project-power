@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections;
 
 public class WolfGroupManager : MonoBehaviour
 {
@@ -40,10 +41,13 @@ public class WolfGroupManager : MonoBehaviour
         });
     }
 
-    public void ApplyGroupTurn()
+    public IEnumerator ApplyGroupTurn()
     {
         foreach (var attack in GetComponentsInChildren<AttackController>())
+        {
             attack.PerformAction();
+            yield return new WaitForSeconds(1);
+        }
     }
 
     public void OnWolfDeath(GameObject x)

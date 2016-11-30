@@ -20,5 +20,7 @@ MonoBehaviour:
   _rawDescription: Heals target for {0}HP.
   isBasicSkill: 1
   _requiredSheepLevel: 0
+  soundEffect: {fileID: 8300000, guid: 2bb3037336f79224d937e55146d852f4, type: 3}
+  effectDuration: 1
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: 97b48eeb76e9542408b5b4b094b10f62, type: 3}

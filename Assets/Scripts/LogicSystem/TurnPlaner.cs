@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 namespace Assets.LogicSystem
 {
@@ -36,19 +37,14 @@ namespace Assets.LogicSystem
             Debug.Log("Added plan for " + sheepName);
         }
 
-        public bool Execute()
+        public IEnumerator Execute()
         {
-            //if (plans.Count < 4)
-            //{
-            //    Debug.Log("Not all sheep declared move");
-            //    return false;
-            //}
             foreach (var plan in plans)
             {
                 plan.Value.Execute();
+                yield return new WaitForSeconds(plan.Value.Skill.effectDuration);
             }
             plans.Clear();
-            return true;
         }
 
         public bool ContainsPlanForSheepSkill(string sheep, Skill skill)

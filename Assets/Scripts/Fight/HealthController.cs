@@ -12,6 +12,13 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     private int _currentHealth = 100;
     private float _defence = 0;
 
+
+    public AudioSource source;
+    public AudioClip damgeSound;
+    public AudioClip healSound;
+
+    public float volume = 0.5f;
+
     public float Defence
     {
         get { return _defence; }
@@ -92,7 +99,10 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
             value -= (int) (value * _defence/100.0f);
         _currentHealth -= value;
         if (DamageIndicator != null)
+        {
             DamageIndicator.BeginIndication(0 - value);
+            source.PlayOneShot(damgeSound, volume);
+        }
         UpdateHealthBar();
     }
 

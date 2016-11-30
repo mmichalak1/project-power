@@ -39,6 +39,10 @@ public abstract class Skill : ScriptableObject {
     private bool isBasicSkill = false;
     [SerializeField]
     public int _requiredSheepLevel = 5;
+    [SerializeField]
+    public AudioClip soundEffect;
+    [SerializeField]
+    public float effectDuration = 1;
 
 
 

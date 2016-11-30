@@ -18,6 +18,8 @@ namespace Assets.LogicSystem
         public void Execute()
         {
             _skill.Action.Invoke(_actor, _target);
+            if (_skill.soundEffect != null)
+                _actor.GetComponent<AudioSource>().PlayOneShot(_skill.soundEffect);
         }
 
         public Skill Skill

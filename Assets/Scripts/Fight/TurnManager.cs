@@ -135,12 +135,9 @@ public class TurnManager : MonoBehaviour
 
         ourTurn = false;
 
-        if (!TurnPlaner.Instance.Execute())
-        {
-            return;
-        }
-            
-        wolfManager.ApplyGroupTurn();
+        StartCoroutine(TurnPlaner.Instance.Execute());
+
+        StartCoroutine(wolfManager.ApplyGroupTurn());
 
 
         foreach (EntityDataHolder skills in DataHolders)
