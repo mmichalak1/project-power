@@ -41,12 +41,11 @@ public class WolfGroupManager : MonoBehaviour
         });
     }
 
-    public IEnumerator ApplyGroupTurn()
+    public void ApplyGroupTurn()
     {
         foreach (var attack in GetComponentsInChildren<AttackController>())
         {
             attack.PerformAction();
-            yield return new WaitForSeconds(1);
         }
     }
 

@@ -4116,6 +4116,10 @@ Prefab:
       propertyPath: DataHolders.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: actionBubbles.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 484858, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4219,6 +4223,22 @@ Prefab:
       propertyPath: ConfirmEndTurn
       value: 
       objectReference: {fileID: 1466677934}
+    - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: actionBubbles.Array.data[0]
+      value: 
+      objectReference: {fileID: 1804837832}
+    - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: actionBubbles.Array.data[1]
+      value: 
+      objectReference: {fileID: 1422264715}
+    - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: actionBubbles.Array.data[2]
+      value: 
+      objectReference: {fileID: 1622641823}
+    - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: actionBubbles.Array.data[3]
+      value: 
+      objectReference: {fileID: 1004053037}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
   m_IsPrefabParent: 0

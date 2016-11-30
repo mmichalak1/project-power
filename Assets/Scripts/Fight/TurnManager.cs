@@ -2,7 +2,7 @@
 using Assets.LogicSystem;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using System;
 
 public class TurnManager : MonoBehaviour
 {
@@ -17,10 +17,8 @@ public class TurnManager : MonoBehaviour
     public GameObject ChangeTurnButton;
     public GameObject ConfirmEndTurn;
 
-    private ActionBubble actionBubbleCleric;
-    private ActionBubble actionBubbleMage;
-    private ActionBubble actionBubbleRouge;
-    private ActionBubble actionBubbleWarrior;
+    public ActionBubble[] actionBubbles;
+
 
     [SerializeField]
     private ResourceCounter DefaultResourceCounter; 
@@ -69,14 +67,6 @@ public class TurnManager : MonoBehaviour
                 selectedSheep = ((KeyValuePair<Vector2, Transform>)x).Value.gameObject;
             });
         }
-
-        GameObject player = GameObject.Find("Player");
-        List<RectTransform> listyOfAllImages = player.transform.GetComponentsInChildren<RectTransform>(true).ToList<RectTransform>();
-
-        actionBubbleCleric = (ActionBubble)listyOfAllImages.Find(x => x.name == "actionBubbleCleric").GetComponent(typeof(ActionBubble));
-        actionBubbleMage = (ActionBubble)listyOfAllImages.Find(x => x.name == "actionBubbleMage").GetComponent(typeof(ActionBubble));
-        actionBubbleRouge = (ActionBubble)listyOfAllImages.Find(x => x.name == "actionBubbleRouge").GetComponent(typeof(ActionBubble));
-        actionBubbleWarrior = (ActionBubble)listyOfAllImages.Find(x => x.name == "actionBubbleWarrior").GetComponent(typeof(ActionBubble));
     }
 
     void Update()
@@ -116,17 +106,17 @@ public class TurnManager : MonoBehaviour
 
     public void ChangeTurn(bool forced)
     {
-        if(!forced && currentResource == DefaultResourceCounter.BasicResources)
+        if(!forced && currentResource == DefaultResourceCounter.Resources)
         {
             ConfirmEndTurn.SetActive(true);
             return;
         }
 
 
-        actionBubbleCleric.TurnOff();
-        actionBubbleMage.TurnOff();
-        actionBubbleRouge.TurnOff();
-        actionBubbleWarrior.TurnOff();
+        foreach (ActionBubble item in actionBubbles)
+        {
+            item.TurnOff();
+        }
 
         FightingSceneUIScript.DisableSkillCanvases();
 
@@ -135,10 +125,9 @@ public class TurnManager : MonoBehaviour
 
         ourTurn = false;
 
+        wolfManager.ApplyGroupTurn();
+
         StartCoroutine(TurnPlaner.Instance.Execute());
-
-        StartCoroutine(wolfManager.ApplyGroupTurn());
-
 
         foreach (EntityDataHolder skills in DataHolders)
             skills.SheepData.SheepSkills.UpdateCooldowns();
@@ -187,27 +176,9 @@ public class TurnManager : MonoBehaviour
                 {
                     UpdateResource(pickedSkill.Cost);
                     EntityDataHolder sheepDataHolder = (EntityDataHolder)plan.Actor.GetComponent(typeof(EntityDataHolder));
-                    switch (sheepDataHolder.SheepData.SheepClass)
-                    {
-                        case EntityData.Class.Cleric:
-                            actionBubbleCleric.TurnOn();
-                            actionBubbleCleric.SetImage(plan.Skill.Icon);
-                            break;
-                        case EntityData.Class.Mage:
-                            actionBubbleMage.TurnOn();
-                            actionBubbleMage.SetImage(plan.Skill.Icon);
-                            break;
-                        case EntityData.Class.Rouge:
-                            actionBubbleRouge.TurnOn();
-                            actionBubbleRouge.SetImage(plan.Skill.Icon);
-                            break;
-                        case EntityData.Class.Warrior:
-                            actionBubbleWarrior.TurnOn();
-                            actionBubbleWarrior.SetImage(plan.Skill.Icon);
-                            break;
-                        default:
-                            break;
-                    }
+                    var bubble = actionBubbles[Array.IndexOf(DataHolders, sheepDataHolder)];
+                    bubble.TurnOn();
+                    bubble.SetSkill(pickedSkill);
                 }                   
                 pickedSkill.OnSkillPlanned(selectedSheep, hitedTarget.transform.gameObject);
                 TurnPlaner.Instance.AddPlan(selectedSheep.name, plan);

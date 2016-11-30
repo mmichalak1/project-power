@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 public class ActionBubble : MonoBehaviour {
 
     public Image[] skillImage;
+    private Skill[] skills = new Skill[3];
     private int whichIcon = 0;
     public Sprite imageForNull;
-    public void SetImage(Sprite sprite)
+    public void SetSkill(Skill skill)
     {
         if(whichIcon<3)
         {
-            skillImage[whichIcon].sprite = sprite;
+            skillImage[whichIcon].sprite = skill.Icon;
+            skills[whichIcon] = skill;
             whichIcon++;
         }
         
@@ -24,13 +25,13 @@ public class ActionBubble : MonoBehaviour {
     }
     public void TurnOn()
     {
-        this.gameObject.SetActive(true);
-        Debug.Log("Enabling" + this.gameObject.name);
+        gameObject.SetActive(true);
+        //Debug.Log("Enabling" + this.gameObject.name);
     }
     public void TurnOff()
     {
         Clear();
-        this.gameObject.SetActive(false);
-        Debug.Log("Disabling" + this.gameObject.name);
+        gameObject.SetActive(false);
+        //Debug.Log("Disabling" + this.gameObject.name);
     }
 }

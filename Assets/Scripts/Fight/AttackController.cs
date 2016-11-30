@@ -2,6 +2,7 @@
 using Assets.Scripts.ScriptableObjects;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections;
 
 public class AttackController : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class AttackController : MonoBehaviour
         _brainsList.Add(MyBrain);
     }
 
-    public void PerformAction()
+    public IEnumerator PerformAction()
     {
         _brainsList = _brainsList.OrderByDescending(x => x.Importance).ToList();
         if (gameObject.activeSelf)
@@ -38,7 +39,8 @@ public class AttackController : MonoBehaviour
             }
             ClearFinishedBrains();
         }
-            
+
+        return null;
 
                 
     }

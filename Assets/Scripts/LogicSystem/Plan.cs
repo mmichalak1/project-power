@@ -32,7 +32,6 @@ namespace Assets.LogicSystem
         }
         GameObject _actor;
         GameObject _target;
-
         Skill _skill;
     }
 }

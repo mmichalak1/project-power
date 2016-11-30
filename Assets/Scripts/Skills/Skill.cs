@@ -74,6 +74,7 @@ public abstract class Skill : ScriptableObject {
     public int Power
     {
         get { return _power; }
+        set { _power = value; }
     }
 
     public int Cost
@@ -138,6 +139,14 @@ public abstract class Skill : ScriptableObject {
         _cost = BaseCost;
         _power = (parent.GetComponent<EntityDataHolder>().SheepData.TotalAttack * StatsMultiplier)/100;
         _parent = parent;
+        _action = PerformAction;
+    }
+
+    /// <summary>
+    /// Initializes with only adding Perform Action to _action
+    /// </summary>
+    public virtual void Initialize()
+    {
         _action = PerformAction;
     }
 
