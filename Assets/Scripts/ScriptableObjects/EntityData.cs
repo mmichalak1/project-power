@@ -66,7 +66,7 @@ public class EntityData : ScriptableObject {
         if (Level > 1)
             ExperienceForNextLevel = ExperienceForNextLevel * 5;
         //TODO DELETE IT!
-        MaxWool += 2;
+        //MaxWool += 2;
         switch (SheepClass)
         {
             case Class.Warrior:

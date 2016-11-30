@@ -16040,7 +16040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
   LostPanel: {fileID: 1507109539}
-  WoolGrowthMultiplier: 0.3
+  WoolGrowthMultiplier: 0.07
 --- !u!114 &836859326
 MonoBehaviour:
   m_ObjectHideFlags: 0
