@@ -6,14 +6,44 @@ using System;
 
 public class TurnManager : MonoBehaviour
 {
+    #region Statics
     private static TurnManager Instance;
-    static WolfGroupManager wolfManager;
+    private static WolfGroupManager _wolfManager;
     public static activeState state = activeState.nothingPicked;
     public static GameObject hitedTarget = null;
     public static int currentResource;
     public static bool ourTurn = false;
     public static Skill pickedSkill;
     public static bool ChangeFlag = false;
+
+    public static void UpdateResource(int i)
+    {
+        currentResource -= i;
+        Events.Instance.DispatchEvent("SetText", "Resource Left : " + currentResource);
+    }
+
+    public static void SelectSkill(Skill selectedSkill)
+    {
+
+        if (currentResource >= selectedSkill.Cost || TurnPlaner.Instance.ContainsPlanForSheepSkill(hitedTarget.name, selectedSkill))
+        {
+            pickedSkill = selectedSkill;
+            Events.Instance.DispatchEvent("SetText", "Resource Left : " + currentResource + " - " + selectedSkill.Cost);
+            state = activeState.waiting;
+        }
+        else
+        {
+            Instance.OnNotEnoughResources();
+            FightingSceneUIScript.DisableSkillCanvases();
+            state = activeState.reseting;
+        }
+        ChangeFlag = true;
+        hitedTarget = null;
+
+    }
+
+    #endregion
+
     public GameObject ChangeTurnButton;
     public GameObject ConfirmEndTurn;
 
@@ -29,11 +59,33 @@ public class TurnManager : MonoBehaviour
     private GameObject selectedSheep;
     private bool SelectingTarget = true;
 
-
     public static WolfGroupManager WolfManager
     {
-        get { return wolfManager; }
+        get { return _wolfManager; }
     }
+
+    #region Events
+    private void OnEnterFight(object x)
+    {
+        _wolfManager = x as WolfGroupManager;
+        ChangeTurnButton.SetActive(false);
+    }
+    private void OnBattleWon(object x)
+    {
+        ourTurn = false;
+        SelectingTarget = false;
+        state = activeState.nothingPicked;
+        FightingSceneUIScript.DisableSkillCanvases();
+    }
+    private void OnShowChangTurnButton(object x)
+    {
+        ChangeTurnButton.SetActive(true);
+    }
+    private void OnSheepSelected(object x)
+    {
+        selectedSheep = ((KeyValuePair<Vector2, Transform>)x).Value.gameObject;
+    }
+    #endregion
 
     // Use this for initialization
     void Start()
@@ -44,28 +96,15 @@ public class TurnManager : MonoBehaviour
         currentResource = DefaultResourceCounter.Resources;
         UpdateResource(0);
 
-        Events.Instance.RegisterForEvent("EnterFight", x =>
-        {
-            wolfManager = x as WolfGroupManager;
-            ChangeTurnButton.SetActive(false);
-        });
+        Events.Instance.RegisterForEvent("EnterFight", OnEnterFight);
 
-        Events.Instance.RegisterForEvent("BattleWon", x =>
-        {
-            ourTurn = false;
-            SelectingTarget = false;
-            state = activeState.nothingPicked;
-            FightingSceneUIScript.DisableSkillCanvases();
-        });
+        Events.Instance.RegisterForEvent("BattleWon", OnBattleWon);
 
-        Events.Instance.RegisterForEvent("ShowChangeTurnButton", x => { ChangeTurnButton.SetActive(true); });
+        Events.Instance.RegisterForEvent("ShowChangeTurnButton", OnShowChangTurnButton);
 
         foreach (var item in GameObject.FindGameObjectsWithTag("Sheep"))
         {
-            Events.Instance.RegisterForEvent(item.name, x =>
-            {
-                selectedSheep = ((KeyValuePair<Vector2, Transform>)x).Value.gameObject;
-            });
+            Events.Instance.RegisterForEvent(item.name, OnSheepSelected);
         }
     }
 
@@ -125,7 +164,7 @@ public class TurnManager : MonoBehaviour
 
         ourTurn = false;
 
-        wolfManager.ApplyGroupTurn();
+        _wolfManager.ApplyGroupTurn();
 
         StartCoroutine(TurnPlaner.Instance.Execute());
 
@@ -144,7 +183,7 @@ public class TurnManager : MonoBehaviour
 
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Sheep"))
         {
-            go.transform.GetChild(0).GetComponent<SkillCanvasScript>().UpdateSkillsState();
+            go.transform.GetChild(0).GetComponent<SkillCanvasScript>().UpdateSkillsState(null);
             var objs = go.GetComponents<Assets.Scripts.Interfaces.IDisappearAfterTurn>();
             foreach (var item in objs)
                 item.Tick();
@@ -236,33 +275,6 @@ public class TurnManager : MonoBehaviour
         {
             hitedTarget = hit.collider.gameObject;
         }
-    }
-
-
-    public static void UpdateResource(int i)
-    {
-        currentResource -= i;
-        Events.Instance.DispatchEvent("SetText", "Resource Left : " + currentResource);
-    }
-
-    public static void SelectSkill(Skill selectedSkill)
-    {
-
-        if (currentResource >= selectedSkill.Cost || TurnPlaner.Instance.ContainsPlanForSheepSkill(hitedTarget.name, selectedSkill))
-        {
-            pickedSkill = selectedSkill;
-            Events.Instance.DispatchEvent("SetText", "Resource Left : " + currentResource + " - " + selectedSkill.Cost);
-            state = activeState.waiting;
-        }
-        else
-        {
-            Instance.OnNotEnoughResources();
-            FightingSceneUIScript.DisableSkillCanvases();
-            state = activeState.reseting;
-        }
-        ChangeFlag = true;
-        hitedTarget = null;
-
     }
 
     private void OnNotEnoughResources()

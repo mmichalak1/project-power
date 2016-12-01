@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
 
 namespace Assets.LogicSystem
 {
@@ -31,18 +28,33 @@ namespace Assets.LogicSystem
 
         public void RegisterForEvent(string name, MyEvent function)
         {
-            if (!_eventsMap.ContainsKey(name))
+
+            MyEvent evt = null;
+            if (_eventsMap.TryGetValue(name, out evt))
+            {
+                _eventsMap[name] += function;
+            }
+            else
             {
                 _eventsMap.Add(name, function);
                 //Debug.Log("Event " + name + " created");
             }
-            else
-                _eventsMap[name] += function;
+        }
+
+        public void RegisterForMultipleEvents(string[] names, MyEvent function)
+        {
+            foreach (string name in names)
+            {
+                RegisterForEvent(name, function);
+            }
         }
 
         public void UnregisterForEvent(string name, MyEvent function)
         {
-            _eventsMap[name] -= function;
+            if (_eventsMap.ContainsKey(name))
+            {
+                _eventsMap[name] -= function;
+            }
         }
 
         public void DispatchEvent(string name, object parameter)

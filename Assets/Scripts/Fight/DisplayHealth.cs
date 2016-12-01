@@ -1,12 +1,11 @@
 ﻿#pragma warning disable 0649
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using Assets.LogicSystem;
+
 
 public class DisplayHealth : MonoBehaviour
 {
-
-
     [SerializeField]
     private bool isStatic = false;
 
@@ -16,19 +15,22 @@ public class DisplayHealth : MonoBehaviour
     [SerializeField]
     private HealthController[] _controllers = new HealthController[4];
 
-    DisplayHealth()
+    private Events.MyEvent OnEnterFight, OnBattleWon;
+
+    void Start()
     {
-        Assets.LogicSystem.Events.Instance.RegisterForEvent("EnterFight", x =>
+        OnEnterFight = new Events.MyEvent(x =>
         {
-            if(!isStatic)
+            if (!isStatic)
                 SetupHPBars(x);
         });
-
-        Assets.LogicSystem.Events.Instance.RegisterForEvent("BattleWon", x =>
+        OnBattleWon = new Events.MyEvent(x =>
         {
             for (int i = 0; i < 4; i++)
                 _controllers[i] = null;
         });
+        Events.Instance.RegisterForEvent("EnterFight", OnEnterFight);
+        Events.Instance.RegisterForEvent("BattleWon", OnBattleWon);
     }
 
     // Update is called once per frame

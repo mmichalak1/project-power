@@ -14,6 +14,8 @@ public class SkillCanvasScript : MonoBehaviour
     [SerializeField]
     private Sprite EmptySkillSprite;
 
+
+    Events.MyEvent UpdateSkillsView;
     // Use this for initialization
     void Start()
     {
@@ -30,21 +32,14 @@ public class SkillCanvasScript : MonoBehaviour
             ApplySkillData(SkillButtons[i], skills[i]);
         }
 
-        Events.Instance.RegisterForEvent("EnterFight", x =>
-        {
-            UpdateSkillsState();
-        });
-
-        Events.Instance.RegisterForEvent(transform.parent.gameObject.name + "skill", x =>
-        {
-            UpdateSkillsState();
-        }
-        );
+        Events.Instance.RegisterForMultipleEvents(
+            new string[] { "EnterFight", transform.parent.gameObject.name + "skill" },
+            UpdateSkillsView);
 
         gameObject.SetActive(false);
     }
 
-    public void UpdateSkillsState()
+    public void UpdateSkillsState(object x)
     {
         for (int i = 0; i < skills.Count; i++)
         {

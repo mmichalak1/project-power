@@ -9,21 +9,15 @@ public class SwipeManager : MonoBehaviour
     string value;
     int MINDISTANCE = 100;
 
+    Events.MyEvent Enable, Disable;
+
     // Use this for initialization
     void Start()
     {
-        Events.Instance.RegisterForEvent("DisableSwipe", x =>
-        {
-            enabled = false;
-        });
-        Events.Instance.RegisterForEvent("EnterFight", x =>
-        {
-            enabled = false;
-        });
-        Events.Instance.RegisterForEvent("EndFight", x =>
-        {
-            enabled = true;
-        });
+        Enable = new Events.MyEvent(x => { enabled = true; });
+        Disable = new Events.MyEvent(x => { enabled = false; });
+        Events.Instance.RegisterForMultipleEvents(new string[] { "DisableSwipe", "EnterFight" }, Disable);
+        Events.Instance.RegisterForEvent("EndFight", Enable);
     }
 
     // Update is called once per frame

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using System.Collections;
+using Assets.LogicSystem;
 
 public class WolfGroupManager : MonoBehaviour
 {
@@ -17,28 +17,30 @@ public class WolfGroupManager : MonoBehaviour
     [HideInInspector]
     public List<GameObject> enemies = new List<GameObject>();
 
-    private Assets.LogicSystem.Events.MyEvent wolfDeath;
+    private Events.MyEvent OnSetBattleUI, OnSetExplorationUI;
 
     // Use this for initialization
     void Start()
     {
-        wolfDeath = x => { OnWolfDeath(x as GameObject); };
+        OnSetBattleUI = new Events.MyEvent(x =>
+        {
+            BattleUI = x as GameObject;
+        });
+        OnSetExplorationUI = new Events.MyEvent(x =>
+        {
+            ExplorationUI = x as GameObject;
+        });
+
         foreach (Transform child in transform)
             if (child.CompareTag("Enemy"))
                 enemies.Add(child.gameObject);
         wolvesCounter = enemies.Count;
         foreach (var enemy in enemies)
         {
-            Assets.LogicSystem.Events.Instance.RegisterForEvent(enemy.name + "death", wolfDeath);
+            Events.Instance.RegisterForEvent(enemy.name + "death", OnWolfDeath);
         }
-        Assets.LogicSystem.Events.Instance.RegisterForEvent("SetExplorationUI", x =>
-        {
-            ExplorationUI = x as GameObject;
-        });
-        Assets.LogicSystem.Events.Instance.RegisterForEvent("SetBattleUI", x =>
-        {
-            BattleUI = x as GameObject;
-        });
+        Events.Instance.RegisterForEvent("SetExplorationUI", OnSetExplorationUI);
+        Events.Instance.RegisterForEvent("SetBattleUI", OnSetBattleUI);
     }
 
     public void ApplyGroupTurn()
@@ -49,8 +51,9 @@ public class WolfGroupManager : MonoBehaviour
         }
     }
 
-    public void OnWolfDeath(GameObject x)
+    public void OnWolfDeath(object wolf)
     {
+        GameObject x = (GameObject)wolf;
         if (x.transform.parent.name != gameObject.name)
             return;
         wolvesCounter--;
@@ -61,7 +64,7 @@ public class WolfGroupManager : MonoBehaviour
             ExplorationUI.SetActive(true);
             foreach (var item in enemies)
             {
-                Assets.LogicSystem.Events.Instance.UnregisterForEvent(item.name + "death", wolfDeath);
+                Assets.LogicSystem.Events.Instance.UnregisterForEvent(item.name + "death", OnWolfDeath);
             }
             Destroy(gameObject);
             //Counter.WoolCount += WoolForFight;

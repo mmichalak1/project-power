@@ -18,14 +18,9 @@ public class GameState : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-       // ExplorationResult.Reset();
-        Events.Instance.RegisterForEvent("BattleWon", x =>
-         {
-             EnemyGroups.Remove(x as GameObject);
-             Map.SetActive(true);
-             if (EnemyGroups.Count == 0)
-                 ExplorationWon();
-         });
+        // ExplorationResult.Reset();
+        Events.Instance.RegisterForEvent("BattleWon", OnBattleWon);
+         
 	}
 	
     void ExplorationWon()
@@ -38,5 +33,13 @@ public class GameState : MonoBehaviour {
             item.GetComponent<EntityDataHolder>().RevertItemsChange();
         }
         
+    }
+
+    private void OnBattleWon(object x)
+    {
+        EnemyGroups.Remove(x as GameObject);
+        Map.SetActive(true);
+        if (EnemyGroups.Count == 0)
+            ExplorationWon();
     }
 }

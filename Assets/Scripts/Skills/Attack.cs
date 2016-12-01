@@ -11,6 +11,11 @@ public class Attack : Skill {
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {
+        if (!actor.activeSelf)
+        {
+            Debug.Log(actor.name + " can't attack because he is dead.");
+            return;
+        }
         Debug.Log(actor.name + " attacked " + target.name + " for " + _power + " damage.");
         target.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage(_power, actor);
         base.PerformAction(actor, target);
