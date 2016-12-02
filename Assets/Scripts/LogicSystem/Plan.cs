@@ -8,20 +8,9 @@ namespace Assets.LogicSystem
 {
     public class Plan
     {
-        public Plan(GameObject actor, GameObject target, Skill skill)
-        {
-            _actor = actor;
-            _skill = skill;
-            _target = target;
-        }
-
-        public void Execute()
-        {
-            _skill.Action.Invoke(_actor, _target);
-            if (_skill.soundEffect != null)
-                _actor.GetComponent<AudioSource>().PlayOneShot(_skill.soundEffect);
-        }
-
+        GameObject _actor;
+        GameObject _target;
+        Skill _skill;
         public Skill Skill
         {
             get { return _skill; }
@@ -30,8 +19,37 @@ namespace Assets.LogicSystem
         {
             get { return _actor; }
         }
-        GameObject _actor;
-        GameObject _target;
-        Skill _skill;
+        public GameObject Target
+        {
+            get { return _target; }
+        }
+
+        public Plan(GameObject actor, GameObject target, Skill skill)
+        {
+            _actor = actor;
+            _skill = skill;
+            _target = target;
+        }
+
+        public bool Execute()
+        {
+            if (_actor == null || _target == null)
+                return false;
+            if (!_actor.activeSelf || !_target.activeSelf)
+            {
+                Debug.Log(_actor.name + " can't attack because he or target is dead.");
+                return false;
+            }
+            _skill.Action.Invoke(_actor, _target);
+            if (_skill.soundEffect != null)
+                _actor.GetComponent<AudioSource>().PlayOneShot(_skill.soundEffect);
+            return true;
+        }
+
+        public override string ToString()
+        {
+            return _actor.name + " uses " + _skill.name + " on " + _target.name;
+        }
+
     }
 }

@@ -1,7 +1,8 @@
-﻿using System.Linq;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Linq;
 using System.Collections;
+using System.Collections.Generic;
+using System;
 
 namespace Assets.LogicSystem
 {
@@ -24,7 +25,21 @@ namespace Assets.LogicSystem
         }
 
 
-        private List<KeyValuePair<string, Plan>> plans = new List<KeyValuePair<string, Plan>>() ;
+        private List<KeyValuePair<string, Plan>> plans = new List<KeyValuePair<string, Plan>>();
+
+        public Queue<Plan> Queue
+        {
+            get
+            {
+                var queue = new Queue<Plan>();
+                for (int i = 0; i < plans.Count; i++)
+                {
+                    queue.Enqueue(plans[i].Value);
+                }
+                return queue;
+            }
+        }
+
         public void AddPlan(string sheepName, Plan plan)
         {
             var pair = plans.FirstOrDefault(x => x.Value.Skill == plan.Skill);
@@ -36,17 +51,10 @@ namespace Assets.LogicSystem
             plans.Add(new KeyValuePair<string, Plan>(sheepName, plan));
             Debug.Log("Added plan for " + sheepName);
         }
-
-        public IEnumerator Execute()
+        public void Reset()
         {
-            foreach (var plan in plans)
-            {
-                plan.Value.Execute();
-                yield return new WaitForSeconds(plan.Value.Skill.effectDuration);
-            }
             plans.Clear();
         }
-
         public bool ContainsPlanForSheepSkill(string sheep, Skill skill)
         {
             var sheepsPlans = plans.Where(x => x.Key == sheep);

@@ -66,6 +66,7 @@ public class SheepGroupManager : MonoBehaviour {
         foreach (var data in GetComponentsInChildren<EntityDataHolder>())
         {
             var sheepData = data.SheepData;
+            sheepData.SheepSkills.ResetCooldowns();
             //Calculate wool income for fight
             float income = sheepData.MaxWool * WoolGrowthMultiplier;
             data.SheepData.WoolGrowth += income;

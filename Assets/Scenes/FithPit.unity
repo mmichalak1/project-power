@@ -4239,6 +4239,14 @@ Prefab:
       propertyPath: actionBubbles.Array.data[3]
       value: 
       objectReference: {fileID: 1004053037}
+    - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: BattleUI
+      value: 
+      objectReference: {fileID: 652300929}
+    - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: ExplorationUI
+      value: 
+      objectReference: {fileID: 1618518010}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
   m_IsPrefabParent: 0
@@ -4279,6 +4287,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
   Result: 1
+--- !u!114 &183555363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183555359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1c815f0d5973742b72ea68c27ee481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &185391689 stripped
 Transform:
   m_PrefabParentObject: {fileID: 417640, guid: c8a2cf893b362b14784799d9219265da, type: 2}

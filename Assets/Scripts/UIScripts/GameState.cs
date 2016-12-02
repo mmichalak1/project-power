@@ -19,7 +19,7 @@ public class GameState : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         // ExplorationResult.Reset();
-        Events.Instance.RegisterForEvent("BattleWon", OnBattleWon);
+        Events.Instance.RegisterForEvent("EnemyGroupDestroyed", OnBattleWon);
          
 	}
 	
