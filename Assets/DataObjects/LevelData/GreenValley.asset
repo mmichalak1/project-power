@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300a3d481e950794b9ae6c496ddbe1ef, type: 3}
   m_Name: GreenValley
   m_EditorClassIdentifier: 
-  _progress: 0
+  _progress: 100
   _targetProgress: 100
   _visited: 2
   ProgressPerCompletion: 50
