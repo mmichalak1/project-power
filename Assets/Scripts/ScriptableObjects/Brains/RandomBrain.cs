@@ -95,6 +95,6 @@ public class RandomBrain : AbstractBrain
 
     private Skill GetSkill()
     {
-        return Instantiate(Skills[Random.Range(0, Skills.Length - 1)]);
+        return Instantiate(Skills[Random.Range(0, Skills.Length)]);
     }
 }
