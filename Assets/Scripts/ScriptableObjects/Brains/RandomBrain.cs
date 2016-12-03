@@ -12,19 +12,11 @@ public class RandomBrain : AbstractBrain
     public Skill[] Skills;
     public int MyDamage;
 
-    private List<Skill> privateSkills = new List<Skill>();
-
 
     private List<GameObject> _checkedTargets = new List<GameObject>(4);
     public override void Initialize(GameObject[] targets)
     {
         Targets = targets;
-        foreach (var item in Skills)
-        {
-            var copy = Instantiate(item);
-            copy.Initialize();
-            privateSkills.Add(copy);
-        }
     }
 
     public override void Think(GameObject parent)
@@ -74,6 +66,7 @@ public class RandomBrain : AbstractBrain
                 return;
             }
             var skill = GetSkill();
+            skill.Initialize();
             skill.Power = _myRealDamage;
             TurnPlaner.Instance.AddPlan(parent.name, new Plan(parent, sheep, skill));
 
@@ -102,6 +95,6 @@ public class RandomBrain : AbstractBrain
 
     private Skill GetSkill()
     {
-        return privateSkills[Random.Range(0, privateSkills.Count)];
+        return Instantiate(Skills[Random.Range(0, Skills.Length - 1)]);
     }
 }
