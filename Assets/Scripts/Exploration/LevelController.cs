@@ -7,7 +7,6 @@ namespace Assets.Scripts
     {
         public ExplorationHolder holder;
         public LevelData levelData;
-        public bool IsLocked;
         public Image Padlock;
         public Button Backgroung;
 
@@ -17,15 +16,13 @@ namespace Assets.Scripts
         // Use this for initialization
         void Start()
         {
-            //if (holder.GameResult != GameResult.None && !IsLocked)
-            //    ProcessResult();
-
-            ProgressData.text = levelData.Progress + "/" + levelData.TargetProgress;
+            if (!levelData.IsLocked)
+                ProgressData.text = levelData.Progress + "/" + levelData.TargetProgress;
         }
 
         void OnLevelWasLoaded()
         {
-            if (!IsLocked)
+            if (!levelData.IsLocked)
             {
                 Padlock.gameObject.SetActive(false);
                 Backgroung.interactable = true;
@@ -45,7 +42,7 @@ namespace Assets.Scripts
             if (holder.GameResult == GameResult.Win)
                 levelData.OnLevelWon();
             else
-                levelData.OnLevelLost();        
+                levelData.OnLevelLost();
         }
     }
 }

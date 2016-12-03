@@ -28,6 +28,10 @@ public class ResetSheeps : MonoBehaviour
         foreach (LevelData item in levelData)
         {
             item.Progress = 0;
+            item.Visited = 0;
+            if (item.name != "GreenValley")
+                item.IsLocked = true;
+
         }
         for (int i = 0; i < 4; i++)
         {

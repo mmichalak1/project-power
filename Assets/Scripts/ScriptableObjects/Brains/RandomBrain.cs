@@ -12,13 +12,18 @@ public class RandomBrain : AbstractBrain
     public Skill[] Skills;
     public int MyDamage;
 
+    private List<Skill> privateSkills = new List<Skill>();
+
+
     private List<GameObject> _checkedTargets = new List<GameObject>(4);
     public override void Initialize(GameObject[] targets)
     {
         Targets = targets;
         foreach (var item in Skills)
         {
-            item.Initialize();
+            var copy = Instantiate(item);
+            copy.Initialize();
+            privateSkills.Add(copy);
         }
     }
 
@@ -71,32 +76,32 @@ public class RandomBrain : AbstractBrain
             var skill = GetSkill();
             skill.Power = _myRealDamage;
             TurnPlaner.Instance.AddPlan(parent.name, new Plan(parent, sheep, skill));
-            
-          //  Debug.Log(parent.name + " dealt " + _myRealDamage + " damage to " + sheep.name);
+
+            //  Debug.Log(parent.name + " dealt " + _myRealDamage + " damage to " + sheep.name);
         }
 
         base.Think(parent);
     }
 
-    private GameObject GetTarget ()
+    private GameObject GetTarget()
     {
         var sheep = Targets[Random.Range(0, Targets.Length)];
-            if (!_checkedTargets.Contains(sheep))
-            {
-                _checkedTargets.Add(sheep);
-                return sheep;
-            }
+        if (!_checkedTargets.Contains(sheep))
+        {
+            _checkedTargets.Add(sheep);
+            return sheep;
+        }
 
-            if ( _checkedTargets.Count == 4)
-            {
-                return null;
-            }
+        if (_checkedTargets.Count == 4)
+        {
+            return null;
+        }
 
-            return GetTarget();
+        return GetTarget();
     }
 
     private Skill GetSkill()
     {
-        return Skills[Random.Range(0, Skills.Length)];
+        return privateSkills[Random.Range(0, privateSkills.Count)];
     }
 }

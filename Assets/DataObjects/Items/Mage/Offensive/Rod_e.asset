@@ -17,6 +17,6 @@ MonoBehaviour:
   rarity: 2
   Tier: 1
   Cost: 100
-  Bought: 0
+  Bought: 1
   StatsList: 00000000
   ValueList: 32000000

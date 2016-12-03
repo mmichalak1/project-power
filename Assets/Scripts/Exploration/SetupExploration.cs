@@ -8,5 +8,10 @@ public class SetupExploration : MonoBehaviour {
     {
         Holder.GameResult = Assets.Scripts.GameResult.None;
         Holder.LevelPlayed = currentLevel;
+        if (currentLevel.Progress >= currentLevel.TargetProgress)
+            Holder.EnableBoss = true;
+        else
+            Holder.EnableBoss = false;
+
     }
 }

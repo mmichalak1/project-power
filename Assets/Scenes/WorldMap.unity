@@ -165,7 +165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
   levelData: {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
-  IsLocked: 0
   Padlock: {fileID: 1534528070}
   Backgroung: {fileID: 215729040}
   ProgressData: {fileID: 301398787}
@@ -1336,8 +1335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
-  levelData: {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
-  IsLocked: 1
+  levelData: {fileID: 11400000, guid: 4a860ad9751739044ac1183acb6d0611, type: 2}
   Padlock: {fileID: 564286715}
   Backgroung: {fileID: 1521761802}
   ProgressData: {fileID: 258484942}
@@ -1768,8 +1766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
-  levelData: {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
-  IsLocked: 1
+  levelData: {fileID: 11400000, guid: 2f13651e45df8c14c8aa754fecc40513, type: 2}
   Padlock: {fileID: 1509410928}
   Backgroung: {fileID: 1873430800}
   ProgressData: {fileID: 695841914}
@@ -1983,8 +1980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
-  levelData: {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
-  IsLocked: 1
+  levelData: {fileID: 11400000, guid: 9325472f7c1eb0b409e0d622b7a7c9eb, type: 2}
   Padlock: {fileID: 2053433271}
   Backgroung: {fileID: 1970556576}
   ProgressData: {fileID: 640462028}

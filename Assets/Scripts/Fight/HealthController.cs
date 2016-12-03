@@ -10,6 +10,7 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     private int _maxHealth = 100;
     [SerializeField]
     private int _currentHealth = 100;
+    [SerializeField]
     private float _defence = 0;
 
     public float Defence

@@ -12,8 +12,11 @@ public class LevelData : ScriptableObject
     private int _visited = 0;
     [SerializeField]
     private int ProgressPerCompletion = 10;
+    [SerializeField]
+    private LevelData _nextUnblockableLevel;
+    [SerializeField]
+    private bool isLocked = true;
 
-    public string Name = "Name";
     public int Progress
     {
         get { return _progress; }
@@ -29,6 +32,15 @@ public class LevelData : ScriptableObject
         get { return _visited; }
         set { _visited = value; }
     }
+    public LevelData NextUnblockableLevel
+    {
+        get { return _nextUnblockableLevel; }
+    }
+    public bool IsLocked
+    {
+        get { return isLocked; }
+        set { isLocked = value; }
+    }
 
     public void OnLevelWon()
     {
@@ -41,15 +53,15 @@ public class LevelData : ScriptableObject
                 Progress += ProgressPerCompletion;
 
         }
+        else if(_nextUnblockableLevel != null)
+        {
+            if (_nextUnblockableLevel.IsLocked)
+                _nextUnblockableLevel.isLocked = false;
+        }
     }
 
     public void OnLevelLost()
     {
         Visited++;
-    }
-
-    public void LoadData()
-    {
-
     }
 }
