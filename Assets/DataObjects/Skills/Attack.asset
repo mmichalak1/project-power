@@ -21,6 +21,6 @@ MonoBehaviour:
   isBasicSkill: 0
   _requiredSheepLevel: 5
   soundEffect: {fileID: 8300000, guid: 9a29b39396539b140bbadd1afdf59b32, type: 3}
-  effectDuration: 2
+  effectDuration: 1
   RequiredSkills: []
   Icon: {fileID: 0}

@@ -13,6 +13,12 @@ public class CheckIfPlayerEnter : MonoBehaviour {
     private float time;
     private float timer = 0;
 
+
+    void Start()
+    {
+
+    }
+
     void Update()
     {
         if(!isFaceToFace)

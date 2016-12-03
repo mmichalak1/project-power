@@ -26,11 +26,9 @@ public class EntityData : ScriptableObject {
     {
         get
         {
-            float defenceFromWool = (Wool / MaxWool) * 0.3f;
-            float defenceSum = (BasicDefence + DefenceFromItems / 60) * 0.3f;
+            float defenceFromWool = Wool;
+            float defenceSum = (BasicDefence + DefenceFromItems);
             float result = defenceFromWool + defenceSum;
-            if (result > 60)
-                result = 60.0f;
             return (int)result;
         }
     }

@@ -27,7 +27,7 @@ public static class Saver
 #else
     public static GameSaveData Load()
     {
-        GameSaveData state;
+        GameSaveData state = null;
         string path = Application.persistentDataPath + FILENAME;
         if (!File.Exists(path))
             return null;

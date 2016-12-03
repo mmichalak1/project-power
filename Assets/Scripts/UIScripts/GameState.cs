@@ -8,13 +8,19 @@ public class GameState : MonoBehaviour {
     [SerializeField]
     private ExplorationHolder holder;
     [SerializeField]
-    private List<GameObject> EnemyGroups;
+    private List<GameObject> _enemyGroups;
     [SerializeField]
     private GameObject WinWindow;
     [SerializeField]
     private int WoolForWin = 100;
 
     public GameObject Map;
+    
+    public List<GameObject> EnemyGroups
+    {
+        get { return _enemyGroups; }
+        set { _enemyGroups = value; }
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -37,9 +43,9 @@ public class GameState : MonoBehaviour {
 
     private void OnBattleWon(object x)
     {
-        EnemyGroups.Remove(x as GameObject);
+        _enemyGroups.Remove(x as GameObject);
         Map.SetActive(true);
-        if (EnemyGroups.Count == 0)
+        if (_enemyGroups.Count == 0)
             ExplorationWon();
     }
 }

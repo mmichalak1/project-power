@@ -11,7 +11,7 @@ namespace Assets.Scripts.ScriptableObjects
         public GameObject Target;
 
         private int _myRealDamage;
-        public override void Initialize(GameObject[] targets)
+        public override void Initialize(GameObject[] target)
         {
         }
 

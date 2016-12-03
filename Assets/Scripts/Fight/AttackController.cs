@@ -23,7 +23,7 @@ public class AttackController : MonoBehaviour
         _brainsList.Add(MyBrain);
     }
 
-    public IEnumerator PerformAction()
+    public void PerformAction()
     {
         _brainsList = _brainsList.OrderByDescending(x => x.Importance).ToList();
         if (gameObject.activeSelf)
@@ -39,9 +39,6 @@ public class AttackController : MonoBehaviour
             }
             ClearFinishedBrains();
         }
-
-        return null;
-
                 
     }
 
