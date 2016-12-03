@@ -18,6 +18,10 @@ MonoBehaviour:
   isActive: 0
   unlockCost: 20
   _rawDescription: Throws a banana <stun>stunning</stun> enemy for {0} turns.
+  isBasicSkill: 0
+  _requiredSheepLevel: 5
+  soundEffect: {fileID: 8300000, guid: b5b9ba3b9878fd641a68b2bcc2d13708, type: 3}
+  effectDuration: 1
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: b0a72ecee16ccbd4da6f6979e32f3a17, type: 3}
   StunDuration: 1

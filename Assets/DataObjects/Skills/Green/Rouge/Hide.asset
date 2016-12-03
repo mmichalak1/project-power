@@ -15,10 +15,13 @@ MonoBehaviour:
   BaseCost: 4
   BaseCooldown: 4
   SkillLevel: 0
-  isActive: 1
+  isActive: 0
   unlockCost: 20
   _rawDescription: Hides for {0} turns causing being non-targetable.
   isBasicSkill: 0
+  _requiredSheepLevel: 5
+  soundEffect: {fileID: 8300000, guid: 34203e2416b5d374aafd0261d7be6c11, type: 3}
+  effectDuration: 1
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: 73eaa86e4a253a04784121fc92a2a364, type: 3}
   Duration: 2
