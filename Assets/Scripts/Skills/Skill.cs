@@ -6,8 +6,10 @@ public abstract class Skill : ScriptableObject {
     {
         { "<damage>", "<color=\"red\">" },
         { "</damage>", "</color>" },
-        { "<stun>", "<color=\"cyan\n>" },
-        { "</stun>", "</color>" }
+        { "<stun>", "<color=\"cyan\">" },
+        { "</stun>", "</color>" },
+        { "<heal>", "<color=\"lime\">" },
+        { "</heal>", "</color>" }
     };
 
     protected static string ProcessString(string input)
