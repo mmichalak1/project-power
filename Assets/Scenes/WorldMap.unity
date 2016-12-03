@@ -1393,7 +1393,7 @@ MonoBehaviour:
         m_MethodName: Setup
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b,
+          m_ObjectArgument: {fileID: 11400000, guid: 4a860ad9751739044ac1183acb6d0611,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: LevelData, Assembly-CSharp
           m_IntArgument: 0
@@ -1824,7 +1824,7 @@ MonoBehaviour:
         m_MethodName: Setup
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b,
+          m_ObjectArgument: {fileID: 11400000, guid: 2f13651e45df8c14c8aa754fecc40513,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: LevelData, Assembly-CSharp
           m_IntArgument: 0
@@ -2038,7 +2038,7 @@ MonoBehaviour:
         m_MethodName: Setup
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b,
+          m_ObjectArgument: {fileID: 11400000, guid: 9325472f7c1eb0b409e0d622b7a7c9eb,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: LevelData, Assembly-CSharp
           m_IntArgument: 0
