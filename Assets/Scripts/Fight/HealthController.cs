@@ -109,9 +109,10 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
         {
             if (_currentHealth + value > _maxHealth)
             {
+                int difference = _maxHealth - _currentHealth;
                 _currentHealth = _maxHealth;
                 if (DamageIndicator != null)
-                    DamageIndicator.BeginIndication(_maxHealth - _currentHealth);
+                    DamageIndicator.BeginIndication(difference);
 
             }
             else
