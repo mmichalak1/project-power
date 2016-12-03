@@ -119,7 +119,11 @@ public class EntityData : ScriptableObject {
     public void GrowWool()
     {
         int additionalWool = Mathf.FloorToInt(WoolGrowth);
+        if (Wool + additionalWool < MaxWool)
+            Wool += additionalWool;
+        else
+            Wool = MaxWool;
+   
         WoolGrowth -= additionalWool;
-        Wool += additionalWool;
     }
 }
