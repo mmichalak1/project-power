@@ -26,11 +26,14 @@ public class EntityData : ScriptableObject {
     {
         get
         {
-            Debug.Log("DefenceFromItems " + DefenceFromItems);
-            float defenceFromWool = ((float)Wool / (float)MaxWool) * 30;
-            float result = defenceFromWool + DefenceFromItems;
+            //Debug.Log("DefenceFromItems " + DefenceFromItems);
+            float result = DefenceFromWool() + DefenceFromItems;
             return (int)result;
         }
+    }
+    public float DefenceFromWool()
+    {
+        return ((float)Wool / (float)MaxWool) * 30;
     }
     public int TotalAttack
     {
