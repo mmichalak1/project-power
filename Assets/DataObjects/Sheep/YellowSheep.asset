@@ -20,11 +20,11 @@ MonoBehaviour:
   AttackFromItems: 0
   DefenceFromItems: 0
   Level: 2
-  Experience: 100
+  Experience: 300
   ExperienceForNextLevel: 500
-  Wool: 5
-  MaxWool: 12
-  WoolGrowth: 0.6999998
+  Wool: 6
+  MaxWool: 10
+  WoolGrowth: 0.49999988
   SheepSkills: {fileID: 11400000, guid: 0f164399f85b4aa4db81ae6be1732b21, type: 2}
   OffensiveItem: {fileID: 0}
   DefensiveItem: {fileID: 0}

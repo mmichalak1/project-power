@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33050b0e059cb544fac9f0e86ec94bb5, type: 3}
   m_Name: Horns_c
   m_EditorClassIdentifier: 
+  SheepClass: 0
   Type: 1
   Icon: {fileID: 21300000, guid: b9adc9c5fb0ce814fa63d91f44d20939, type: 3}
   rarity: 0
@@ -18,4 +19,4 @@ MonoBehaviour:
   Cost: 10
   Bought: 0
   StatsList: 01000000
-  ValueList: 14000000
+  ValueList: 0a000000
