@@ -13,7 +13,7 @@ public class EntityDataHolder : MonoBehaviour
         gameObject.name = data.Name;
         HealthController comp = gameObject.GetComponent<HealthController>();
         data.ResetStats();
-        ApplyItemsChange();
+        ApplyItemsChange(data);
         comp.MaxHealth = data.TotalHealth;
         comp.HealToFull();
         comp.Defence = data.TotalDefence;
@@ -23,7 +23,7 @@ public class EntityDataHolder : MonoBehaviour
             if (x != null)
                 x.Initialize(gameObject);
     }   
-    public void ApplyItemsChange()
+    public static void ApplyItemsChange(EntityData SheepData)
     {
         if (SheepData.DefensiveItem != null)
             SheepData.DefensiveItem.ApplyItemChanges(SheepData);
@@ -31,7 +31,7 @@ public class EntityDataHolder : MonoBehaviour
             SheepData.OffensiveItem.ApplyItemChanges(SheepData);
     }
 
-    public void RevertItemsChange()
+    public static void RevertItemsChange(EntityData SheepData)
     {
         if (SheepData.DefensiveItem != null)
             SheepData.DefensiveItem.ReverseItemChanges(SheepData);
