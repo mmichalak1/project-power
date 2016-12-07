@@ -16,13 +16,14 @@ public class BarberCanvasScript : MonoBehaviour
     public Image[] SheepIcons;
 
     public static int ExpandValue = 10;
+    public static int ExpandMultiplayer = 1;
     public Text[] TextOfCostOfExpand;
-    private int[] CostOfExpand;
+    private float[] CostOfExpand;
     public Text[] TextWoolCap;
 
     void Start()
     {
-        CostOfExpand = new int[4];
+        CostOfExpand = new float[4];
         for (int i = 0; i < SheepCounter; i++)
         {
             updateActualCost(i);
@@ -38,7 +39,7 @@ public class BarberCanvasScript : MonoBehaviour
         sliders[sheepNumber].wholeNumbers = true;
         sliders[sheepNumber].maxValue = sheepData[sheepNumber].Wool;
         sliders[sheepNumber].minValue = 0;
-        Defence[sheepNumber].text = "Defence from wool: " + sheepData[sheepNumber].DefenceFromWool().ToString() + " %";
+        Defence[sheepNumber].text = "Defence from wool: " + (int)sheepData[sheepNumber].DefenceFromWool() + " %";
     }
     public void UpdateSliderText(int number)
     {
@@ -59,12 +60,13 @@ public class BarberCanvasScript : MonoBehaviour
             sheepData[i].Wool -= (int)sliders[i].value;
         }
     }
-    public void buyMoreResources(int sheepNumber)
+    public void buyMoreWoolCap(int sheepNumber)
     {
-        if (Counter.WoolCount >= CostOfExpand[sheepNumber])
+        if (Counter.WoolCount >= (int)CostOfExpand[sheepNumber])
         {
             sheepData[sheepNumber].MaxWool += ExpandValue;
-            Counter.WoolCount -= CostOfExpand[sheepNumber];
+            sheepData[sheepNumber].MaxWool *= ExpandMultiplayer;
+            Counter.WoolCount -= (int)CostOfExpand[sheepNumber];
             updateActualCost(sheepNumber);
             UpdateSliderText(sheepNumber);
             TextWoolCap[sheepNumber].text = "Wool: " + sheepData[sheepNumber].Wool + "/" + sheepData[sheepNumber].MaxWool;
@@ -73,11 +75,20 @@ public class BarberCanvasScript : MonoBehaviour
     void updateActualCost(int sheepNumber)
     {
         updateCost(sheepNumber);
-        TextOfCostOfExpand[sheepNumber].text = "Expand for: " + CostOfExpand[sheepNumber];
+        TextOfCostOfExpand[sheepNumber].text = "Expand for: " + (int)CostOfExpand[sheepNumber];
     }
     void updateCost(int sheepNumber)
     {
-        CostOfExpand[sheepNumber] = sheepData[sheepNumber].MaxWool * 2;
+        float q = 1.0345f;
+        if(sheepData[sheepNumber].MaxWool <= 25)
+        {
+            CostOfExpand[sheepNumber] = 14;
+        }
+        else
+        {
+            int n = (sheepData[sheepNumber].MaxWool - 25) / 5;
+            CostOfExpand[sheepNumber] = 14 * Mathf.Pow(q,n);
+        }
     }
 
 }

@@ -16,9 +16,12 @@ MonoBehaviour:
   BaseCooldown: 2
   SkillLevel: 0
   isActive: 1
-  unlockCost: 20
+  unlockCost: 300
   _rawDescription: Weakens target for {0} turns causing it to deal {1}% less damage.
   isBasicSkill: 0
+  _requiredSheepLevel: 5
+  soundEffect: {fileID: 0}
+  effectDuration: 1
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: 4165a8e8d3c5a794e9d1ab9253095b66, type: 3}
   Duration: 2

@@ -16,11 +16,11 @@ MonoBehaviour:
   BaseCooldown: 3
   SkillLevel: 0
   isActive: 0
-  unlockCost: 50
+  unlockCost: 900
   _rawDescription: Poisons target for {0} turns causing it to take <damage>{1}</damage>
     per turn.
   isBasicSkill: 0
-  _requiredSheepLevel: 5
+  _requiredSheepLevel: 8
   soundEffect: {fileID: 8300000, guid: 9216adb530b9fbd4ab3b915f001647a2, type: 3}
   effectDuration: 1
   RequiredSkills: []
