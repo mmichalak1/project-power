@@ -38,6 +38,13 @@ public class BuyResource : MonoBehaviour {
     }
     void updateCost()
     {
-        cost = (resourceCounter.Resources - resourceCounter.BasicResources + 1) * 5 + 5;
+        if((resourceCounter.Resources - resourceCounter.BasicResources) == 0)
+        {
+            cost = 25;
+        }
+        else
+        {
+            cost = (resourceCounter.Resources - resourceCounter.BasicResources) * 50;
+        }
     }
 }

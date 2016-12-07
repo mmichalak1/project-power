@@ -36,9 +36,9 @@ public class GameState : MonoBehaviour {
         Map.SetActive(false);
         foreach (var item in GameObject.FindGameObjectsWithTag("Sheep"))
         {
-            item.GetComponent<EntityDataHolder>().RevertItemsChange();
+            EntityDataHolder.RevertItemsChange(item.GetComponent<EntityDataHolder>().SheepData);
         }
-        
+
     }
 
     private void OnBattleWon(object x)

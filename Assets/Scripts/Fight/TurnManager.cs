@@ -145,7 +145,6 @@ public class TurnManager : MonoBehaviour
                     EntityDataHolder sheepDataHolder = (EntityDataHolder)plan.Actor.GetComponent(typeof(EntityDataHolder));
                     var bubble = actionBubbles[Array.IndexOf(DataHolders, sheepDataHolder)];
                     bubble.TurnOn();
-                    bubble.SetSkill(pickedSkill);
                 }
                 pickedSkill.OnSkillPlanned(selectedSheep, hitedTarget.transform.gameObject);
                 TurnPlaner.Instance.AddPlan(selectedSheep.name, plan);

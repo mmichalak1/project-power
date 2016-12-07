@@ -11,11 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33050b0e059cb544fac9f0e86ec94bb5, type: 3}
   m_Name: Sword_e
   m_EditorClassIdentifier: 
+  SheepClass: 0
   Type: 0
   Icon: {fileID: 21300000, guid: 411b6f7be5ee9dc48a40352e780e8d33, type: 3}
   rarity: 2
   Tier: 1
-  Cost: 100
+  Cost: 900
   Bought: 0
   StatsList: 00000000
-  ValueList: 1e000000
+  ValueList: 28000000

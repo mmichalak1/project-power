@@ -16,7 +16,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 6c07bbc4d71356643bdcf93e195839ed, type: 3}
   rarity: 0
   Tier: 1
-  Cost: 10
+  Cost: 40
   Bought: 0
   StatsList: 00000000
-  ValueList: 0a000000
+  ValueList: 07000000

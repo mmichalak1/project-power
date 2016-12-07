@@ -13,20 +13,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: BlueSheep
   Portrait: {fileID: 21300000, guid: 1959db1d8336df94182e179482e748ff, type: 3}
-  BasicMaxHealth: 110
-  BasicAttack: 17
+  BasicMaxHealth: 100
+  BasicAttack: 10
   BasicDefence: 0
   MaxHealthFromItems: 0
   AttackFromItems: 0
   DefenceFromItems: 0
-  Level: 2
-  Experience: 360
-  ExperienceForNextLevel: 500
-  Wool: 2
+  Level: 1
+  Experience: 0
+  ExperienceForNextLevel: 100
+  Wool: 0
   MaxWool: 10
-  WoolGrowth: 0.099999905
+  WoolGrowth: 0
   SheepSkills: {fileID: 11400000, guid: ff8b91b9b24184744a77d623289fd5c0, type: 2}
-  OffensiveItem: {fileID: 11400000, guid: ac8b812d7e23310478fbc2f22791c14f, type: 2}
+  OffensiveItem: {fileID: 0}
   DefensiveItem: {fileID: 0}
   ExperienceGained: 0
   SheepClass: 1

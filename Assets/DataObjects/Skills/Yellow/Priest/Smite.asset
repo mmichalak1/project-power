@@ -16,11 +16,11 @@ MonoBehaviour:
   BaseCooldown: 2
   SkillLevel: 0
   isActive: 0
-  unlockCost: 20
+  unlockCost: 150
   _rawDescription: Priest strikes target with heavenly strike dealing <damage>{0}</damage>
     points of damage and healing him for <heal>{1}</heal> HP.
   isBasicSkill: 0
-  _requiredSheepLevel: 5
+  _requiredSheepLevel: 3
   soundEffect: {fileID: 8300000, guid: 16bd9a01cac009f4bbfb15598bba5634, type: 3}
   effectDuration: 1
   RequiredSkills: []
