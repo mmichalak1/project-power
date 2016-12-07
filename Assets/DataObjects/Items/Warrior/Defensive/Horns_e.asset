@@ -18,5 +18,5 @@ MonoBehaviour:
   Tier: 1
   Cost: 900
   Bought: 0
-  StatsList: 0100000000000000
-  ValueList: 1e00000014000000
+  StatsList: 01000000
+  ValueList: 1e000000
