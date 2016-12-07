@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5d780c9a2e039846a9623ffc5a6a549, type: 3}
+  m_Name: Banana Throw
+  m_EditorClassIdentifier: 
+  StatsMultiplier: 70
+  BaseCost: 2
+  BaseCooldown: 3
+  SkillLevel: 0
+  isActive: 0
+  unlockCost: 20
+  _rawDescription: Throws a banana <stun>stunning</stun> enemy for {0} turns.
+  isBasicSkill: 0
+  _requiredSheepLevel: 5
+  soundEffect: {fileID: 8300000, guid: b5b9ba3b9878fd641a68b2bcc2d13708, type: 3}
+  effectDuration: 1
+  RequiredSkills: []
+  Icon: {fileID: 21300000, guid: b0a72ecee16ccbd4da6f6979e32f3a17, type: 3}
+  StunDuration: 1
+  StunnedBrain: {fileID: 11400000, guid: b1e2503b044958840a5d07291b809cc9, type: 2}

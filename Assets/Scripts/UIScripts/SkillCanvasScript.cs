@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -13,37 +13,32 @@ public class SkillCanvasScript : MonoBehaviour
 
     [SerializeField]
     private Sprite EmptySkillSprite;
-
     // Use this for initialization
     void Start()
     {
-        skills = gameObject.GetComponentInParent<EntityDataHolder>().SheepData.SheepSkills.Skills;
+        skills = gameObject.GetComponentInParent<EntityDataHolder>().SheepData.SheepSkills.Skills.Where(x => x.IsActive == true).ToList();
 
-        for (int i = 0; i < SkillButtons.Length; i++)
+        foreach (var item in SkillButtons)
         {
+            item.SetActive(false);
+        }
+
+        for (int i = 0; i < skills.Count; i++)
+        {
+            SkillButtons[i].SetActive(true);
             ApplySkillData(SkillButtons[i], skills[i]);
-            //SkillButtonAction(i);
         }
 
-        Events.Instance.RegisterForEvent("EnterFight", x =>
-        {
-            UpdateSkillsState();
-        }
-
-        );
-  
-        Events.Instance.RegisterForEvent(transform.parent.gameObject.name + "skill", x =>
-        {
-            UpdateSkillsState();
-        }
-        );
+        Events.Instance.RegisterForMultipleEvents(
+            new string[] { "EnterFight", transform.parent.gameObject.name + "skill" },
+            UpdateSkillsState);
 
         gameObject.SetActive(false);
     }
 
-    public void UpdateSkillsState()
+    public void UpdateSkillsState(object x)
     {
-        for (int i = 0; i < SkillButtons.Length; i++)
+        for (int i = 0; i < skills.Count; i++)
         {
             if (skills[i] != null)
             {

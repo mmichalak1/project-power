@@ -10,8 +10,14 @@ public class CheckIfPlayerEnter : MonoBehaviour {
     private float rotationSpeed = 180.0f;
     private bool isDetecting = true;
     private bool isFaceToFace = true;
-    private float time = 1.5f;
+    private float time;
     private float timer = 0;
+
+
+    void Start()
+    {
+
+    }
 
     void Update()
     {
@@ -43,6 +49,7 @@ public class CheckIfPlayerEnter : MonoBehaviour {
                 Events.Instance.DispatchEvent("DisableSwipe", null);
                 isFaceToFace = false;
                 float rot = transform.rotation.eulerAngles.y - Player.transform.rotation.eulerAngles.y;
+                time = Mathf.Abs((rot * 1.5f) / 180);
                 newRot = Player.transform.rotation * Quaternion.AngleAxis(rot, Vector3.up);
                 Player.GetComponent<MovementController>().newRot = newRot;
             }

@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Name: RandomBrain
   m_EditorClassIdentifier: 
   _importance: 0.05
+  _duration: -1
   Targets:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  Skills:
+  - {fileID: 11400000, guid: 7022c4535948f894ca308e53c2feb765, type: 2}
   MyDamage: 10

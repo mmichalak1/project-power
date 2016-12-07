@@ -395,11 +395,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22444430, guid: 9c8c28e5eae5b4f4b867b2743a135612, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 22444430, guid: 9c8c28e5eae5b4f4b867b2743a135612, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c8c28e5eae5b4f4b867b2743a135612, type: 2}
@@ -939,6 +939,7 @@ GameObject:
   - 114: {fileID: 751562783}
   - 222: {fileID: 751562788}
   - 114: {fileID: 751562787}
+  - 114: {fileID: 751562789}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1060,6 +1061,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 751562782}
+--- !u!114 &751562789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 751562782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 451cfe9c89c8c8a4d817e06d8b080363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Save: {fileID: 11400000, guid: 25308824fbae9e140aa83092a62e67aa, type: 2}
+  SaveOnStart: 0
+  LoadOnStart: 0
 --- !u!1 &847457993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,15 +1296,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6156863, g: 0.40784314, b: 0.21568628, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: a200bab9613e2cd4ea791702e80273d1, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1443,6 +1458,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 751562789}
+        m_MethodName: SaveGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1308304899
@@ -1523,15 +1549,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22477844, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 80
+      value: 106.3
       objectReference: {fileID: 0}
     - target: {fileID: 22477844, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 484
       objectReference: {fileID: 0}
     - target: {fileID: 22477844, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 22477844, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
       propertyPath: m_AnchorMin.x
@@ -1605,6 +1631,118 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[6].m_Target
       value: 
       objectReference: {fileID: 2067968498}
+    - target: {fileID: 11439320, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: Colors.Array.data[0].r
+      value: 0.827451
+      objectReference: {fileID: 0}
+    - target: {fileID: 11439320, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: Colors.Array.data[0].g
+      value: 0.56078434
+      objectReference: {fileID: 0}
+    - target: {fileID: 11439320, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: Colors.Array.data[0].b
+      value: 0.30980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472972, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: Colors.Array.data[0].r
+      value: 0.827451
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472972, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: Colors.Array.data[0].g
+      value: 0.56078434
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472972, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: Colors.Array.data[0].b
+      value: 0.30980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 11484552, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: Colors.Array.data[0].r
+      value: 0.827451
+      objectReference: {fileID: 0}
+    - target: {fileID: 11484552, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: Colors.Array.data[0].g
+      value: 0.56078434
+      objectReference: {fileID: 0}
+    - target: {fileID: 11484552, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: Colors.Array.data[0].b
+      value: 0.30980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449762, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: Colors.Array.data[0].r
+      value: 0.827451
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449762, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: Colors.Array.data[0].g
+      value: 0.56078434
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449762, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: Colors.Array.data[0].b
+      value: 0.30980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476080, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: m_Color.r
+      value: 0.827451
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476080, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: m_Color.g
+      value: 0.56078434
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476080, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: m_Color.b
+      value: 0.30980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478138, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: m_Color.r
+      value: 0.83137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478138, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: m_Color.g
+      value: 0.83137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478138, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: m_Color.b
+      value: 0.83137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422496, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: m_Color.r
+      value: 0.83137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422496, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: m_Color.g
+      value: 0.83137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422496, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: m_Color.b
+      value: 0.83137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469850, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: m_Color.r
+      value: 0.83137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469850, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: m_Color.g
+      value: 0.83137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469850, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: m_Color.b
+      value: 0.83137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473300, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Load
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444538, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Load
+      objectReference: {fileID: 0}
+    - target: {fileID: 11484242, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Load
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470398, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Load
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 487c22833ee402441bc635e1aceef1a2, type: 2}
   m_IsPrefabParent: 0
@@ -1645,8 +1783,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.25, y: 0}
   m_AnchorMax: {x: 0.25, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 713, y: 975}
+  m_AnchoredPosition: {x: 48.250015, y: 0}
+  m_SizeDelta: {x: 496.5, y: 975}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1470591269
 MonoBehaviour:
@@ -1801,6 +1939,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 751562789}
+        m_MethodName: SaveGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1182636224}
         m_MethodName: Refresh
         m_Mode: 1
@@ -1902,15 +2051,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6156863, g: 0.40784314, b: 0.21568628, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: a200bab9613e2cd4ea791702e80273d1, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

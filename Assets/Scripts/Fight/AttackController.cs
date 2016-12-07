@@ -2,6 +2,7 @@
 using Assets.Scripts.ScriptableObjects;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections;
 
 public class AttackController : MonoBehaviour
 {
@@ -38,8 +39,6 @@ public class AttackController : MonoBehaviour
             }
             ClearFinishedBrains();
         }
-            
-
                 
     }
 

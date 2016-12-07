@@ -6,6 +6,7 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "Item", menuName = "Game/Item")]
 public class Item : ScriptableObject {
 
+    public EntityData.Class SheepClass = EntityData.Class.Warrior;
     public ItemType Type = ItemType.Defensive;
     public Sprite Icon;
     public Rariry rarity = Rariry.Common;
@@ -23,16 +24,16 @@ public class Item : ScriptableObject {
             switch (StatsList[i])
             {
                 case Stats.Attack:
-                    data.Attack += ValueList[i];
+                    data.AttackFromItems += ValueList[i];
                     break;
                 case Stats.Defense:
-                    data.Defence += ValueList[i];
+                    data.DefenceFromItems += ValueList[i];
                     break;
                 case Stats.WoolCounter:
                     data.Wool += ValueList[i];
                     break;
                 case Stats.Health:
-                    data.MaxHealth += ValueList[i];
+                    data.MaxHealthFromItems += ValueList[i];
                     break;
                 default:
                     Debug.LogError("Stat type not found");
@@ -50,16 +51,16 @@ public class Item : ScriptableObject {
             switch (StatsList[i])
             {
                 case Stats.Attack:
-                    data.Attack -= ValueList[i];
+                    data.AttackFromItems -= ValueList[i];
                     break;
                 case Stats.Defense:
-                    data.Defence -= ValueList[i];
+                    data.DefenceFromItems -= ValueList[i];
                     break;
                 case Stats.WoolCounter:
                     data.Wool -= ValueList[i];
                     break;
                 case Stats.Health:
-                    data.MaxHealth -= ValueList[i];
+                    data.MaxHealthFromItems -= ValueList[i];
                     break;
                 default:
                     Debug.LogError("Stat type not found");

@@ -11,21 +11,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f6bf9d4f60d464dbb040ecba8aa40a, type: 3}
   m_Name: GreenSheep
   m_EditorClassIdentifier: 
-  Name: Rouge Shelby
-  BasicMaxHealth: 145
-  BasicAttack: 31
-  BasicDefence: 0
+  Name: GreenSheep
   Portrait: {fileID: 21300000, guid: 6b8e073e4398979458315a12397ea81c, type: 3}
-  MaxHealth: 145
-  Attack: 31
-  Defence: 0
-  Level: 4
-  Experience: 5450
-  ExperienceForNextLevel: 12500
-  Wool: 10
-  MaxWool: 10
-  WoolGrowth: 0.59999996
+  BasicMaxHealth: 130
+  BasicAttack: 24
+  BasicDefence: 0
+  MaxHealthFromItems: 0
+  AttackFromItems: 0
+  DefenceFromItems: 0
+  Level: 3
+  Experience: 0
+  ExperienceForNextLevel: 2500
+  Wool: 6
+  MaxWool: 14
+  WoolGrowth: 0.3000002
   SheepSkills: {fileID: 11400000, guid: 40a8808a270a3b64c97b5b65038dd217, type: 2}
   OffensiveItem: {fileID: 0}
   DefensiveItem: {fileID: 0}
+  ExperienceGained: 0
   SheepClass: 3

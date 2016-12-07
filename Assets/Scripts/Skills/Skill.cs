@@ -6,8 +6,10 @@ public abstract class Skill : ScriptableObject {
     {
         { "<damage>", "<color=\"red\">" },
         { "</damage>", "</color>" },
-        { "<stun>", "<color=\"cyan\n>" },
-        { "</stun>", "</color>" }
+        { "<stun>", "<color=\"cyan\">" },
+        { "</stun>", "</color>" },
+        { "<heal>", "<color=\"lime\">" },
+        { "</heal>", "</color>" }
     };
 
     protected static string ProcessString(string input)
@@ -35,6 +37,14 @@ public abstract class Skill : ScriptableObject {
     private int unlockCost = 20;
     [SerializeField, TextArea(3,5)]
     private string _rawDescription = "This is Skill's Description";
+    [SerializeField]
+    private bool isBasicSkill = false;
+    [SerializeField]
+    public int _requiredSheepLevel = 5;
+    [SerializeField]
+    public AudioClip soundEffect;
+    [SerializeField]
+    public float effectDuration = 1;
 
 
 
@@ -66,6 +76,7 @@ public abstract class Skill : ScriptableObject {
     public int Power
     {
         get { return _power; }
+        set { _power = value; }
     }
 
     public int Cost
@@ -90,13 +101,27 @@ public abstract class Skill : ScriptableObject {
     public bool IsActive
     {
         get { return isActive; }
-        set { isActive = value; }
+        set
+        {
+            if (isBasicSkill)
+            {
+                isActive = true;
+                return;
+            }
+            isActive = value;
+        }
     }
 
     public int UnlockCost
     {
         get { return unlockCost; }
     }
+
+    public int RequiredSheepLevel
+    {
+        get { return _requiredSheepLevel; }
+    }
+
 
     public abstract string Description();
 
@@ -114,14 +139,22 @@ public abstract class Skill : ScriptableObject {
     {
         _cooldown = 0;
         _cost = BaseCost;
-        _power = (parent.GetComponent<EntityDataHolder>().SheepData.Attack * StatsMultiplier)/100;
+        _power = (parent.GetComponent<EntityDataHolder>().SheepData.TotalAttack * StatsMultiplier)/100;
         _parent = parent;
+        _action = PerformAction;
+    }
+
+    /// <summary>
+    /// Initializes with only adding Perform Action to _action
+    /// </summary>
+    public virtual void Initialize()
+    {
         _action = PerformAction;
     }
 
     public virtual void Initialize(EntityData data)
     {
-        _power = (data.Attack * StatsMultiplier) / 100;
+        _power = (data.TotalAttack * StatsMultiplier) / 100;
     }
 
     public void UpdateCooldown()
@@ -133,5 +166,6 @@ public abstract class Skill : ScriptableObject {
     {
         _cooldown = 0;
     }
+
 
 }

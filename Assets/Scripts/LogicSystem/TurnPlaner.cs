@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using UnityEngine;
+using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System;
 
 namespace Assets.LogicSystem
 {
@@ -23,7 +25,21 @@ namespace Assets.LogicSystem
         }
 
 
-        private List<KeyValuePair<string, Plan>> plans = new List<KeyValuePair<string, Plan>>() ;
+        private List<KeyValuePair<string, Plan>> plans = new List<KeyValuePair<string, Plan>>();
+
+        public Queue<Plan> Queue
+        {
+            get
+            {
+                var queue = new Queue<Plan>();
+                for (int i = 0; i < plans.Count; i++)
+                {
+                    queue.Enqueue(plans[i].Value);
+                }
+                return queue;
+            }
+        }
+
         public void AddPlan(string sheepName, Plan plan)
         {
             var pair = plans.FirstOrDefault(x => x.Value.Skill == plan.Skill);
@@ -35,22 +51,10 @@ namespace Assets.LogicSystem
             plans.Add(new KeyValuePair<string, Plan>(sheepName, plan));
             Debug.Log("Added plan for " + sheepName);
         }
-
-        public bool Execute()
+        public void Reset()
         {
-            //if (plans.Count < 4)
-            //{
-            //    Debug.Log("Not all sheep declared move");
-            //    return false;
-            //}
-            foreach (var plan in plans)
-            {
-                plan.Value.Execute();
-            }
             plans.Clear();
-            return true;
         }
-
         public bool ContainsPlanForSheepSkill(string sheep, Skill skill)
         {
             var sheepsPlans = plans.Where(x => x.Key == sheep);

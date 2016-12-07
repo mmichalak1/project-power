@@ -5,19 +5,38 @@ using System.Collections;
 public class EntityData : ScriptableObject {
 
     public string Name = "Wacław";
+    public Sprite Portrait;
 
     public int BasicMaxHealth = 100;
     public int BasicAttack = 20;
     public int BasicDefence = 0;
 
-    public Sprite Portrait;
+    [HideInInspector]
+    public int MaxHealthFromItems = 100;
+    [HideInInspector]
+    public int AttackFromItems = 20;
+    [HideInInspector]
+    public int DefenceFromItems = 0;
+    
+    public int TotalHealth
+    {
+        get { return BasicMaxHealth + MaxHealthFromItems; }
+    }
+    public int TotalDefence
+    {
+        get
+        {
+            float defenceFromWool = Wool;
+            float defenceSum = (BasicDefence + DefenceFromItems);
+            float result = defenceFromWool + defenceSum;
+            return (int)result;
+        }
+    }
+    public int TotalAttack
+    {
+        get { return AttackFromItems + BasicAttack; }
+    }
 
-    [HideInInspector]
-    public int MaxHealth = 100;
-    [HideInInspector]
-    public int Attack = 20;
-    [HideInInspector]
-    public int Defence = 0;
 
     public int Level = 0;
     public int Experience = 0;
@@ -33,9 +52,9 @@ public class EntityData : ScriptableObject {
     public void ResetStats()
     {
         ExperienceGained = 0;
-        MaxHealth = BasicMaxHealth;
-        Attack = BasicAttack;
-        Defence = BasicDefence;
+        MaxHealthFromItems = 0;
+        AttackFromItems = 0;
+        DefenceFromItems = 0;
     }
 
     public void LevelUp()
@@ -44,7 +63,8 @@ public class EntityData : ScriptableObject {
         Experience -= ExperienceForNextLevel;
         if (Level > 1)
             ExperienceForNextLevel = ExperienceForNextLevel * 5;
-        MaxWool += 2;
+        //TODO DELETE IT!
+        //MaxWool += 2;
         switch (SheepClass)
         {
             case Class.Warrior:
@@ -99,7 +119,11 @@ public class EntityData : ScriptableObject {
     public void GrowWool()
     {
         int additionalWool = Mathf.FloorToInt(WoolGrowth);
+        if (Wool + additionalWool < MaxWool)
+            Wool += additionalWool;
+        else
+            Wool = MaxWool;
+   
         WoolGrowth -= additionalWool;
-        Wool += additionalWool;
     }
 }

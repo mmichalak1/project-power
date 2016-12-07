@@ -5,7 +5,7 @@ public class ResourcesUpdater : MonoBehaviour
 
     public UnityEngine.UI.Text text;
     [SerializeField]
-    private WoolCounter DefaultWoolCounter;
+    private ResourceCounter DefaultResourceCounter;
     // Use this for initialization
     void Start()
     {
@@ -14,6 +14,6 @@ public class ResourcesUpdater : MonoBehaviour
 
     public void UpdateResourcesView()
     {
-        text.text = "Resources: " + DefaultWoolCounter.Resources;
+        text.text = "Resources: " + DefaultResourceCounter.Resources;
     }
 }

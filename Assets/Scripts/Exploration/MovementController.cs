@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
 using UnityEngine.UI;
 
 using Assets.LogicSystem;
@@ -23,17 +23,21 @@ public class MovementController : MonoBehaviour
     public Image ShallNotPass;
     public World World;
 
+    Events.MyEvent Forward, Left, Right;
+
     // Use this for initialization
     void Start()
     {
         x = World.SpawnPointX;
         z = World.SpawnPointZ;
+        Forward = MoveForward;
+        Left = RotateLeft;
+        Right = RotateRight;
 
         newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        Events.Instance.RegisterForEvent("TurnRight", a => RotateRight());
-        Events.Instance.RegisterForEvent("TurnLeft", a => RotateLeft());
-        Events.Instance.RegisterForEvent("MoveForward", a => MoveForward());
-        Events.Instance.RegisterForEvent("MoveDown", a => MoveBack());
+        Events.Instance.RegisterForEvent("TurnRight", Right);
+        Events.Instance.RegisterForEvent("TurnLeft", Left);
+        Events.Instance.RegisterForEvent("MoveForward", Forward);
     }
 
     // Update is called once per frame
@@ -58,7 +62,7 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    public void MoveForward()
+    public void MoveForward(object x)
     {
         if (!move)
         {
@@ -74,7 +78,7 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    public void MoveBack()
+    public void MoveBack(object x)
     {
         if (!move)
         {
@@ -90,7 +94,7 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    public void RotateLeft()
+    public void RotateLeft(object x)
     {
         if (!move)
         {
@@ -99,7 +103,7 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    public void RotateRight()
+    public void RotateRight(object x)
     {
         if (!move)
         {

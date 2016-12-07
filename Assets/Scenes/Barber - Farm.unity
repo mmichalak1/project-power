@@ -1040,8 +1040,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Save: {fileID: 11400000, guid: 25308824fbae9e140aa83092a62e67aa, type: 2}
-  ToSaveGame: 0
-  ToLoadGame: 0
+  SaveOnStart: 0
+  LoadOnStart: 0
 --- !u!1 &652916735
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,8 +3193,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.25, y: 0}
   m_AnchorMax: {x: 0.25, y: 0}
-  m_AnchoredPosition: {x: -12, y: 0}
-  m_SizeDelta: {x: 615, y: 1025}
+  m_AnchoredPosition: {x: -28, y: -106}
+  m_SizeDelta: {x: 264, y: 1025}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1925907184
 MonoBehaviour:

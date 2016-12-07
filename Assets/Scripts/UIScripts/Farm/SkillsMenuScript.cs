@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Text;
 using UnityEngine.UI;
 
 
@@ -19,7 +19,7 @@ public class SkillsMenuScript : MonoBehaviour
     public Text Name;
     public Text Description;
     public Text UnlockCost;
-    public Text CurrentWool;
+    public Text RequiredLevel;
     public Button UnlockButton;
     public Image Icon;
     public Text Cooldown;
@@ -55,18 +55,24 @@ public class SkillsMenuScript : MonoBehaviour
 
     public void ButtonClick(int SheepButton)
     {
+        Unlocker.SetActive(false);
         currentlyPickedSkill = SheepData[SheepNumber].SheepSkills.Skills[SheepButton];
         SkillDesc.SetActive(true);
         Name.text = currentlyPickedSkill.Name;
         Description.text = currentlyPickedSkill.Description();
         Icon.sprite = currentlyPickedSkill.Icon;
-        Cooldown.text = "Cooldown: " + currentlyPickedSkill.CooldownBase.ToString();
-        Cost.text = "Cost: " + currentlyPickedSkill.Cost.ToString();
+        Cooldown.text = currentlyPickedSkill.CooldownBase.ToString();
+        Cost.text = currentlyPickedSkill.Cost.ToString();
         if (!currentlyPickedSkill.IsActive)
         {
             Unlocker.SetActive(true);
+            if (SheepData[SheepButton].Level<currentlyPickedSkill.RequiredSheepLevel)
+            {
+                UnlockButton.interactable = false;
+                RequiredLevel.gameObject.SetActive(true);
+                RequiredLevel.text = string.Format(RequiredLevel.text, currentlyPickedSkill.RequiredSheepLevel);
+            }
             UnlockCost.text = currentlyPickedSkill.UnlockCost.ToString();
-            CurrentWool.text = WoolCounter.WoolCount.ToString();
         }
     }
 
