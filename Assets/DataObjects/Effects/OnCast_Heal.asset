@@ -13,4 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particleEffect: {fileID: 0}
   _sound: {fileID: 8300000, guid: 2bb3037336f79224d937e55146d852f4, type: 3}
-  _duration: 1
+  _duration: 0.25

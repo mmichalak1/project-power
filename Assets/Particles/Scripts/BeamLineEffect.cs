@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class BeamLine : MonoBehaviour, IEffect {
+public class BeamLineEffect : MonoBehaviour, IEffect {
 
 
 	public float StartSize = 1.0f;
@@ -61,6 +61,9 @@ public class BeamLine : MonoBehaviour, IEffect {
 
     public void SetUpAction(GameObject actor, GameObject target)
     {
+        transform.position += new Vector3(0, 0.75f, 0);
+        transform.LookAt(target.transform.position + new Vector3(0, 0.25f, 0));
+        transform.position += transform.forward * 0.25f;
         maxLength = (actor.transform.position - target.transform.position).magnitude + 0.5f;
     }
 }

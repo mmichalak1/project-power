@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
+using System.Linq;
 
 [RequireComponent(typeof(TurnPlayer))]
 public class TurnManager : MonoBehaviour
@@ -67,7 +68,6 @@ public class TurnManager : MonoBehaviour
     public EntityDataHolder[] DataHolders;
     public ActionBubble[] actionBubbles;
 
-    private bool SelectingTarget = true;
     private TurnPlayer turnPlayer;
     private int WoolForFight = 0;
 
@@ -93,7 +93,7 @@ public class TurnManager : MonoBehaviour
     }
     #endregion
 
-   
+
     public void ChangeTurn(bool forced)
     {
         #region ClearScreen & reset state
@@ -109,6 +109,12 @@ public class TurnManager : MonoBehaviour
             foreach (ActionBubble item in actionBubbles)
             {
                 item.TurnOff();
+            }
+
+            if(selectedSheep != null)
+            {
+                selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(false);
+                selectedSheep = null;
             }
 
             FightingSceneUIScript.DisableSkillCanvases();
@@ -133,6 +139,7 @@ public class TurnManager : MonoBehaviour
         {
             state = activeState.sheepPicked;
             selectedSheep = hitedTarget;
+            selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(true);
             Events.Instance.DispatchEvent(hitedTarget.transform.gameObject.name + "skill", hitedTarget.transform.gameObject);
         }
     }
@@ -156,6 +163,8 @@ public class TurnManager : MonoBehaviour
                 hitedTarget = null;
 
                 FightingSceneUIScript.DisableSkillCanvases();
+                selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(false);
+                selectedSheep = null;
                 state = activeState.nothingPicked;
             }
     }
@@ -165,14 +174,16 @@ public class TurnManager : MonoBehaviour
         if (hitedTarget.tag == "Sheep" && hitedTarget != selectedSheep)
         {
             state = activeState.sheepPicked;
+            UnselectSheep();
             selectedSheep = hitedTarget.transform.gameObject;
+            selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(true);
             Events.Instance.DispatchEvent(hitedTarget.transform.gameObject.name + "skill", hitedTarget.transform.gameObject);
             return;
         }
         else
         {
             FightingSceneUIScript.DisableSkillCanvases();
-            selectedSheep = null;
+            UnselectSheep();
         }
 
     }
@@ -213,6 +224,7 @@ public class TurnManager : MonoBehaviour
 
     private void OnNotEnoughResources()
     {
+        UnselectSheep();
         Fader.Play();
     }
 
@@ -336,7 +348,12 @@ public class TurnManager : MonoBehaviour
             }
     }
 
-
+    private void UnselectSheep()
+    {
+        if (selectedSheep != null)
+            selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(false);
+        selectedSheep = null;
+    }
     public enum activeState
     {
         sheepPicked,

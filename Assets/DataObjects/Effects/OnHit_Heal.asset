@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d2ee2e23ff0584eb7c61a29277cc51, type: 3}
   m_Name: OnHit_Heal
   m_EditorClassIdentifier: 
-  _particleEffect: {fileID: 0}
+  _particleEffect: {fileID: 150362, guid: d945a950af393824c9e2d469a3ac721c, type: 2}
   _sound: {fileID: 0}
-  _duration: 0
+  _duration: 1.5

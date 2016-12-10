@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: OnCast_Fireball
   m_EditorClassIdentifier: 
   _particleEffect: {fileID: 0}
-  _sound: {fileID: 8300000, guid: 8b9de06583fdae540adc95ff97c6b48d, type: 3}
+  _sound: {fileID: 8300000, guid: 37084305e1d0b684abd6c123b541d415, type: 3}
   _duration: 1
