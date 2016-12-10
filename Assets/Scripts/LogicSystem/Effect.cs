@@ -29,7 +29,7 @@ public class Effect : ScriptableObject
             go.transform.position += go.transform.forward * 0.25f;
             go.GetComponent<IEffect>().SetUpAction(actor, target);
         }
-        if(_sound != null && actor.GetComponent<AudioSource>() != null)
+        if(_sound != null && actor != null && actor.GetComponent<AudioSource>() != null)
         {
             actor.GetComponent<AudioSource>().PlayOneShot(_sound);
         }
