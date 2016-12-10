@@ -16,11 +16,11 @@ MonoBehaviour:
   BaseCooldown: 3
   SkillLevel: 0
   isActive: 0
-  unlockCost: 20
+  unlockCost: 150
   _rawDescription: Deals <damage>{0}</damage> to enemy and also taunts it for {1}
     turn(s).
   isBasicSkill: 0
-  _requiredSheepLevel: 5
+  _requiredSheepLevel: 3
   soundEffect: {fileID: 0}
   effectDuration: 1
   OnCastEffect: {fileID: 11400000, guid: d81863788cdb82c44bcb5b84267942a6, type: 2}

@@ -16,7 +16,8 @@ MonoBehaviour:
   BaseCooldown: 4
   SkillLevel: 0
   isActive: 0
-  unlockCost: 20
+
+  unlockCost: 300
   _rawDescription: <stun>Freezes</stun> target for {0} turns.
   isBasicSkill: 0
   _requiredSheepLevel: 5

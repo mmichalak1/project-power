@@ -21,7 +21,7 @@ public class StatisticsMenuScript : MonoBehaviour {
         Name.text = data.Name;
         Attack.text = data.BasicAttack.ToString();
         HP.text = data.BasicMaxHealth.ToString();
-        WoolDefence.text = (((float)data.Wool/(float)data.MaxWool) * 30).ToString() + "/" + 30;
+        WoolDefence.text = (int)(((float)data.Wool/(float)data.MaxWool) * 30) + "/" + 30;
         ItemsDefence.text = data.DefenceFromItems.ToString();
         SumDef.text = data.TotalDefence.ToString() + "%";
         Exp.text = "Exp " + data.Experience.ToString() + "/" + data.ExperienceForNextLevel.ToString();

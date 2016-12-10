@@ -16,7 +16,7 @@ MonoBehaviour:
   BaseCooldown: 3
   SkillLevel: 0
   isActive: 0
-  unlockCost: 20
+  unlockCost: 300
   _rawDescription: For {0} turns every attack into target will be redirected into
     warrior.
   isBasicSkill: 0

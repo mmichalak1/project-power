@@ -16,7 +16,7 @@ MonoBehaviour:
   BaseCooldown: 2
   SkillLevel: 0
   isActive: 1
-  unlockCost: 20
+  unlockCost: 300
   _rawDescription: Weakens target for {0} turns causing it to deal {1}% less damage.
   isBasicSkill: 0
   _requiredSheepLevel: 5
