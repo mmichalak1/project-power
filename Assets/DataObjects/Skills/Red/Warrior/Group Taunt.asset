@@ -19,6 +19,12 @@ MonoBehaviour:
   unlockCost: 50
   _rawDescription: Taunts all enemies fo {0} turns causing them to focus on warrior.
     Grants {1}% damage reduction.
+  isBasicSkill: 0
+  _requiredSheepLevel: 5
+  soundEffect: {fileID: 0}
+  effectDuration: 1
+  OnCastEffect: {fileID: 11400000, guid: 7ee716ef3dedaec4bbed19b263c76658, type: 2}
+  OnHitEffect: {fileID: 11400000, guid: 06fee612bab986e4b989e1037ebc7162, type: 2}
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: c136c0b369d93844296d0153c6d1991d, type: 3}
   TauntedBrain: {fileID: 11400000, guid: e87a4360823f3fe4e9f0954934f2e569, type: 2}

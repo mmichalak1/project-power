@@ -3,6 +3,7 @@ using Assets.LogicSystem;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(TurnPlayer))]
 public class TurnManager : MonoBehaviour
@@ -96,28 +97,32 @@ public class TurnManager : MonoBehaviour
     public void ChangeTurn(bool forced)
     {
         #region ClearScreen & reset state
-        if (!forced && currentResource == DefaultResourceCounter.Resources)
+        if (ourTurn)
         {
-            ConfirmEndTurn.SetActive(true);
-            return;
+            ChangeTurnButton.GetComponent<Button>().interactable = false;
+            if (!forced && currentResource == DefaultResourceCounter.Resources)
+            {
+                ConfirmEndTurn.SetActive(true);
+                return;
+            }
+
+            foreach (ActionBubble item in actionBubbles)
+            {
+                item.TurnOff();
+            }
+
+            FightingSceneUIScript.DisableSkillCanvases();
+            state = activeState.nothingPicked;
+            ourTurn = false;
+
+            #endregion
+
+            //Let wolves plan their turn
+            _wolfManager.ApplyGroupTurn();
+
+            //Order TurnPlayer to start playing every move
+            turnPlayer.PlayTurn(PostTurnActions);
         }
-
-        foreach (ActionBubble item in actionBubbles)
-        {
-            item.TurnOff();
-        }
-
-        FightingSceneUIScript.DisableSkillCanvases();
-        state = activeState.nothingPicked;
-        ourTurn = false;
-
-        #endregion
-
-        //Let wolves plan their turn
-        _wolfManager.ApplyGroupTurn();
-
-        //Order TurnPlayer to start playing every move
-        turnPlayer.PlayTurn(PostTurnActions);
 
     }
 
@@ -242,6 +247,7 @@ public class TurnManager : MonoBehaviour
             UpdateResource(0);
         }
         //Reset to starting state
+        ChangeTurnButton.GetComponent<Button>().interactable = true;
         TurnPlaner.Instance.Reset();
     }
     private void TickSpecialStates()

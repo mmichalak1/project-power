@@ -23,6 +23,8 @@ MonoBehaviour:
   _requiredSheepLevel: 5
   soundEffect: {fileID: 8300000, guid: 16bd9a01cac009f4bbfb15598bba5634, type: 3}
   effectDuration: 1
+  OnCastEffect: {fileID: 11400000, guid: 2091d7d813c692e419497b3958e6ae04, type: 2}
+  OnHitEffect: {fileID: 11400000, guid: de4110c28a602d44c885347dbfe5cc39, type: 2}
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: c098843ee0915184c8034e3d7fa52ef7, type: 3}
   HealPercentage: 66

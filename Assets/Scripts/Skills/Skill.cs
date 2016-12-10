@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public abstract class Skill : ScriptableObject {
 
@@ -39,13 +40,11 @@ public abstract class Skill : ScriptableObject {
     private string _rawDescription = "This is Skill's Description";
     [SerializeField]
     private bool isBasicSkill = false;
-    [SerializeField]
     public int _requiredSheepLevel = 5;
-    [SerializeField]
     public AudioClip soundEffect;
-    [SerializeField]
     public float effectDuration = 1;
-
+    public Effect OnCastEffect;
+    public Effect OnHitEffect;
 
 
     protected string _description

@@ -22,6 +22,8 @@ MonoBehaviour:
   _requiredSheepLevel: 5
   soundEffect: {fileID: 8300000, guid: b5b9ba3b9878fd641a68b2bcc2d13708, type: 3}
   effectDuration: 1
+  OnCastEffect: {fileID: 11400000, guid: 3d2eeab3264501d4ea64f425f7babe52, type: 2}
+  OnHitEffect: {fileID: 11400000, guid: b4800b5cc89e4a349a3698d4513177fe, type: 2}
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: b0a72ecee16ccbd4da6f6979e32f3a17, type: 3}
   StunDuration: 1

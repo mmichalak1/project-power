@@ -41,8 +41,7 @@ namespace Assets.LogicSystem
                 return false;
             }
             _skill.Action.Invoke(_actor, _target);
-            if (_skill.soundEffect != null)
-                _actor.GetComponent<AudioSource>().PlayOneShot(_skill.soundEffect);
+
             return true;
         }
 
