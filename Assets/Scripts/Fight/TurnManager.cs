@@ -121,7 +121,7 @@ public class TurnManager : MonoBehaviour
                 item.TurnOff();
             }
 
-            if(selectedSheep != null)
+            if (selectedSheep != null)
             {
                 selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(false);
                 selectedSheep = null;
@@ -157,26 +157,34 @@ public class TurnManager : MonoBehaviour
     void SkillPickedActions()
     {
         if (hitedTarget != null)
+        {
             if (hitedTarget.tag == "Sheep" || hitedTarget.tag == "Enemy")
             {
-                Plan plan = new Plan(selectedSheep, hitedTarget.transform.gameObject, pickedSkill);
-
-                if (!TurnPlaner.Instance.ContainsPlanForSheepSkill(selectedSheep.name, pickedSkill))
+                if (pickedSkill.IsTargetValid(selectedSheep, hitedTarget))
                 {
-                    UpdateResource(pickedSkill.Cost);
-                    EntityDataHolder sheepDataHolder = (EntityDataHolder)plan.Actor.GetComponent(typeof(EntityDataHolder));
-                    var bubble = actionBubbles[Array.IndexOf(DataHolders, sheepDataHolder)];
-                    bubble.TurnOn();
+                    Plan plan = new Plan(selectedSheep, hitedTarget.transform.gameObject, pickedSkill);
+
+                    if (!TurnPlaner.Instance.ContainsPlanForSheepSkill(selectedSheep.name, pickedSkill))
+                    {
+                        UpdateResource(pickedSkill.Cost);
+                        EntityDataHolder sheepDataHolder = (EntityDataHolder)plan.Actor.GetComponent(typeof(EntityDataHolder));
+                        var bubble = actionBubbles[Array.IndexOf(DataHolders, sheepDataHolder)];
+                        bubble.TurnOn();
+                    }
+                    pickedSkill.OnSkillPlanned(selectedSheep, hitedTarget.transform.gameObject);
+                    TurnPlaner.Instance.AddPlan(selectedSheep.name, plan);
                 }
-                pickedSkill.OnSkillPlanned(selectedSheep, hitedTarget.transform.gameObject);
-                TurnPlaner.Instance.AddPlan(selectedSheep.name, plan);
+                else
+                {
+                    Debug.Log("Invalid Target");
+                }
                 hitedTarget = null;
 
                 FightingSceneUIScript.DisableSkillCanvases();
-                selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(false);
                 selectedSheep = null;
                 state = activeState.nothingPicked;
             }
+        }
     }
 
     void SheepPickedActions()

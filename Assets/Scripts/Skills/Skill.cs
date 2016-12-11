@@ -36,10 +36,12 @@ public abstract class Skill : ScriptableObject {
     private bool isActive = false;
     [SerializeField, Tooltip("Cost of unlocking and upgrading skill")]
     private int unlockCost = 20;
-    [SerializeField, TextArea(3,5)]
+    [SerializeField, TextArea(3, 5)]
     private string _rawDescription = "This is Skill's Description";
     [SerializeField]
     private bool isBasicSkill = false;
+    [SerializeField]
+    private PossibleTarget _skillTarget;
     public int _requiredSheepLevel = 5;
     public float effectDuration = 1;
     public Effect OnCastEffect;
@@ -120,15 +122,17 @@ public abstract class Skill : ScriptableObject {
         get { return _requiredSheepLevel; }
     }
 
+    public PossibleTarget SkillTarget
+    {
+        get { return _skillTarget; }
+    }
+
 
     public abstract string Description();
-
-
     protected virtual void PerformAction(GameObject actor, GameObject target)
     {
         _cooldown = BaseCooldown;
     }
-
     public virtual void OnSkillPlanned(GameObject actor, GameObject target)
     {
 
@@ -137,7 +141,7 @@ public abstract class Skill : ScriptableObject {
     {
         _cooldown = 0;
         _cost = BaseCost;
-        _power = (parent.GetComponent<EntityDataHolder>().SheepData.TotalAttack * StatsMultiplier)/100;
+        _power = (parent.GetComponent<EntityDataHolder>().SheepData.TotalAttack * StatsMultiplier) / 100;
         _parent = parent;
         _action = PerformAction;
     }
@@ -149,21 +153,34 @@ public abstract class Skill : ScriptableObject {
     {
         _action = PerformAction;
     }
-
     public virtual void Initialize(EntityData data)
     {
         _power = (data.TotalAttack * StatsMultiplier) / 100;
     }
-
     public void UpdateCooldown()
     {
         _cooldown--;
     }
-
     public void ResetCooldown()
     {
         _cooldown = 0;
     }
+    public bool IsTargetValid(GameObject source, GameObject target)
+    {
+        var sourceAffiliation = source.GetComponent<EntityAffiliation>().Affiliation;
+        var targetAffiliation = target.GetComponent<EntityAffiliation>().Affiliation;
 
+        //when skill target must be friendly both affiliations must be same, if hostile they must be diffrent
+        if (_skillTarget == PossibleTarget.Friendly && sourceAffiliation == targetAffiliation)
+        {
+            return true;
+        }
+        
+        if(_skillTarget == PossibleTarget.Hostile && sourceAffiliation != targetAffiliation)
+        {
+            return true;
+        }
 
+        return false;
+    }
 }

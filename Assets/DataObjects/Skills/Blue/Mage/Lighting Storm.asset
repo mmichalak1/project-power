@@ -16,13 +16,12 @@ MonoBehaviour:
   BaseCooldown: 4
   SkillLevel: 0
   isActive: 0
-
   unlockCost: 900
   _rawDescription: Create a lighting storm which deals every enemy <damage>{0}</damage>
     points of damage.
   isBasicSkill: 0
+  _skillTarget: 1
   _requiredSheepLevel: 8
-  soundEffect: {fileID: 0}
   effectDuration: 1
   OnCastEffect: {fileID: 11400000, guid: 30b3cc341bf90d7488f077adc4ae8322, type: 2}
   OnHitEffect: {fileID: 11400000, guid: cf75a971109e50a40a2514c9a578239c, type: 2}

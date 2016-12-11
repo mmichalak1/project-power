@@ -4,13 +4,13 @@ using System.Collections;
 [CreateAssetMenu(fileName ="ExplorationInstance", menuName ="Game/ExplorationHolder")]
 public class ExplorationHolder : ScriptableObject {
 
-    public Assets.Scripts.GameResult GameResult = Assets.Scripts.GameResult.None;
+    public GameResult GameResult = GameResult.None;
     public LevelData LevelPlayed = null;
     public bool EnableBoss;
 
     public void Reset()
     {
-        GameResult = Assets.Scripts.GameResult.None;
+        GameResult = GameResult.None;
         LevelPlayed = null;
         EnableBoss = false;
     }

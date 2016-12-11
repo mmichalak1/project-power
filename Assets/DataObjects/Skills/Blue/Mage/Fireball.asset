@@ -20,8 +20,8 @@ MonoBehaviour:
   _rawDescription: Deals <damage>{0}</damage> points of damage to target and <damage>{1}</damage>
     to neighbours.
   isBasicSkill: 1
+  _skillTarget: 1
   _requiredSheepLevel: 0
-  soundEffect: {fileID: 8300000, guid: 8b9de06583fdae540adc95ff97c6b48d, type: 3}
   effectDuration: 1
   OnCastEffect: {fileID: 11400000, guid: 0bdc67ca61daac84d919b3cd4b09f79b, type: 2}
   OnHitEffect: {fileID: 11400000, guid: c1e7045cc037a5f49b92f8333c554601, type: 2}
