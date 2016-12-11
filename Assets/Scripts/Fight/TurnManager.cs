@@ -61,8 +61,17 @@ public class TurnManager : MonoBehaviour
     public GameObject ConfirmEndTurn;
     public GameObject ExplorationUI;
     public GameObject BattleUI;
-    private GameObject selectedSheep;
-
+    private GameObject _selectedSheep;
+    private GameObject selectedSheep
+    {
+        get { return _selectedSheep; }
+        set
+        {
+            if (_selectedSheep != null)
+                _selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(false);
+            _selectedSheep = value;
+        }
+    }
 
     public FadeInAndOut Fader;
     public EntityDataHolder[] DataHolders;
@@ -175,7 +184,6 @@ public class TurnManager : MonoBehaviour
         if (hitedTarget.tag == "Sheep" && hitedTarget != selectedSheep)
         {
             state = activeState.sheepPicked;
-            UnselectSheep();
             selectedSheep = hitedTarget.transform.gameObject;
             selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(true);
             Events.Instance.DispatchEvent(hitedTarget.transform.gameObject.name + "skill", hitedTarget.transform.gameObject);
@@ -184,7 +192,7 @@ public class TurnManager : MonoBehaviour
         else
         {
             FightingSceneUIScript.DisableSkillCanvases();
-            UnselectSheep();
+            selectedSheep = null;
         }
 
     }
@@ -225,7 +233,7 @@ public class TurnManager : MonoBehaviour
 
     private void OnNotEnoughResources()
     {
-        UnselectSheep();
+        selectedSheep = null;
         Fader.Play();
     }
 
@@ -349,12 +357,11 @@ public class TurnManager : MonoBehaviour
             }
     }
 
-    private void UnselectSheep()
+    public void CancelButton()
     {
-        if (selectedSheep != null)
-            selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(false);
         selectedSheep = null;
     }
+
     public enum activeState
     {
         sheepPicked,
