@@ -100,6 +100,7 @@ public class TurnManager : MonoBehaviour
         if (ourTurn)
         {
             ChangeTurnButton.GetComponent<Button>().interactable = false;
+            //forced is varaible which is set to true when player nows he didnt spent all resources and still wants to end turn
             if (!forced && currentResource == DefaultResourceCounter.Resources)
             {
                 ConfirmEndTurn.SetActive(true);
