@@ -14714,7 +14714,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 196078, guid: 6efbf4529a13e204ca9a2ffbffe268ad, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22431172, guid: 6efbf4529a13e204ca9a2ffbffe268ad, type: 2}
       propertyPath: m_AnchoredPosition.x
