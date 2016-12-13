@@ -19,8 +19,8 @@ MonoBehaviour:
   unlockCost: 20
   _rawDescription: Powerfull attack causing <damage>{0}</damage> points of damage.
   isBasicSkill: 1
+  _skillTarget: 1
   _requiredSheepLevel: 0
-  soundEffect: {fileID: 0}
   effectDuration: 1
   OnCastEffect: {fileID: 11400000, guid: dc667556ff8cc31478841ac72fc5a287, type: 2}
   OnHitEffect: {fileID: 11400000, guid: 495f85e9efed2d841a450b06a586396e, type: 2}

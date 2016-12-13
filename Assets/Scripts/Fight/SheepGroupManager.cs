@@ -45,7 +45,7 @@ public class SheepGroupManager : MonoBehaviour {
         SheepCount--;
         if (SheepCount == 0)
         {
-            holder.GameResult = Assets.Scripts.GameResult.Loss;
+            holder.GameResult = GameResult.Loss;
             Events.Instance.DispatchEvent("BattleLost", null);
             foreach (var item in gameObject.GetComponentsInChildren<EntityDataHolder>())
                 EntityDataHolder.RevertItemsChange(item.SheepData);

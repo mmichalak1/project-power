@@ -6,7 +6,7 @@ public class SetupExploration : MonoBehaviour {
 
 	public void Setup(LevelData currentLevel)
     {
-        Holder.GameResult = Assets.Scripts.GameResult.None;
+        Holder.GameResult = GameResult.None;
         Holder.LevelPlayed = currentLevel;
         if (currentLevel.Progress >= currentLevel.TargetProgress)
             Holder.EnableBoss = true;

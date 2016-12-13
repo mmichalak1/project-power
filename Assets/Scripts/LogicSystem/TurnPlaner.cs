@@ -24,7 +24,6 @@ namespace Assets.LogicSystem
 
         }
 
-
         private List<KeyValuePair<string, Plan>> plans = new List<KeyValuePair<string, Plan>>();
 
         public Queue<Plan> Queue
@@ -42,23 +41,27 @@ namespace Assets.LogicSystem
 
         public void AddPlan(string sheepName, Plan plan)
         {
-            var pair = plans.FirstOrDefault(x => x.Value.Skill == plan.Skill);
-            if (ContainsPlanForSheepSkill(sheepName, plan.Skill))
+            if (ContainsPlanForSkill(plan.Skill))
             {
-                Debug.Log("This skill was planned in this turn, switching.");
-                plans.Remove(plans.First(x => x.Value.Skill == plan.Skill));
+                CancelPlan(plan.Skill);
             }
             plans.Add(new KeyValuePair<string, Plan>(sheepName, plan));
             Debug.Log("Added plan for " + sheepName);
         }
+
+        public void CancelPlan(Skill cancelledSkill)
+        {
+            plans.Remove(plans.First(x => x.Value.Skill == cancelledSkill));
+        }
+
         public void Reset()
         {
             plans.Clear();
         }
-        public bool ContainsPlanForSheepSkill(string sheep, Skill skill)
+
+        public bool ContainsPlanForSkill(Skill skill)
         {
-            var sheepsPlans = plans.Where(x => x.Key == sheep);
-            var plan = sheepsPlans.FirstOrDefault(x => x.Value.Skill == skill);
+            var plan = plans.FirstOrDefault(x => x.Value.Skill == skill);
 
             if (plan.Equals(default(KeyValuePair<string, Plan>)))
                 return false;

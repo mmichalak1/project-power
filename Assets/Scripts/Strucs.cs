@@ -3,12 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Scripts
+public enum GameResult
 {
-    public enum GameResult
-    {
-        Win,
-        Loss,
-        None
-    };
-}
+    Win,
+    Loss,
+    None
+};
+
+public enum Affiliation
+{
+    Player,
+    NonPlayer
+};
+
+public enum PossibleTarget
+{
+    Friendly,
+    Hostile
+};
+

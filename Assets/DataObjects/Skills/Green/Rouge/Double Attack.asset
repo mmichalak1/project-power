@@ -20,8 +20,8 @@ MonoBehaviour:
   _rawDescription: Attacks enemy {0} times dealing <damage>{1}</damage> with each
     attack.
   isBasicSkill: 1
+  _skillTarget: 1
   _requiredSheepLevel: 0
-  soundEffect: {fileID: 8300000, guid: c3d336cf386fba542b135ae9234ad75f, type: 3}
   effectDuration: 1
   OnCastEffect: {fileID: 11400000, guid: ea2b62fe0445a0144972010a88beba67, type: 2}
   OnHitEffect: {fileID: 11400000, guid: 715e8b1e14d199a4b95045d10f429e92, type: 2}

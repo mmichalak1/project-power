@@ -20,6 +20,7 @@ MonoBehaviour:
   _rawDescription: Poisons target for {0} turns causing it to take <damage>{1}</damage>
     per turn.
   isBasicSkill: 0
+  _skillTarget: 1
   _requiredSheepLevel: 8
   effectDuration: 1
   OnCastEffect: {fileID: 11400000, guid: 87d84d202c3d94241867c6084c768ca8, type: 2}

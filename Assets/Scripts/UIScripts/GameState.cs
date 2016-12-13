@@ -31,7 +31,7 @@ public class GameState : MonoBehaviour {
 	
     void ExplorationWon()
     {
-        holder.GameResult = Assets.Scripts.GameResult.Win;
+        holder.GameResult = GameResult.Win;
         WinWindow.SetActive(true);
         Map.SetActive(false);
         foreach (var item in GameObject.FindGameObjectsWithTag("Sheep"))

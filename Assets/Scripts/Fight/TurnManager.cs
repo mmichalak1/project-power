@@ -35,7 +35,7 @@ public class TurnManager : MonoBehaviour
     public static void SelectSkill(Skill selectedSkill)
     {
 
-        if (currentResource >= selectedSkill.Cost || TurnPlaner.Instance.ContainsPlanForSheepSkill(hitedTarget.name, selectedSkill))
+        if (currentResource >= selectedSkill.Cost || TurnPlaner.Instance.ContainsPlanForSkill(selectedSkill))
         {
             pickedSkill = selectedSkill;
             Events.Instance.DispatchEvent("SetText", "Resource Left : " + currentResource + " - " + selectedSkill.Cost);
@@ -76,6 +76,7 @@ public class TurnManager : MonoBehaviour
     public FadeInAndOut Fader;
     public EntityDataHolder[] DataHolders;
     public ActionBubble[] actionBubbles;
+    public TurnQueueController queueController;
 
     private TurnPlayer turnPlayer;
     private int WoolForFight = 0;
@@ -87,6 +88,7 @@ public class TurnManager : MonoBehaviour
         _wolfManager = x as WolfGroupManager;
         WoolForFight = _wolfManager.WoolForFight;
         ChangeTurnButton.SetActive(false);
+        queueController.gameObject.SetActive(false);
     }
     private void OnBattleWon(object x)
     {
@@ -95,6 +97,7 @@ public class TurnManager : MonoBehaviour
     private void OnShowChangTurnButton(object x)
     {
         ChangeTurnButton.SetActive(true);
+        queueController.gameObject.SetActive(true);
     }
     private void OnSheepSelected(object x)
     {
@@ -121,7 +124,7 @@ public class TurnManager : MonoBehaviour
                 item.TurnOff();
             }
 
-            if(selectedSheep != null)
+            if (selectedSheep != null)
             {
                 selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(false);
                 selectedSheep = null;
@@ -157,26 +160,40 @@ public class TurnManager : MonoBehaviour
     void SkillPickedActions()
     {
         if (hitedTarget != null)
+        {
             if (hitedTarget.tag == "Sheep" || hitedTarget.tag == "Enemy")
             {
-                Plan plan = new Plan(selectedSheep, hitedTarget.transform.gameObject, pickedSkill);
-
-                if (!TurnPlaner.Instance.ContainsPlanForSheepSkill(selectedSheep.name, pickedSkill))
+                if (pickedSkill.IsTargetValid(selectedSheep, hitedTarget))
                 {
-                    UpdateResource(pickedSkill.Cost);
-                    EntityDataHolder sheepDataHolder = (EntityDataHolder)plan.Actor.GetComponent(typeof(EntityDataHolder));
-                    var bubble = actionBubbles[Array.IndexOf(DataHolders, sheepDataHolder)];
-                    bubble.TurnOn();
+                    Plan plan = new Plan(selectedSheep, hitedTarget.transform.gameObject, pickedSkill);
+
+                    if (!TurnPlaner.Instance.ContainsPlanForSkill(pickedSkill))
+                    {
+                        UpdateResource(pickedSkill.Cost);
+                        EntityDataHolder sheepDataHolder = (EntityDataHolder)plan.Actor.GetComponent(typeof(EntityDataHolder));
+                        var bubble = actionBubbles[Array.IndexOf(DataHolders, sheepDataHolder)];
+                        bubble.TurnOn();
+                    }
+                    else
+                    {
+                        TurnPlaner.Instance.CancelPlan(pickedSkill);
+                        queueController.RemoveSkill(pickedSkill);
+                    }
+                    pickedSkill.OnSkillPlanned(selectedSheep, hitedTarget.transform.gameObject);    
+                    TurnPlaner.Instance.AddPlan(selectedSheep.name, plan);
+                    queueController.AddSkill(pickedSkill);
                 }
-                pickedSkill.OnSkillPlanned(selectedSheep, hitedTarget.transform.gameObject);
-                TurnPlaner.Instance.AddPlan(selectedSheep.name, plan);
+                else
+                {
+                    Debug.Log("Invalid Target");
+                }
                 hitedTarget = null;
 
                 FightingSceneUIScript.DisableSkillCanvases();
-                selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(false);
                 selectedSheep = null;
                 state = activeState.nothingPicked;
             }
+        }
     }
 
     void SheepPickedActions()
@@ -269,6 +286,7 @@ public class TurnManager : MonoBehaviour
         //Reset to starting state
         ChangeTurnButton.GetComponent<Button>().interactable = true;
         TurnPlaner.Instance.Reset();
+        queueController.Clear();
     }
     private void TickSpecialStates()
     {

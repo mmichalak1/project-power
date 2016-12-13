@@ -20,8 +20,8 @@ MonoBehaviour:
   _rawDescription: Deals <damage>{0}</damage> to enemy and also taunts it for {1}
     turn(s).
   isBasicSkill: 0
+  _skillTarget: 1
   _requiredSheepLevel: 3
-  soundEffect: {fileID: 0}
   effectDuration: 1
   OnCastEffect: {fileID: 11400000, guid: d81863788cdb82c44bcb5b84267942a6, type: 2}
   OnHitEffect: {fileID: 11400000, guid: edfc0780cab5fac42ae24fdc472a77ec, type: 2}
