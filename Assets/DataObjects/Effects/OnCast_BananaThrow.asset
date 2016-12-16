@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d2ee2e23ff0584eb7c61a29277cc51, type: 3}
   m_Name: OnCast_BananaThrow
   m_EditorClassIdentifier: 
-  _particleEffect: {fileID: 188574, guid: 18d0616637897be4db5e0d587d057071, type: 2}
+  _particleEffect: {fileID: 123382, guid: 6b394ed649313a440ab9ae31cf978eb6, type: 2}
   _sound: {fileID: 8300000, guid: b5b9ba3b9878fd641a68b2bcc2d13708, type: 3}
-  _duration: 1
+  _duration: 2

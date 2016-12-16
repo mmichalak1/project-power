@@ -15,14 +15,13 @@ MonoBehaviour:
   BaseCost: 3
   BaseCooldown: 2
   SkillLevel: 0
-  isActive: 0
-
+  isActive: 1
   unlockCost: 150
   _rawDescription: Shields target dealing <damage>{0}</damage> + <damage>{1}%</damage>
     of damage taken.
   isBasicSkill: 0
+  _skillTarget: 0
   _requiredSheepLevel: 3
-  soundEffect: {fileID: 0}
   effectDuration: 1
   OnCastEffect: {fileID: 11400000, guid: 2459ca2abec11eb4f808351abc60bb2b, type: 2}
   OnHitEffect: {fileID: 11400000, guid: 8769e1a23a96e734e907f82143477b8e, type: 2}

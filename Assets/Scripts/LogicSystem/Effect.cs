@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using System.Linq;
 
 [CreateAssetMenu(fileName = "effect", menuName = "Game/Effect")]
 public class Effect : ScriptableObject
@@ -25,8 +26,10 @@ public class Effect : ScriptableObject
         {
             GameObject go = Instantiate(_particleEffect, actor.transform.position, Quaternion.identity) as GameObject;
 
-            if (go.GetComponent<IEffect>() != null)
-                go.GetComponent<IEffect>().SetUpAction(actor, target);
+            var effects = go.GetComponents<IEffect>();
+
+            foreach (IEffect effect in effects)
+                effect.SetUpAction(actor, target);
         }
         if (_sound != null && actor != null && actor.GetComponent<AudioSource>() != null)
         {

@@ -26,7 +26,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 468508}
   - 198: {fileID: 19820518}
-  - 114: {fileID: 11402114}
+  - 114: {fileID: 11400992}
+  - 114: {fileID: 11492904}
   m_Layer: 0
   m_Name: Heal
   m_TagString: Untagged
@@ -123,7 +124,7 @@ Transform:
   - {fileID: 457924}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11402114
+--- !u!114 &11400992
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -131,10 +132,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 150362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea01c8175ec0e184c90d166f6a880acb, type: 3}
+  m_Script: {fileID: 11500000, guid: 3201db1dc66b34c4fa78016ca065a04c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellDuration: 5
+  spellDuration: 3
+  children: []
+--- !u!114 &11492904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b2cea1367b2d04ba9f6ca78683c26d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Offset: {x: 0, y: 0.5, z: 0}
 --- !u!198 &19820518
 ParticleSystem:
   m_ObjectHideFlags: 1

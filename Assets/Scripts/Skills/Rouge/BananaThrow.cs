@@ -8,6 +8,7 @@ public class BananaThrow : Skill {
     public int StunDuration = 1;
     public StunnedBrain StunnedBrain;
     private StunnedBrain _myStunnedBrainCopy;
+    public GameObject ParticleEffect;
 
     public override string Description()
     {
@@ -31,6 +32,9 @@ public class BananaThrow : Skill {
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {
+        GameObject go = Instantiate(ParticleEffect, target.transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity) as GameObject;
+        go.transform.parent = target.transform;
+        _myStunnedBrainCopy.ParticleEffect = go;
         Debug.Log(actor.name + " stuns " + target.name + "for " + StunDuration + " turns.");
         target.GetComponent<AttackController>().AddBrain(_myStunnedBrainCopy);
         base.PerformAction(actor, target);
