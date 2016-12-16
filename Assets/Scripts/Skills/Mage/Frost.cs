@@ -9,6 +9,7 @@ public class Frost : Skill
     public int StunDuration = 2;
     public StunnedBrain StunnedBrain;
     private StunnedBrain _stunnedBrainCopy;
+    public GameObject ParticleEffect;
 
     public override string Description()
     {
@@ -31,6 +32,9 @@ public class Frost : Skill
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {
+        GameObject go = Instantiate(ParticleEffect, target.transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity) as GameObject;
+        go.transform.parent = target.transform;
+        _stunnedBrainCopy.ParticleEffect = go;
         var attack = target.GetComponent<AttackController>();
         if (attack == null)
             return;

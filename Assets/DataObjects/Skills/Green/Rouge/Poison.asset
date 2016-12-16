@@ -28,3 +28,4 @@ MonoBehaviour:
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: a64ce2ff80c752a469b5ebe251bca7a0, type: 3}
   PoisonedBrain: {fileID: 11400000, guid: e2c14721ece8906459370e94d830cd45, type: 2}
+  ParticleEffect: {fileID: 120856, guid: 4fa02f01d3084794193b7d5f08b0c921, type: 2}

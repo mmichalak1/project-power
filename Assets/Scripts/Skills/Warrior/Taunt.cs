@@ -7,6 +7,7 @@ public class Taunt : Skill
 {
     public TauntedBrain TauntedBrain;
     private TauntedBrain _myClone;
+    public GameObject ParticleEffect;
 
     public override string Description()
     {
@@ -28,6 +29,9 @@ public class Taunt : Skill
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {
+        GameObject go = Instantiate(ParticleEffect, target.transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity) as GameObject;
+        go.transform.parent = target.transform;
+        _myClone.ParticleEffect = go;
         var attack = target.GetComponent<AttackController>();
         if (attack == null)
             return;

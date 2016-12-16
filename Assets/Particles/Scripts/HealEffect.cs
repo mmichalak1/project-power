@@ -4,9 +4,8 @@ using System;
 
 public class HealEffect : MonoBehaviour, IEffect {
 
-    public float LifeTime = 5.0f;
-
-    private float time = 0.0f;
+    [Header("Config")]
+    public float spellDuration;
 
     public void SetUpAction(GameObject actor, GameObject target)
     {
@@ -14,18 +13,9 @@ public class HealEffect : MonoBehaviour, IEffect {
         transform.position += transform.up *  0.5f + transform.forward * 0.0f + transform.right * 0.1f;
     }
 
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Start()
+    {
+        Destroy(gameObject, spellDuration);
+    }
 
-        time += Time.deltaTime;
-	    if(LifeTime < time)
-        {
-            Destroy(gameObject);
-        }
-	}
 }

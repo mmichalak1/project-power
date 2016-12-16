@@ -15,16 +15,17 @@ MonoBehaviour:
   BaseCost: 2
   BaseCooldown: 3
   SkillLevel: 0
-  isActive: 0
+  isActive: 1
   unlockCost: 300
   _rawDescription: For {0} turns every attack into target will be redirected into
     warrior.
   isBasicSkill: 0
+  _skillTarget: 0
   _requiredSheepLevel: 5
-  soundEffect: {fileID: 8300000, guid: 9ab8b15134bc3d345902ae56270aac20, type: 3}
   effectDuration: 1
   OnCastEffect: {fileID: 11400000, guid: 34ecd9263827711428b62aba8d77f316, type: 2}
   OnHitEffect: {fileID: 11400000, guid: 565524d5c40899646abf9ade23af6951, type: 2}
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: 2dc08ecdc0fb3ba4da52ae6d31bd731d, type: 3}
   Duration: 3
+  ParticleEffect: {fileID: 175096, guid: a54775ef3e60ec3459999e9fc505c4c4, type: 2}

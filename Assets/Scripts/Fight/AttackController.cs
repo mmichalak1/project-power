@@ -39,11 +39,17 @@ public class AttackController : MonoBehaviour
             }
             ClearFinishedBrains();
         }
-                
+
     }
 
     private void ClearFinishedBrains()
     {
+        var brains = _brainsList.Where(x => x.Duration == 0);
+        foreach (var brain in brains)
+        {
+            if (brain.ParticleEffect != null)
+                brain.ParticleEffect.GetComponent<SC_SpellDuration>().enabled = true;
+        }
         _brainsList.RemoveAll(x => x.Duration == 0);
     }
 

@@ -9,6 +9,7 @@ namespace Assets.Scripts.ScriptableObjects
         protected float _importance = 0.5f;
         [SerializeField]
         private int _duration = -1;
+        public GameObject ParticleEffect;
 
         public float Importance
         {

@@ -15,7 +15,7 @@ MonoBehaviour:
   BaseCost: 5
   BaseCooldown: 4
   SkillLevel: 0
-  isActive: 0
+  isActive: 1
   unlockCost: 900
   _rawDescription: Taunts all enemies fo {0} turns causing them to focus on warrior.
     Grants {1}% damage reduction.
@@ -28,5 +28,6 @@ MonoBehaviour:
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: c136c0b369d93844296d0153c6d1991d, type: 3}
   TauntedBrain: {fileID: 11400000, guid: e87a4360823f3fe4e9f0954934f2e569, type: 2}
+  ParticleEffect: {fileID: 193038, guid: e0e342e06d7215341afbd9b56ce4f63f, type: 2}
   SkillDuration: 1
   DamagePercentReduced: 40

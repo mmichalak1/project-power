@@ -7,6 +7,7 @@ public class GroupTaunt : Skill {
 
     public Assets.Scripts.ScriptableObjects.TauntedBrain TauntedBrain;
     private Assets.Scripts.ScriptableObjects.TauntedBrain _myCopy;
+    public GameObject ParticleEffect;
 
     [Range(1, 5)]
     public int SkillDuration = 1;
@@ -41,7 +42,10 @@ public class GroupTaunt : Skill {
 
         foreach (var trans in enemyGroup.enemies)
         {
+            GameObject go = Instantiate(ParticleEffect, target.transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity) as GameObject;
+            go.transform.parent = target.transform;
             trans.gameObject.GetComponent<AttackController>().AddBrain(_myCopy);
+            _myCopy.ParticleEffect = go;
             
         }
        

@@ -15,7 +15,7 @@ MonoBehaviour:
   BaseCost: 4
   BaseCooldown: 4
   SkillLevel: 0
-  isActive: 0
+  isActive: 1
   unlockCost: 300
   _rawDescription: <stun>Freezes</stun> target for {0} turns.
   isBasicSkill: 0
@@ -28,3 +28,4 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: da402ad352b1bba4e813e1511cabb017, type: 3}
   StunDuration: 2
   StunnedBrain: {fileID: 11400000, guid: b1e2503b044958840a5d07291b809cc9, type: 2}
+  ParticleEffect: {fileID: 172076, guid: 7ba3a0220e4740c40b2189b14703ef55, type: 2}
