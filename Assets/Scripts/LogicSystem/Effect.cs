@@ -24,7 +24,7 @@ public class Effect : ScriptableObject
     {
         if (_particleEffect != null)
         {
-            GameObject go = Instantiate(_particleEffect, actor.transform.position, Quaternion.identity) as GameObject;
+            GameObject go = Instantiate(_particleEffect, Vector3.zero, Quaternion.identity) as GameObject;
 
             var effects = go.GetComponents<IEffect>();
 

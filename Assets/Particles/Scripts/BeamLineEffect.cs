@@ -61,9 +61,8 @@ public class BeamLineEffect : MonoBehaviour, IEffect {
 
     public void SetUpAction(GameObject actor, GameObject target)
     {
-        transform.position += new Vector3(0, 0.75f, 0);
+        transform.position += actor.transform.position + new Vector3(0, 0.75f, 0);
         transform.LookAt(target.transform.position + new Vector3(0, 0.25f, 0));
-        transform.position += transform.forward * 0.25f;
         maxLength = (actor.transform.position - target.transform.position).magnitude + 0.5f;
     }
 }

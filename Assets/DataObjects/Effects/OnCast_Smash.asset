@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: OnCast_Smash
   m_EditorClassIdentifier: 
   _particleEffect: {fileID: 0}
-  _sound: {fileID: 0}
-  _duration: 1
+  _sound: {fileID: 8300000, guid: d46323e22e74e46baa241cbf48c85671, type: 3}
+  _duration: 0.5

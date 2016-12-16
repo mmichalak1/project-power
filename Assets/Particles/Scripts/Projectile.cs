@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour, IEffect {
 
     public void SetUpAction(GameObject actor, GameObject target)
     {
-        transform.position += new Vector3(0, 0.5f, 0);
+        transform.position += actor.transform.position + new Vector3(0, 0.5f, 0);
         _direction = target.transform.position - actor.transform.position;
         _speed = _direction.magnitude / SpellDuration;
     }

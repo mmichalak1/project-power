@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d2ee2e23ff0584eb7c61a29277cc51, type: 3}
   m_Name: OnHit_Smash
   m_EditorClassIdentifier: 
-  _particleEffect: {fileID: 0}
-  _sound: {fileID: 0}
-  _duration: 0
+  _particleEffect: {fileID: 174794, guid: c5ad2e07bb6c3264d9bb70f46544c251, type: 2}
+  _sound: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
+  _duration: 0.5

@@ -4050,7 +4050,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484858, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
       propertyPath: DataHolders.Array.data[0]
@@ -7528,7 +7528,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 457976, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 11492982, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
       propertyPath: Player
@@ -31175,7 +31175,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 495440, guid: dcf8d9c5401a1894c8b6f9f17713a04a, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 172704, guid: dcf8d9c5401a1894c8b6f9f17713a04a, type: 2}
       propertyPath: m_Name
@@ -36063,7 +36063,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485220, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 485220, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -46110,7 +46110,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 457976, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11492982, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
       propertyPath: Player
