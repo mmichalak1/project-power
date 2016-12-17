@@ -13,5 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _importance: 0.1
   _duration: 1
+  ParticleEffect: {fileID: 0}
   Target: {fileID: 0}
-  MyDamage: 20
+  AttackSkill: {fileID: 11400000, guid: 7022c4535948f894ca308e53c2feb765, type: 2}

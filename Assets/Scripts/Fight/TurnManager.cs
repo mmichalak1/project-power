@@ -35,7 +35,7 @@ public class TurnManager : MonoBehaviour
     public static void SelectSkill(Skill selectedSkill)
     {
 
-        if (currentResource >= selectedSkill.Cost || TurnPlaner.Instance.ContainsPlanForSkill(selectedSkill))
+        if (currentResource >= selectedSkill.Cost || TurnPlaner.Instance.ContainsPlanForSkill(selectedSkill, Instance.selectedSheep.name))
         {
             pickedSkill = selectedSkill;
             Events.Instance.DispatchEvent("SetText", "Resource Left : " + currentResource + " - " + selectedSkill.Cost);
@@ -136,11 +136,9 @@ public class TurnManager : MonoBehaviour
 
             #endregion
 
-            //Let wolves plan their turn
-            _wolfManager.ApplyGroupTurn();
 
-            //Order TurnPlayer to start playing every move
-            turnPlayer.PlayTurn(PostTurnActions);
+            //Order TurnPlayer to start playing every move and pass function for wolves thinking
+            turnPlayer.PlayTurn(PostTurnActions, () => { WolfManager.ApplyGroupTurn(); });
         }
 
     }
@@ -167,7 +165,7 @@ public class TurnManager : MonoBehaviour
                 {
                     Plan plan = new Plan(selectedSheep, hitedTarget.transform.gameObject, pickedSkill);
 
-                    if (!TurnPlaner.Instance.ContainsPlanForSkill(pickedSkill))
+                    if (!TurnPlaner.Instance.ContainsPlanForSkill(pickedSkill, selectedSheep.name))
                     {
                         UpdateResource(pickedSkill.Cost);
                         EntityDataHolder sheepDataHolder = (EntityDataHolder)plan.Actor.GetComponent(typeof(EntityDataHolder));
@@ -314,7 +312,6 @@ public class TurnManager : MonoBehaviour
                 item.Tick();
         }
     }
-
     private void ResetToDefault()
     {
         ourTurn = false;

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using Assets.LogicSystem;
 
 namespace Assets.Scripts.ScriptableObjects
 {
@@ -9,10 +10,13 @@ namespace Assets.Scripts.ScriptableObjects
 
         [HideInInspector]
         public GameObject Target;
+        [SerializeField]
+        private Skill AttackSkill;
 
         private int _myRealDamage;
         public override void Initialize(GameObject[] target)
         {
+            AttackSkill.Initialize();
         }
 
         public override void Think(GameObject parent)
@@ -30,7 +34,8 @@ namespace Assets.Scripts.ScriptableObjects
 
             Debug.Log(parent.name + " attacks " + Target.name + " because he insulted his mother!");
             parent.GetComponent<AttackController>().BreakTurn = true;
-            Target.GetComponent<Interfaces.IReciveDamage>().DealDamage(_myRealDamage, parent);
+            AttackSkill.Power = _myRealDamage;
+            TurnPlaner.Instance.AddPlan(parent.name, new Plan(parent, Target, AttackSkill));
             base.Think(parent);
         }
     }

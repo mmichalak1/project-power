@@ -7,20 +7,31 @@ using System;
 public class TurnPlayer : MonoBehaviour {
 
 
-    public void PlayTurn(Action OnEndTurn)
+    public void PlayTurn(Action OnEndTurn, Action EnemyThinkAction)
     {
-        StartCoroutine(PlayAction(TurnPlaner.Instance.Queue, OnEndTurn));
+        var queue = TurnPlaner.Instance.Queue;
+        TurnPlaner.Instance.Reset();
+        StartCoroutine(PlayAction(queue, OnEndTurn, EnemyThinkAction));
     }
 
 
-    IEnumerator PlayAction(Queue<Plan> queue, Action OnEndTurn)
+    IEnumerator PlayAction(Queue<Plan> queue, Action OnEndTurn, Action EnemyTurns)
     {
         if (queue.Count == 0)
         {
-            Debug.Log("Ending Turn");
-            OnEndTurn();
-            Debug.Log("Turn Finished");
-            yield return null;
+            if(EnemyTurns != null)
+            {
+                EnemyTurns.Invoke();
+                var enemyqueue = TurnPlaner.Instance.Queue;
+                StartCoroutine(PlayAction(enemyqueue, OnEndTurn, null));
+            }
+            else
+            {
+                Debug.Log("Ending Turn");
+                OnEndTurn();
+                Debug.Log("Turn Finished");
+                yield return null;
+            }
         }
         else
         {
@@ -40,7 +51,7 @@ public class TurnPlayer : MonoBehaviour {
 
             nextPlan.Execute();
 
-            yield return StartCoroutine(PlayAction(queue, OnEndTurn));
+            yield return StartCoroutine(PlayAction(queue, OnEndTurn, EnemyTurns));
         }
     }
 
