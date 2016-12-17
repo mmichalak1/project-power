@@ -46,13 +46,14 @@ public class WolfGroupManager : MonoBehaviour
         x.GetComponent<ProvideExperience>().ProvideExp();
         if (wolvesCounter == 0)
         {
+            Debug.Log("Changing flag");
+            TurnManager.BattleWon = true;
             foreach (var item in enemies)
             {
                 Events.Instance.UnregisterForEvent(item.name + "death", OnWolfDeath);
             }
             Events.Instance.DispatchEvent("EnemyGroupDestroyed", gameObject);
             Destroy(gameObject);
-            TurnManager.BattleWon = true;
         }
     }
 

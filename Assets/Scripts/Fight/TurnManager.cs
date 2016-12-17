@@ -18,7 +18,7 @@ public class TurnManager : MonoBehaviour
     public static bool ourTurn = false;
     public static Skill pickedSkill;
     //public static bool ChangeFlag = false;
-    public static bool BattleWon = false;
+    public static bool BattleWon { get; set; }
 
     public static WolfGroupManager WolfManager
     {
@@ -265,7 +265,7 @@ public class TurnManager : MonoBehaviour
         foreach (EntityDataHolder skills in DataHolders)
             skills.SheepData.SheepSkills.UpdateCooldowns();
 
-
+        Debug.Log("Checking state");
         if (BattleWon)
         {
             var effects = FindObjectsOfType<SC_SpellDuration>();
