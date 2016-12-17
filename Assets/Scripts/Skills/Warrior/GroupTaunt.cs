@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Assets.Scripts.ScriptableObjects;
 using System;
 
 [CreateAssetMenu(fileName = "Group Taunt", menuName = "Game/Skills/GroupTaunt")]
-public class GroupTaunt : Skill {
+public class GroupTaunt : Skill
+{
 
-    public Assets.Scripts.ScriptableObjects.TauntedBrain TauntedBrain;
-    private Assets.Scripts.ScriptableObjects.TauntedBrain _myCopy;
+    public TauntedBrain TauntedBrain;
     public GameObject ParticleEffect;
 
     [Range(1, 5)]
@@ -17,16 +17,12 @@ public class GroupTaunt : Skill {
 
     public override void Initialize(GameObject parent)
     {
-        _myCopy = Instantiate(TauntedBrain);
-        _myCopy.Target = parent;
-        _myCopy.Duration = SkillDuration;
+
         base.Initialize(parent);
     }
 
     public override void Initialize(EntityData data)
     {
-        _myCopy = Instantiate(TauntedBrain);
-        _myCopy.Duration = SkillDuration;
         base.Initialize(data);
     }
 
@@ -42,13 +38,10 @@ public class GroupTaunt : Skill {
 
         foreach (var trans in enemyGroup.enemies)
         {
-            GameObject go = Instantiate(ParticleEffect, target.transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity) as GameObject;
-            go.transform.parent = target.transform;
-            trans.gameObject.GetComponent<AttackController>().AddBrain(_myCopy);
-            _myCopy.ParticleEffect = go;
-            
+
+            trans.gameObject.GetComponent<AttackController>().AddBrain(CreateBrainCopy(_parent, trans));
         }
-       
+
         base.PerformAction(actor, target);
     }
 
@@ -56,4 +49,18 @@ public class GroupTaunt : Skill {
     {
         return string.Format(_description, SkillDuration, DamagePercentReduced);
     }
+
+    private AbstractBrain CreateBrainCopy(GameObject parent, GameObject target)
+    {
+        var _myCopy = Instantiate(TauntedBrain);
+        GameObject go = Instantiate(ParticleEffect, target.transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity) as GameObject;
+        go.transform.parent = target.transform;
+        _myCopy.ParticleEffect = go;
+        _myCopy.Target = parent;
+        _myCopy.Duration = SkillDuration;
+        _myCopy.Initialize(null);
+
+        return _myCopy;
+    }
+
 }

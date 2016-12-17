@@ -39,14 +39,14 @@ namespace Assets.LogicSystem
             }
         }
 
-        public void AddPlan(string sheepName, Plan plan)
+        public void AddPlan(string entityName, Plan plan)
         {
-            if (ContainsPlanForSkill(plan.Skill))
+            if (ContainsPlanForSkill(plan.Skill, entityName))
             {
                 CancelPlan(plan.Skill);
             }
-            plans.Add(new KeyValuePair<string, Plan>(sheepName, plan));
-            Debug.Log("Added plan for " + sheepName);
+            plans.Add(new KeyValuePair<string, Plan>(entityName, plan));
+            Debug.Log("Added plan for " + entityName);
         }
 
         public void CancelPlan(Skill cancelledSkill)
@@ -59,9 +59,9 @@ namespace Assets.LogicSystem
             plans.Clear();
         }
 
-        public bool ContainsPlanForSkill(Skill skill)
+        public bool ContainsPlanForSkill(Skill skill, string entityName)
         {
-            var plan = plans.FirstOrDefault(x => x.Value.Skill == skill);
+            var plan = plans.FirstOrDefault(x => x.Key==entityName && x.Value.Skill == skill);
 
             if (plan.Equals(default(KeyValuePair<string, Plan>)))
                 return false;
