@@ -15,12 +15,12 @@ MonoBehaviour:
   BaseCost: 0
   BaseCooldown: 4
   SkillLevel: 0
-  isActive: 0
+  isActive: 1
   unlockCost: 900
   _rawDescription: Adds {0} to to resource pool for this turn.
   isBasicSkill: 0
+  _skillTarget: 0
   _requiredSheepLevel: 8
-  soundEffect: {fileID: 8300000, guid: 15a3872fdee6c69498be43a59dd6b3da, type: 3}
   effectDuration: 1
   OnCastEffect: {fileID: 11400000, guid: 58e1eba44744e624e8ecb079120fb53f, type: 2}
   OnHitEffect: {fileID: 11400000, guid: 3e78c54876e132241bda5e36d60690b7, type: 2}

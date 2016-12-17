@@ -12,6 +12,8 @@ public class GiveAwayDamage : MonoBehaviour, Assets.Scripts.Interfaces.IDisappea
 
     public int BaseDamage = 0;
 
+    public GameObject ParticleEffect;
+
     public void FightBack(int sourceDamage, GameObject target)
     {
         if (target == gameObject)
@@ -23,7 +25,11 @@ public class GiveAwayDamage : MonoBehaviour, Assets.Scripts.Interfaces.IDisappea
     public void Tick()
     {
         if (--Duration == 0)
+        {
+            if (ParticleEffect != null)
+                ParticleEffect.GetComponent<SC_SpellDuration>().enabled = true;
             Destroy(this);
+        }
     }
 
 

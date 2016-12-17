@@ -29,3 +29,4 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: c103a3de73d1b964a8c1e3a62e7d4b61, type: 3}
   ShieldDuration: 3
   DamagePercentReturned: 33
+  ParticleEffect: {fileID: 112756, guid: cbf4c22cdf417f84788e1590fda1971c, type: 2}

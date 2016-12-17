@@ -268,6 +268,11 @@ public class TurnManager : MonoBehaviour
 
         if (BattleWon)
         {
+            var effects = FindObjectsOfType<SC_SpellDuration>();
+            foreach(var effect in effects)
+            {
+                effect.enabled = true;
+            }
             BattleUI.SetActive(false);
             ExplorationUI.SetActive(true);
             Events.Instance.DispatchEvent("AfterBattleScreen", WoolForFight);
