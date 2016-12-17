@@ -17,12 +17,11 @@ MonoBehaviour:
   SkillLevel: 0
   isActive: 1
   unlockCost: 900
-  _rawDescription: Taunts all enemies fo {0} turns causing them to focus on warrior.
+  _rawDescription: Taunts all enemies for {0} turns causing them to focus on warrior.
     Grants {1}% damage reduction.
   isBasicSkill: 0
   _skillTarget: 1
   _requiredSheepLevel: 8
-  effectDuration: 1
   OnCastEffect: {fileID: 11400000, guid: 7ee716ef3dedaec4bbed19b263c76658, type: 2}
   OnHitEffect: {fileID: 11400000, guid: 06fee612bab986e4b989e1037ebc7162, type: 2}
   RequiredSkills: []
