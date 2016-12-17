@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: OnCast_Hiding
   m_EditorClassIdentifier: 
   _particleEffect: {fileID: 0}
-  _sound: {fileID: 8300000, guid: 34203e2416b5d374aafd0261d7be6c11, type: 3}
+  _sound: {fileID: 8300000, guid: 2887ef7e2f44bc34abf1ce43fb01f4c4, type: 3}
   _duration: 1

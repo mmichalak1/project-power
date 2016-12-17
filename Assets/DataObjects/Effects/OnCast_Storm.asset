@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: OnCast_Storm
   m_EditorClassIdentifier: 
   _particleEffect: {fileID: 0}
-  _sound: {fileID: 0}
+  _sound: {fileID: 8300000, guid: 53d0ccbf942ec604c8791eb68e7b09f2, type: 3}
   _duration: 1
