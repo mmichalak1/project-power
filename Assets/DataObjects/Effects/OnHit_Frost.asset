@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d2ee2e23ff0584eb7c61a29277cc51, type: 3}
   m_Name: OnHit_Frost
   m_EditorClassIdentifier: 
-  _particleEffect: {fileID: 0}
-  _sound: {fileID: 0}
-  _duration: 0
+  _particleEffect: {fileID: 104042, guid: 63149ea02cb540a4381e4f9a4cb93d0d, type: 2}
+  _sound: {fileID: 8300000, guid: 1d7cbd978907e8f44ba06a8810214486, type: 3}
+  _duration: 0.25

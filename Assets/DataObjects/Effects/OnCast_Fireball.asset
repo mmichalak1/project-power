@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d2ee2e23ff0584eb7c61a29277cc51, type: 3}
   m_Name: OnCast_Fireball
   m_EditorClassIdentifier: 
-  _particleEffect: {fileID: 0}
+  _particleEffect: {fileID: 187426, guid: ce0c7b86c1f5080418f9038256f30f8c, type: 2}
   _sound: {fileID: 8300000, guid: 37084305e1d0b684abd6c123b541d415, type: 3}
-  _duration: 1
+  _duration: 2
