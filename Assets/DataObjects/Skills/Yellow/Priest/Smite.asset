@@ -15,7 +15,7 @@ MonoBehaviour:
   BaseCost: 3
   BaseCooldown: 2
   SkillLevel: 0
-  isActive: 0
+  isActive: 1
   unlockCost: 150
   _rawDescription: Priest strikes target with heavenly strike dealing <damage>{0}</damage>
     points of damage and healing him for <heal>{1}</heal> HP.
