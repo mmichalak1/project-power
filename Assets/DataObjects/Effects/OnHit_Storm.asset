@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d2ee2e23ff0584eb7c61a29277cc51, type: 3}
   m_Name: OnHit_Storm
   m_EditorClassIdentifier: 
-  _particleEffect: {fileID: 0}
+  _particleEffect: {fileID: 127354, guid: 284c14e14e26eeb489e31efd1f66e2cd, type: 2}
   _sound: {fileID: 8300000, guid: 45bbd057de7aa824a8a13f826ee16512, type: 3}
   _duration: 1.5
