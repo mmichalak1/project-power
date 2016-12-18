@@ -35,21 +35,26 @@ public class TurnPlayer : MonoBehaviour
         }
         else
         {
-            Plan nextPlan = queue.Dequeue();
+            var nextPlan = queue.Dequeue();
 
-            if (nextPlan.Skill.OnCastEffect != null)
+            if (nextPlan.IsExecutable)
             {
-                nextPlan.Skill.OnCastEffect.Apply(nextPlan.Actor, nextPlan.Target);
-                yield return new WaitForSeconds(nextPlan.Skill.OnCastEffect.Duration);
+                if (nextPlan.Skill.OnCastEffect != null)
+                {
+                    nextPlan.Skill.OnCastEffect.Apply(nextPlan.Actor, nextPlan.Target);
+                    yield return new WaitForSeconds(nextPlan.Skill.OnCastEffect.Duration);
+                }
+
+                if (nextPlan.Skill.OnHitEffect != null)
+                {
+                    nextPlan.Skill.OnHitEffect.Apply(nextPlan.Actor, nextPlan.Target);
+                    yield return new WaitForSeconds(nextPlan.Skill.OnHitEffect.Duration);
+                }
+
+                nextPlan.Execute();
             }
 
-            if (nextPlan.Skill.OnHitEffect != null)
-            {
-                nextPlan.Skill.OnHitEffect.Apply(nextPlan.Actor, nextPlan.Target);
-                yield return new WaitForSeconds(nextPlan.Skill.OnHitEffect.Duration);
-            }
 
-            nextPlan.Execute();
 
             yield return StartCoroutine(PlayQueue(queue, OnQueueEnd, OnTurnEnd));
         }
