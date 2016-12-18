@@ -9,6 +9,9 @@ public class Taunt : Skill
     private TauntedBrain _myClone;
     public GameObject ParticleEffect;
 
+    [Range(1, 5)]
+    public int SkillDuration = 1;
+
     public override string Description()
     {
         return string.Format(_description, Power, TauntedBrain.Duration);
@@ -29,14 +32,25 @@ public class Taunt : Skill
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {
-        GameObject go = Instantiate(ParticleEffect, target.transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity) as GameObject;
-        go.transform.parent = target.transform;
-        _myClone.ParticleEffect = go;
         var attack = target.GetComponent<AttackController>();
         if (attack == null)
             return;
-        attack.AddBrain(_myClone);
+        attack.AddBrain(CreateBrainCopy(actor, target));
         target.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage(Power, actor);
         base.PerformAction(actor, target);
+    }
+
+
+    private AbstractBrain CreateBrainCopy(GameObject parent, GameObject target)
+    {
+        var _myCopy = Instantiate(TauntedBrain);
+        GameObject go = Instantiate(ParticleEffect, target.transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity) as GameObject;
+        go.transform.parent = target.transform;
+        _myCopy.ParticleEffect = go;
+        _myCopy.Target = parent;
+        _myCopy.Duration = SkillDuration;
+        _myCopy.Initialize(null);
+
+        return _myCopy;
     }
 }

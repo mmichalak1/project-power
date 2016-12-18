@@ -4,32 +4,32 @@ using System.Collections.Generic;
 using Assets.LogicSystem;
 using System;
 
-public class TurnPlayer : MonoBehaviour {
+public class TurnPlayer : MonoBehaviour
+{
 
 
     public void PlayTurn(Action OnEndTurn, Action EnemyThinkAction)
     {
         var queue = TurnPlaner.Instance.Queue;
         TurnPlaner.Instance.Reset();
-        StartCoroutine(PlayAction(queue, OnEndTurn, EnemyThinkAction));
+        StartCoroutine(PlayQueue(queue, EnemyThinkAction, OnEndTurn));
     }
 
 
-    IEnumerator PlayAction(Queue<Plan> queue, Action OnEndTurn, Action EnemyTurns)
+    IEnumerator PlayQueue(Queue<Plan> queue, Action OnQueueEnd, Action OnTurnEnd)
     {
         if (queue.Count == 0)
         {
-            if(EnemyTurns != null)
+            if(OnQueueEnd != null)
             {
-                EnemyTurns.Invoke();
-                var enemyqueue = TurnPlaner.Instance.Queue;
-                StartCoroutine(PlayAction(enemyqueue, OnEndTurn, null));
+                OnQueueEnd.Invoke();
+                var newqueue = TurnPlaner.Instance.Queue;
+                StartCoroutine(PlayQueue(newqueue, null, OnTurnEnd));
             }
             else
             {
-                Debug.Log("Ending Turn");
-                OnEndTurn();
-                Debug.Log("Turn Finished");
+                yield return new WaitForSeconds(0.2f);
+                OnTurnEnd.Invoke();
                 yield return null;
             }
         }
@@ -51,7 +51,7 @@ public class TurnPlayer : MonoBehaviour {
 
             nextPlan.Execute();
 
-            yield return StartCoroutine(PlayAction(queue, OnEndTurn, EnemyTurns));
+            yield return StartCoroutine(PlayQueue(queue, OnQueueEnd, OnTurnEnd));
         }
     }
 

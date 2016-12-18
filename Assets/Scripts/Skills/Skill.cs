@@ -43,7 +43,6 @@ public abstract class Skill : ScriptableObject {
     [SerializeField]
     private PossibleTarget _skillTarget;
     public int _requiredSheepLevel = 5;
-    public float effectDuration = 1;
     public Effect OnCastEffect;
     public Effect OnHitEffect;
 

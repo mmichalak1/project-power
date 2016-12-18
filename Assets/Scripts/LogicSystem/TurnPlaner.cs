@@ -24,7 +24,7 @@ namespace Assets.LogicSystem
 
         }
 
-        private List<KeyValuePair<string, Plan>> plans = new List<KeyValuePair<string, Plan>>();
+        private List<KeyValuePair<GameObject, Plan>> plans = new List<KeyValuePair<GameObject, Plan>>();
 
         public Queue<Plan> Queue
         {
@@ -39,19 +39,29 @@ namespace Assets.LogicSystem
             }
         }
 
-        public void AddPlan(string entityName, Plan plan)
+        public void AddPlan(GameObject entity, Plan plan)
         {
-            if (ContainsPlanForSkill(plan.Skill, entityName))
+            if (ContainsPlanForSkill(plan.Skill, entity))
             {
                 CancelPlan(plan.Skill);
             }
-            plans.Add(new KeyValuePair<string, Plan>(entityName, plan));
-            Debug.Log("Added plan for " + entityName);
+            TurnManager.UpdateResource(plan.Skill.Cost);
+            plans.Add(new KeyValuePair<GameObject, Plan>(entity, plan));
+            Debug.Log("Added plan for " + entity.name);
         }
 
         public void CancelPlan(Skill cancelledSkill)
         {
-            plans.Remove(plans.First(x => x.Value.Skill == cancelledSkill));
+            TurnManager.UpdateResource(-cancelledSkill.Cost);
+            var plan = plans.First(x => x.Value.Skill == cancelledSkill);
+            plans.Remove(plan);
+            if (!ContainsPlanForEntity(plan.Key))
+            {
+                var bubble = plan.Key.GetComponentInChildren<ActionBubble>();
+                if (bubble != null)
+                    bubble.TurnOff();
+            }
+
         }
 
         public void Reset()
@@ -59,11 +69,21 @@ namespace Assets.LogicSystem
             plans.Clear();
         }
 
-        public bool ContainsPlanForSkill(Skill skill, string entityName)
+        public bool ContainsPlanForSkill(Skill skill, GameObject entity)
         {
-            var plan = plans.FirstOrDefault(x => x.Key==entityName && x.Value.Skill == skill);
+            var plan = plans.FirstOrDefault(x => x.Key == entity && x.Value.Skill == skill);
 
-            if (plan.Equals(default(KeyValuePair<string, Plan>)))
+            if (plan.Equals(default(KeyValuePair<GameObject, Plan>)))
+                return false;
+            else
+                return true;
+        }
+
+        public bool ContainsPlanForEntity(GameObject entity)
+        {
+            var plan = plans.FirstOrDefault(x => x.Key == entity);
+
+            if (plan.Equals(default(KeyValuePair<GameObject, Plan>)))
                 return false;
             else
                 return true;
