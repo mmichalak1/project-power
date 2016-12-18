@@ -35,7 +35,7 @@ namespace Assets.Scripts.ScriptableObjects
             Debug.Log(parent.name + " attacks " + Target.name + " because he insulted his mother!");
             parent.GetComponent<AttackController>().BreakTurn = true;
             AttackSkill.Power = _myRealDamage;
-            TurnPlaner.Instance.AddPlan(parent.name, new Plan(parent, Target, AttackSkill));
+            TurnPlaner.Instance.AddPlan(parent, new Plan(parent, Target, AttackSkill));
             base.Think(parent);
         }
     }
