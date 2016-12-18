@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: OnCast_GroupTaunt
   m_EditorClassIdentifier: 
   _particleEffect: {fileID: 0}
-  _sound: {fileID: 0}
+  _sound: {fileID: 8300000, guid: 0ffa761a5a83744d3ab5e27ac9505eed, type: 3}
   _duration: 1

@@ -53,7 +53,7 @@ public class GroupTaunt : Skill
     private AbstractBrain CreateBrainCopy(GameObject parent, GameObject target)
     {
         var _myCopy = Instantiate(TauntedBrain);
-        GameObject go = Instantiate(ParticleEffect, target.transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity) as GameObject;
+        GameObject go = Instantiate(ParticleEffect, target.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity) as GameObject;
         go.transform.parent = target.transform;
         _myCopy.ParticleEffect = go;
         _myCopy.Target = parent;

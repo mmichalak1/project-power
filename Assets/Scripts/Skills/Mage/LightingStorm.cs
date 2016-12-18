@@ -4,6 +4,9 @@ using System;
 
 [CreateAssetMenu(fileName = "Lighting Storm", menuName = "Game/Skills/Lighting Storm")]
 public class LightingStorm : Skill {
+
+    public GameObject ParticleEffect;
+
     public override string Description()
     {
         return string.Format(_description, Power);

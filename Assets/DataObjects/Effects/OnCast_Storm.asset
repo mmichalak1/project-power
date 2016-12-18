@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d2ee2e23ff0584eb7c61a29277cc51, type: 3}
   m_Name: OnCast_Storm
   m_EditorClassIdentifier: 
-  _particleEffect: {fileID: 0}
-  _sound: {fileID: 0}
+  _particleEffect: {fileID: 164842, guid: dd69d21c4c1a4d74fbe9780441ccc108, type: 2}
+  _sound: {fileID: 8300000, guid: 53d0ccbf942ec604c8791eb68e7b09f2, type: 3}
   _duration: 1

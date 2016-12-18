@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: OnCast_Weakness
   m_EditorClassIdentifier: 
   _particleEffect: {fileID: 0}
-  _sound: {fileID: 0}
+  _sound: {fileID: 8300000, guid: 28e9b4a6c3d32174983bf47e70dcb41b, type: 3}
   _duration: 1
