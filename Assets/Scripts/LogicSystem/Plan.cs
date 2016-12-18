@@ -31,24 +31,32 @@ namespace Assets.LogicSystem
             _target = target;
         }
 
-        public bool Execute()
+        public void Execute()
         {
-            if (_actor == null || _target == null)
-                return false;
-            if (!_actor.activeSelf || !_target.activeSelf)
-            {
-                Debug.Log(_actor.name + " can't attack because he or target is dead.");
-                return false;
-            }
             _skill.Action.Invoke(_actor, _target);
+        }
 
-            return true;
+        public bool IsExecutable
+        {
+            get
+            {
+                if (_actor == null || _target == null)
+                    return false;
+                if (!_actor.activeSelf || !_target.activeSelf)
+                {
+                    Debug.Log(_actor.name + " can't attack because he or target is dead.");
+                    return false;
+                }
+                return true;
+            }
         }
 
         public override string ToString()
         {
             return _actor.name + " uses " + _skill.name + " on " + _target.name;
         }
+
+
 
     }
 }

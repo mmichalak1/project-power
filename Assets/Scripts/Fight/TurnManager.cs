@@ -138,7 +138,12 @@ public class TurnManager : MonoBehaviour
 
 
             //Order TurnPlayer to start playing every move and pass function for wolves thinking
-            turnPlayer.PlayTurn(PostTurnActions, () => { WolfManager.ApplyGroupTurn(); });
+            turnPlayer.PlayTurn(PostTurnActions, () =>
+            {
+                if (WolfManager != null)
+                    WolfManager.ApplyGroupTurn();
+            }
+            );
         }
 
     }
@@ -176,7 +181,7 @@ public class TurnManager : MonoBehaviour
                         TurnPlaner.Instance.CancelPlan(pickedSkill);
                         queueController.RemoveSkill(pickedSkill);
                     }
-                    pickedSkill.OnSkillPlanned(selectedSheep, hitedTarget.transform.gameObject);    
+                    pickedSkill.OnSkillPlanned(selectedSheep, hitedTarget.transform.gameObject);
                     TurnPlaner.Instance.AddPlan(selectedSheep, plan);
                     queueController.AddSkill(pickedSkill);
                 }
@@ -268,7 +273,7 @@ public class TurnManager : MonoBehaviour
         if (BattleWon)
         {
             var effects = FindObjectsOfType<SC_SpellDuration>();
-            foreach(var effect in effects)
+            foreach (var effect in effects)
             {
                 effect.enabled = true;
             }
