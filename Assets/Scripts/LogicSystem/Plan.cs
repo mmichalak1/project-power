@@ -33,7 +33,8 @@ namespace Assets.LogicSystem
 
         public void Execute()
         {
-            _skill.Action.Invoke(_actor, _target);
+            if (IsExecutable)
+                _skill.Action.Invoke(_actor, _target);
         }
 
         public bool IsExecutable
