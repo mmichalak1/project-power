@@ -2771,8 +2771,8 @@ MonoBehaviour:
   Cooldown: {fileID: 468822155}
   Cost: {fileID: 1485818258}
   UnlockedColor: {r: 1, g: 1, b: 1, a: 1}
-  LockedColor: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 0.528}
-  LockedByLvlColor: {r: 0, g: 0, b: 0, a: 135}
+  LockedColor: {r: 0.43137255, g: 0.43137255, b: 0.43137255, a: 0.746}
+  LockedByLvlColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 0.195}
 --- !u!1 &1024729390
 GameObject:
   m_ObjectHideFlags: 0

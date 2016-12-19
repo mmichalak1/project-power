@@ -27,7 +27,7 @@ public class SkillsMenuScript : MonoBehaviour
 
     public Color UnlockedColor = Color.white;
     public Color LockedColor = Color.gray;
-    private Color LockedByLvlColor = new Color(0.15f, 0.15f, 0.15f, 0.27f);
+    public Color LockedByLvlColor;
 
     private Skill currentlyPickedSkill;
 
@@ -70,11 +70,12 @@ public class SkillsMenuScript : MonoBehaviour
         if (!currentlyPickedSkill.IsActive)
         {
             Unlocker.SetActive(true);
-            if (SheepData[SheepButton].Level<currentlyPickedSkill.RequiredSheepLevel)
+            UnlockButton.interactable = true;
+            if (SheepData[SheepNumber].Level<currentlyPickedSkill.RequiredSheepLevel)
             {
                 UnlockButton.interactable = false;
                 RequiredLevel.gameObject.SetActive(true);
-                RequiredLevel.text = string.Format(RequiredLevel.text, currentlyPickedSkill.RequiredSheepLevel);
+                RequiredLevel.text = "Requried level: " + currentlyPickedSkill.RequiredSheepLevel;
             }
             UnlockCost.text = currentlyPickedSkill.UnlockCost.ToString();
         }
