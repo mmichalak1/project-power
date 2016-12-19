@@ -2772,6 +2772,7 @@ MonoBehaviour:
   Cost: {fileID: 1485818258}
   UnlockedColor: {r: 1, g: 1, b: 1, a: 1}
   LockedColor: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 0.528}
+  LockedByLvlColor: {r: 0, g: 0, b: 0, a: 135}
 --- !u!1 &1024729390
 GameObject:
   m_ObjectHideFlags: 0
@@ -5630,7 +5631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2045703283
 RectTransform:
   m_ObjectHideFlags: 0

@@ -35,6 +35,7 @@ public class ResetSheeps : MonoBehaviour
         }
         for (int i = 0; i < 4; i++)
         {
+            SheepData[i].Name = SheepDataBackup[i].Name;
             SheepData[i].BasicAttack = SheepDataBackup[i].BasicAttack;
             SheepData[i].BasicMaxHealth = SheepDataBackup[i].BasicMaxHealth;
             SheepData[i].BasicDefence = SheepDataBackup[i].BasicDefence;

@@ -15,13 +15,12 @@ MonoBehaviour:
   BaseCost: 3
   BaseCooldown: 2
   SkillLevel: 0
-  isActive: 1
+  isActive: 0
   unlockCost: 300
   _rawDescription: Weakens target for {0} turns causing it to deal {1}% less damage.
   isBasicSkill: 0
   _skillTarget: 1
-  _requiredSheepLevel: 5
-  effectDuration: 1
+  _requiredSheepLevel: 7
   OnCastEffect: {fileID: 11400000, guid: 40ac364718f48794cb784bc26eaf5cc6, type: 2}
   OnHitEffect: {fileID: 11400000, guid: 9933d8267a4a5de45b52ef29a52eab7b, type: 2}
   RequiredSkills: []
