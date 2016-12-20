@@ -36,7 +36,7 @@ public class TurnPlayer : MonoBehaviour
         else
         {
             var nextPlan = queue.Dequeue();
-
+            yield return new WaitForSeconds(0.1f);
             if (nextPlan.IsExecutable)
             {
                 if (nextPlan.Skill.OnCastEffect != null)
