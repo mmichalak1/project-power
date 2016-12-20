@@ -62,8 +62,11 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
         if (redirectComponent != null)
         {
             Debug.Log("Damage to " + gameObject.name + " redirected to " + redirectComponent.newTarget.name + ".");
-            redirectComponent.newTarget.GetComponent<IReciveDamage>().DealDamage(value, source);
-            return;
+            if (redirectComponent.newTarget != gameObject)
+            {
+                redirectComponent.newTarget.GetComponent<IReciveDamage>().DealDamage(value, source);
+                return;
+            }
         }
 
         var fightBackComp = gameObject.GetComponent<GiveAwayDamage>();
@@ -89,8 +92,8 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     public void DealDamage(int value)
     {
         Debug.Log("Defence: " + _defence);
-        if(_defence > 0)
-            value -= (int) (value * _defence/100.0f);
+        if (_defence > 0)
+            value -= (int)(value * _defence / 100.0f);
         _currentHealth -= value;
         if (DamageIndicator != null)
         {
