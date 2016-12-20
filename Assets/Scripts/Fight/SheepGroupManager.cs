@@ -62,6 +62,11 @@ public class SheepGroupManager : MonoBehaviour {
         {
             child.gameObject.GetComponent<ICanBeHealed>().HealToFull();
             child.gameObject.SetActive(true);
+            var effects = FindObjectsOfType<SC_SpellDuration>();
+            foreach (var effect in effects)
+            {
+                effect.enabled = true;
+            }
         }
         foreach (var data in GetComponentsInChildren<EntityDataHolder>())
         {
