@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d2ee2e23ff0584eb7c61a29277cc51, type: 3}
   m_Name: OnCast_GroupTaunt
   m_EditorClassIdentifier: 
-  _particleEffect: {fileID: 0}
+  _particleEffect: {fileID: 194234, guid: 189980af9aa16ea4383b3124412129cc, type: 2}
   _sound: {fileID: 8300000, guid: 0ffa761a5a83744d3ab5e27ac9505eed, type: 3}
   _duration: 1
