@@ -11,6 +11,7 @@ public class ResetSheeps : MonoBehaviour
     public LevelData[] levelData;
     public ItemsLists Items;
     public AllSkills AllSkkills;
+    public TutorialsList Tutorials;
 
 
     public void Reset()
@@ -31,7 +32,11 @@ public class ResetSheeps : MonoBehaviour
             item.Visited = 0;
             if (item.name != "GreenValley")
                 item.IsLocked = true;
+        }
 
+        foreach (var item in Tutorials.Tutorials)
+        {
+            item.WasSeen = false;
         }
         for (int i = 0; i < 4; i++)
         {

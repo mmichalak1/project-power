@@ -10,4 +10,5 @@ public class GameSave : ScriptableObject {
     public AllSkills AllSkills;
     public WoolCounter WoolCounter;
     public ResourceCounter ResourceCounter;
+    public TutorialsList Tutorials;
 }

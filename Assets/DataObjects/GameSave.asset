@@ -25,3 +25,4 @@ MonoBehaviour:
   AllSkills: {fileID: 11400000, guid: 46572e8f02e9b084a8367ea12ffae591, type: 2}
   WoolCounter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
   ResourceCounter: {fileID: 11400000, guid: 522d4c5f0b0b01c4895c2b88faec721e, type: 2}
+  Tutorials: {fileID: 11400000, guid: 6798dfc10172ec84c8cb6267a88faa01, type: 2}

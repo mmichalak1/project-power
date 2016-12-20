@@ -33,7 +33,7 @@ public static class Saver
             return null;
         using (var stream = File.Open(path, FileMode.Open))
         {
-            SharpSerializer reader = new SharpSerializer(true);
+            SharpSerializer reader = new SharpSerializer();
             state = reader.Deserialize(stream) as GameSaveData;
         }
         return state;
@@ -62,7 +62,7 @@ public static class Saver
             File.Delete(path);
         using (var stream = File.Open(path, FileMode.CreateNew))
         {
-            SharpSerializer writer = new SharpSerializer(true);
+            SharpSerializer writer = new SharpSerializer();
             writer.Serialize(state, stream);
         }
     }

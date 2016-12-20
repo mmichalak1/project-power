@@ -26,6 +26,14 @@ public class GameSaveData
         {
             Level.CreateFromSavedData(ref save.LevelData[i], data.Levels[i]);
         }
+        //Load Seen Tutorials
+        foreach (var item in data.Tutorials)
+        {
+            var myTut = save.Tutorials.Tutorials.FirstOrDefault(x => x.name == item.TutorialName);
+            if (myTut != null)
+                TutorialEntry.FromData(ref myTut, item);
+        }
+
 
         //Read current wool and resources data
         save.ResourceCounter.Resources = data.Resources;
@@ -33,12 +41,14 @@ public class GameSaveData
 
     }
 
+
     public static GameSaveData ToBinaryForm(GameSave save)
     {
         var result = new GameSaveData();
         result.Sheep = new List<SheepData>();
         result.UnlockedItems = new List<string>();
         result.Levels = new List<Level>();
+        result.Tutorials = new List<TutorialEntry>();
         //Serialize Sheep data to store on disc
         for (int i = 0; i < save.SheepData.Length; i++)
             result.Sheep.Add(SheepData.CreateFromRuntime(save.SheepData[i]));
@@ -49,6 +59,11 @@ public class GameSaveData
         //Serialize All Levels Data
         for (int i = 0; i < save.LevelData.Length; i++)
             result.Levels.Add(Level.CreateFromRuntime(save.LevelData[i]));
+        //Serialize Tutorials
+        foreach(var item in save.Tutorials.Tutorials)
+        {
+            result.Tutorials.Add(TutorialEntry.FromRuntime(item));
+        }
         //Serialize Wool and resources
         result.WoolAmount = save.WoolCounter.WoolCount;
         result.Resources = save.ResourceCounter.Resources;
@@ -68,6 +83,12 @@ public class GameSaveData
     }
 
     public List<Level> Levels
+    {
+        get;
+        set;
+    }
+
+    public List <TutorialEntry> Tutorials
     {
         get;
         set;
