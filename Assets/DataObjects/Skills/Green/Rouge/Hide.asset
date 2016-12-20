@@ -16,7 +16,7 @@ MonoBehaviour:
   BaseCooldown: 4
   SkillLevel: 0
   isActive: 0
-  unlockCost: 150
+  unlockCost: 20
   _rawDescription: Hides for {0} turns causing being non-targetable.
   isBasicSkill: 0
   _skillTarget: 0
