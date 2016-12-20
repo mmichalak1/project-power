@@ -62,7 +62,7 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
         if (redirectComponent != null)
         {
             Debug.Log("Damage to " + gameObject.name + " redirected to " + redirectComponent.newTarget.name + ".");
-            if (redirectComponent.newTarget != gameObject)
+            if (redirectComponent.newTarget != gameObject && redirectComponent.newTarget.activeSelf)
             {
                 redirectComponent.newTarget.GetComponent<IReciveDamage>().DealDamage(value, source);
                 return;
