@@ -15,13 +15,12 @@ MonoBehaviour:
   BaseCost: 4
   BaseCooldown: 4
   SkillLevel: 0
-  isActive: 1
+  isActive: 0
   unlockCost: 300
   _rawDescription: <stun>Freezes</stun> target for {0} turns.
   isBasicSkill: 0
   _skillTarget: 1
-  _requiredSheepLevel: 5
-  effectDuration: 1
+  _requiredSheepLevel: 6
   OnCastEffect: {fileID: 11400000, guid: 1d1424ab4efaa20428325ebb74ae0187, type: 2}
   OnHitEffect: {fileID: 11400000, guid: 90b945160d24d3444b71a7c30b4e5eae, type: 2}
   RequiredSkills: []

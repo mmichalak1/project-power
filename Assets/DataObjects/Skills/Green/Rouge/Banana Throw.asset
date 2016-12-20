@@ -15,12 +15,12 @@ MonoBehaviour:
   BaseCost: 2
   BaseCooldown: 3
   SkillLevel: 0
-  isActive: 1
+  isActive: 0
   unlockCost: 300
   _rawDescription: Throws a banana <stun>stunning</stun> enemy for {0} turns.
   isBasicSkill: 0
   _skillTarget: 1
-  _requiredSheepLevel: 5
+  _requiredSheepLevel: 6
   OnCastEffect: {fileID: 11400000, guid: 3d2eeab3264501d4ea64f425f7babe52, type: 2}
   OnHitEffect: {fileID: 11400000, guid: b4800b5cc89e4a349a3698d4513177fe, type: 2}
   RequiredSkills: []

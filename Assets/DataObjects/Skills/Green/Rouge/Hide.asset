@@ -15,13 +15,12 @@ MonoBehaviour:
   BaseCost: 4
   BaseCooldown: 4
   SkillLevel: 0
-  isActive: 1
+  isActive: 0
   unlockCost: 150
   _rawDescription: Hides for {0} turns causing being non-targetable.
   isBasicSkill: 0
   _skillTarget: 0
-  _requiredSheepLevel: 3
-  effectDuration: 1
+  _requiredSheepLevel: 2
   OnCastEffect: {fileID: 11400000, guid: 4d25176e988d34241ac313c27053ce26, type: 2}
   OnHitEffect: {fileID: 11400000, guid: 6b524ed960414364bb9f34da996582f5, type: 2}
   RequiredSkills: []
