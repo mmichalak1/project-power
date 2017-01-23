@@ -15,7 +15,7 @@ MonoBehaviour:
   BaseCost: 0
   BaseCooldown: 4
   SkillLevel: 0
-  isActive: 0
+  isActive: 1
   unlockCost: 900
   _rawDescription: Adds {0} to to resource pool for this turn.
   isBasicSkill: 0
