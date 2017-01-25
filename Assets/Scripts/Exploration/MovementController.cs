@@ -22,6 +22,7 @@ public class MovementController : MonoBehaviour
     public Quaternion newRot;
     public Image ShallNotPass;
     public World World;
+    public AnimationControl[] animations;
 
     Events.MyEvent Forward, Left, Right;
 
@@ -50,12 +51,20 @@ public class MovementController : MonoBehaviour
 
         if (move)
         {
+            foreach (AnimationControl anim in animations)
+            {
+                anim.Move();
+            }
+              
             transform.position = Vector3.MoveTowards(transform.position, newPos, Time.deltaTime * movementSpeed);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, newRot, Time.deltaTime * rotationSpeed);
 
             actionTimer += Time.deltaTime;
+
             if (actionDelay < actionTimer)
             {
+                foreach (AnimationControl anim in animations)
+                    anim.Stop();
                 actionTimer = 0;
                 move = false;
             }
@@ -68,6 +77,7 @@ public class MovementController : MonoBehaviour
         {
             if (CheckIfAccessible(true))
             {
+                
                 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.right).normalized * 2;
                 move = true;
             }

@@ -21,7 +21,7 @@ Material:
         second:
           m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
           m_Scale: {x: 1, y: 2}
-          m_Offset: {x: 0, y: 141.6874}
+          m_Offset: {x: 0, y: 213.17769}
       data:
         first:
           name: _MaskTex

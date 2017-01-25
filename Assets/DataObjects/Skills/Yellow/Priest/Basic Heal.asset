@@ -15,13 +15,12 @@ MonoBehaviour:
   BaseCost: 3
   BaseCooldown: 2
   SkillLevel: 0
-  isActive: 1
+  isActive: 0
   unlockCost: 20
   _rawDescription: Heals target for <heal>{0}</heal> HP.
-  isBasicSkill: 1
-  _requiredSheepLevel: 0
-  soundEffect: {fileID: 8300000, guid: 2bb3037336f79224d937e55146d852f4, type: 3}
-  effectDuration: 1
+  isBasicSkill: 0
+  _skillTarget: 0
+  _requiredSheepLevel: 1
   OnCastEffect: {fileID: 11400000, guid: 6cc6a86f9d84224489bc125fbbf7d404, type: 2}
   OnHitEffect: {fileID: 11400000, guid: 0cc20fe060ed4c744b61e191419d0b20, type: 2}
   RequiredSkills: []
