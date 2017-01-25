@@ -22,8 +22,8 @@ MonoBehaviour:
   Level: 1
   Experience: 0
   ExperienceForNextLevel: 100
-  Wool: 180
-  MaxWool: 195
+  Wool: 13
+  MaxWool: 25
   WoolGrowth: 0
   SheepSkills: {fileID: 11400000, guid: 0f164399f85b4aa4db81ae6be1732b21, type: 2}
   OffensiveItem: {fileID: 0}
