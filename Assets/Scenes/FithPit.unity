@@ -35387,11 +35387,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22431316, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.38268346
       objectReference: {fileID: 0}
     - target: {fileID: 22431316, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9238795
       objectReference: {fileID: 0}
     - target: {fileID: 22431316, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
       propertyPath: m_RootOrder
@@ -35399,11 +35399,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22431316, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -50
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 22431316, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 22431316, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
       propertyPath: m_SizeDelta.x
@@ -35469,6 +35469,27 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11490956, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1629160726}
+    - target: {fileID: 11412008, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c3026f79bf0c8a74eab8576354abd5f6,
+        type: 3}
+    - target: {fileID: 22431316, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 22431316, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 22431316, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
   m_IsPrefabParent: 0
@@ -35476,6 +35497,12 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 131136, guid: 31b1ac58362916746ad8d1d38d0150e1, type: 2}
   m_PrefabInternal: {fileID: 1629160723}
+--- !u!114 &1629160726 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11412008, guid: 31b1ac58362916746ad8d1d38d0150e1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1629160723}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1630654363
 GameObject:
   m_ObjectHideFlags: 0
