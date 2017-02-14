@@ -29,7 +29,7 @@ public class TurnManager : MonoBehaviour
     public static void UpdateResource(int i)
     {
         currentResource -= i;
-        Events.Instance.DispatchEvent("SetText", "Resource Left : " + currentResource);
+        Events.Instance.DispatchEvent("SetFilled", currentResource);
     }
 
     public static void SelectSkill(Skill selectedSkill)
@@ -38,7 +38,7 @@ public class TurnManager : MonoBehaviour
         if (currentResource >= selectedSkill.Cost || TurnPlaner.Instance.ContainsPlanForSkill(selectedSkill, Instance.selectedSheep))
         {
             pickedSkill = selectedSkill;
-            Events.Instance.DispatchEvent("SetText", "Resource Left : " + currentResource + " - " + selectedSkill.Cost);
+            Events.Instance.DispatchEvent("ChangeActive", selectedSkill.Cost);
             state = activeState.waiting;
         }
         else

@@ -15,7 +15,7 @@ MonoBehaviour:
   BaseCost: 3
   BaseCooldown: 2
   SkillLevel: 0
-  isActive: 0
+  isActive: 1
   unlockCost: 20
   _rawDescription: Heals target for <heal>{0}</heal> HP.
   isBasicSkill: 0

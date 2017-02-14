@@ -15,7 +15,7 @@ MonoBehaviour:
   BaseCost: 5
   BaseCooldown: 4
   SkillLevel: 0
-  isActive: 0
+  isActive: 1
   unlockCost: 900
   _rawDescription: Taunts all enemies for {0} turns causing them to focus on warrior.
     Grants {1}% damage reduction.
