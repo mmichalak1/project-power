@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6709fd2a084cf584fab427e9087100ca, type: 3}
   m_Name: ResourceCounter
   m_EditorClassIdentifier: 
-  _resources: 6
-  _basicResources: 6
+  _resources: 12
+  _basicResources: 12
   _maxResources: 12

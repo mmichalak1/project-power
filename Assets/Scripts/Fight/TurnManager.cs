@@ -178,8 +178,7 @@ public class TurnManager : MonoBehaviour
                     }
                     else
                     {
-                        TurnPlaner.Instance.CancelPlan(pickedSkill);
-                        queueController.RemoveSkill(pickedSkill);
+                        queueController.CancelSkill(pickedSkill);
                     }
                     pickedSkill.OnSkillPlanned(selectedSheep, hitedTarget.transform.gameObject);
                     TurnPlaner.Instance.AddPlan(selectedSheep, plan);

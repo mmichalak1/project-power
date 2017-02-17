@@ -17,7 +17,7 @@ public class TurnQueueController : MonoBehaviour
         if (_plannedSkills.ContainsKey(skill))
             _plannedSkills.Remove(skill);
 
-        GameObject go = Instantiate(SkillPrefab) as GameObject;
+        var go = Instantiate(SkillPrefab);
         go.transform.SetParent(gameObject.transform, false);
         go.GetComponent<Image>().sprite = skill.Icon;
         go.GetComponent<Button>().onClick.AddListener(() => { CancelSkill(go); });
@@ -25,15 +25,19 @@ public class TurnQueueController : MonoBehaviour
 
     }
 
-    public void RemoveSkill(Skill skill)
-    {
-        _plannedSkills.Remove(skill);
-    }
 
     public void CancelSkill(GameObject go)
     {
         var skill = _plannedSkills.First(x => x.Value == go).Key;
-        RemoveSkill(skill);
+        _plannedSkills.Remove(skill);
+        Destroy(go);
+        TurnPlaner.Instance.CancelPlan(skill);
+    }
+
+    public void CancelSkill(Skill skill)
+    {
+        var go = _plannedSkills[skill];
+        _plannedSkills.Remove(skill);
         Destroy(go);
         TurnPlaner.Instance.CancelPlan(skill);
     }
