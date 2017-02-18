@@ -3839,7 +3839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Save: {fileID: 11400000, guid: 25308824fbae9e140aa83092a62e67aa, type: 2}
   SaveOnStart: 0
-  LoadOnStart: 0
+  LoadOnStart: 1
 --- !u!1 &1836965093
 GameObject:
   m_ObjectHideFlags: 0

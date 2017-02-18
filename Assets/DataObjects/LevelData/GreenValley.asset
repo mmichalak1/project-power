@@ -18,3 +18,6 @@ MonoBehaviour:
   _nextUnblockableLevel: {fileID: 11400000, guid: 2f13651e45df8c14c8aa754fecc40513,
     type: 2}
   isLocked: 0
+  _chests:
+  - {fileID: 11400000, guid: bb726b39be717fc4d8c7e80a3d937656, type: 2}
+  - {fileID: 11400000, guid: c242625733c16de4aaba91dfed310c6d, type: 2}
