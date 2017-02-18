@@ -14,10 +14,9 @@ public class TurnManager : MonoBehaviour
     private static WolfGroupManager _wolfManager;
     public static activeState state = activeState.nothingPicked;
     public static GameObject hitedTarget = null;
-    public static int currentResource;
+    public static int CurrentResource { get; set; }
     public static bool ourTurn = false;
     public static Skill pickedSkill;
-    //public static bool ChangeFlag = false;
     public static bool BattleWon { get; set; }
 
     public static WolfGroupManager WolfManager
@@ -28,26 +27,27 @@ public class TurnManager : MonoBehaviour
 
     public static void UpdateResource(int i)
     {
-        currentResource -= i;
-        Events.Instance.DispatchEvent("SetFilled", currentResource);
+        CurrentResource -= i;
+        Events.Instance.DispatchEvent("SetFilled", CurrentResource);
     }
 
     public static void SelectSkill(Skill selectedSkill)
     {
-
-        if (currentResource >= selectedSkill.Cost || TurnPlaner.Instance.ContainsPlanForSkill(selectedSkill, Instance.selectedSheep))
-        {
-            pickedSkill = selectedSkill;
-            Events.Instance.DispatchEvent("ChangeActive", selectedSkill.Cost);
-            state = activeState.waiting;
-        }
-        else
+        //Check for no resources
+        if (CurrentResource < selectedSkill.Cost)
         {
             Instance.OnNotEnoughResources();
             FightingSceneUIScript.DisableSkillCanvases();
             state = activeState.reseting;
+            return;
         }
-        //ChangeFlag = true;
+
+        //if resources are ok change picked skill and notify resuources display
+        pickedSkill = selectedSkill;
+        if (!TurnPlaner.Instance.ContainsPlanForSkill(selectedSkill, Instance.selectedSheep))
+            Events.Instance.DispatchEvent("ChangeActive", selectedSkill.Cost);
+        state = activeState.waiting;
+
         hitedTarget = null;
 
     }
@@ -112,8 +112,8 @@ public class TurnManager : MonoBehaviour
         if (ourTurn)
         {
             ChangeTurnButton.GetComponent<Button>().interactable = false;
-            //forced is varaible which is set to true when player nows he didnt spent all resources and still wants to end turn
-            if (!forced && currentResource == DefaultResourceCounter.Resources)
+            //forced is varaible which is set to true when player knows he didnt spent all resources and still wants to end turn
+            if (!forced && CurrentResource == DefaultResourceCounter.Resources)
             {
                 ConfirmEndTurn.SetActive(true);
                 return;
@@ -286,7 +286,7 @@ public class TurnManager : MonoBehaviour
         {
             TickSpecialStates();
             ourTurn = true;
-            currentResource = DefaultResourceCounter.Resources;
+            CurrentResource = DefaultResourceCounter.Resources;
             UpdateResource(0);
         }
         //Reset to starting state
@@ -318,7 +318,7 @@ public class TurnManager : MonoBehaviour
     private void ResetToDefault()
     {
         ourTurn = false;
-        currentResource = DefaultResourceCounter.Resources;
+        CurrentResource = DefaultResourceCounter.Resources;
         UpdateResource(0);
         state = activeState.nothingPicked;
         hitedTarget = null;
@@ -330,7 +330,7 @@ public class TurnManager : MonoBehaviour
         Instance = this;
         turnPlayer = gameObject.GetComponent<TurnPlayer>();
 
-        currentResource = DefaultResourceCounter.Resources;
+        CurrentResource = DefaultResourceCounter.Resources;
         UpdateResource(0);
 
         Events.Instance.RegisterForEvent("EnterFight", OnEnterFight);
