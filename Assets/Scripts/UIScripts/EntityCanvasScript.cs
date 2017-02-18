@@ -32,7 +32,7 @@ public class EntityCanvasScript : MonoBehaviour {
 
     public void ClearDamageIndicators()
     {
-        for (int i = transform.childCount - 1; i > 0; i--)
+        for (int i = transform.childCount - 1; i > 1; i--)
             Destroy(transform.GetChild(i).gameObject);
     }
 }
