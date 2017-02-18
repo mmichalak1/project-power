@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: GreenSheepSkills
   m_EditorClassIdentifier: 
   _skills:
+  - {fileID: 11400000, guid: 1cdd17e7cb07fe5419881291f7b7a622, type: 2}
   - {fileID: 11400000, guid: 0b00ca1dff539744d82369186e17ce28, type: 2}
   - {fileID: 11400000, guid: 550e7248e6e54c247ba26d1569451f28, type: 2}
   - {fileID: 11400000, guid: 93f7bf00e171e79419c2d3c58e4d8d4e, type: 2}

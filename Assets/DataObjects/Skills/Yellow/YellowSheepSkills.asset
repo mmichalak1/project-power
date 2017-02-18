@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: YellowSheepSkills
   m_EditorClassIdentifier: 
   _skills:
+  - {fileID: 11400000, guid: fee51892de8fea844ab4182442a961f6, type: 2}
   - {fileID: 11400000, guid: 60ece36f6fba7c7428047f2f50ce2003, type: 2}
   - {fileID: 11400000, guid: 21633fc87418bcf4e99836df0891f6f7, type: 2}
   - {fileID: 11400000, guid: 3cee1308468d4ad4594840f7392844c7, type: 2}

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: BlueSheepSkills
   m_EditorClassIdentifier: 
   _skills:
+  - {fileID: 11400000, guid: 47838bd58b0bed0458f449c216f589f0, type: 2}
   - {fileID: 11400000, guid: c4e01658e47a6c94bad9f586d8d63ebd, type: 2}
   - {fileID: 11400000, guid: db75f9f58f5bacb4aac08b20a0a3c2f4, type: 2}
   - {fileID: 11400000, guid: 1a55581bde8996c408880145df91b54c, type: 2}
