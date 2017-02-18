@@ -439,7 +439,7 @@ GameObject:
   - 114: {fileID: 11479920}
   - 114: {fileID: 11401338}
   - 82: {fileID: 8246070}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wolf
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1550,10 +1550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 80
   _currentHealth: 80
-  source: {fileID: 8246070}
-  damgeSound: {fileID: 8300000, guid: 9a29b39396539b140bbadd1afdf59b32, type: 3}
-  healSound: {fileID: 0}
-  volume: 0.1
+  _defence: 0
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11473624}
   HealthIndicator: {fileID: 11408760}

@@ -119,6 +119,7 @@ GameObject:
   - 114: {fileID: 11490232}
   - 114: {fileID: 11427548}
   - 82: {fileID: 8204528}
+  - 114: {fileID: 11432696}
   m_Layer: 0
   m_Name: wolf (2)
   m_TagString: Enemy
@@ -900,7 +901,8 @@ GameObject:
   - 114: {fileID: 11440858}
   - 114: {fileID: 11402896}
   - 82: {fileID: 8290070}
-  m_Layer: 0
+  - 114: {fileID: 11497888}
+  m_Layer: 8
   m_Name: wolf
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1694,6 +1696,7 @@ GameObject:
   - 114: {fileID: 11466428}
   - 114: {fileID: 11434902}
   - 82: {fileID: 8247518}
+  - 114: {fileID: 11471286}
   m_Layer: 0
   m_Name: wolf (3)
   m_TagString: Enemy
@@ -1990,6 +1993,7 @@ GameObject:
   - 54: {fileID: 5497458}
   - 114: {fileID: 11463556}
   - 114: {fileID: 11499582}
+  - 114: {fileID: 11439716}
   m_Layer: 2
   m_Name: 2RW2NW
   m_TagString: Untagged
@@ -2266,6 +2270,7 @@ GameObject:
   - 114: {fileID: 11418926}
   - 114: {fileID: 11453486}
   - 82: {fileID: 8235850}
+  - 114: {fileID: 11407654}
   m_Layer: 0
   m_Name: wolf (1)
   m_TagString: Enemy
@@ -5722,6 +5727,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Experience: 100
+--- !u!114 &11407654
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myAffiliation: 1
 --- !u!114 &11412392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5788,6 +5805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 160
   _currentHealth: 160
+  _defence: 0
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11453656}
   HealthIndicator: {fileID: 11442948}
@@ -5867,6 +5885,18 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11432696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myAffiliation: 1
 --- !u!114 &11434296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5896,6 +5926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 120
   _currentHealth: 120
+  _defence: 0
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11463730}
   HealthIndicator: {fileID: 11472470}
@@ -5924,6 +5955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 160
   _currentHealth: 160
+  _defence: 0
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11420144}
   HealthIndicator: {fileID: 11485064}
@@ -5959,6 +5991,20 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11439716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46802c2e1706754419a396645854686e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossPrefab: {fileID: 109570, guid: 421cef206d9851f42b3f8bcb1b9b74b5, type: 2}
+  Exploration: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
+  GameState: {fileID: 0}
 --- !u!114 &11440858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6209,6 +6255,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665135167a848b74a935aca144adc6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11471286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myAffiliation: 1
 --- !u!114 &11472470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6387,9 +6445,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 160
   _currentHealth: 160
+  _defence: 0
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11456752}
   HealthIndicator: {fileID: 11489852}
+--- !u!114 &11497888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myAffiliation: 1
 --- !u!114 &11499180
 MonoBehaviour:
   m_ObjectHideFlags: 1
