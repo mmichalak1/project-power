@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: ExplorationInstance
   m_EditorClassIdentifier: 
   GameResult: 2
-  LevelPlayed: {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
+  LevelPlayed: {fileID: 0}
   EnableBoss: 0

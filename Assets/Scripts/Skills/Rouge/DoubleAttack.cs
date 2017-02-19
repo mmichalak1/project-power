@@ -14,7 +14,7 @@ public class DoubleAttack : Skill {
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {
-        Debug.Log(actor.name + " attacks " + target.name + " " + AttackCount + " times.");
+        //Debug.Log(actor.name + " attacks " + target.name + " " + AttackCount + " times.");
         for (int i = 0; i < AttackCount; i++)
         {
             target.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage(Power, actor);

@@ -6,7 +6,8 @@ public class AfterBattleScript : MonoBehaviour {
     public ExplorationHolder holder;
     public GameObject ResultsPanel;
     public Button[] SceneButtons;
-    public EntityData[] Data;
+    //public EntityData[] Data {get ;};
+    public GameSaverScript Saver;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,7 @@ public class AfterBattleScript : MonoBehaviour {
                 holder.LevelPlayed.OnLevelLost();
                 break;
             case GameResult.None:
+                Saver.SaveGame();
                 ResultsPanel.SetActive(false);
                 ResultsPanel.GetComponent<AfterBattlePanelScript>().addingExperience = false;
                 EnableButtons();

@@ -268,7 +268,7 @@ public class TurnManager : MonoBehaviour
         foreach (EntityDataHolder skills in DataHolders)
             skills.SheepData.SheepSkills.UpdateCooldowns();
 
-        Debug.Log("Checking state");
+        //Debug.Log("Checking state");
         if (BattleWon)
         {
             var effects = FindObjectsOfType<SC_SpellDuration>();

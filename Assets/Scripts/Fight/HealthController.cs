@@ -32,7 +32,7 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
         if (_currentHealth <= 0)
         {
             Events.Instance.DispatchEvent(gameObject.name + "death", gameObject);
-            Debug.Log(gameObject.name + " died.");
+            //Debug.Log(gameObject.name + " died.");
             gameObject.SetActive(false);
         }
     }
@@ -91,7 +91,7 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     ///</summary>
     public void DealDamage(int value)
     {
-        Debug.Log("Defence: " + _defence);
+        //Debug.Log("Defence: " + _defence);
         if (_defence > 0)
             value -= (int)(value * _defence / 100.0f);
         _currentHealth -= value;

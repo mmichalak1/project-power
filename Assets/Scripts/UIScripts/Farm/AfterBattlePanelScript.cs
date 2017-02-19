@@ -24,7 +24,7 @@ public class AfterBattlePanelScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Saver.LoadGame();
+        //Saver.LoadGame();
         for (int i = 0; i < 4; i++)
         {
             StaticExpIndicator[i].fillAmount = DynamicExpIndicator[i].fillAmount = (float)sheepData[i].Experience / (float)sheepData[i].ExperienceForNextLevel;

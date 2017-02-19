@@ -3825,7 +3825,7 @@ MonoBehaviour:
   - {fileID: 1795188833}
   - {fileID: 1361112456}
   - {fileID: 1934673104}
-  Data: []
+  Saver: {fileID: 1834065852}
 --- !u!114 &1834065852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3839,7 +3839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Save: {fileID: 11400000, guid: 25308824fbae9e140aa83092a62e67aa, type: 2}
   SaveOnStart: 0
-  LoadOnStart: 1
+  LoadOnStart: 0
 --- !u!1 &1836965093
 GameObject:
   m_ObjectHideFlags: 0

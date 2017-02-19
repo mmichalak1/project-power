@@ -47,7 +47,7 @@ namespace Assets.LogicSystem
             }
             TurnManager.UpdateResource(plan.Skill.Cost);
             plans.Add(new KeyValuePair<GameObject, Plan>(entity, plan));
-            Debug.Log("Added plan for " + entity.name);
+            //Debug.Log("Added plan for " + entity.name);
         }
 
         public void CancelPlan(Skill cancelledSkill)
