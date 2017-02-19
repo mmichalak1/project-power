@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 442102}
   - 114: {fileID: 11420044}
   - 114: {fileID: 11415424}
+  - 114: {fileID: 11444204}
   m_Layer: 0
   m_Name: BananaStun_Throw
   m_TagString: Untagged
@@ -73,6 +74,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpellDuration: 2
+  Delay: 0
+  actorOffset: {fileID: 11444204}
+  targetOffset: {fileID: 0}
 --- !u!114 &11420044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -85,7 +89,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellDuration: 3
+  spellStopLoopingDuration: 0
   children: []
+--- !u!114 &11444204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b2cea1367b2d04ba9f6ca78683c26d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Offset: {x: 0, y: 0.5, z: 0}
 --- !u!198 &19834276
 ParticleSystem:
   m_ObjectHideFlags: 1

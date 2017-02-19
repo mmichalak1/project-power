@@ -13,13 +13,22 @@ public class SC_SpellDuration : MonoBehaviour {
 
 	[Header("Config")]
 	public float spellDuration;
+    public float spellStopLoopingDuration;
     public List<ParticleSystem> children;
 
 	void Start () {
-        foreach(ParticleSystem child in children)
-        {
-            child.loop = false;
-        }
 		Destroy (gameObject, spellDuration);
 	}
+
+    void Update()
+    {
+        spellStopLoopingDuration -= Time.deltaTime;
+        if(spellStopLoopingDuration < 0)
+        {
+            foreach (ParticleSystem child in children)
+            {
+                child.loop = false;
+            }
+        }
+    }
 }

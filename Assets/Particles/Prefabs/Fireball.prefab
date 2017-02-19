@@ -43,6 +43,7 @@ GameObject:
   - 4: {fileID: 453738}
   - 114: {fileID: 11446184}
   - 114: {fileID: 11405876}
+  - 114: {fileID: 11409724}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: Untagged
@@ -137,6 +138,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellDuration: 2
   Delay: 1
+  actorOffset: {fileID: 11409724}
+--- !u!114 &11409724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b2cea1367b2d04ba9f6ca78683c26d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Offset: {x: 0, y: 0.5, z: 0}
 --- !u!114 &11446184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellDuration: 2
+  spellStopLoopingDuration: 0
   children: []
 --- !u!198 &19832136
 ParticleSystem:
