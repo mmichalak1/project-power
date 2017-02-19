@@ -26,6 +26,12 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
 
     public Image HealthIndicator;
 
+    public Text HealthText;
+
+    void Start()
+    {
+        UpdateHealthBar();
+    }
 
     void Update()
     {
@@ -132,6 +138,8 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     {
         if (HealthIndicator != null)
             HealthIndicator.fillAmount = (float)_currentHealth / (float)_maxHealth;
+        if (HealthText != null)
+            HealthText.text = _currentHealth + "/" + _maxHealth;
     }
 
     public void HealToFull()
