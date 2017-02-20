@@ -40,19 +40,19 @@ public class SkillsMenuScript : MonoBehaviour
     {
         this.SheepNumber = SheepNumber;
         SelectedSheepIcon.sprite = SheepData[SheepNumber].Portrait;
-        for (int i = 0; i < 4; i++)
+        for (int i = 1; i < 5; i++)
         {
             var skill = SheepData[SheepNumber].SheepSkills.Skills[i];
             skill.Initialize(SheepData[SheepNumber]);
-            SkillsButtons[i].image.sprite = skill.Icon;
+            SkillsButtons[i-1].image.sprite = skill.Icon;
             if (!skill.IsActive)
-                SkillsButtons[i].image.color = LockedColor;
+                SkillsButtons[i-1].image.color = LockedColor;
             else
-                SkillsButtons[i].image.color = UnlockedColor;
+                SkillsButtons[i-1].image.color = UnlockedColor;
 
             if (skill.RequiredSheepLevel > SheepData[SheepNumber].Level)
             {
-                SkillsButtons[i].image.color = LockedByLvlColor;
+                SkillsButtons[i-1].image.color = LockedByLvlColor;
             }
         }
     }

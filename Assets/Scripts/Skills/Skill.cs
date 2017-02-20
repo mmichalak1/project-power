@@ -92,6 +92,11 @@ public abstract class Skill : ScriptableObject {
         get { return BaseCooldown; }
     }
 
+    public int ResourceCost
+    {
+        get { return BaseCost; }
+    }
+
     protected int _baseCooldown
     {
         get { return BaseCooldown; }
