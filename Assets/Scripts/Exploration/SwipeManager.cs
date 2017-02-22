@@ -14,9 +14,9 @@ public class SwipeManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Enable = new Events.MyEvent(x => { enabled = true; });
-        Disable = new Events.MyEvent(x => { enabled = false; });
-        Events.Instance.RegisterForMultipleEvents(new string[] { "DisableSwipe", "EnterFight" }, Disable);
+        Enable = x => { enabled = true; };
+        Disable = x => { enabled = false; };
+        Events.Instance.RegisterForMultipleEvents(new[] { "DisableSwipe", "EnterFight" }, Disable);
         Events.Instance.RegisterForEvent("EndFight", Enable);
     }
 
@@ -53,30 +53,42 @@ public class SwipeManager : MonoBehaviour
 
 #endif
 #if UNITY_WSA_10_0 || UNITY_IOS || UNITY_ANDROID
-        if (Input.touchCount > 0)
+        if (Input.touchCount <= 0) return;
         {
-            Touch touch = Input.touches[0];
+            var touch = Input.touches[0];
             if (touch.phase == TouchPhase.Began)
                 touchStart = touch.position;
             else if (touch.phase == TouchPhase.Ended)
             {
-                if (touch.position.y > touchStart.y && Mathf.Abs(touch.position.y - touchStart.y) > MINDISTANCE)
+                var deltaX = Mathf.Abs(touch.position.x - touchStart.x);
+                var deltaY = Mathf.Abs(touch.position.y - touchStart.y);
+
+                if (deltaX > deltaY)
                 {
-                    Events.Instance.DispatchEvent("MoveForward", null);
+                    if (deltaX < MINDISTANCE)
+                        return;
+                    if (touch.position.x < touchStart.x)
+                    {
+                        Events.Instance.DispatchEvent("TurnLeft", null);
+                    }
+                    else
+                    {
+                        Events.Instance.DispatchEvent("TurnRight", null);
+                    }
                 }
-                else if (touch.position.y < touchStart.y && Mathf.Abs(touch.position.y - touchStart.y) > MINDISTANCE)
+                else
                 {
-                    Events.Instance.DispatchEvent("MoveDown", null);
+                    if (deltaY < MINDISTANCE)
+                        return;
+                    if (touch.position.y > touchStart.y)
+                    {
+                        Events.Instance.DispatchEvent("MoveForward", null);
+                    }
+                    else
+                    {
+                        Events.Instance.DispatchEvent("MoveDown", null);
+                    }
                 }
-                else if (touch.position.x > touchStart.x && Mathf.Abs(touch.position.x - touchStart.x) > MINDISTANCE)
-                {
-                    Events.Instance.DispatchEvent("TurnRight", null);
-                }
-                else if (touch.position.x < touchStart.x && Mathf.Abs(touch.position.x - touchStart.x) > MINDISTANCE)
-                {
-                    Events.Instance.DispatchEvent("TurnLeft", null);
-                }
-                    
             }
         }
 #endif

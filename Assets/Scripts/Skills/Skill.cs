@@ -31,7 +31,7 @@ public abstract class Skill : ScriptableObject {
     [SerializeField, Tooltip("Skill's cooldown, when declaring always add +1 to it. Example: if you want 1 turn cooldown write 2.")]
     private int BaseCooldown = 2;
     [SerializeField]
-    private int SkillLevel = 0;
+    public int SkillLevel = 0;
     [SerializeField, Tooltip("Defines if skill was learned by given sheep")]
     private bool isActive = false;
     [SerializeField, Tooltip("Cost of unlocking and upgrading skill")]

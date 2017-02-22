@@ -14,7 +14,7 @@ MonoBehaviour:
   StatsMultiplier: 100
   BaseCost: 3
   BaseCooldown: 2
-  SkillLevel: 0
+  SkillLevel: 2
   isActive: 1
   unlockCost: 30
   _rawDescription: Shields target dealing <damage>{0}</damage> + <damage>{1}%</damage>

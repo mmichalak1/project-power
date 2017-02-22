@@ -39,15 +39,16 @@ public class TurnPlayer : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             if (nextPlan.IsExecutable)
             {
+                int skillAnimationIdentificator = nextPlan.Skill.SkillLevel;
                 if (nextPlan.Skill.OnCastEffect != null)
                 {
-                    nextPlan.Skill.OnCastEffect.Apply(nextPlan.Actor, nextPlan.Target);
+                    nextPlan.Skill.OnCastEffect.Apply(nextPlan.Actor, nextPlan.Target, true, skillAnimationIdentificator);
                     yield return new WaitForSeconds(nextPlan.Skill.OnCastEffect.Duration);
                 }
 
                 if (nextPlan.Skill.OnHitEffect != null)
                 {
-                    nextPlan.Skill.OnHitEffect.Apply(nextPlan.Actor, nextPlan.Target);
+                    nextPlan.Skill.OnHitEffect.Apply(nextPlan.Actor, nextPlan.Target, false, skillAnimationIdentificator);
                     yield return new WaitForSeconds(nextPlan.Skill.OnHitEffect.Duration);
                 }
 

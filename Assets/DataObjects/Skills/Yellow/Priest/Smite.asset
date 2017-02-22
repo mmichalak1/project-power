@@ -14,7 +14,7 @@ MonoBehaviour:
   StatsMultiplier: 100
   BaseCost: 3
   BaseCooldown: 2
-  SkillLevel: 0
+  SkillLevel: 1
   isActive: 1
   unlockCost: 0
   _rawDescription: Priest strikes target with heavenly strike dealing <damage>{0}</damage>
