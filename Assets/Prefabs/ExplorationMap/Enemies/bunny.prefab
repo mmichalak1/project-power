@@ -1275,6 +1275,7 @@ GameObject:
   - 114: {fileID: 11426574}
   - 114: {fileID: 11450136}
   - 114: {fileID: 11462216}
+  - 114: {fileID: 11445810}
   m_Layer: 8
   m_Name: bunny
   m_TagString: Enemy
@@ -1359,7 +1360,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181322}
   m_LocalRotation: {x: -0.7071068, y: 0.000000029802326, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: -0.78, y: 0.15, z: 2}
+  m_LocalPosition: {x: -0.78, y: 0.15, z: 3.62}
   m_LocalScale: {x: 453.54636, y: 453.54605, z: 453.5463}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_Children:
@@ -2421,10 +2422,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197370}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 6.21, y: -0.1, z: 0.78}
+  m_LocalRotation: {x: 0, y: -0.8978856, z: 0, w: 0.44022885}
+  m_LocalPosition: {x: 6.2100043, y: -0.09999998, z: 0.7800047}
   m_LocalScale: {x: 0.7794775, y: 0.7794776, z: 0.77947754}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -127.7631, z: 0}
   m_Children:
   - {fileID: 467276}
   - {fileID: 403924}
@@ -2526,7 +2527,7 @@ Animator:
   m_GameObject: {fileID: 197370}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 40b08dd72458e9447a1a1fdb920a530e, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 095cc259a49ceca43b6780a607336ca4, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2636,6 +2637,17 @@ MonoBehaviour:
   Damage: 10
   MyBrain: {fileID: 11400000, guid: ef09a6bbab2eb464f8243b7eba89adaf, type: 2}
   _brainsList: []
+--- !u!114 &11445810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33cb4652cf88d724bb2c7d2f57da8e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11450136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2957,10 +2969,10 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127080}
-  m_LocalRotation: {x: 0.21233144, y: 0.6749922, z: -0.20914377, w: 0.6749517}
-  m_LocalPosition: {x: 0, y: 0, z: 1.7}
+  m_LocalRotation: {x: 0.15866697, y: 0.81187516, z: -0.2522905, w: 0.502029}
+  m_LocalPosition: {x: 0, y: 0, z: 0.32}
   m_LocalScale: {x: 0.06, y: 0.03, z: 1}
-  m_LocalEulerAnglesHint: {x: 34.6783, y: 90.0974, z: 0.301}
+  m_LocalEulerAnglesHint: {x: 34.6783, y: 116.632195, z: 0.3011}
   m_Children:
   - {fileID: 22425248}
   - {fileID: 22452168}
@@ -2968,7 +2980,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.32, y: 11.62}
+  m_AnchoredPosition: {x: -0.48, y: 11.96}
   m_SizeDelta: {x: 100, y: 22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22452168

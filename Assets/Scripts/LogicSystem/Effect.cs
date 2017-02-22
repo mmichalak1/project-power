@@ -22,11 +22,21 @@ public class Effect : ScriptableObject
 
     public void Apply(GameObject actor, GameObject target, bool isCast, int skillAnimationIdentificator)
     {
-        Debug.Log(actor.tag);
-        if(actor != null && isCast && actor.tag != "Enemy")
-            actor.GetComponentInChildren<AnimationControl>().SkillOn(skillAnimationIdentificator);
-        if (actor != null && !isCast && actor.tag != "Enemy")
-            actor.GetComponentInChildren<AnimationControl>().SkillOff(skillAnimationIdentificator);
+        if(actor.tag !="Enemy")
+        {
+            if (isCast)
+                actor.GetComponentInChildren<AnimationControl>().SkillOn(skillAnimationIdentificator);
+            if (!isCast)
+                actor.GetComponentInChildren<AnimationControl>().SkillOff(skillAnimationIdentificator);
+        }
+        else
+        {
+            if (isCast)
+                actor.GetComponentInChildren<AnimationControl>().SkillOn(0);
+            if (!isCast)
+                actor.GetComponentInChildren<AnimationControl>().SkillOff(0);
+        }
+
         if (_particleEffect != null)
         {
             GameObject go = Instantiate(_particleEffect, Vector3.zero, Quaternion.identity) as GameObject;
