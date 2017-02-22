@@ -31,12 +31,12 @@ public class BuyResource : MonoBehaviour {
         {
             BuyButton.SetActive(false);
         }
-        updateCost();
+        UpdateCost();
         resources.text = "Resources: "+ resourceCounter.Resources.ToString();
         resourcesCost.text = "Buy more for: " + cost;
 
     }
-    void updateCost()
+    void UpdateCost()
     {
         if((resourceCounter.Resources - resourceCounter.BasicResources) == 0)
         {
