@@ -25,4 +25,4 @@ MonoBehaviour:
   OnHitEffect: {fileID: 11400000, guid: 3e78c54876e132241bda5e36d60690b7, type: 2}
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: e5c1884370327e64fba46f6f2ec595f1, type: 3}
-  ResourceAdded: 2
+  ResourceAdded: 5
