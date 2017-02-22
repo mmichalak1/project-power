@@ -4,6 +4,10 @@ using System.Collections;
 public class CancelButtonScript : MonoBehaviour
 {
 
+    public int UpperY = 20;
+    public int LowerY = -125;
+    public float Speed = 300.0f;
+
     private RectTransform rectTransform;
 
     // Use this for initialization
@@ -17,11 +21,11 @@ public class CancelButtonScript : MonoBehaviour
     {
         if (TurnManager.state == TurnManager.activeState.skillPicked)
         {
-            if (rectTransform.position.y < 20)
-                rectTransform.position += new Vector3(0, 300, 0) * Time.deltaTime;
+            if (rectTransform.position.y < UpperY)
+                rectTransform.position += new Vector3(0, Speed, 0) * Time.deltaTime;
         }
         else
-            if (rectTransform.position.y > -125)
-                rectTransform.position -= new Vector3(0, 300, 0) * Time.deltaTime;
+            if (rectTransform.position.y > LowerY)
+                rectTransform.position -= new Vector3(0, Speed, 0) * Time.deltaTime;
     }
 }

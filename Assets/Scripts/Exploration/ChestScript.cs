@@ -24,6 +24,7 @@ public class ChestScript : MonoBehaviour
         if (ExplorationHolder.LevelPlayed == null)
         {
             GetComponent<Collider>().enabled = false;
+            Debug.Log("Current level played is not set, can't setup chest");
             return;
         }
         ChestData = ExplorationHolder.LevelPlayed.Chests.First(x => x.name == gameObject.name);
