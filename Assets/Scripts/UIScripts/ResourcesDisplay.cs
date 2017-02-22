@@ -24,7 +24,7 @@ public class ResourcesDisplay : MonoBehaviour
         Events.Instance.RegisterForEvent("SetFilled", SetFilled);
         CleanActive(null);
 
-        for (int i = 0; i < ResourceCtr.Resources; i++)
+        for (int i = 0; i < ResourceCtr.BasicResources; i++)
             Crystals[i].gameObject.SetActive(true);
 
         gameObject.SetActive(false);
