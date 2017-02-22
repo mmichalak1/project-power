@@ -2,42 +2,39 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(Button))]
-public class ButtonHoldScript : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+[RequireComponent(typeof(EventTrigger))]
+public class ButtonHoldScript : MonoBehaviour
 {
 
     private bool isShown = false;
     private bool isBeingClicked = false;
-    private Button MyButton;
 
-    public Skill MySkill;
+    public Skill MySkill { get; set; }
     public SkillDescription SkillDescription;
-
-    
 
     public float RequestedTouchTime = 2f;
     private float timer = 0.0f;
 
-
-    void Start()
-    {
-        MyButton = gameObject.GetComponent<Button>();
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerDown(BaseEventData data)
     {
         isBeingClicked = true;
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public void OnPointerUp(BaseEventData data)
     {
         isBeingClicked = false;
+        FightingSceneUIScript.DisableSkillCanvases();
+        timer = 0.0f;
+
         if (isShown)
         {
+            //What happens when button was held and now is being released
             isShown = false;
-            timer = 0.0f;
-            FightingSceneUIScript.DisableSkillCanvases();
-            SkillDescription.gameObject.SetActive(false);
+        }
+        else
+        {
+            //OnButtonClick
+            TurnManager.SelectSkill(MySkill);
         }
 
     }
@@ -54,9 +51,9 @@ public class ButtonHoldScript : MonoBehaviour, IPointerDownHandler, IPointerUpHa
                 {
                     TurnManager.state = TurnManager.activeState.nothingPicked;
                     isShown = true;
-                    MyButton.onClick.RemoveAllListeners();
                     SkillDescription.gameObject.SetActive(true);
                     SkillDescription.LoadSkillData(MySkill);
+                    FightingSceneUIScript.DisableSkillCanvases();
                     Debug.Log("Hey, I was held for more than " + RequestedTouchTime);
                 }
             }

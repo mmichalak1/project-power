@@ -21,6 +21,11 @@ public class ChestScript : MonoBehaviour
 
     void Start()
     {
+        if (ExplorationHolder.LevelPlayed == null)
+        {
+            GetComponent<Collider>().enabled = false;
+            return;
+        }
         ChestData = ExplorationHolder.LevelPlayed.Chests.First(x => x.name == gameObject.name);
         var now = DateTime.UtcNow;
         var diffrence = now - ChestData.LastOpened;

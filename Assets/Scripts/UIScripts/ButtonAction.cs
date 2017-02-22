@@ -3,8 +3,8 @@ using UnityEngine.EventSystems;
 
 public class ButtonAction : MonoBehaviour {
 
-    public void SkillButtonAction()
+    public void SkillButtonAction(Skill skill)
     {
-        TurnManager.SelectSkill(EventSystem.current.currentSelectedGameObject.GetComponent<ButtonHoldScript>().MySkill);
+        TurnManager.SelectSkill(skill);
     }
 }
