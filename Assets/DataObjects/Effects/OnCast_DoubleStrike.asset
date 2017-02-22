@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d2ee2e23ff0584eb7c61a29277cc51, type: 3}
   m_Name: OnCast_DoubleStrike
   m_EditorClassIdentifier: 
-  _particleEffect: {fileID: 130502, guid: 783f17e58c4d4d64b9d8beb4f9a46939, type: 2}
+  _particleEffect: {fileID: 0}
   _sound: {fileID: 8300000, guid: c3d336cf386fba542b135ae9234ad75f, type: 3}
-  _duration: 1
+  _duration: 2

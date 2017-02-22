@@ -20,8 +20,13 @@ public class Effect : ScriptableObject
     public float Duration { get { return _duration; } }
     private GameObject ParticleEffect { get { return _particleEffect; } }
 
-    public void Apply(GameObject actor, GameObject target)
+    public void Apply(GameObject actor, GameObject target, bool isCast, int skillAnimationIdentificator)
     {
+        Debug.Log(actor.tag);
+        if(actor != null && isCast && actor.tag != "Enemy")
+            actor.GetComponentInChildren<AnimationControl>().SkillOn(skillAnimationIdentificator);
+        if (actor != null && !isCast && actor.tag != "Enemy")
+            actor.GetComponentInChildren<AnimationControl>().SkillOff(skillAnimationIdentificator);
         if (_particleEffect != null)
         {
             GameObject go = Instantiate(_particleEffect, Vector3.zero, Quaternion.identity) as GameObject;

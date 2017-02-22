@@ -22,7 +22,6 @@ MonoBehaviour:
   isBasicSkill: 1
   _skillTarget: 1
   _requiredSheepLevel: 0
-  effectDuration: 1
   OnCastEffect: {fileID: 11400000, guid: 0bdc67ca61daac84d919b3cd4b09f79b, type: 2}
   OnHitEffect: {fileID: 11400000, guid: c1e7045cc037a5f49b92f8333c554601, type: 2}
   RequiredSkills: []
