@@ -189,6 +189,7 @@ public class TurnManager : MonoBehaviour
                 else
                 {
                     Debug.Log("Invalid Target");
+                    Events.Instance.DispatchEvent("CleanActive", null);
                 }
                 hitedTarget = null;
 
@@ -219,7 +220,14 @@ public class TurnManager : MonoBehaviour
 
     bool GetPointerPosition()
     {
-#if UNITY_WSA_10_0 || UNITY_IOS || UNITY_ANDROID
+#if UNITY_EDITOR || UNITY_STANDALONE
+        if (Input.GetMouseButtonUp(0))
+        {
+            CheckTouch(Input.mousePosition);
+            return true;
+        }
+
+#elif UNITY_WSA_10_0 || UNITY_IOS || UNITY_ANDROID
         if (Input.touchCount > 0)
         {
             if (Input.GetTouch(0).phase == TouchPhase.Ended)
@@ -227,13 +235,6 @@ public class TurnManager : MonoBehaviour
                 CheckTouch(Input.GetTouch(0).position);
                 return true;
             }
-        }
-#endif
-#if UNITY_EDITOR
-        if (Input.GetMouseButtonUp(0))
-        {
-            CheckTouch(Input.mousePosition);
-            return true;
         }
 #endif
         return false;
