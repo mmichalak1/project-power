@@ -1276,6 +1276,7 @@ GameObject:
   - 114: {fileID: 11450136}
   - 114: {fileID: 11462216}
   - 114: {fileID: 11445810}
+  - 114: {fileID: 11408162}
   m_Layer: 8
   m_Name: bunny
   m_TagString: Enemy
@@ -2535,6 +2536,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11408162
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2eb2303a12c3a44aa156281bbdc9fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Belly: {x: 0, y: 0.5, z: 0}
+  Head: {x: 0, y: 0.75, z: 0}
 --- !u!114 &11408632
 MonoBehaviour:
   m_ObjectHideFlags: 1

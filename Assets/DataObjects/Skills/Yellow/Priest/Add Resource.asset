@@ -15,7 +15,7 @@ MonoBehaviour:
   BaseCost: 0
   BaseCooldown: 4
   SkillLevel: 3
-  isActive: 0
+  isActive: 1
   unlockCost: 900
   _rawDescription: Refresh {0} of yours used crystals.
   isBasicSkill: 0

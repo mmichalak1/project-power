@@ -120,6 +120,7 @@ GameObject:
   - 114: {fileID: 11427548}
   - 82: {fileID: 8204528}
   - 114: {fileID: 11432696}
+  - 114: {fileID: 11474956}
   m_Layer: 0
   m_Name: wolf (2)
   m_TagString: Enemy
@@ -919,6 +920,7 @@ GameObject:
   - 114: {fileID: 11402896}
   - 82: {fileID: 8290070}
   - 114: {fileID: 11497888}
+  - 114: {fileID: 11476458}
   m_Layer: 8
   m_Name: wolf
   m_TagString: Enemy
@@ -1731,6 +1733,7 @@ GameObject:
   - 114: {fileID: 11434902}
   - 82: {fileID: 8247518}
   - 114: {fileID: 11471286}
+  - 114: {fileID: 11406172}
   m_Layer: 0
   m_Name: wolf (3)
   m_TagString: Enemy
@@ -2322,6 +2325,7 @@ GameObject:
   - 114: {fileID: 11453486}
   - 82: {fileID: 8235850}
   - 114: {fileID: 11407654}
+  - 114: {fileID: 11447460}
   m_Layer: 0
   m_Name: wolf (1)
   m_TagString: Enemy
@@ -5795,6 +5799,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Experience: 100
+--- !u!114 &11406172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2eb2303a12c3a44aa156281bbdc9fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Belly: {x: 0, y: 0.25, z: 0}
+  Head: {x: 0, y: 0.25, z: 0}
 --- !u!114 &11407654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6162,6 +6179,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58006562402b7ce4a8ea0d2ecf8217bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11447460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2eb2303a12c3a44aa156281bbdc9fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Belly: {x: 0, y: 0.25, z: 0}
+  Head: {x: 0, y: 0.25, z: 0}
 --- !u!114 &11449764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6431,6 +6461,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 100/100
+--- !u!114 &11474956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2eb2303a12c3a44aa156281bbdc9fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Belly: {x: 0, y: 0.25, z: 0}
+  Head: {x: 0, y: 0.25, z: 0}
 --- !u!114 &11475538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6452,6 +6495,19 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11476458
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2eb2303a12c3a44aa156281bbdc9fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Belly: {x: 0, y: 0.25, z: 0}
+  Head: {x: 0, y: 0.5, z: 0}
 --- !u!114 &11477982
 MonoBehaviour:
   m_ObjectHideFlags: 1

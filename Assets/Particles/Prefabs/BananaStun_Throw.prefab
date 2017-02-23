@@ -76,7 +76,7 @@ MonoBehaviour:
   SpellDuration: 2
   Delay: 0
   actorOffset: {fileID: 11444204}
-  targetOffset: {fileID: 0}
+  tOffset: 1
 --- !u!114 &11420044
 MonoBehaviour:
   m_ObjectHideFlags: 1
