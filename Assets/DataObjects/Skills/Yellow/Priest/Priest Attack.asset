@@ -24,4 +24,4 @@ MonoBehaviour:
   OnCastEffect: {fileID: 0}
   OnHitEffect: {fileID: 0}
   RequiredSkills: []
-  Icon: {fileID: 21300000, guid: 7417d8df1a0990644815d3409e65a7d7, type: 3}
+  Icon: {fileID: 21300000, guid: 899f27ad98e71964dbd3a871f959293a, type: 3}

@@ -1397,7 +1397,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 189546, guid: 78a049514eb07344f8a5d6d8300942f4, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78a049514eb07344f8a5d6d8300942f4, type: 2}
@@ -2108,7 +2108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &989267371
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2504,10 +2504,10 @@ RectTransform:
   - {fileID: 716208108}
   m_Father: {fileID: 1834065848}
   m_RootOrder: 2
-  m_AnchorMin: {x: 0.5, y: 0.38666576}
-  m_AnchorMax: {x: 0.5, y: 0.38666576}
-  m_AnchoredPosition: {x: 8, y: 35.407}
-  m_SizeDelta: {x: 192, y: 182}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 6.7, y: 7.7}
+  m_SizeDelta: {x: -517.80005, y: -227}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1361112456
 MonoBehaviour:
