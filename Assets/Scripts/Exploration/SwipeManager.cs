@@ -23,7 +23,7 @@ public class SwipeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE
         if (Input.GetMouseButtonDown(0))
         {
             touchStart = Input.mousePosition;
@@ -51,8 +51,8 @@ public class SwipeManager : MonoBehaviour
             }
         }
 
-#endif
-#if UNITY_WSA_10_0 || UNITY_IOS || UNITY_ANDROID
+
+#elif UNITY_WSA_10_0 || UNITY_IOS || UNITY_ANDROID
         if (Input.touchCount <= 0) return;
         {
             var touch = Input.touches[0];
