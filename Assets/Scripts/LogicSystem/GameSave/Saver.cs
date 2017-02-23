@@ -66,6 +66,12 @@ public static class Saver
             writer.Serialize(state, stream);
         }
     }
+
+    public static bool IsSaveExisting()
+    {
+        var path = Application.persistentDataPath + FILENAME;
+        return File.Exists(path);
+    }
 #endif
 
 
