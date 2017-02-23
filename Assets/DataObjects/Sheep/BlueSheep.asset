@@ -11,20 +11,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f6bf9d4f60d464dbb040ecba8aa40a, type: 3}
   m_Name: BlueSheep
   m_EditorClassIdentifier: 
-  Name: Mage Sherman
+  Name: BlueSheep
   Portrait: {fileID: 21300000, guid: 1959db1d8336df94182e179482e748ff, type: 3}
-  BasicMaxHealth: 100
-  BasicAttack: 10
+  BasicMaxHealth: 1030
+  BasicAttack: 1021
   BasicDefence: 0
   MaxHealthFromItems: 0
   AttackFromItems: 0
   DefenceFromItems: 0
-  Level: 15
-  Experience: 0
-  ExperienceForNextLevel: 100
-  Wool: 0
-  MaxWool: 25
-  WoolGrowth: 0
+  Level: 4
+  Experience: 300
+  ExperienceForNextLevel: 12500
+  Wool: 18
+  MaxWool: 70
+  WoolGrowth: 0.54999924
   SheepSkills: {fileID: 11400000, guid: ff8b91b9b24184744a77d623289fd5c0, type: 2}
   OffensiveItem: {fileID: 0}
   DefensiveItem: {fileID: 0}

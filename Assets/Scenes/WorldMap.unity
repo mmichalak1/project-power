@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d52223d1aea324b97cea58a125ba42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: FithPit
+  Destination: FithPit2
 --- !u!1 &1333465170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,7 +1900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d52223d1aea324b97cea58a125ba42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: FithPit
+  Destination: FithPit3
 --- !u!1 &1970556572
 GameObject:
   m_ObjectHideFlags: 0

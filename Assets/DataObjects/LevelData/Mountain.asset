@@ -11,10 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300a3d481e950794b9ae6c496ddbe1ef, type: 3}
   m_Name: Mountain
   m_EditorClassIdentifier: 
-  _progress: 0
+  _progress: 100
   _targetProgress: 100
-  _visited: 0
-  ProgressPerCompletion: 10
+  _visited: 3
+  ProgressPerCompletion: 20
   _nextUnblockableLevel: {fileID: 11400000, guid: 9325472f7c1eb0b409e0d622b7a7c9eb,
     type: 2}
-  isLocked: 1
+  isLocked: 0
+  _chests:
+  - {fileID: 11400000, guid: aeae7c02757f90247ac2f22d6ed4efa6, type: 2}
+  - {fileID: 11400000, guid: 44283b3eef60c644498c5e7ce8586f15, type: 2}

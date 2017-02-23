@@ -16,4 +16,6 @@ MonoBehaviour:
   _visited: 0
   ProgressPerCompletion: 10
   _nextUnblockableLevel: {fileID: 0}
-  isLocked: 1
+  isLocked: 0
+  _chests:
+  - {fileID: 11400000, guid: 8065a4b57e9d3b64aaf8a49b10bf1e14, type: 2}
