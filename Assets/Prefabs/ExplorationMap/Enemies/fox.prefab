@@ -244,6 +244,7 @@ GameObject:
   - 114: {fileID: 11405500}
   - 114: {fileID: 11427198}
   - 114: {fileID: 11484750}
+  - 114: {fileID: 11499178}
   m_Layer: 8
   m_Name: fox
   m_TagString: Enemy
@@ -2282,8 +2283,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112730}
-  m_LocalRotation: {x: 0, y: 0.7071066, z: 0, w: -0.70710695}
-  m_LocalPosition: {x: 1.91, y: -0.1, z: 6.15}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071067}
+  m_LocalPosition: {x: 6.63, y: -0.1, z: 1.38}
   m_LocalScale: {x: 0.77947706, y: 0.7794776, z: 0.7794782}
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
   m_Children:
@@ -2526,7 +2527,7 @@ Animator:
   m_GameObject: {fileID: 112730}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a25c4fe00cb50f547b148a91435608ab, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 095cc259a49ceca43b6780a607336ca4, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2658,7 +2659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 2
-  Damage: 40
+  Damage: 30
   MyBrain: {fileID: 11400000, guid: ef09a6bbab2eb464f8243b7eba89adaf, type: 2}
   _brainsList: []
 --- !u!114 &11431994
@@ -2737,8 +2738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8a400ccec370445bef0cf32d92c9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 200
-  _currentHealth: 200
+  _maxHealth: 100
+  _currentHealth: 100
   _defence: 0
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11440242}
@@ -2777,6 +2778,17 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11499178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33cb4652cf88d724bb2c7d2f57da8e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &13726244
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
