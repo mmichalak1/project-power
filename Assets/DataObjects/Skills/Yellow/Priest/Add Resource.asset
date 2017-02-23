@@ -15,9 +15,9 @@ MonoBehaviour:
   BaseCost: 0
   BaseCooldown: 4
   SkillLevel: 3
-  isActive: 1
+  isActive: 0
   unlockCost: 900
-  _rawDescription: Adds {0} to to resource pool for this turn.
+  _rawDescription: Refresh {0} of yours used crystals.
   isBasicSkill: 0
   _skillTarget: 0
   _requiredSheepLevel: 9

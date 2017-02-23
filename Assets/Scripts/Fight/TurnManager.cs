@@ -28,8 +28,8 @@ public class TurnManager : MonoBehaviour
     public static void UpdateResource(int i)
     {
         CurrentResource -= i;
-        if (CurrentResource > TurnManager.Instance.DefaultResourceCounter.BasicResources)
-            CurrentResource = TurnManager.Instance.DefaultResourceCounter.BasicResources;
+        if (CurrentResource > Instance.DefaultResourceCounter.Resources)
+            CurrentResource = Instance.DefaultResourceCounter.Resources;
         Events.Instance.DispatchEvent("SetFilled", CurrentResource);
     }
 
