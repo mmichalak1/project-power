@@ -37,4 +37,9 @@ public class GameSaverScript : MonoBehaviour
         Debug.Log("Game Loaded Successfully");
 
     }
+
+    public bool IsSaveExisiting()
+    {
+        return Saver.IsSaveExisting();
+    }
 }
