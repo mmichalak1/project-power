@@ -51,16 +51,15 @@ public class ChestScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == Player)
-        {
-            GetComponent<Collider>().enabled = false;
-            WoolWindow.SetActive(true);
-            WoolWindow.GetComponent<AfterBattleScreen>().OnEvoke(ChestData.WoolForChest);
-            ChestData.LastOpened = DateTime.UtcNow;
-            Manager.enabled = false;
-            IsCountingDown = TimerText.enabled = true;
-            GameSaver.SaveGame();
-        }
+        if (other.gameObject != Player)
+            return;
+        GetComponent<Collider>().enabled = false;
+        WoolWindow.SetActive(true);
+        WoolWindow.GetComponent<AfterBattleScreen>().OnEvoke(ChestData.WoolForChest);
+        ChestData.LastOpened = DateTime.UtcNow;
+        Manager.enabled = false;
+        IsCountingDown = TimerText.enabled = true;
+        GameSaver.SaveGame();
     }
 
     private static string TimeSpanToString(TimeSpan span)
