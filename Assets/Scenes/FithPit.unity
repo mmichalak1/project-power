@@ -1854,15 +1854,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11438570, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: Damage
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11488198, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: _currentHealth
-      value: 80
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 11488198, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: _maxHealth
-      value: 80
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 495806, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: m_RootOrder
@@ -1879,6 +1879,10 @@ Prefab:
     - target: {fileID: 426674, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11475094, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
+      propertyPath: Experience
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
@@ -3715,15 +3719,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427398, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
       propertyPath: Damage
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 11472346, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
       propertyPath: _maxHealth
-      value: 160
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 11472346, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
       propertyPath: _currentHealth
-      value: 160
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 486620, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
       propertyPath: m_LocalScale.x
@@ -3765,6 +3769,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 1968600e0976269409db7b6c5cf9370d, type: 2}
+    - target: {fileID: 11417456, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
+      propertyPath: Experience
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
   m_IsPrefabParent: 0
@@ -5198,7 +5206,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484858, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
       propertyPath: DataHolders.Array.data[0]
@@ -6298,7 +6306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Counter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
-  WoolForFight: 30
+  WoolForFight: 15
   enemies: []
 --- !u!114 &205677592
 MonoBehaviour:
@@ -7433,6 +7441,10 @@ Prefab:
     - target: {fileID: 426674, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11475094, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
+      propertyPath: Experience
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
@@ -9190,7 +9202,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 478558, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 478558, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
       propertyPath: m_LocalPosition.x
@@ -16042,15 +16054,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427398, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
       propertyPath: Damage
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 11472346, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
       propertyPath: _maxHealth
-      value: 160
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 11472346, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
       propertyPath: _currentHealth
-      value: 160
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 486620, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
       propertyPath: m_LocalScale.x
@@ -16092,6 +16104,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 004f9ce18f665f44aba95e06ec3a842a, type: 2}
+    - target: {fileID: 11417456, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
+      propertyPath: Experience
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
   m_IsPrefabParent: 0
@@ -32839,7 +32855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Counter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
-  WoolForFight: 20
+  WoolForFight: 10
   enemies: []
 --- !u!114 &1357289226
 MonoBehaviour:
@@ -35198,15 +35214,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11438570, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: Damage
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11488198, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: _currentHealth
-      value: 160
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 11488198, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: _maxHealth
-      value: 160
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 495806, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: m_RootOrder
@@ -35228,6 +35244,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3206fcbac91b3854d868574c46251470, type: 2}
+    - target: {fileID: 11475094, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
+      propertyPath: Experience
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
   m_IsPrefabParent: 0
@@ -35885,7 +35905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Counter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
-  WoolForFight: 40
+  WoolForFight: 30
   enemies: []
 --- !u!114 &1476189208
 MonoBehaviour:
@@ -38032,15 +38052,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11438570, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: Damage
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11488198, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: _currentHealth
-      value: 160
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 11488198, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: _maxHealth
-      value: 160
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 495806, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: m_RootOrder
@@ -38057,6 +38077,10 @@ Prefab:
     - target: {fileID: 426674, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11475094, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
+      propertyPath: Experience
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
@@ -41846,7 +41870,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485220, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 485220, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -46657,6 +46681,22 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 004f9ce18f665f44aba95e06ec3a842a, type: 2}
+    - target: {fileID: 11472346, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
+      propertyPath: _maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472346, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
+      propertyPath: _currentHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427398, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
+      propertyPath: Damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417456, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
+      propertyPath: Experience
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bae714e22b1b0d747a6eabe8617831fc, type: 2}
   m_IsPrefabParent: 0
@@ -49452,15 +49492,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11438570, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: Damage
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11488198, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: _currentHealth
-      value: 80
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 11488198, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: _maxHealth
-      value: 80
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 495806, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: m_RootOrder
@@ -49482,6 +49522,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 1968600e0976269409db7b6c5cf9370d, type: 2}
+    - target: {fileID: 11475094, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
+      propertyPath: Experience
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
   m_IsPrefabParent: 0
@@ -52227,7 +52271,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 478558, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9551884, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
       propertyPath: m_Controller
@@ -52687,6 +52731,10 @@ Prefab:
     - target: {fileID: 426674, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11475094, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}
+      propertyPath: Experience
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91078de4e6a5df04a98cc9d25fb5849b, type: 2}

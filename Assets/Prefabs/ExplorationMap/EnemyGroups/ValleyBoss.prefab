@@ -6084,7 +6084,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109570}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000014901163}
-  m_LocalPosition: {x: 16, y: 0.1, z: 6}
+  m_LocalPosition: {x: 16, y: 0.1, z: 6.447}
   m_LocalScale: {x: 0.12912914, y: 0.12912917, z: 0.12912923}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_Children:
@@ -7906,8 +7906,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8a400ccec370445bef0cf32d92c9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 160
-  _currentHealth: 160
+  _maxHealth: 80
+  _currentHealth: 80
   _defence: 0
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11447636}
@@ -7951,7 +7951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e40f289164f48845907a854d28858a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Experience: 200
+  Experience: 100
 --- !u!114 &11412674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8230,8 +8230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8a400ccec370445bef0cf32d92c9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 160
-  _currentHealth: 160
+  _maxHealth: 80
+  _currentHealth: 80
   _defence: 0
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11449514}
@@ -8305,7 +8305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 2
-  Damage: 30
+  Damage: 20
   MyBrain: {fileID: 11400000, guid: ef09a6bbab2eb464f8243b7eba89adaf, type: 2}
   _brainsList: []
 --- !u!114 &11456262
@@ -8336,7 +8336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 2
-  Damage: 60
+  Damage: 30
   MyBrain: {fileID: 11400000, guid: ef09a6bbab2eb464f8243b7eba89adaf, type: 2}
   _brainsList: []
 --- !u!114 &11459666
@@ -8383,7 +8383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e40f289164f48845907a854d28858a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Experience: 200
+  Experience: 100
 --- !u!114 &11469434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8545,7 +8545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 2
-  Damage: 30
+  Damage: 20
   MyBrain: {fileID: 11400000, guid: ef09a6bbab2eb464f8243b7eba89adaf, type: 2}
   _brainsList: []
 --- !u!114 &11487958
@@ -8598,8 +8598,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8a400ccec370445bef0cf32d92c9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 500
-  _currentHealth: 500
+  _maxHealth: 250
+  _currentHealth: 250
   _defence: 0
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11480244}

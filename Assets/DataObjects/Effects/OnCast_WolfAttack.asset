@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: OnCast_WolfAttack
   m_EditorClassIdentifier: 
   _particleEffect: {fileID: 0}
-  _sound: {fileID: 8300000, guid: 1094fbf3cc313476984cc7fc0a4546ef, type: 3}
+  _sound: {fileID: 0}
   _duration: 0.64

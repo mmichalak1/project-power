@@ -16,5 +16,5 @@ MonoBehaviour:
   _visited: 0
   ProgressPerCompletion: 10
   _nextUnblockableLevel: {fileID: 0}
-  isLocked: 0
+  isLocked: 1
   _chests: []
