@@ -4024,6 +4024,10 @@ Prefab:
       propertyPath: m_Center.z
       value: 0.5397177
       objectReference: {fileID: 0}
+    - target: {fileID: 11490726, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: Experience
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
   m_IsPrefabParent: 0
@@ -7338,7 +7342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Counter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
-  WoolForFight: 30
+  WoolForFight: 120
   enemies: []
 --- !u!114 &205677592
 MonoBehaviour:
@@ -11823,7 +11827,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 478558, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 478558, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
       propertyPath: m_LocalPosition.x
@@ -14484,6 +14488,22 @@ Prefab:
     - target: {fileID: 6595694, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
       propertyPath: m_Center.z
       value: 0.5397177
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455846, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: _maxHealth
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455846, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: _currentHealth
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466344, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: Damage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490726, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: Experience
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
@@ -21396,7 +21416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1618518014}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000045776367, y: 112.5}
@@ -25184,6 +25204,22 @@ Prefab:
       propertyPath: m_Center.z
       value: 0.5397177
       objectReference: {fileID: 0}
+    - target: {fileID: 11455846, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: _maxHealth
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455846, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: _currentHealth
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466344, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: Damage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490726, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: Experience
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
   m_IsPrefabParent: 0
@@ -28127,7 +28163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e40f289164f48845907a854d28858a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Experience: 200
+  Experience: 2000
 --- !u!114 &920827934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28141,7 +28177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 2
-  Damage: 30
+  Damage: 300
   MyBrain: {fileID: 11400000, guid: ef09a6bbab2eb464f8243b7eba89adaf, type: 2}
   _brainsList: []
 --- !u!65 &920827935
@@ -28169,8 +28205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8a400ccec370445bef0cf32d92c9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _currentHealth: 100
+  _maxHealth: 3000
+  _currentHealth: 3000
   _defence: 0
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 1688587469}
@@ -33719,7 +33755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e40f289164f48845907a854d28858a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Experience: 200
+  Experience: 2000
 --- !u!114 &1088678604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33733,7 +33769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 2
-  Damage: 30
+  Damage: 300
   MyBrain: {fileID: 11400000, guid: ef09a6bbab2eb464f8243b7eba89adaf, type: 2}
   _brainsList: []
 --- !u!65 &1088678605
@@ -33761,8 +33797,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8a400ccec370445bef0cf32d92c9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _currentHealth: 100
+  _maxHealth: 3000
+  _currentHealth: 3000
   _defence: 0
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 1091402543}
@@ -35358,6 +35394,22 @@ Prefab:
     - target: {fileID: 6595694, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
       propertyPath: m_Center.z
       value: 0.5397177
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455846, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: _maxHealth
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455846, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: _currentHealth
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466344, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: Damage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490726, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: Experience
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
@@ -39209,6 +39261,22 @@ Prefab:
       propertyPath: m_Center.z
       value: 0.5397177
       objectReference: {fileID: 0}
+    - target: {fileID: 11455846, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: _maxHealth
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455846, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: _currentHealth
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466344, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: Damage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490726, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: Experience
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
   m_IsPrefabParent: 0
@@ -39533,7 +39601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e40f289164f48845907a854d28858a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Experience: 200
+  Experience: 2000
 --- !u!114 &1241238146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39547,7 +39615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 2
-  Damage: 30
+  Damage: 300
   MyBrain: {fileID: 11400000, guid: ef09a6bbab2eb464f8243b7eba89adaf, type: 2}
   _brainsList: []
 --- !u!65 &1241238147
@@ -39575,8 +39643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8a400ccec370445bef0cf32d92c9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _currentHealth: 100
+  _maxHealth: 3000
+  _currentHealth: 3000
   _defence: 0
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 1955053121}
@@ -43273,7 +43341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Counter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
-  WoolForFight: 20
+  WoolForFight: 80
   enemies: []
 --- !u!114 &1357289226
 MonoBehaviour:
@@ -47063,7 +47131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Counter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
-  WoolForFight: 40
+  WoolForFight: 160
   enemies: []
 --- !u!114 &1476189208
 MonoBehaviour:
@@ -48333,7 +48401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e40f289164f48845907a854d28858a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Experience: 200
+  Experience: 2000
 --- !u!114 &1514626773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48347,7 +48415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 2
-  Damage: 30
+  Damage: 300
   MyBrain: {fileID: 11400000, guid: ef09a6bbab2eb464f8243b7eba89adaf, type: 2}
   _brainsList: []
 --- !u!65 &1514626774
@@ -48375,8 +48443,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8a400ccec370445bef0cf32d92c9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _currentHealth: 100
+  _maxHealth: 3000
+  _currentHealth: 3000
   _defence: 0
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 1237655163}
@@ -52435,12 +52503,12 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1512094702}
+  - {fileID: 679258109}
   - {fileID: 2040464158}
+  - {fileID: 1997152621}
   - {fileID: 64000367}
   - {fileID: 2137698043}
-  - {fileID: 679258109}
   - {fileID: 1205595419}
-  - {fileID: 1997152621}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
@@ -53267,7 +53335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e40f289164f48845907a854d28858a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Experience: 200
+  Experience: 1000
 --- !u!114 &1629850233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53281,7 +53349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 2
-  Damage: 30
+  Damage: 200
   MyBrain: {fileID: 11400000, guid: ef09a6bbab2eb464f8243b7eba89adaf, type: 2}
   _brainsList: []
 --- !u!65 &1629850234
@@ -53309,8 +53377,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8a400ccec370445bef0cf32d92c9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _currentHealth: 100
+  _maxHealth: 2000
+  _currentHealth: 2000
   _defence: 0
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 755352174}
@@ -54451,7 +54519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e40f289164f48845907a854d28858a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Experience: 200
+  Experience: 1000
 --- !u!114 &1649954151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54465,7 +54533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 2
-  Damage: 30
+  Damage: 200
   MyBrain: {fileID: 11400000, guid: ef09a6bbab2eb464f8243b7eba89adaf, type: 2}
   _brainsList: []
 --- !u!65 &1649954152
@@ -54493,8 +54561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8a400ccec370445bef0cf32d92c9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _currentHealth: 100
+  _maxHealth: 2000
+  _currentHealth: 2000
   _defence: 0
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 1210816585}
@@ -54698,7 +54766,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485220, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 485220, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -57308,6 +57376,10 @@ Prefab:
     - target: {fileID: 6595694, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
       propertyPath: m_Center.z
       value: 0.5397177
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490726, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
+      propertyPath: Experience
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94b617793a963ad40aba12897e65f1de, type: 2}
@@ -61858,6 +61930,22 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 004f9ce18f665f44aba95e06ec3a842a, type: 2}
+    - target: {fileID: 11480760, guid: 2f2dadb6d1379cc479cdcbc4561b11bf, type: 2}
+      propertyPath: _maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 11480760, guid: 2f2dadb6d1379cc479cdcbc4561b11bf, type: 2}
+      propertyPath: _currentHealth
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 11401782, guid: 2f2dadb6d1379cc479cdcbc4561b11bf, type: 2}
+      propertyPath: Damage
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460592, guid: 2f2dadb6d1379cc479cdcbc4561b11bf, type: 2}
+      propertyPath: Experience
+      value: 750
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f2dadb6d1379cc479cdcbc4561b11bf, type: 2}
   m_IsPrefabParent: 0
@@ -66714,7 +66802,7 @@ RectTransform:
   - {fileID: 421817639}
   - {fileID: 411537041}
   m_Father: {fileID: 1618518014}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_AnchorMin: {x: 0.18749999, y: 0.208}
   m_AnchorMax: {x: 0.81375, y: 0.79200006}
   m_AnchoredPosition: {x: 0, y: 0}
