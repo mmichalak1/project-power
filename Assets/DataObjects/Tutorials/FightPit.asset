@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7e5dee8e8888b439f110e9f21ea484, type: 3}
   m_Name: FightPit
   m_EditorClassIdentifier: 
-  _wasSeen: 1
+  _wasSeen: 0
   _text: Slide vertically from down to up to move. Slide horizontally to turn. On
     every map there are three obligatory group of enemies and one powerful optional
     guarding chest.

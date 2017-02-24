@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7e5dee8e8888b439f110e9f21ea484, type: 3}
   m_Name: WorldMap
   m_EditorClassIdentifier: 
-  _wasSeen: 1
+  _wasSeen: 0
   _text: Try to pass map until you unlock the boss fight. Beat a boss to unlock another
     map.

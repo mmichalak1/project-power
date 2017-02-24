@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7e5dee8e8888b439f110e9f21ea484, type: 3}
   m_Name: Farmer
   m_EditorClassIdentifier: 
-  _wasSeen: 1
+  _wasSeen: 0
   _text: Here you can exchange wool for items for your sheep.

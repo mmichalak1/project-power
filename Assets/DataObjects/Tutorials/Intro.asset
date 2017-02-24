@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7e5dee8e8888b439f110e9f21ea484, type: 3}
   m_Name: Intro
   m_EditorClassIdentifier: 
-  _wasSeen: 1
+  _wasSeen: 0
   _text: 'Hello, welcome to your home. Here you can manage your sheep by clicking
     barn, or go to the adventure by clicking map in right-top corner. You can also
     do business with farmer and barber. '
