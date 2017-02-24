@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad59c5cf48d50b24dbe0462a78ac65b6, type: 3}
   m_Name: Chest_guarded
   m_EditorClassIdentifier: 
-  _woolForChest: 200
+  _woolForChest: 400

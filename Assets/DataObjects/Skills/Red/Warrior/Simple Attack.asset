@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63fbf932f5b31ba4b8f96202c0dcee3b, type: 3}
   m_Name: Simple Attack
   m_EditorClassIdentifier: 
-  StatsMultiplier: 70
+  StatsMultiplier: 25
   BaseCost: 1
   BaseCooldown: 1
   SkillLevel: -1

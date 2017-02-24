@@ -14,7 +14,7 @@ MonoBehaviour:
   _progress: 100
   _targetProgress: 100
   _visited: 3
-  ProgressPerCompletion: 20
+  ProgressPerCompletion: 50
   _nextUnblockableLevel: {fileID: 11400000, guid: 9325472f7c1eb0b409e0d622b7a7c9eb,
     type: 2}
   isLocked: 0

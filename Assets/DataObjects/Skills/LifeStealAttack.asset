@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b8772be4875c614e898a13a6e7cdd48, type: 3}
-  m_Name: Smite
+  m_Name: LifeStealAttack
   m_EditorClassIdentifier: 
   StatsMultiplier: 100
   BaseCost: 3
@@ -20,10 +20,10 @@ MonoBehaviour:
   _rawDescription: Priest strikes target with heavenly strike dealing <damage>{0}</damage>
     points of damage and healing him for <heal>{1}</heal> HP.
   isBasicSkill: 1
-  _skillTarget: 1
+  _skillTarget: 0
   _requiredSheepLevel: 0
   OnCastEffect: {fileID: 11400000, guid: 2091d7d813c692e419497b3958e6ae04, type: 2}
   OnHitEffect: {fileID: 11400000, guid: de4110c28a602d44c885347dbfe5cc39, type: 2}
   RequiredSkills: []
   Icon: {fileID: 21300000, guid: c098843ee0915184c8034e3d7fa52ef7, type: 3}
-  HealPercentage: 33
+  HealPercentage: 35

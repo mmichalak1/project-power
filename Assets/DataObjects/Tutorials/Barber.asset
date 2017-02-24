@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: Barber
   m_EditorClassIdentifier: 
   _wasSeen: 0
-  _text: Here you can shave wool which grew on sheep and change it into currency.
+  _text: Here you can shave wool which grew on sheep and change it into currency,
+    but be careful wool also provide defence for sheeps.
