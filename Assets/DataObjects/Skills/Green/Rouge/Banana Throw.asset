@@ -28,3 +28,4 @@ MonoBehaviour:
   StunDuration: 2
   StunnedBrain: {fileID: 11400000, guid: b1e2503b044958840a5d07291b809cc9, type: 2}
   ParticleEffect: {fileID: 172076, guid: 7ba3a0220e4740c40b2189b14703ef55, type: 2}
+  tOffset: 1

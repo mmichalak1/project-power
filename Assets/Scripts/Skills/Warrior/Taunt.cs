@@ -8,6 +8,7 @@ public class Taunt : Skill
     public TauntedBrain TauntedBrain;
     private TauntedBrain _myClone;
     public GameObject ParticleEffect;
+    public TargetOffset tOffset;
 
     [Range(1, 5)]
     public int SkillDuration = 1;
@@ -44,7 +45,18 @@ public class Taunt : Skill
     private AbstractBrain CreateBrainCopy(GameObject parent, GameObject target)
     {
         var _myCopy = Instantiate(TauntedBrain);
-        GameObject go = Instantiate(ParticleEffect, target.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity) as GameObject;
+        Vector3 targetOffset = Vector3.zero;
+        var targetingOffset = target.GetComponent<TargetingOffset>();
+        if (targetingOffset != null)
+        {
+            switch (tOffset)
+            {
+                case TargetOffset.Belly: { targetOffset = targetingOffset.Belly; } break;
+                case TargetOffset.Head: { targetOffset = targetingOffset.Head; } break;
+            }
+        }
+        GameObject go = Instantiate(ParticleEffect, target.transform.position + targetOffset + new Vector3(0, 0.25f, 0), Quaternion.identity) as GameObject;
+
         go.transform.parent = target.transform;
         _myCopy.ParticleEffect = go;
         _myCopy.Target = parent;

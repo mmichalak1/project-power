@@ -9,6 +9,7 @@ public class Frost : Skill
     public int StunDuration = 2;
     public StunnedBrain StunnedBrain;
     public GameObject ParticleEffect;
+    public TargetOffset tOffset;
 
     public override string Description()
     {
@@ -40,7 +41,17 @@ public class Frost : Skill
     {
         var copy = Instantiate(StunnedBrain);
         copy.SetDuration(StunDuration);
-        GameObject go = Instantiate(ParticleEffect, target.transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity) as GameObject;
+        Vector3 targetOffset = Vector3.zero;
+        var targetingOffset = target.GetComponent<TargetingOffset>();
+        if (targetingOffset != null)
+        {
+            switch (tOffset)
+            {
+                case TargetOffset.Belly: { targetOffset = targetingOffset.Belly; } break;
+                case TargetOffset.Head: { targetOffset = targetingOffset.Head; } break;
+            }
+        }
+        GameObject go = Instantiate(ParticleEffect, target.transform.position + targetOffset + new Vector3(0, 0.25f, 0), Quaternion.identity) as GameObject;
         go.transform.parent = target.transform;
         copy.ParticleEffect = go;
 

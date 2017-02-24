@@ -22,3 +22,9 @@ public enum PossibleTarget
     Hostile
 };
 
+public enum TargetOffset
+{
+    Belly,
+    Head
+};
+

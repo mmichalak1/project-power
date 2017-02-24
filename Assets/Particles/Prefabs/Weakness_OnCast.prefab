@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69dc63be06859f049be596276b9d05eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Offset: {x: 0, y: 0.75, z: 0}
+  tOffset: 1
 --- !u!114 &11490784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellDuration: 2
+  spellStopLoopingDuration: 0
   children: []
 --- !u!198 &19809970
 ParticleSystem:
