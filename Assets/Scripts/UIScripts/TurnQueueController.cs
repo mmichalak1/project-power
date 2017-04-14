@@ -8,39 +8,42 @@ public class TurnQueueController : MonoBehaviour
 {
 
     public GameObject SkillPrefab;
-    private Dictionary<Skill, GameObject> _plannedSkills = new Dictionary<Skill, GameObject>();
+    private Dictionary<Plan, GameObject> _plannedSkills = new Dictionary<Plan, GameObject>();
+    private PlanComparator planComparator = new PlanComparator();
 
 
 
-    public void AddSkill(Skill skill)
+
+    public void AddPlan(Plan plan)
     {
-        if (_plannedSkills.ContainsKey(skill))
-            _plannedSkills.Remove(skill);
+        if (_plannedSkills.ContainsKey(plan))
+            _plannedSkills.Remove(plan);
 
         var go = Instantiate(SkillPrefab);
         go.transform.SetParent(gameObject.transform, false);
-        go.GetComponent<Image>().sprite = skill.Icon;
-        go.GetComponent<Button>().onClick.AddListener(() => { CancelSkill(go); });
-        _plannedSkills.Add(skill, go);
+        go.GetComponent<Image>().sprite = plan.Skill.Icon;
+        go.GetComponent<Button>().onClick.AddListener(() => { CancelPlan(plan); });
+        _plannedSkills.Add(plan, go);
 
     }
 
 
-    public void CancelSkill(GameObject go)
+    public void RemovePlan(Plan plan)
     {
-        var skill = _plannedSkills.First(x => x.Value == go).Key;
-        _plannedSkills.Remove(skill);
-        Destroy(go);
-        TurnPlaner.Instance.CancelPlan(skill);
+        if (!_plannedSkills.ContainsKey(plan))
+            return;
+        Destroy(_plannedSkills[plan]);
+        _plannedSkills.Remove(plan);
     }
 
-    public void CancelSkill(Skill skill)
+    public void CancelPlan(Plan plan)
     {
-        var go = _plannedSkills[skill];
-        _plannedSkills.Remove(skill);
-        Destroy(go);
-        TurnPlaner.Instance.CancelPlan(skill);
+        if (!_plannedSkills.Keys.Contains(plan, planComparator))
+            return;
+        RemovePlan(plan);
+        TurnPlaner.Instance.CancelPlan(plan);
     }
+
 
     public void Clear()
     {

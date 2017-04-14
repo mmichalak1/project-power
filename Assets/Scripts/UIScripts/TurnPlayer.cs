@@ -6,6 +6,8 @@ using System;
 
 public class TurnPlayer : MonoBehaviour
 {
+    public TurnQueueController queueController;
+
 
 
     public void PlayTurn(Action OnEndTurn, Action EnemyThinkAction)
@@ -51,6 +53,7 @@ public class TurnPlayer : MonoBehaviour
                     nextPlan.Skill.OnHitEffect.Apply(nextPlan.Actor, nextPlan.Target, false, skillAnimationIdentificator);
                     yield return new WaitForSeconds(nextPlan.Skill.OnHitEffect.Duration);
                 }
+                queueController.RemovePlan(nextPlan);
 
                 nextPlan.Execute();
             }

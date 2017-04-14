@@ -5296,6 +5296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1c815f0d5973742b72ea68c27ee481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  queueController: {fileID: 1686662126}
 --- !u!114 &183555364 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11491008, guid: fb4af0650b8c9244abeb6a132e49bd7c,
@@ -44997,12 +44998,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b4ffa76c481a840b18598c090bbb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TransitionDuration: 0.8
+  TimeToChangeCamera: 1.5
+  TimeToStopTransition: 2.3
+  LerpSpeed: 0.01
   cameraExploration: {fileID: 1746547618}
   cameraFight: {fileID: 1774433002}
 --- !u!4 &1793178696 stripped
 Transform:
   m_PrefabParentObject: {fileID: 485220, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
   m_PrefabInternal: {fileID: 1657221774}
+--- !u!114 &1793178697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1793178694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c67f6373ef530f41af96d072ca3d551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ViewCamera: {fileID: 1746547623}
 --- !u!135 &1793178698
 SphereCollider:
   m_ObjectHideFlags: 0

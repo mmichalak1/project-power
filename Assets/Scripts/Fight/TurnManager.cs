@@ -46,7 +46,7 @@ public class TurnManager : MonoBehaviour
 
         //if resources are ok change picked skill and notify resuources display
         pickedSkill = selectedSkill;
-        if (!TurnPlaner.Instance.ContainsPlanForSkill(selectedSkill, Instance.selectedSheep))
+        if (!TurnPlaner.Instance.ContainsPlanWithSkill(selectedSkill))
             Events.Instance.DispatchEvent("ChangeActive", selectedSkill.Cost);
         state = activeState.waiting;
 
@@ -172,19 +172,19 @@ public class TurnManager : MonoBehaviour
                 {
                     Plan plan = new Plan(selectedSheep, hitedTarget.transform.gameObject, pickedSkill);
 
-                    if (!TurnPlaner.Instance.ContainsPlanForSkill(pickedSkill, selectedSheep))
+                    if (!TurnPlaner.Instance.ContainsPlan(plan))
                     {
-                        EntityDataHolder sheepDataHolder = (EntityDataHolder)plan.Actor.GetComponent(typeof(EntityDataHolder));
+                        EntityDataHolder sheepDataHolder = plan.Actor.GetComponent<EntityDataHolder>();
                         var bubble = actionBubbles[Array.IndexOf(DataHolders, sheepDataHolder)];
                         bubble.TurnOn();
                     }
                     else
                     {
-                        queueController.CancelSkill(pickedSkill);
+                        queueController.CancelPlan(plan);
                     }
                     pickedSkill.OnSkillPlanned(selectedSheep, hitedTarget.transform.gameObject);
-                    TurnPlaner.Instance.AddPlan(selectedSheep, plan);
-                    queueController.AddSkill(pickedSkill);
+                    TurnPlaner.Instance.AddPlan(plan);
+                    queueController.AddPlan(plan);
                 }
                 else
                 {

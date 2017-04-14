@@ -2,9 +2,13 @@ using System;
 using UnityEngine;
 using Assets.LogicSystem;
 
+[RequireComponent(typeof(MatrixBlender))]
 public class CameraManager : MonoBehaviour
 {
-    private float FOV;
+    public float TransitionDuration = 2f;
+    public float TimeToChangeCamera = 4f;
+    public float TimeToStopTransition = 6.5f;
+    public float LerpSpeed = 1.0f;
     public GameObject cameraExploration;
     public GameObject cameraFight;
 
@@ -17,48 +21,47 @@ public class CameraManager : MonoBehaviour
     private Vector3 explorationPosition;
     private Quaternion explorationRotation;
 
-    private float sourceSize;
-    private float targetSize;
+    private Matrix4x4 startingMatrix;
 
     private float timeCounter = 0;
     private bool isChanging = false;
 
     private Events.MyEvent OnEnterTheFight, OnExitTheFight;
 
+    MatrixBlender blender;
+
 
     // Use this for initialization
-    void Start () {
-        FOV = Camera.main.fieldOfView;
-        targetSize = cameraFight.GetComponent<Camera>().orthographicSize;
+    void Start()
+    {
+        blender = GetComponent<MatrixBlender>();
+        startingMatrix = cameraExploration.GetComponent<Camera>().projectionMatrix;
         OnEnterTheFight = EnterFight;
         OnExitTheFight = ExitFight;
         Events.Instance.RegisterForEvent("EnterFight", OnEnterTheFight);
         Events.Instance.RegisterForEvent("BattleWon", OnExitTheFight);
     }
-	
-   
 
 
-	// Update is called once per frame
-	void Update () {
-        
+
+
+    // Update is called once per frame
+    void Update()
+    {
+
         if (isChanging)
         {
             timeCounter += Time.deltaTime;
-            cameraExploration.transform.position = Vector3.Lerp(cameraExploration.transform.position, positionCameraFight, Time.deltaTime);
-            cameraExploration.transform.rotation = Quaternion.Lerp(cameraExploration.transform.rotation, rotationCameraFight, Time.deltaTime);
-            if(timeCounter > 4)
+            cameraExploration.transform.position = Vector3.Lerp(cameraExploration.transform.position, positionCameraFight, LerpSpeed);
+            cameraExploration.transform.rotation = Quaternion.Lerp(cameraExploration.transform.rotation, rotationCameraFight, LerpSpeed);
+            if (timeCounter > TimeToChangeCamera && !blender.Working)
             {
-                var camera = cameraExploration.GetComponent<Camera>();
-                if(!camera.orthographic)
-                    camera.orthographic = true;
-                camera.orthographicSize = Mathf.Lerp(sourceSize, targetSize, 1.0f);
-
+                blender.BlendToMatrix(cameraFight.GetComponent<Camera>().projectionMatrix, TransitionDuration);
             }
-            if (timeCounter > 7)
+            if (timeCounter > TimeToStopTransition)
             {
                 isChanging = false;
-				TurnManager.ourTurn = true;
+                TurnManager.ourTurn = true;
                 TurnManager.UpdateResource(0);
                 Events.Instance.DispatchEvent("ShowHealthBar", null);
                 Events.Instance.DispatchEvent("ShowChangeTurnButton", null);
@@ -74,18 +77,15 @@ public class CameraManager : MonoBehaviour
         isChanging = true;
         explorationPosition = cameraExploration.transform.position;
         explorationRotation = cameraExploration.transform.rotation;
-        positionCamera = new Vector3(cameraExploration.transform.position.x, cameraExploration.transform.position.y, cameraExploration.transform.position.z);
-        positionCameraFight = new Vector3(cameraFight.transform.position.x, cameraFight.transform.position.y, cameraFight.transform.position.z);
-        rotationCamera = new Quaternion(cameraExploration.transform.rotation.x, cameraExploration.transform.rotation.y, cameraExploration.transform.rotation.z, cameraExploration.transform.rotation.w);
-        rotationCameraFight = new Quaternion(cameraFight.transform.rotation.x, cameraFight.transform.rotation.y, cameraFight.transform.rotation.z, cameraFight.transform.rotation.w);
-        sourceSize = cameraExploration.GetComponent<Camera>().orthographicSize;
+        positionCamera = cameraExploration.transform.position;
+        positionCameraFight = cameraFight.transform.position;
+        rotationCamera = cameraExploration.transform.rotation;
+        rotationCameraFight = cameraFight.transform.rotation;
     }
     private void ExitFight(object obj)
     {
         cameraExploration.transform.position = explorationPosition;
         cameraExploration.transform.rotation = explorationRotation;
-        cameraExploration.GetComponent<Camera>().orthographicSize = sourceSize;
-        cameraExploration.GetComponent<Camera>().orthographic = false;
-        Camera.main.fieldOfView = FOV;
+        cameraExploration.GetComponent<Camera>().projectionMatrix = startingMatrix;
     }
 }
