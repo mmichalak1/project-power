@@ -66,6 +66,7 @@ public class CameraManager : MonoBehaviour
                 Events.Instance.DispatchEvent("ShowHealthBar", null);
                 Events.Instance.DispatchEvent("ShowChangeTurnButton", null);
                 Events.Instance.DispatchEvent("ShowResourcesDisplay", null);
+                Events.Instance.DispatchEvent("ShowSurrenderButton", null);
                 timeCounter = 0f;
             }
         }
