@@ -16,12 +16,14 @@ public class SkillPanelScript : MonoBehaviour {
 
     private Skill skill;
     private EntityData sheep;
+    private PlayerData playerData;
 
 
-    public void LoadSkillData(Skill skill, EntityData sheep)
+    public void LoadSkillData(Skill skill, EntityData sheep, PlayerData playerData)
     {
         this.skill = skill;
         this.sheep = sheep;
+        this.playerData = playerData;
         Name.text = skill.name;
         Description.text = skill.Description();
         Cooldown.text = (skill.CooldownBase - 1).ToString();
@@ -45,10 +47,10 @@ public class SkillPanelScript : MonoBehaviour {
 
     private bool canBeUnlocked()
     {
-        if (sheep.Level < skill.RequiredSheepLevel)
+        if (playerData.Level < skill.RequiredPlayerLevel)
         {
             MessageText.color = Color.red;
-            MessageText.text = "Required level: " + skill.RequiredSheepLevel;
+            MessageText.text = "Required level: " + skill.RequiredPlayerLevel;
             MessageText.gameObject.SetActive(true);
             return false;
         }

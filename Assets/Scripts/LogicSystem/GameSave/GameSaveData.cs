@@ -33,8 +33,8 @@ public class GameSaveData
             if (myTut != null)
                 TutorialEntry.FromData(ref myTut, item);
         }
-
-
+        //Load Player Account Level
+        Player.CreateFromSave(ref save.PlayerData, data.PlayerData);
         //Read current wool and resources data
         save.ResourceCounter.Resources = data.Resources;
         save.WoolCounter.WoolCount = data.WoolAmount;
@@ -64,6 +64,8 @@ public class GameSaveData
         {
             result.Tutorials.Add(TutorialEntry.FromRuntime(item));
         }
+        //Serialize PlayerData
+        result.PlayerData = Player.CreateFromRuntime(save.PlayerData);
         //Serialize Wool and resources
         result.WoolAmount = save.WoolCounter.WoolCount;
         result.Resources = save.ResourceCounter.Resources;
@@ -93,8 +95,7 @@ public class GameSaveData
         get;
         set;
     }
-
-
+    public Player PlayerData { get; set; }
     public int WoolAmount { get; set; }
     public int Resources { get; set; }
 

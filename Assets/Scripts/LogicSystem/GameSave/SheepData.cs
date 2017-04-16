@@ -15,11 +15,6 @@ public class SheepData
     public int Attack { get; set; }
     public int Defence { get; set; }
 
-    public int Level { get; set; }
-    public int ExperienceGained { get; set; }
-    public int Experience { get; set; }
-    public int ExperienceForNexLevel { get; set; }
-
     public int Wool { get; set; }
     public int MaxWool { get; set; }
     public float WoolGrowth { get; set; }
@@ -40,10 +35,6 @@ public class SheepData
         result.Health = data.BasicMaxHealth;
         result.Attack = data.BasicAttack;
         result.Defence = data.BasicDefence;
-        result.Level = data.Level;
-        result.Experience = data.Experience;
-        result.ExperienceGained = data.ExperienceGained;
-        result.ExperienceForNexLevel = data.ExperienceForNextLevel;
         result.Wool = data.Wool;
         result.MaxWool = data.MaxWool;
         result.WoolGrowth = data.WoolGrowth;
@@ -65,10 +56,6 @@ public class SheepData
         entity.BasicMaxHealth = data.Health;
         entity.BasicAttack = data.Attack;
         entity.BasicDefence = data.Defence;
-        entity.Level = data.Level;
-        entity.Experience = data.Experience;
-        entity.ExperienceGained = data.ExperienceGained;
-        entity.ExperienceForNextLevel = data.ExperienceForNexLevel;
         entity.Wool = data.Wool;
         entity.MaxWool = data.MaxWool;
         entity.WoolGrowth = data.WoolGrowth;

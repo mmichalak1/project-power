@@ -42,7 +42,7 @@ public abstract class Skill : ScriptableObject {
     private bool isBasicSkill = false;
     [SerializeField]
     private PossibleTarget _skillTarget;
-    public int _requiredSheepLevel = 5;
+    public int _requiredPlayerLevel = 5;
     public Effect OnCastEffect;
     public Effect OnHitEffect;
 
@@ -121,9 +121,9 @@ public abstract class Skill : ScriptableObject {
         get { return unlockCost; }
     }
 
-    public int RequiredSheepLevel
+    public int RequiredPlayerLevel
     {
-        get { return _requiredSheepLevel; }
+        get { return _requiredPlayerLevel; }
     }
 
     public PossibleTarget SkillTarget

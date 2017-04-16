@@ -49,9 +49,6 @@ public class ResetSheeps : MonoBehaviour
             SheepData[i].BasicAttack = SheepDataBackup[i].BasicAttack;
             SheepData[i].BasicMaxHealth = SheepDataBackup[i].BasicMaxHealth;
             SheepData[i].BasicDefence = SheepDataBackup[i].BasicDefence;
-            SheepData[i].Level = SheepDataBackup[i].Level;
-            SheepData[i].Experience = SheepDataBackup[i].Experience;
-            SheepData[i].ExperienceForNextLevel = SheepDataBackup[i].ExperienceForNextLevel;
             SheepData[i].Wool = SheepDataBackup[i].Wool;
             SheepData[i].MaxWool = SheepDataBackup[i].MaxWool;
             SheepData[i].WoolGrowth = SheepDataBackup[i].WoolGrowth;

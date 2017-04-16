@@ -13,6 +13,8 @@ public class GameState : MonoBehaviour {
     private GameObject WinWindow;
     [SerializeField]
     private int WoolForWin = 100;
+    [SerializeField]
+    private PlayerData playerData;
 
     public GameObject Map;
     
@@ -20,6 +22,11 @@ public class GameState : MonoBehaviour {
     {
         get { return _enemyGroups; }
         set { _enemyGroups = value; }
+    }
+
+    public PlayerData PlayerData
+    {
+        get { return playerData; }
     }
 
 	// Use this for initialization

@@ -5319,6 +5319,15 @@ Prefab:
       propertyPath: queueController
       value: 
       objectReference: {fileID: 1686662126}
+    - target: {fileID: 130998, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: m_TagString
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491008, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 69f4df2ccf43d244f86cb62151643a8d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
   m_IsPrefabParent: 0
@@ -16625,7 +16634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e32978a4eee1f645845cdb926f7e004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventName: ShowSurrenderButton
+  EventName: 53686f7753757272656e646572427574746f6e
   DisableOnStart: 1
 --- !u!1 &690781039
 GameObject:

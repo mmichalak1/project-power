@@ -9,6 +9,7 @@ public class SkillsMenuScript : MonoBehaviour
     public WoolCounter WoolCounter;
 
     public EntityData[] SheepData;
+    public PlayerData playerData;
     public int SheepNumber;
 
     public Image SelectedSheepIcon;
@@ -50,7 +51,7 @@ public class SkillsMenuScript : MonoBehaviour
             else
                 SkillsButtons[i-1].image.color = UnlockedColor;
 
-            if (skill.RequiredSheepLevel > SheepData[SheepNumber].Level)
+            if (skill.RequiredPlayerLevel > playerData.Level)
             {
                 SkillsButtons[i-1].image.color = LockedByLvlColor;
             }
@@ -71,11 +72,11 @@ public class SkillsMenuScript : MonoBehaviour
         {
             Unlocker.SetActive(true);
             UnlockButton.interactable = true;
-            if (SheepData[SheepNumber].Level<currentlyPickedSkill.RequiredSheepLevel)
+            if (playerData.Level<currentlyPickedSkill.RequiredPlayerLevel)
             {
                 UnlockButton.interactable = false;
                 RequiredLevel.gameObject.SetActive(true);
-                RequiredLevel.text = "Requried level: " + currentlyPickedSkill.RequiredSheepLevel;
+                RequiredLevel.text = "Requried level: " + currentlyPickedSkill.RequiredPlayerLevel;
             }
             UnlockCost.text = currentlyPickedSkill.UnlockCost.ToString();
         }

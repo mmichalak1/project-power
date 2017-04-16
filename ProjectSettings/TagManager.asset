@@ -15,6 +15,7 @@ TagManager:
   - SkillCanvas
   - Unpassable
   - AmbientLight
+  - GameManager
   layers:
   - Default
   - TransparentFX

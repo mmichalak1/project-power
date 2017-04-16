@@ -18,10 +18,6 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
         get { return _defence; }
         set { _defence = value; }
     }
-
-
-    public GameObject LastAttacker = null;
-
     public DamageIndicatorScript DamageIndicator;
 
     public Image HealthIndicator;
@@ -63,7 +59,6 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     {
         if (CurrentHealth <= 0)
             return;
-        LastAttacker = source;
         var redirectComponent = gameObject.GetComponent<RedirectDamage>();
         if (redirectComponent != null)
         {

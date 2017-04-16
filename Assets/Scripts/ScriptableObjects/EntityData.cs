@@ -41,9 +41,6 @@ public class EntityData : ScriptableObject {
     }
 
 
-    public int Level = 0;
-    public int Experience = 0;
-    public int ExperienceForNextLevel = 100;
     public int Wool = 1;
     public int MaxWool = 3;
     public float WoolGrowth = 0.0f;
@@ -62,11 +59,6 @@ public class EntityData : ScriptableObject {
 
     public void LevelUp()
     {
-        Level++;
-        Experience -= ExperienceForNextLevel;
-        if (Level > 1)
-            ExperienceForNextLevel = ExperienceForNextLevel * 5;
-        MaxWool += 15;
         switch (SheepClass)
         {
             case Class.Warrior:
