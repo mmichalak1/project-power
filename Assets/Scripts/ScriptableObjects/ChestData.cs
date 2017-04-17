@@ -8,7 +8,15 @@ public class ChestData : ScriptableObject {
     private DateTime _lastOpened;
     [SerializeField]
     private int _woolForChest;
+    [SerializeField]
+    private Duration _duration;
 
+
+    public Duration Duration
+    {
+        get { return _duration; }
+        set { _duration = value; }
+    }
     public DateTime LastOpened
     {
         get { return _lastOpened; }

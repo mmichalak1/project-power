@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Name: Chest_behind
   m_EditorClassIdentifier: 
   _woolForChest: 100
+  _duration:
+    days: 1
+    hours: 0
+    minutes: 0
+    seconds: 0
