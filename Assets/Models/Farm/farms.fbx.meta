@@ -1,0 +1,165 @@
+fileFormatVersion: 2
+guid: 500c8d202b97d444a9cc8950e4b706b7
+timeCreated: 1494336936
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: barn
+    100002: Camera
+    100004: //RootNode
+    100006: fence
+    100008: fence.001
+    100010: fence.002
+    100012: fence.003
+    100014: fence.004
+    100016: hayBale
+    100018: hayBale.001
+    100020: hayBale.002
+    100022: landForPlants
+    100024: pine
+    100026: pine.001
+    100028: pine.002
+    100030: pine.003
+    100032: plant
+    100034: road
+    100036: tree
+    100038: tree.001
+    400000: barn
+    400002: Camera
+    400004: //RootNode
+    400006: fence
+    400008: fence.001
+    400010: fence.002
+    400012: fence.003
+    400014: fence.004
+    400016: hayBale
+    400018: hayBale.001
+    400020: hayBale.002
+    400022: landForPlants
+    400024: pine
+    400026: pine.001
+    400028: pine.002
+    400030: pine.003
+    400032: plant
+    400034: road
+    400036: tree
+    400038: tree.001
+    2300000: barn
+    2300002: fence
+    2300004: fence.001
+    2300006: fence.002
+    2300008: fence.003
+    2300010: fence.004
+    2300012: hayBale
+    2300014: hayBale.001
+    2300016: hayBale.002
+    2300018: landForPlants
+    2300020: pine
+    2300022: pine.001
+    2300024: pine.002
+    2300026: pine.003
+    2300028: plant
+    2300030: road
+    2300032: tree
+    2300034: tree.001
+    3300000: barn
+    3300002: fence
+    3300004: fence.001
+    3300006: fence.002
+    3300008: fence.003
+    3300010: fence.004
+    3300012: hayBale
+    3300014: hayBale.001
+    3300016: hayBale.002
+    3300018: landForPlants
+    3300020: pine
+    3300022: pine.001
+    3300024: pine.002
+    3300026: pine.003
+    3300028: plant
+    3300030: road
+    3300032: tree
+    3300034: tree.001
+    4300000: pine.003
+    4300002: pine.002
+    4300004: pine.001
+    4300006: pine
+    4300008: tree.001
+    4300010: tree
+    4300012: fence.004
+    4300014: fence.003
+    4300016: fence.002
+    4300018: fence.001
+    4300020: hayBale.002
+    4300022: hayBale.001
+    4300024: landForPlants
+    4300026: plant
+    4300028: hayBale
+    4300030: fence
+    4300032: road
+    4300034: barn
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
