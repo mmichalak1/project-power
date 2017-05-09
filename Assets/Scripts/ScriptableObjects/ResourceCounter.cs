@@ -5,12 +5,12 @@ using System.Collections;
 public class ResourceCounter : ScriptableObject {
 
     [SerializeField]
-    private int _resources = 7;
+    private int _resources = 5;
     [SerializeField]
-    private int _basicResources = 7;
+    private int _basicResources = 5;
 
     [SerializeField]
-    private int _maxResources = 10;
+    private int _maxResources = 12;
 
     //Maximum possible resources
     public int MaxResources
