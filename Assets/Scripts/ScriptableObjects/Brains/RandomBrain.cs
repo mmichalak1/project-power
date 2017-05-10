@@ -68,7 +68,7 @@ public class RandomBrain : AbstractBrain
             var skill = GetSkill();
             skill.Initialize();
             skill.Power = _myRealDamage;
-            TurnPlaner.Instance.AddPlan(parent, new Plan(parent, sheep, skill));
+            TurnPlaner.Instance.AddPlan(new Plan(parent, sheep, skill));
 
             //  Debug.Log(parent.name + " dealt " + _myRealDamage + " damage to " + sheep.name);
         }

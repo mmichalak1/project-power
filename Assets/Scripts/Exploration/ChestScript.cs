@@ -30,14 +30,13 @@ public class ChestScript : MonoBehaviour
         ChestData = ExplorationHolder.LevelPlayed.Chests.First(x => x.name == gameObject.name);
         var now = DateTime.UtcNow;
         var diffrence = now - ChestData.LastOpened;
-        if (ChestData == default(ChestData) || diffrence.TotalHours < 24)
+        if (ChestData == default(ChestData) || diffrence < ChestData.Duration.ToTimeSpan())
         {
-            TimerText.enabled = IsCountingDown = true;
-            GetComponent<Collider>().enabled = false;
+            Disable();
         }
         else
         {
-            TimerText.enabled = IsCountingDown = false;
+            Enable();
         }
     }
 
@@ -45,7 +44,14 @@ public class ChestScript : MonoBehaviour
     {
         if (!IsCountingDown)
             return;
-        var span = TimeSpan.FromHours(24.0) - (DateTime.UtcNow - ChestData.LastOpened);
+
+        if (ChestData.Duration.ToTimeSpan() < DateTime.UtcNow - ChestData.LastOpened)
+        {
+            Enable();
+            return;
+        }
+
+        var span = ChestData.Duration.ToTimeSpan() - (DateTime.UtcNow - ChestData.LastOpened);
         TimerText.text = TimeSpanToString(span);
     }
 
@@ -53,14 +59,26 @@ public class ChestScript : MonoBehaviour
     {
         if (other.gameObject != Player)
             return;
-        GetComponent<Collider>().enabled = false;
         WoolWindow.SetActive(true);
         WoolWindow.GetComponent<AfterBattleScreen>().OnEvoke(ChestData.WoolForChest);
         ChestData.LastOpened = DateTime.UtcNow;
         Manager.enabled = false;
-        IsCountingDown = TimerText.enabled = true;
+        Disable();
         GameSaver.SaveGame();
     }
+
+    private void Disable()
+    {
+        TimerText.enabled = IsCountingDown = true;
+        GetComponent<Collider>().enabled = false;
+    }
+
+    private void Enable()
+    {
+        TimerText.enabled = IsCountingDown = false;
+        GetComponent<Collider>().enabled = true;
+    }
+
 
     private static string TimeSpanToString(TimeSpan span)
     {

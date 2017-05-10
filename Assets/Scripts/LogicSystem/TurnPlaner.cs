@@ -24,7 +24,8 @@ namespace Assets.LogicSystem
 
         }
 
-        private List<KeyValuePair<GameObject, Plan>> plans = new List<KeyValuePair<GameObject, Plan>>();
+        private List<Plan> plans = new List<Plan>();
+        private PlanComparator comparator = new PlanComparator();
 
         public Queue<Plan> Queue
         {
@@ -33,31 +34,30 @@ namespace Assets.LogicSystem
                 var queue = new Queue<Plan>();
                 for (int i = 0; i < plans.Count; i++)
                 {
-                    queue.Enqueue(plans[i].Value);
+                    queue.Enqueue(plans[i]);
                 }
                 return queue;
             }
         }
 
-        public void AddPlan(GameObject entity, Plan plan)
+        public void AddPlan(Plan plan)
         {
-            if (ContainsPlanForSkill(plan.Skill, entity))
+            if (ContainsPlan(plan))
             {
-                CancelPlan(plan.Skill);
+                CancelPlan(plan);
             }
             TurnManager.UpdateResource(plan.Skill.Cost);
-            plans.Add(new KeyValuePair<GameObject, Plan>(entity, plan));
+            plans.Add(plan);
             //Debug.Log("Added plan for " + entity.name);
         }
 
-        public void CancelPlan(Skill cancelledSkill)
+        public void CancelPlan(Plan cancelledPlan)
         {
-            TurnManager.UpdateResource(-cancelledSkill.Cost);
-            var plan = plans.First(x => x.Value.Skill == cancelledSkill);
-            plans.Remove(plan);
-            if (!ContainsPlanForEntity(plan.Key))
+            TurnManager.UpdateResource(-cancelledPlan.Skill.Cost);
+            plans.Remove(cancelledPlan);
+            if (!ContainsPlanForActor(cancelledPlan.Actor))
             {
-                var bubble = plan.Key.GetComponentInChildren<ActionBubble>();
+                var bubble = cancelledPlan.Actor.GetComponentInChildren<ActionBubble>();
                 if (bubble != null)
                     bubble.TurnOff();
             }
@@ -69,24 +69,19 @@ namespace Assets.LogicSystem
             plans.Clear();
         }
 
-        public bool ContainsPlanForSkill(Skill skill, GameObject entity)
+        public bool ContainsPlan(Plan plan)
         {
-            var plan = plans.FirstOrDefault(x => x.Key == entity && x.Value.Skill == skill);
-
-            if (plan.Equals(default(KeyValuePair<GameObject, Plan>)))
-                return false;
-            else
-                return true;
+            return plans.Contains(plan, comparator);
         }
 
-        public bool ContainsPlanForEntity(GameObject entity)
+        public bool ContainsPlanWithSkill(Skill skill)
         {
-            var plan = plans.FirstOrDefault(x => x.Key == entity);
+            return plans.Any(x => x.Skill == skill);
+        }
 
-            if (plan.Equals(default(KeyValuePair<GameObject, Plan>)))
-                return false;
-            else
-                return true;
+        public bool ContainsPlanForActor(GameObject actor)
+        {
+            return plans.Any(x => x.Actor == actor);
         }
 
     }
