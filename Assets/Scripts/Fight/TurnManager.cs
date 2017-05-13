@@ -59,6 +59,8 @@ public class TurnManager : MonoBehaviour
     [SerializeField]
     private ResourceCounter DefaultResourceCounter;
 
+    public UIBattle UIBattle;
+
     public GameObject ChangeTurnButton;
     public GameObject ConfirmEndTurn;
     public GameObject ExplorationUI;
@@ -82,7 +84,6 @@ public class TurnManager : MonoBehaviour
 
     private TurnPlayer turnPlayer;
     private int WoolForFight = 0;
-
 
     #region Events
     private void OnEnterFight(object x)
