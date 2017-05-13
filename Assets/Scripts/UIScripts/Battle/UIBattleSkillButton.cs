@@ -44,6 +44,7 @@ public class UIBattleSkillButton : MonoBehaviour
             var touch = (Vector2)Input.mousePosition;
             if (touch.x > touchStart.Value.x && Mathf.Abs(touch.x - touchStart.Value.x) > MINDISTANCE)
             {
+                Events.Instance.DispatchEvent("HideBattleSkillPanel", null);
                 isDisplayed = true;
             }
             else

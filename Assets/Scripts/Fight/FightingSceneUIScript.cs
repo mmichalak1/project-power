@@ -8,8 +8,6 @@ using System.Collections.Generic;
 
 public class FightingSceneUIScript : MonoBehaviour
 {
-    public Text TextLabel;
-
     private static List<GameObject> sheeps;
 
     // Use this for initialization
@@ -24,7 +22,6 @@ public class FightingSceneUIScript : MonoBehaviour
             Events.Instance.RegisterForEvent(sheep.name + "skill", EnableSkillButtons);
         }
 
-        Events.Instance.RegisterForEvent("SetText", SetText);
         gameObject.SetActive(false);
     }
 
@@ -40,11 +37,6 @@ public class FightingSceneUIScript : MonoBehaviour
         TurnManager.state = TurnManager.activeState.nothingPicked;
         Events.Instance.DispatchEvent("CleanActive", null);
         DisableSkillCanvases();
-    }
-
-    void SetText(object text)
-    {
-        TextLabel.text = (string)text;
     }
 
     public static void DisableSkillCanvases()

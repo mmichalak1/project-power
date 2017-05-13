@@ -61,7 +61,6 @@ public class TurnManager : MonoBehaviour
 
     public UIBattle UIBattle;
 
-    public GameObject ChangeTurnButton;
     public GameObject ConfirmEndTurn;
     public GameObject ExplorationUI;
     public GameObject BattleUI;
@@ -90,7 +89,6 @@ public class TurnManager : MonoBehaviour
     {
         _wolfManager = x as WolfGroupManager;
         WoolForFight = _wolfManager.WoolForFight;
-        ChangeTurnButton.SetActive(false);
         queueController.gameObject.SetActive(false);
     }
     private void OnBattleWon(object x)
@@ -99,7 +97,6 @@ public class TurnManager : MonoBehaviour
     }
     private void OnShowChangTurnButton(object x)
     {
-        ChangeTurnButton.SetActive(true);
         queueController.gameObject.SetActive(true);
     }
     private void OnSheepSelected(object x)
@@ -114,7 +111,7 @@ public class TurnManager : MonoBehaviour
         #region ClearScreen & reset state
         if (ourTurn)
         {
-            ChangeTurnButton.GetComponent<Button>().interactable = false;
+          //  ChangeTurnButton.GetComponent<Button>().interactable = false;
             //forced is varaible which is set to true when player knows he didnt spent all resources and still wants to end turn
             if (!forced && CurrentResource == DefaultResourceCounter.Resources)
             {
@@ -280,7 +277,7 @@ public class TurnManager : MonoBehaviour
             {
                 effect.enabled = true;
             }
-            BattleUI.SetActive(false);
+            UIBattle.gameObject.SetActive(false);
             ExplorationUI.SetActive(true);
             Events.Instance.DispatchEvent("AfterBattleScreen", WoolForFight);
             Events.Instance.DispatchEvent("BattleWon", null);
@@ -294,7 +291,7 @@ public class TurnManager : MonoBehaviour
             UpdateResource(0);
         }
         //Reset to starting state
-        ChangeTurnButton.GetComponent<Button>().interactable = true;
+   //     ChangeTurnButton.GetComponent<Button>().interactable = true;
         TurnPlaner.Instance.Reset();
         queueController.Clear();
     }
