@@ -20,8 +20,4 @@ public class UIBattle : MonoBehaviour
         SkillPanel.Activate(true);
     }
 
-    public void SendChangeTurn()
-    {
-        //TurnManager
-    }
 }

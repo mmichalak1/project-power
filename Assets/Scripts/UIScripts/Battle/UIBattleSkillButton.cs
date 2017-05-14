@@ -7,7 +7,8 @@ using Assets.LogicSystem;
 
 public class UIBattleSkillButton : MonoBehaviour
 {
-    public Image skillIcon;
+    public Image SkillIcon;
+    public Text CooldownCounter;
 
     private Animator animator;
     private Skill skill;
@@ -20,7 +21,8 @@ public class UIBattleSkillButton : MonoBehaviour
         set
         {
             skill = value;
-            skillIcon.sprite = skill.Icon;
+            SkillIcon.sprite = skill.Icon;
+            UpdateState();
         }
     }
 
@@ -28,6 +30,25 @@ public class UIBattleSkillButton : MonoBehaviour
     {
         animator = gameObject.GetComponent<Animator>();
         Events.Instance.RegisterForEvent("HideBattleSkillPanel", Hide);
+    }
+
+    void UpdateState()
+    {
+        if (skill != null)
+        {
+            if(skill.Cooldown <= 0)
+            {
+                SkillIcon.raycastTarget = true;
+                SkillIcon.color = Color.white;
+            }
+            else
+            {
+                SkillIcon.raycastTarget = false;
+                SkillIcon.color = Color.grey;
+                CooldownCounter.enabled = true;
+                CooldownCounter.text = skill.Cooldown.ToString();
+            }
+        }
     }
 
     public void Hide(object obj)

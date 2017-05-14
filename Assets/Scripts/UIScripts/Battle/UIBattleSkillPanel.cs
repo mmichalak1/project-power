@@ -12,7 +12,7 @@ public class UIBattleSkillPanel : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
     }
 
-    public void loadSkillsData(SkillHolder skillHolder)
+    public void LoadSkillsData(SkillHolder skillHolder)
     {
         int activeSkillCount = 0;
         for(int i = 0; i < SkillButtons.Count; i++)

@@ -15,7 +15,7 @@ MonoBehaviour:
   BaseCost: 1
   BaseCooldown: 1
   SkillLevel: -1
-  isActive: 1
+  isActive: 0
   unlockCost: 20
   _rawDescription: Strikes target dealing {0} damage.
   isBasicSkill: 1
