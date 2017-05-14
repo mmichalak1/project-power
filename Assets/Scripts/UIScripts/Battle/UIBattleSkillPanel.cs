@@ -14,12 +14,17 @@ public class UIBattleSkillPanel : MonoBehaviour
 
     public void loadSkillsData(SkillHolder skillHolder)
     {
+        int activeSkillCount = 0;
         for(int i = 0; i < SkillButtons.Count; i++)
         {
             if (skillHolder.Skills[i].IsActive)
-                SkillButtons[i].Skill = skillHolder.Skills[i];
+            {
+                SkillButtons[activeSkillCount].gameObject.SetActive(true);
+                SkillButtons[activeSkillCount].Skill = skillHolder.Skills[i];
+                activeSkillCount++;
+            }
             else
-                SkillButtons[i].gameObject.SetActive(false);
+                SkillButtons[SkillButtons.Count - 1 - (i - activeSkillCount)].gameObject.SetActive(false);
         }
     }
 

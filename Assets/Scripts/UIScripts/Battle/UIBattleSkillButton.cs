@@ -7,21 +7,26 @@ using Assets.LogicSystem;
 
 public class UIBattleSkillButton : MonoBehaviour
 {
-    public Animator animator;
     public Image skillIcon;
+
+    private Animator animator;
     private Skill skill;
-
-    public Skill Skill
-    {
-        set { skill = value; }
-    }
-
-    Vector2? touchStart = -Vector2.one;
+    private Vector2? touchStart = -Vector2.one;
     private int MINDISTANCE = 10;
     private bool isDisplayed = false;
 
+    public Skill Skill
+    {
+        set
+        {
+            skill = value;
+            skillIcon.sprite = skill.Icon;
+        }
+    }
+
     void Awake()
     {
+        animator = gameObject.GetComponent<Animator>();
         Events.Instance.RegisterForEvent("HideBattleSkillPanel", Hide);
     }
 
@@ -59,6 +64,6 @@ public class UIBattleSkillButton : MonoBehaviour
     public void OnClick()
     {
         Events.Instance.DispatchEvent("HideBattleSkillPanel", null);
-        // TurnManager.SelectSkill(skill);
+        TurnManager.SelectSkill(skill);
     }
 }

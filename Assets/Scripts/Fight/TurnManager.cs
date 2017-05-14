@@ -156,7 +156,7 @@ public class TurnManager : MonoBehaviour
             state = activeState.sheepPicked;
             selectedSheep = hitedTarget;
             selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(true);
-            Events.Instance.DispatchEvent(hitedTarget.transform.gameObject.name + "skill", hitedTarget.transform.gameObject);
+            UIBattle.SkillPanel.loadSkillsData(selectedSheep.GetComponent<EntityDataHolder>().SheepData.SheepSkills);
         }
     }
 
@@ -205,13 +205,14 @@ public class TurnManager : MonoBehaviour
             state = activeState.sheepPicked;
             selectedSheep = hitedTarget.transform.gameObject;
             selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(true);
-            Events.Instance.DispatchEvent(hitedTarget.transform.gameObject.name + "skill", hitedTarget.transform.gameObject);
+            UIBattle.SkillPanel.loadSkillsData(selectedSheep.GetComponent<EntityDataHolder>().SheepData.SheepSkills);
             return;
         }
         else
         {
             FightingSceneUIScript.DisableSkillCanvases();
             selectedSheep = null;
+            state = activeState.nothingPicked;
         }
 
     }
