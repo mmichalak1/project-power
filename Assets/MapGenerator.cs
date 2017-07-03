@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class MapGenerator : MonoBehaviour
 {
 
     public GameObject TilePrefab;
     public Material Blue, Red, Green, Gold, Yellow, Grey;
+    public MapDecorator Decorator;
 
     public Vector3 StartingPoint;
     public int tileWidth = 1;
@@ -19,6 +21,8 @@ public class MapGenerator : MonoBehaviour
     public int MinAddidtionalBranches = 2;
     public int MaxAdditionalBranches = 4;
 
+    public int LevelSeed;
+
     private int MainNodesCount;
     private int AdditionalNodesCount;
 
@@ -28,23 +32,31 @@ public class MapGenerator : MonoBehaviour
     private List<Node> MainNodes = new List<Node>();
     private List<Node> AdditionalNodes = new List<Node>();
 
-    private List<Path> Paths = new List<Path>();
+    private List<Path> MainPaths = new List<Path>();
     // Use this for initialization
     void Start()
     {
+        Random.Range(0, 1);
+        if (LevelSeed != 0)
+        {
+            Random.seed = LevelSeed;
+        }
+        LevelSeed = Random.seed;
+
         StartingNode = new Node();
         StartingNode.Position = StartingPoint;
         MainNodes.Add(StartingNode);
         Nodes.Add(StartingNode);
+
         MainNodesCount = Random.Range(MinMainBranches, MaxMainBranches);
         AdditionalNodesCount = Random.Range(MinAddidtionalBranches, MaxAdditionalBranches);
         BuildMainNodes();
         BuildAdditionalNodes();
         BuildPaths(StartingNode, null);
 
-        InstantiateMainNodes();
-        InstantiateAdditionalNodes();
-        InstantiatePaths();
+        CheckPaths();
+
+       
     }
 
 
@@ -59,13 +71,13 @@ public class MapGenerator : MonoBehaviour
             Node newNode = new Node();
             newNode.Position = lastNode.Position;
             MainNodes.Add(newNode);
-            if(i != MainNodesCount-1)
+            if (i != MainNodesCount - 1)
                 Nodes.Add(newNode);
             switch (direction)
             {
                 case 0:
                     lastNode.Up = newNode;
-                    newNode.Position.z += length * tileWidth;
+                    newNode.Position.y += length * tileWidth;
                     newNode.Down = lastNode;
                     break;
                 case 1:
@@ -89,15 +101,17 @@ public class MapGenerator : MonoBehaviour
     {
         int nextTargetDirection, length;
         Node targetNode, newNode;
-        
-        for (int i=0; i<AdditionalNodesCount;i++ )
+
+        for (int i = 0; i < AdditionalNodesCount; i++)
         {
+            //randomize next node
             do
             {
                 targetNode = Nodes[Random.Range(0, Nodes.Count - 1)];
             }
             while (!targetNode.CanGetNextDirection());
 
+            //get next node direction and path length
             nextTargetDirection = targetNode.GetNextDirection();
             length = Random.Range(BranchMinLength, BranchMaxLength);
             newNode = new Node();
@@ -106,12 +120,12 @@ public class MapGenerator : MonoBehaviour
             {
                 case 0:
                     targetNode.Up = newNode;
-                    newNode.Position.z += length * tileWidth;
+                    newNode.Position.y += length * tileWidth;
                     newNode.Down = targetNode;
                     break;
                 case 1:
                     targetNode.Left = newNode;
-                    newNode.Position.x += + length * tileWidth;
+                    newNode.Position.x += +length * tileWidth;
                     newNode.Right = targetNode;
                     break;
                 case 2:
@@ -121,12 +135,13 @@ public class MapGenerator : MonoBehaviour
                     break;
                 case 3:
                     targetNode.Down = newNode;
-                    newNode.Position.z -= length * tileWidth;
+                    newNode.Position.y -= length * tileWidth;
                     newNode.Up = targetNode;
                     break;
             }
             Nodes.Add(newNode);
             AdditionalNodes.Add(newNode);
+
 
         }
 
@@ -134,93 +149,132 @@ public class MapGenerator : MonoBehaviour
     private void BuildPaths(Node target, Node source)
     {
         int distance;
-        Path path = new Path();
+        Path path;
         Tile tile;
         if (target.Up != null && target.Up != source)
         {
-            distance = (int)(target.Up.Position.z - target.Position.z);
+            path = new Path();
+            path.source = target;
+            path.target = target.Up;
+            distance = (int)(target.Up.Position.y - target.Position.y);
             distance /= tileWidth;
             for (int i = 1; i < distance; i++)
             {
                 tile = new Tile();
-                tile.Position = new Vector3(target.Position.x, target.Position.y, target.Position.z + tileWidth * i);
+                tile.Position = new Vector2(target.Position.x, target.Position.y + tileWidth * i);
                 path.tiles.Add(tile);
             }
-
+            MainPaths.Add(path);
             BuildPaths(target.Up, target);
         }
 
         if (target.Down != null && target.Down != source)
         {
-            distance = (int)(target.Position.z - target.Down.Position.z);
+            path = new Path();
+            path.source = target;
+            path.target = target.Down;
+            distance = (int)(target.Position.y - target.Down.Position.y);
             distance /= tileWidth;
             for (int i = 1; i < distance; i++)
             {
                 tile = new Tile();
-                tile.Position = new Vector3(target.Position.x, target.Position.y, target.Position.z - tileWidth * i);
+                tile.Position = new Vector2(target.Position.x, target.Position.y - tileWidth * i);
                 path.tiles.Add(tile);
             }
+            MainPaths.Add(path);
             BuildPaths(target.Down, target);
         }
 
         if (target.Left != null && target.Left != source)
         {
+            path = new Path();
+            path.source = target;
+            path.target = target.Left;
             distance = (int)(target.Left.Position.x - target.Position.x);
             distance /= tileWidth;
             for (int i = 1; i < distance; i++)
             {
                 tile = new Tile();
-                tile.Position = new Vector3(target.Position.x + i * tileWidth, target.Position.y, target.Position.z);
+                tile.Position = new Vector2(target.Position.x + i * tileWidth, target.Position.y);
                 path.tiles.Add(tile);
             }
+            MainPaths.Add(path);
             BuildPaths(target.Left, target);
         }
 
         if (target.Right != null && target.Right != source)
         {
+            path = new Path();
+            path.source = target;
+            path.target = target.Right;
             distance = (int)(target.Position.x - target.Right.Position.x);
             distance /= tileWidth;
             for (int i = 1; i < distance; i++)
             {
                 tile = new Tile();
-                tile.Position = new Vector3(target.Position.x - i * tileWidth, target.Position.y, target.Position.z);
+                tile.Position = new Vector2(target.Position.x - i * tileWidth, target.Position.y);
                 path.tiles.Add(tile);
             }
+            MainPaths.Add(path);
             BuildPaths(target.Right, target);
         }
     }
 
-    private void InstantiateMainNodes()
+    private void CheckPaths()
     {
-        for (int i = 0; i < MainNodes.Count; i++)
+        bool restart = true;
+        while (restart)
         {
-            GameObject go = Instantiate(TilePrefab, MainNodes[i].Position, Quaternion.identity) as GameObject;
-            go.GetComponent<MeshRenderer>().material = Blue;
-
-            if (i == 0 || i == MainNodes.Count - 1)
-                go.GetComponent<MeshRenderer>().material = Gold;
-        }
-
-
-    }
-    private void InstantiateAdditionalNodes()
-    {
-        foreach (Node node in AdditionalNodes)
-        {
-            GameObject go = Instantiate(TilePrefab, node.Position, Quaternion.identity) as GameObject;
-            go.GetComponent<MeshRenderer>().material = Red;
-        }
-    }
-    private void InstantiatePaths()
-    {
-        GameObject go;
-        foreach(Path path in Paths)
-        {
-            foreach(Tile tile in path.tiles)
+            restart = false;
+            foreach (Path p in MainPaths.Where(p => AdditionalNodes.Contains(p.source) || AdditionalNodes.Contains(p.target)))
             {
-                go = Instantiate(TilePrefab, tile.Position, Quaternion.identity) as GameObject;
-                go.GetComponent<MeshRenderer>().material = Grey;
+                int counter = 0;
+                foreach (Path path in MainPaths)
+                {
+                    if (path != p)
+                        counter += CountOverlappingTiles(p, path);
+                }
+                if (counter > 2)
+                {
+                    RemovePath(p);
+                    restart = true;
+                    break;
+                }
             }
         }
+    }
+
+    private int CountOverlappingTiles(Path p1, Path p2)
+    {
+        int res = 0;
+
+        if (p1.target.Position == p2.target.Position)
+            res++;
+        if (p1.target.Position == p2.source.Position)
+            res++;
+        if (p1.source.Position == p2.target.Position)
+            res++;
+        if (p1.source.Position == p2.source.Position)
+            res++;
+
+        foreach(Tile t in p1.tiles)
+        {
+            if (p2.tiles.Any(x => x.Position == t.Position))
+                res++;
+        }
+
+
+        return res;
+    }
+
+    private void RemovePath(Path p)
+    {
+        p.source.RemoveNode(p.target);
+        p.target.RemoveNode(p.source);
+        AdditionalNodes.Remove(p.source);
+        AdditionalNodes.Remove(p.target);
+        MainPaths.Remove(p);
+
+
     }
 }

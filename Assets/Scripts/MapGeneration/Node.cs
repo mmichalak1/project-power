@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Node
+public class Node : Tile
 {
     public Node Up;
     public Node Down;
     public Node Left;
     public Node Right;
 
-    public Vector3 Position;
 
     public bool CanGetNextDirection()
     {
@@ -25,7 +24,17 @@ public class Node
                 return direction;
         }
     }
-
+    public void RemoveNode(Node node)
+    {
+        if (Up == node)
+            Up = null;
+        if (Down == node)
+            Down = null;
+        if (Left == node)
+            Left = null;
+        if (Right == node)
+            Right = null;
+    }
     private bool IsOk(int dir)
     {
         if (dir == 0)

@@ -2,6 +2,6 @@
 
 public class Tile
 {
-    public Vector3 Position;
+    public Vector2 Position = new Vector2();
 }
 
