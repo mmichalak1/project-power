@@ -311,6 +311,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 499854}
+  - 114: {fileID: 11454564}
   m_Layer: 0
   m_Name: BlockRightTurn
   m_TagString: Untagged
@@ -878,7 +879,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.14, y: 0.06, z: -6.1}
+  m_LocalPosition: {x: 15.68, y: 0.06, z: -6.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -2011,6 +2012,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11454564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdad111864dfda1428db21973ba8e631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passableTiles:
+  - {fileID: 110372}
+  - {fileID: 110538}
+  - {fileID: 160544}
+  - {fileID: 158466}
+  - {fileID: 128666}
+  connectingTiles:
+  - {fileID: 110372}
+  - {fileID: 128666}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

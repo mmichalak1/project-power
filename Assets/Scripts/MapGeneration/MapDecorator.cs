@@ -5,6 +5,7 @@ public class MapDecorator : MonoBehaviour
 {
 
     public MapGenerator generator;
+    public Spawner spawner;
     public Vector3 StartingPoint;
 
     public GameObject ErrorBlock;
@@ -19,33 +20,34 @@ public class MapDecorator : MonoBehaviour
     public List<GameObject> RightLeftBlocks;
     public List<GameObject> RightBlocks;
 
-
+    public Dictionary<Node, GameObject> NodesTiles { get; private set; }
 
 
     public void Decorate()
     {
+        NodesTiles = new Dictionary<Node, GameObject>();
         Map.transform.position = StartingPoint;
-        InstantiateAll();
+        InstantiateAll();      
+        spawner.Spawn();
     }
-
-
     private void InstantiateAll()
     {
         InstantiateNodes(generator.MainNodes);
         InstantiateNodes(generator.AdditionalNodes);
+        Debug.Log("Nodes in dict: " + NodesTiles.Count);
         InstantiatePaths(generator.Paths);
     }
 
 
 
-    private void InstantiateNodes(List<Node> Node)
+    private void InstantiateNodes(IEnumerable<Node> Node)
     {
         foreach (Node node in Node)
         {
             GameObject TilePrefab = SelectPrefabForNode(node);
-            GameObject go = Instantiate(TilePrefab, new Vector3(node.Position.x, 0, node.Position.y), Quaternion.identity) as GameObject;
+            GameObject go = Instantiate(TilePrefab, new Vector3(node.Position.x, 0, node.Position.y), TilePrefab.transform.rotation) as GameObject;
             go.transform.SetParent(Map.transform, true);
-            go.transform.rotation = TilePrefab.transform.localRotation;
+            NodesTiles.Add(node, go);
         }
 
 
@@ -53,9 +55,14 @@ public class MapDecorator : MonoBehaviour
     private void InstantiatePaths(List<Path> MainPaths)
     {
         GameObject go;
+        BlockDataHolder holder, hold;
+        Debug.Log(MainPaths.Count);
         foreach (Path path in MainPaths)
         {
             GameObject TilePrefab;
+            if (!NodesTiles.ContainsKey(path.source) || !NodesTiles.ContainsKey(path.target))
+                continue;
+            holder = NodesTiles[path.source].GetComponent<BlockDataHolder>();
             if (path.source.Position.x == path.target.Position.x)
                 TilePrefab = HorForwardBlocks[0];
             else
@@ -63,16 +70,25 @@ public class MapDecorator : MonoBehaviour
 
             foreach (Tile t in path.tiles)
             {
-                go = Instantiate(TilePrefab, new Vector3(t.Position.x, 0, t.Position.y), Quaternion.identity) as GameObject;
-                go.transform.SetParent(Map.transform);
+                go = Instantiate(TilePrefab, new Vector3(t.Position.x, 0, t.Position.y), TilePrefab.transform.rotation) as GameObject;
+                hold = go.GetComponent<BlockDataHolder>();
+                hold.NeighbouringBlocks.Add(holder);
+                holder.NeighbouringBlocks.Add(hold);
+                holder = hold;
+                go.transform.SetParent(Map.transform, false);
             }
+            hold = NodesTiles[path.target].GetComponent<BlockDataHolder>();
+            hold.NeighbouringBlocks.Add(holder);
+            holder.NeighbouringBlocks.Add(hold);
         }
     }
-
-    private void Update()
+    private void SetupTiles()
     {
-        Debug.Log("Crap");
+
     }
+
+
+
 
 
 

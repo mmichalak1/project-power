@@ -22,16 +22,18 @@ public class MapGenerator : MonoBehaviour
     private int MainNodesCount;
     private int AdditionalNodesCount;
 
-    private Node StartingNode, FinishNode;
+    private Node startingNode, finishNode;
 
-    private List<Node> Nodes = new List<Node>();
+    private List<Node> nodes = new List<Node>();
     private List<Node> mainNodes = new List<Node>();
     private List<Node> additionalNodes = new List<Node>();
+    private List<Path> MainPaths = new List<Path>();
+
 
     public List<Node> MainNodes { get { return mainNodes; } }
     public List<Node> AdditionalNodes { get { return additionalNodes; } }
-
-    private List<Path> MainPaths = new List<Path>();
+    public Node StartingNode { get { return startingNode; } }
+    public Node FinishNode { get { return finishNode; } }
     public List<Path> Paths { get { return MainPaths; } }
     // Use this for initialization
     void Start()
@@ -43,27 +45,30 @@ public class MapGenerator : MonoBehaviour
         }
         LevelSeed = Random.seed;
 
-        StartingNode = new Node();
-        StartingNode.Position = Decorator.StartingPoint;
-        mainNodes.Add(StartingNode);
-        Nodes.Add(StartingNode);
+        startingNode = new Node();
+        startingNode.Position = Decorator.StartingPoint;
+        mainNodes.Add(startingNode);
+        nodes.Add(startingNode);
 
         MainNodesCount = Random.Range(MinMainBranches, MaxMainBranches);
         AdditionalNodesCount = Random.Range(MinAddidtionalBranches, MaxAdditionalBranches);
         BuildMainNodes();
+       
         BuildAdditionalNodes();
-        BuildPaths(StartingNode, null);
+        BuildPaths(startingNode, null);
 
         CheckPaths();
-
+        Debug.Log("Total nodes: " + (MainNodes.Count + AdditionalNodes.Count));
         Decorator.Decorate();
+
+        
     }
 
 
     private void BuildMainNodes()
     {
         int direction, length;
-        Node lastNode = StartingNode;
+        Node lastNode = startingNode;
         for (int i = 0; i < MainNodesCount; i++)
         {
             direction = Random.Range(0, 2);
@@ -72,7 +77,7 @@ public class MapGenerator : MonoBehaviour
             newNode.Position = lastNode.Position;
             mainNodes.Add(newNode);
             if (i != MainNodesCount - 1)
-                Nodes.Add(newNode);
+                nodes.Add(newNode);
             switch (direction)
             {
                 case 0:
@@ -94,7 +99,7 @@ public class MapGenerator : MonoBehaviour
             lastNode = newNode;
 
         }
-        FinishNode = lastNode;
+        finishNode = lastNode;
 
     }
     private void BuildAdditionalNodes()
@@ -107,7 +112,7 @@ public class MapGenerator : MonoBehaviour
             //randomize next node
             do
             {
-                targetNode = Nodes[Random.Range(0, Nodes.Count - 1)];
+                targetNode = nodes[Random.Range(0, nodes.Count - 1)];
             }
             while (!targetNode.CanGetNextDirection());
 
@@ -139,7 +144,7 @@ public class MapGenerator : MonoBehaviour
                     newNode.Up = targetNode;
                     break;
             }
-            Nodes.Add(newNode);
+            nodes.Add(newNode);
             additionalNodes.Add(newNode);
 
 
@@ -269,6 +274,7 @@ public class MapGenerator : MonoBehaviour
 
     private void RemovePath(Path p)
     {
+        Debug.Log("Removing path");
         p.source.RemoveNode(p.target);
         p.target.RemoveNode(p.source);
         additionalNodes.Remove(p.source);
