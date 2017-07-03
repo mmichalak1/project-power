@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 using Assets.LogicSystem;
 
+//TODO Uncomment stuff for World and Fader
 public class MovementController : MonoBehaviour
 {
     readonly Vector3 targetDirection = new Vector3(2, 1, 0).normalized;
@@ -20,8 +21,8 @@ public class MovementController : MonoBehaviour
     private bool shallNotPassControl = false;
 
     public Quaternion newRot;
-    public Image ShallNotPass;
-    public World World;
+    //public Image ShallNotPass;
+    //public World World;
     public AnimationControl[] animations;
 
     Events.MyEvent Forward, Left, Right;
@@ -29,8 +30,8 @@ public class MovementController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        x = World.SpawnPointX;
-        z = World.SpawnPointZ;
+        //x = World.SpawnPointX;
+        //z = World.SpawnPointZ;
         Forward = MoveForward;
         Left = RotateLeft;
         Right = RotateRight;
@@ -124,49 +125,51 @@ public class MovementController : MonoBehaviour
 
     private bool CheckIfAccessible(bool forward)
     {
+        ///TODO: REMOVE
+        return true;
         int signal = forward ? 1 : -1;
 
         switch (Round(transform.eulerAngles.y))
         {
             case 0:
                 {
-                    if (x + signal < World.width)
-                        if (World.Paths[z, x + signal])
-                        {
-                            x += signal;
-                            return true;
-                        }
+                    //if (x + signal < World.width)
+                    //    if (World.Paths[z, x + signal])
+                    //    {
+                    //        x += signal;
+                    //        return true;
+                    //    }
 
                 }
                 break;
             case 90:
                 {
-                    if (z - signal >= 0)
-                        if (World.Paths[z - signal, x])
-                        {
-                            z -= signal;
-                            return true;
-                        }
+                    //if (z - signal >= 0)
+                    //    if (World.Paths[z - signal, x])
+                    //    {
+                    //        z -= signal;
+                    //        return true;
+                    //    }
                 }
                 break;
             case 180:
                 {
-                    if (x - signal >= 0)
-                        if (World.Paths[z, x - signal])
-                        {
-                            x -= signal;
-                            return true;
-                        }
+                    //if (x - signal >= 0)
+                    //    if (World.Paths[z, x - signal])
+                    //    {
+                    //        x -= signal;
+                    //        return true;
+                    //    }
                 }
                 break;
             case 270:
                 {
-                    if (z + signal < World.heigth)
-                        if (World.Paths[z + signal, x])
-                        {
-                            z += signal;
-                            return true;
-                        }
+                    //if (z + signal < World.heigth)
+                    //    if (World.Paths[z + signal, x])
+                    //    {
+                    //        z += signal;
+                    //        return true;
+                    //    }
                 }
                 break;
             default: { return false; }
@@ -190,23 +193,23 @@ public class MovementController : MonoBehaviour
 
     void Appear()
     {
-        if (ShallNotPass.color.a < 1.0)
-        {
-            ShallNotPass.color += new Color(0, 0, 0, 10 * Time.deltaTime);
-            Debug.Log(ShallNotPass.color.a);
-        }
-        else
-        {
-            shallNotPassControl = false;
-        }
+        //if (ShallNotPass.color.a < 1.0)
+        //{
+        //    ShallNotPass.color += new Color(0, 0, 0, 10 * Time.deltaTime);
+        //    Debug.Log(ShallNotPass.color.a);
+        //}
+        //else
+        //{
+        //    shallNotPassControl = false;
+        //}
     }
 
     void Fade()
     {
-        if (ShallNotPass.color.a > 0)
-        {
-            ShallNotPass.color -= new Color(0, 0, 0,  Time.deltaTime);
-        }
+        //if (ShallNotPass.color.a > 0)
+        //{
+        //    ShallNotPass.color -= new Color(0, 0, 0,  Time.deltaTime);
+        //}
     }
 
 }
