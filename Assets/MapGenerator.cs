@@ -4,12 +4,8 @@ using System.Linq;
 
 public class MapGenerator : MonoBehaviour
 {
-
-    public GameObject TilePrefab;
-    public Material Blue, Red, Green, Gold, Yellow, Grey;
     public MapDecorator Decorator;
 
-    public Vector3 StartingPoint;
     public int tileWidth = 1;
 
     public int BranchMinLength = 3;
@@ -29,10 +25,14 @@ public class MapGenerator : MonoBehaviour
     private Node StartingNode, FinishNode;
 
     private List<Node> Nodes = new List<Node>();
-    private List<Node> MainNodes = new List<Node>();
-    private List<Node> AdditionalNodes = new List<Node>();
+    private List<Node> mainNodes = new List<Node>();
+    private List<Node> additionalNodes = new List<Node>();
+
+    public List<Node> MainNodes { get { return mainNodes; } }
+    public List<Node> AdditionalNodes { get { return additionalNodes; } }
 
     private List<Path> MainPaths = new List<Path>();
+    public List<Path> Paths { get { return MainPaths; } }
     // Use this for initialization
     void Start()
     {
@@ -44,8 +44,8 @@ public class MapGenerator : MonoBehaviour
         LevelSeed = Random.seed;
 
         StartingNode = new Node();
-        StartingNode.Position = StartingPoint;
-        MainNodes.Add(StartingNode);
+        StartingNode.Position = Decorator.StartingPoint;
+        mainNodes.Add(StartingNode);
         Nodes.Add(StartingNode);
 
         MainNodesCount = Random.Range(MinMainBranches, MaxMainBranches);
@@ -56,7 +56,7 @@ public class MapGenerator : MonoBehaviour
 
         CheckPaths();
 
-       
+        Decorator.Decorate();
     }
 
 
@@ -70,7 +70,7 @@ public class MapGenerator : MonoBehaviour
             length = Random.Range(BranchMinLength, BranchMaxLength);
             Node newNode = new Node();
             newNode.Position = lastNode.Position;
-            MainNodes.Add(newNode);
+            mainNodes.Add(newNode);
             if (i != MainNodesCount - 1)
                 Nodes.Add(newNode);
             switch (direction)
@@ -140,7 +140,7 @@ public class MapGenerator : MonoBehaviour
                     break;
             }
             Nodes.Add(newNode);
-            AdditionalNodes.Add(newNode);
+            additionalNodes.Add(newNode);
 
 
         }
@@ -226,7 +226,7 @@ public class MapGenerator : MonoBehaviour
         while (restart)
         {
             restart = false;
-            foreach (Path p in MainPaths.Where(p => AdditionalNodes.Contains(p.source) || AdditionalNodes.Contains(p.target)))
+            foreach (Path p in MainPaths.Where(p => additionalNodes.Contains(p.source) || additionalNodes.Contains(p.target)))
             {
                 int counter = 0;
                 foreach (Path path in MainPaths)
@@ -271,8 +271,8 @@ public class MapGenerator : MonoBehaviour
     {
         p.source.RemoveNode(p.target);
         p.target.RemoveNode(p.source);
-        AdditionalNodes.Remove(p.source);
-        AdditionalNodes.Remove(p.target);
+        additionalNodes.Remove(p.source);
+        additionalNodes.Remove(p.target);
         MainPaths.Remove(p);
 
 
