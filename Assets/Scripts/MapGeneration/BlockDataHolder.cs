@@ -14,5 +14,5 @@ public class BlockDataHolder : MonoBehaviour {
     public List<GameObject> PassableTiles { get { return passableTiles; } }
     public List<GameObject> ConnectingTiles { get { return connectingTiles; } }
     public List<BlockDataHolder> NeighbouringBlocks { get { return neighbouringBlocks; } }
-
+    public GameObject StartingTile { get; set; }
 }

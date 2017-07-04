@@ -13,12 +13,12 @@ public class Spawner : MonoBehaviour {
 
     public int MinNormalEnemies = 3;
     public int MaxNormalEnemies = 5;
-
+    public int NormalEnemiesCount;
     public void Spawn()
     {
         SpawnPlayer();
-        int enemiesCount = Random.Range(MinNormalEnemies, MaxNormalEnemies);
-        for (int i=0; i<enemiesCount; i++)
+        NormalEnemiesCount = Random.Range(MinNormalEnemies, MaxNormalEnemies);
+        for (int i=0; i<NormalEnemiesCount; i++)
         {
 
         }
