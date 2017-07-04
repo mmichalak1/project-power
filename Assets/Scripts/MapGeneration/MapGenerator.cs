@@ -161,12 +161,14 @@ public class MapGenerator : MonoBehaviour
             path = new Path();
             path.source = target;
             path.target = target.Up;
+            path.target.ClosestTileToStart = path.source;
             distance = (int)(target.Up.Position.y - target.Position.y);
             distance /= blockSize;
             for (int i = 1; i < distance; i++)
             {
                 tile = new Tile();
                 tile.Position = new Vector2(target.Position.x, target.Position.y + blockSize * i);
+                tile.ClosestTileToStart = source;
                 path.tiles.Add(tile);
             }
             MainPaths.Add(path);
@@ -178,6 +180,7 @@ public class MapGenerator : MonoBehaviour
             path = new Path();
             path.source = target;
             path.target = target.Down;
+            path.target.ClosestTileToStart = path.source;
             distance = (int)(target.Position.y - target.Down.Position.y);
             distance /= blockSize;
             for (int i = 1; i < distance; i++)
@@ -185,6 +188,7 @@ public class MapGenerator : MonoBehaviour
                 tile = new Tile();
                 tile.Position = new Vector2(target.Position.x, target.Position.y - blockSize * i);
                 path.tiles.Add(tile);
+                tile.ClosestTileToStart = source;
             }
             MainPaths.Add(path);
             BuildPaths(target.Down, target);
@@ -195,6 +199,7 @@ public class MapGenerator : MonoBehaviour
             path = new Path();
             path.source = target;
             path.target = target.Left;
+            path.target.ClosestTileToStart = path.source;
             distance = (int)(target.Left.Position.x - target.Position.x);
             distance /= blockSize;
             for (int i = 1; i < distance; i++)
@@ -202,6 +207,7 @@ public class MapGenerator : MonoBehaviour
                 tile = new Tile();
                 tile.Position = new Vector2(target.Position.x + i * blockSize, target.Position.y);
                 path.tiles.Add(tile);
+                tile.ClosestTileToStart = source;
             }
             MainPaths.Add(path);
             BuildPaths(target.Left, target);
@@ -212,6 +218,7 @@ public class MapGenerator : MonoBehaviour
             path = new Path();
             path.source = target;
             path.target = target.Right;
+            path.target.ClosestTileToStart = path.source;
             distance = (int)(target.Position.x - target.Right.Position.x);
             distance /= blockSize;
             for (int i = 1; i < distance; i++)
@@ -219,6 +226,7 @@ public class MapGenerator : MonoBehaviour
                 tile = new Tile();
                 tile.Position = new Vector2(target.Position.x - i * blockSize, target.Position.y);
                 path.tiles.Add(tile);
+                tile.ClosestTileToStart = source;
             }
             MainPaths.Add(path);
             BuildPaths(target.Right, target);
