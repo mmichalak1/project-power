@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class MapDecorator : MonoBehaviour
 {
@@ -20,14 +21,15 @@ public class MapDecorator : MonoBehaviour
     public List<GameObject> RightLeftBlocks;
     public List<GameObject> RightBlocks;
 
-    public Dictionary<Node, GameObject> NodesTiles { get; private set; }
+    public BiDictionary<Tile, GameObject> NodesTiles { get; private set; }
 
 
     public void Decorate()
     {
-        NodesTiles = new Dictionary<Node, GameObject>();
+        NodesTiles = new BiDictionary<Tile, GameObject>();
         Map.transform.position = StartingPoint;
-        InstantiateAll();      
+        InstantiateAll();
+        SetClosestNodeToStart();
         spawner.Spawn();
     }
     private void InstantiateAll()
@@ -46,6 +48,7 @@ public class MapDecorator : MonoBehaviour
         {
             GameObject TilePrefab = SelectPrefabForNode(node);
             GameObject go = Instantiate(TilePrefab, new Vector3(node.Position.x, 0, node.Position.y), TilePrefab.transform.rotation) as GameObject;
+            go.name += " - Node";
             go.transform.SetParent(Map.transform, true);
             NodesTiles.Add(node, go);
         }
@@ -76,14 +79,13 @@ public class MapDecorator : MonoBehaviour
                 holder.NeighbouringBlocks.Add(hold);
                 holder = hold;
                 go.transform.SetParent(Map.transform, false);
+                NodesTiles.Add(t, go);
             }
             hold = NodesTiles[path.target].GetComponent<BlockDataHolder>();
             hold.NeighbouringBlocks.Add(holder);
             holder.NeighbouringBlocks.Add(hold);
         }
     }
-
-
     private GameObject SelectPrefabForNode(Node node)
     {
         bool right = node.Right != null;
@@ -129,6 +131,17 @@ public class MapDecorator : MonoBehaviour
 
             return ErrorBlock;
     }
-
+    private void SetClosestNodeToStart()
+    {
+        foreach(Path p in generator.Paths)
+        {
+            foreach(Tile t in p.tiles)
+            {
+                var go = NodesTiles[t];
+                go.GetComponent<BlockDataHolder>().NodeToMain = NodesTiles[p.source];
+            }
+            NodesTiles[p.target].GetComponent<BlockDataHolder>().NodeToMain = NodesTiles[p.source];
+        }
+    }
 
 }
