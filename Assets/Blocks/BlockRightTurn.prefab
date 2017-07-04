@@ -2214,6 +2214,7 @@ MonoBehaviour:
   - {fileID: 110372}
   - {fileID: 128666}
   neighbouringBlocks: []
+  startingTile: {fileID: 160544}
 --- !u!114 &11455072
 MonoBehaviour:
   m_ObjectHideFlags: 1
