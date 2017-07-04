@@ -2435,6 +2435,7 @@ MonoBehaviour:
   - {fileID: 157582}
   - {fileID: 198910}
   neighbouringBlocks: []
+  startingTile: {fileID: 110596}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

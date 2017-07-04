@@ -1,21 +1,9 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using System.Linq;
 
 public class EditorTools {
-
-    [MenuItem("Tools/Blocks/RoundPositions")]
-	private static void RoundPostions()
-    {
-        Vector3 newPos;
-        Vector3 pos;
-        foreach (GameObject obj in Selection.gameObjects)
-        {
-            pos = obj.transform.position;
-            newPos = new Vector3(Mathf.RoundToInt(pos.x), 0.0f, Mathf.RoundToInt(pos.z));
-            obj.transform.position = newPos;
-        }
-    }
 
     [MenuItem("Tools/Blocks/SetTilesParent")]
     private static void SetTilesParent()
@@ -38,16 +26,21 @@ public class EditorTools {
     [MenuItem("Tools/Block/SetStartingTiles")]
     private static void SetStartingTiles()
     {
-        List<GameObject> AllTiles = new List<GameObject>();
+        
         foreach (GameObject obj in Selection.gameObjects)
         {
+            List<GameObject> AllTiles = new List<GameObject>();
             Transform child = obj.transform.GetChild(0);
             for (int i = 0; i < child.childCount; i++)
             {
-                AllTiles.Add(child.GetChild(i).gameObject);
-                Debug.Log(AllTiles.Count);
-               
+                AllTiles.Add(child.GetChild(i).gameObject);                
             }
+            AllTiles.OrderByDescending(x => x.transform.localPosition.z)
+                 .ThenByDescending(x => x.transform.localPosition.x).ToArray();
+
+            int blockSize = (int)Mathf.Sqrt(AllTiles.Count);
+            int index = (blockSize * (blockSize / 2)) + blockSize/2;
+            obj.GetComponent<BlockDataHolder>().StartingTile = AllTiles[index];
         }
     }
 }

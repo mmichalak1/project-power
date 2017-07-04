@@ -34,7 +34,7 @@ public class MapDecorator : MonoBehaviour
     {
         InstantiateNodes(generator.MainNodes);
         InstantiateNodes(generator.AdditionalNodes);
-        Debug.Log("Nodes in dict: " + NodesTiles.Count);
+        //Debug.Log("Nodes in dict: " + NodesTiles.Count);
         InstantiatePaths(generator.Paths);
     }
 

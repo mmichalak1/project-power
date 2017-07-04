@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour {
     public List<GameObject> LastEnemiesGroups;
     public GameObject BossGroup;
     public GameObject Player;
+    public Vector3 PlayerTileOffset;
 
     public int MinNormalEnemies = 3;
     public int MaxNormalEnemies = 5;
@@ -26,7 +27,8 @@ public class Spawner : MonoBehaviour {
 
     public void SpawnPlayer()
     {
-        Vector3 spawnPoint = decorator.NodesTiles[generator.StartingNode].transform.Find("EnemyPlace").transform.position;
+        Vector3 spawnPoint = decorator.NodesTiles[generator.StartingNode].GetComponent<BlockDataHolder>().StartingTile.transform.position +
+            PlayerTileOffset;
         Instantiate(Player, spawnPoint, Quaternion.identity);
     }
     

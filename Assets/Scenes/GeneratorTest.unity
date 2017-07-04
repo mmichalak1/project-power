@@ -262,11 +262,11 @@ MonoBehaviour:
   tileWidth: 10
   BranchMinLength: 3
   BranchMaxLength: 5
-  MinMainBranches: 10
-  MaxMainBranches: 16
-  MinAddidtionalBranches: 5
-  MaxAdditionalBranches: 6
-  LevelSeed: 0
+  MinMainBranches: 3
+  MaxMainBranches: 7
+  MinAddidtionalBranches: 2
+  MaxAdditionalBranches: 5
+  LevelSeed: 3
 --- !u!4 &420036990
 Transform:
   m_ObjectHideFlags: 0
@@ -334,6 +334,7 @@ MonoBehaviour:
   - {fileID: 185082, guid: 4e1ff0d452f91e4499998f71f9926069, type: 2}
   BossGroup: {fileID: 109570, guid: 421cef206d9851f42b3f8bcb1b9b74b5, type: 2}
   Player: {fileID: 131650, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
+  PlayerTileOffset: {x: 0, y: 0.1, z: 0}
   MinNormalEnemies: 3
   MaxNormalEnemies: 5
   NormalEnemiesCount: 0
