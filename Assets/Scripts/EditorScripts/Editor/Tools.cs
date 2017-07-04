@@ -23,7 +23,7 @@ public class EditorTools {
         }
     }
 
-    [MenuItem("Tools/Block/SetStartingTiles")]
+    [MenuItem("Tools/Blocks/SetStartingTiles")]
     private static void SetStartingTiles()
     {
         
@@ -35,12 +35,66 @@ public class EditorTools {
             {
                 AllTiles.Add(child.GetChild(i).gameObject);                
             }
-            AllTiles.OrderByDescending(x => x.transform.localPosition.z)
-                 .ThenByDescending(x => x.transform.localPosition.x).ToArray();
+            AllTiles = AllTiles.OrderByDescending(x => x.transform.localPosition.z)
+                 .ThenByDescending(x => x.transform.localPosition.x).ToList();
 
             int blockSize = (int)Mathf.Sqrt(AllTiles.Count);
             int index = (blockSize * (blockSize / 2)) + blockSize/2;
             obj.GetComponent<BlockDataHolder>().StartingTile = AllTiles[index];
+        }
+    }
+
+    [MenuItem("Tools/Blocks/SetNeighbouringTiles")]
+    private static void SetNeighbouringTiles()
+    {
+        foreach (GameObject obj in Selection.gameObjects)
+        {
+            List<GameObject> AllTiles = new List<GameObject>();
+            Transform child = obj.transform.GetChild(0);
+            for (int i = 0; i < child.childCount; i++)
+            {
+                AllTiles.Add(child.GetChild(i).gameObject);
+            }
+            AllTiles = AllTiles.OrderBy(x => x.transform.localPosition.x)
+                 .ThenBy(x => x.transform.localPosition.z).ToList();
+
+           for (int i = 0; i<AllTiles.Count; i++)
+           {
+                var scr = AllTiles[i].GetComponent<TileData>();
+                if (scr == null)
+                {
+                    Debug.LogError("Tile does not contain TileData component.");
+                    return;
+                }
+
+                int blockSize = (int)Mathf.Sqrt(AllTiles.Count);
+                scr.LeftNeighbour = null;
+                scr.RightNeighbour = null;
+                scr.UpNeighbour = null;
+                scr.DownNeighbour = null;
+
+                //Left Tile
+                if (i-1>0)
+                {
+                    scr.LeftNeighbour = AllTiles[i - 1].GetComponent<TileData>();
+                }
+                //Right Tile
+                if(i+1<AllTiles.Count)
+                {
+                    scr.RightNeighbour = AllTiles[i + 1].GetComponent<TileData>();
+                }
+                //Down Tile
+                if(i+blockSize<AllTiles.Count)
+                {
+                    scr.DownNeighbour = AllTiles[i + blockSize].GetComponent<TileData>();
+                }
+                //Up Tile
+                if(i>blockSize)
+                {
+                    scr.UpNeighbour = AllTiles[i - blockSize].GetComponent<TileData>();
+                }
+
+            }
         }
     }
 }

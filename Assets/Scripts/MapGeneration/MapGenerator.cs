@@ -6,7 +6,7 @@ public class MapGenerator : MonoBehaviour
 {
     public MapDecorator Decorator;
 
-    public int tileWidth = 1;
+    public int blockSize = 1;
 
     public int BranchMinLength = 3;
     public int BranchMaxLength = 7;
@@ -58,7 +58,7 @@ public class MapGenerator : MonoBehaviour
         BuildPaths(startingNode, null);
 
         CheckPaths();
-        Debug.Log("Total nodes: " + (MainNodes.Count + AdditionalNodes.Count));
+        //Debug.Log("Total nodes: " + (MainNodes.Count + AdditionalNodes.Count));
         Decorator.Decorate();
 
         
@@ -82,17 +82,17 @@ public class MapGenerator : MonoBehaviour
             {
                 case 0:
                     lastNode.Up = newNode;
-                    newNode.Position.y += length * tileWidth;
+                    newNode.Position.y += length * blockSize;
                     newNode.Down = lastNode;
                     break;
                 case 1:
                     lastNode.Left = newNode;
-                    newNode.Position.x += length * tileWidth;
+                    newNode.Position.x += length * blockSize;
                     newNode.Right = lastNode;
                     break;
                 case 2:
                     lastNode.Right = newNode;
-                    newNode.Position.x -= length * tileWidth;
+                    newNode.Position.x -= length * blockSize;
                     newNode.Left = lastNode;
                     break;
             }
@@ -125,22 +125,22 @@ public class MapGenerator : MonoBehaviour
             {
                 case 0:
                     targetNode.Up = newNode;
-                    newNode.Position.y += length * tileWidth;
+                    newNode.Position.y += length * blockSize;
                     newNode.Down = targetNode;
                     break;
                 case 1:
                     targetNode.Left = newNode;
-                    newNode.Position.x += +length * tileWidth;
+                    newNode.Position.x += +length * blockSize;
                     newNode.Right = targetNode;
                     break;
                 case 2:
                     targetNode.Right = newNode;
-                    newNode.Position.x -= length * tileWidth;
+                    newNode.Position.x -= length * blockSize;
                     newNode.Left = targetNode;
                     break;
                 case 3:
                     targetNode.Down = newNode;
-                    newNode.Position.y -= length * tileWidth;
+                    newNode.Position.y -= length * blockSize;
                     newNode.Up = targetNode;
                     break;
             }
@@ -162,11 +162,11 @@ public class MapGenerator : MonoBehaviour
             path.source = target;
             path.target = target.Up;
             distance = (int)(target.Up.Position.y - target.Position.y);
-            distance /= tileWidth;
+            distance /= blockSize;
             for (int i = 1; i < distance; i++)
             {
                 tile = new Tile();
-                tile.Position = new Vector2(target.Position.x, target.Position.y + tileWidth * i);
+                tile.Position = new Vector2(target.Position.x, target.Position.y + blockSize * i);
                 path.tiles.Add(tile);
             }
             MainPaths.Add(path);
@@ -179,11 +179,11 @@ public class MapGenerator : MonoBehaviour
             path.source = target;
             path.target = target.Down;
             distance = (int)(target.Position.y - target.Down.Position.y);
-            distance /= tileWidth;
+            distance /= blockSize;
             for (int i = 1; i < distance; i++)
             {
                 tile = new Tile();
-                tile.Position = new Vector2(target.Position.x, target.Position.y - tileWidth * i);
+                tile.Position = new Vector2(target.Position.x, target.Position.y - blockSize * i);
                 path.tiles.Add(tile);
             }
             MainPaths.Add(path);
@@ -196,11 +196,11 @@ public class MapGenerator : MonoBehaviour
             path.source = target;
             path.target = target.Left;
             distance = (int)(target.Left.Position.x - target.Position.x);
-            distance /= tileWidth;
+            distance /= blockSize;
             for (int i = 1; i < distance; i++)
             {
                 tile = new Tile();
-                tile.Position = new Vector2(target.Position.x + i * tileWidth, target.Position.y);
+                tile.Position = new Vector2(target.Position.x + i * blockSize, target.Position.y);
                 path.tiles.Add(tile);
             }
             MainPaths.Add(path);
@@ -213,11 +213,11 @@ public class MapGenerator : MonoBehaviour
             path.source = target;
             path.target = target.Right;
             distance = (int)(target.Position.x - target.Right.Position.x);
-            distance /= tileWidth;
+            distance /= blockSize;
             for (int i = 1; i < distance; i++)
             {
                 tile = new Tile();
-                tile.Position = new Vector2(target.Position.x - i * tileWidth, target.Position.y);
+                tile.Position = new Vector2(target.Position.x - i * blockSize, target.Position.y);
                 path.tiles.Add(tile);
             }
             MainPaths.Add(path);
