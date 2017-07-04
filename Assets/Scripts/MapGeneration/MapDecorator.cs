@@ -56,7 +56,7 @@ public class MapDecorator : MonoBehaviour
     {
         GameObject go;
         BlockDataHolder holder, hold;
-        Debug.Log(MainPaths.Count);
+        //Debug.Log(MainPaths.Count);
         foreach (Path path in MainPaths)
         {
             GameObject TilePrefab;
@@ -82,14 +82,6 @@ public class MapDecorator : MonoBehaviour
             holder.NeighbouringBlocks.Add(hold);
         }
     }
-    private void SetupTiles()
-    {
-
-    }
-
-
-
-
 
 
     private GameObject SelectPrefabForNode(Node node)

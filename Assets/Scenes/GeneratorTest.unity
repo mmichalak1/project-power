@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Decorator: {fileID: 420036991}
-  tileWidth: 10
+  blockSize: 10
   BranchMinLength: 3
   BranchMaxLength: 5
   MinMainBranches: 3
