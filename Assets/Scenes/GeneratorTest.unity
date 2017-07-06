@@ -229,6 +229,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!1 &381671393 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 155164, guid: 916bb8ec18c4ef347b35ede2a75ebb82, type: 2}
+  m_PrefabInternal: {fileID: 81241085}
 --- !u!1 &420036988
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,13 +264,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Decorator: {fileID: 420036991}
   blockSize: 10
-  BranchMinLength: 3
-  BranchMaxLength: 5
-  MinMainBranches: 3
-  MaxMainBranches: 7
-  MinAddidtionalBranches: 2
-  MaxAdditionalBranches: 5
-  LevelSeed: 3
+  BranchMinLength: 2
+  BranchMaxLength: 3
+  MinMainBranches: 1
+  MaxMainBranches: 2
+  MinAddidtionalBranches: 1
+  MaxAdditionalBranches: 1
+  LevelSeed: 0
 --- !u!4 &420036990
 Transform:
   m_ObjectHideFlags: 0
@@ -325,6 +329,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generator: {fileID: 420036989}
   decorator: {fileID: 420036991}
+  BattleUI: {fileID: 2129180735}
+  ExploraionUI: {fileID: 381671393}
+  Player: {fileID: 0}
+  TurnManager: {fileID: 521107148}
   NormalEnemiesGroups:
   - {fileID: 154906, guid: 57e43767fecd9f242af2431881175e6e, type: 2}
   - {fileID: 104394, guid: 299b2e112f101d2469cbc5e8e7410f42, type: 2}
@@ -332,9 +340,9 @@ MonoBehaviour:
   - {fileID: 182678, guid: 8f6c8775384aa5845b61dfaf2c23a6d5, type: 2}
   LastEnemiesGroups:
   - {fileID: 185082, guid: 4e1ff0d452f91e4499998f71f9926069, type: 2}
-  BossGroup: {fileID: 109570, guid: 421cef206d9851f42b3f8bcb1b9b74b5, type: 2}
-  Player: {fileID: 131650, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
-  PlayerTileOffset: {x: 0, y: 0.1, z: 0}
+  BossGroupPreafab: {fileID: 0}
+  PlayerPrefab: {fileID: 131650, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
+  SpawnOffsetValue: {x: 0, y: 0.1, z: 0}
   MinNormalEnemies: 3
   MaxNormalEnemies: 5
   NormalEnemiesCount: 0
@@ -349,6 +357,8 @@ GameObject:
   - 114: {fileID: 521107144}
   - 114: {fileID: 521107146}
   - 114: {fileID: 521107147}
+  - 114: {fileID: 521107149}
+  - 114: {fileID: 521107148}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -404,6 +414,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641e6eddf9d822b4592dfe444e990111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &521107148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 521107143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a54c26768414e741a50d0d7ed59be13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultResourceCounter: {fileID: 11400000, guid: 522d4c5f0b0b01c4895c2b88faec721e,
+    type: 2}
+  ChangeTurnButton: {fileID: 927089495}
+  ConfirmEndTurn: {fileID: 1251728506}
+  ExplorationUI: {fileID: 381671393}
+  BattleUI: {fileID: 2129180735}
+  Fader: {fileID: 1930478085}
+  DataHolders:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  actionBubbles: []
+  queueController: {fileID: 1930478086}
+--- !u!114 &521107149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 521107143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1c815f0d5973742b72ea68c27ee481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  queueController: {fileID: 1930478086}
 --- !u!1 &818182239
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,6 +513,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1 &927089495 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 115598, guid: 9fefb5a55dc7711418f91f17d8091328, type: 2}
+  m_PrefabInternal: {fileID: 1930478084}
+--- !u!1 &1251728506 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 177614, guid: 9fefb5a55dc7711418f91f17d8091328, type: 2}
+  m_PrefabInternal: {fileID: 1930478084}
 --- !u!1 &1815093635
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,6 +628,38 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11404546, guid: 9fefb5a55dc7711418f91f17d8091328, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 521107148}
+    - target: {fileID: 11404546, guid: 9fefb5a55dc7711418f91f17d8091328, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeTurn
+      objectReference: {fileID: 0}
+    - target: {fileID: 11474448, guid: 9fefb5a55dc7711418f91f17d8091328, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 521107148}
+    - target: {fileID: 11474448, guid: 9fefb5a55dc7711418f91f17d8091328, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeTurn
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9fefb5a55dc7711418f91f17d8091328, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1930478085 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11467638, guid: 9fefb5a55dc7711418f91f17d8091328,
+    type: 2}
+  m_PrefabInternal: {fileID: 1930478084}
+  m_Script: {fileID: 11500000, guid: 3426dbfb28185d24f90b2b94c9220d73, type: 3}
+--- !u!114 &1930478086 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11400648, guid: 9fefb5a55dc7711418f91f17d8091328,
+    type: 2}
+  m_PrefabInternal: {fileID: 1930478084}
+  m_Script: {fileID: 11500000, guid: fdccd44dd30b3d1449829f9cb2d29af8, type: 3}
+--- !u!1 &2129180735 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 154390, guid: 9fefb5a55dc7711418f91f17d8091328, type: 2}
+  m_PrefabInternal: {fileID: 1930478084}

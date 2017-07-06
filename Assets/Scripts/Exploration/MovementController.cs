@@ -14,7 +14,7 @@ public class MovementController : MonoBehaviour
     private float movementSpeed = 5.0f;
     private float rotationSpeed = 180.0f;
     private Vector3 newPos;
-    private bool move = false;
+    public bool move = false;
     private Ray myRay;
     private int x;
     private int z;

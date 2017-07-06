@@ -40,7 +40,7 @@ public class EditorTools {
 
             int blockSize = (int)Mathf.Sqrt(AllTiles.Count);
             int index = (blockSize * (blockSize / 2)) + blockSize/2;
-            obj.GetComponent<BlockDataHolder>().StartingTile = AllTiles[index];
+            obj.GetComponent<BlockDataHolder>().SpawnTile = AllTiles[index];
         }
     }
 

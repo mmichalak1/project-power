@@ -19,7 +19,8 @@ public class FightingSceneUIScript : MonoBehaviour
 
         foreach (GameObject sheep in sheeps)
         {
-            Events.Instance.RegisterForEvent(sheep.name + "skill", EnableSkillButtons);
+            var holder = sheep.GetComponent<EntityDataHolder>();
+            Events.Instance.RegisterForEvent(holder.SheepData.name + "skill", EnableSkillButtons);
         }
 
         gameObject.SetActive(false);

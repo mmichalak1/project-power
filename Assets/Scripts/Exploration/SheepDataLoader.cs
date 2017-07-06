@@ -12,6 +12,11 @@ public class SheepDataLoader : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //LoadSheepData();
+    }
+
+    public void LoadSheepData()
+    {
         var go = GameObject.FindGameObjectWithTag("GameStatus");
         EntityData[] sheep;
         if (go != null)
