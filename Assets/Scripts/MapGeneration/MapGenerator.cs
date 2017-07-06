@@ -287,7 +287,7 @@ public class MapGenerator : MonoBehaviour
         p.target.RemoveNode(p.source);
         additionalNodes.Remove(p.source);
         additionalNodes.Remove(p.target);
-        MainPaths.Remove(p);
+        Paths.Remove(p);
 
 
     }

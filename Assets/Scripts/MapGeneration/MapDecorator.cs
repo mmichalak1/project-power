@@ -133,7 +133,11 @@ public class MapDecorator : MonoBehaviour
     }
     private void SetClosestNodeToStart()
     {
-        foreach(Path p in generator.Paths)
+        var startingBlockData = NodesTiles[generator.StartingNode].GetComponent<BlockDataHolder>();
+        var path = generator.Paths.First(x => x.source == generator.StartingNode);
+        startingBlockData.NodeToMain = NodesTiles[path.target];
+
+        foreach (Path p in generator.Paths)
         {
             foreach(Tile t in p.tiles)
             {

@@ -12417,8 +12417,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newRot: {x: 0, y: 0, z: 0, w: 0}
-  ShallNotPass: {fileID: 0}
-  World: {fileID: 0}
   animations:
   - {fileID: 11439456}
   - {fileID: 11423592}

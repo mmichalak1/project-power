@@ -77,7 +77,6 @@ public class TurnManager : MonoBehaviour
 
     public FadeInAndOut Fader;
     public EntityDataHolder[] DataHolders;
-    public ActionBubble[] actionBubbles;
     public TurnQueueController queueController;
 
     private TurnPlayer turnPlayer;
@@ -119,11 +118,6 @@ public class TurnManager : MonoBehaviour
             {
                 ConfirmEndTurn.SetActive(true);
                 return;
-            }
-
-            foreach (ActionBubble item in actionBubbles)
-            {
-                item.TurnOff();
             }
 
             if (selectedSheep != null)
@@ -172,13 +166,7 @@ public class TurnManager : MonoBehaviour
                 {
                     Plan plan = new Plan(selectedSheep, hitedTarget.transform.gameObject, pickedSkill);
 
-                    if (!TurnPlaner.Instance.ContainsPlan(plan))
-                    {
-                        EntityDataHolder sheepDataHolder = plan.Actor.GetComponent<EntityDataHolder>();
-                        var bubble = actionBubbles[Array.IndexOf(DataHolders, sheepDataHolder)];
-                        bubble.TurnOn();
-                    }
-                    else
+                    if (TurnPlaner.Instance.ContainsPlan(plan))
                     {
                         queueController.CancelPlan(plan);
                     }
@@ -342,6 +330,7 @@ public class TurnManager : MonoBehaviour
 
         Events.Instance.RegisterForEvent("ShowChangeTurnButton", OnShowChangTurnButton);
 
+        //Events.Instance.RegisterForEvent("SelectSheep", OnSheepSelected);
         foreach (var item in GameObject.FindGameObjectsWithTag("Sheep"))
         {
             Events.Instance.RegisterForEvent(item.name, OnSheepSelected);
