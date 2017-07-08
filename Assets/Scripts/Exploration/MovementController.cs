@@ -8,6 +8,7 @@ using Assets.LogicSystem;
 public class MovementController : MonoBehaviour
 {
     readonly Vector3 targetDirection = new Vector3(2, 1, 0).normalized;
+    public TileData currentTile;
 
     private float actionDelay = 0.5f;
     private float actionTimer = 0.0f;
@@ -15,31 +16,21 @@ public class MovementController : MonoBehaviour
     private float rotationSpeed = 180.0f;
     private Vector3 newPos;
     public bool move = false;
-    private Ray myRay;
-    private int x;
-    private int z;
     private bool shallNotPassControl = false;
 
+    public Image ShallNotPass;
     public Quaternion newRot;
-    //public Image ShallNotPass;
-    //public World World;
     public AnimationControl[] animations;
-
-    Events.MyEvent Forward, Left, Right;
+    public Facing currentFacing;
 
     // Use this for initialization
     void Start()
     {
-        //x = World.SpawnPointX;
-        //z = World.SpawnPointZ;
-        Forward = MoveForward;
-        Left = RotateLeft;
-        Right = RotateRight;
 
         newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        Events.Instance.RegisterForEvent("TurnRight", Right);
-        Events.Instance.RegisterForEvent("TurnLeft", Left);
-        Events.Instance.RegisterForEvent("MoveForward", Forward);
+        Events.Instance.RegisterForEvent("TurnRight", RotateRight);
+        Events.Instance.RegisterForEvent("TurnLeft", RotateLeft);
+        Events.Instance.RegisterForEvent("MoveForward", MoveForward);
     }
 
     // Update is called once per frame
@@ -76,7 +67,7 @@ public class MovementController : MonoBehaviour
     {
         if (!move)
         {
-            if (CheckIfAccessible(true))
+            if (CheckIfAccessible())
             {
                 
                 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.right).normalized * 2;
@@ -93,7 +84,7 @@ public class MovementController : MonoBehaviour
     {
         if (!move)
         {
-            if (CheckIfAccessible(false))
+            if (CheckIfAccessible())
             {
                 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.left).normalized * 2;
                 move = true;
@@ -111,6 +102,7 @@ public class MovementController : MonoBehaviour
         {
             newRot = transform.rotation * Quaternion.AngleAxis(-90f, Vector3.up);
             move = true;
+            currentFacing = getRotationFacing(currentFacing, -1);
         }
     }
 
@@ -120,59 +112,17 @@ public class MovementController : MonoBehaviour
         {
             newRot = transform.rotation * Quaternion.AngleAxis(90f, Vector3.up);
             move = true;
+            currentFacing = getRotationFacing(currentFacing, 1);
         }
     }
 
-    private bool CheckIfAccessible(bool forward)
+    private bool CheckIfAccessible()
     {
-        ///TODO: REMOVE
-        return true;
-        int signal = forward ? 1 : -1;
-
-        switch (Round(transform.eulerAngles.y))
+        var nextTile = currentTile.GetTile(currentFacing);
+        if (nextTile != null && nextTile.ParentBlock.PassableTiles.Contains(nextTile.gameObject))
         {
-            case 0:
-                {
-                    //if (x + signal < World.width)
-                    //    if (World.Paths[z, x + signal])
-                    //    {
-                    //        x += signal;
-                    //        return true;
-                    //    }
-
-                }
-                break;
-            case 90:
-                {
-                    //if (z - signal >= 0)
-                    //    if (World.Paths[z - signal, x])
-                    //    {
-                    //        z -= signal;
-                    //        return true;
-                    //    }
-                }
-                break;
-            case 180:
-                {
-                    //if (x - signal >= 0)
-                    //    if (World.Paths[z, x - signal])
-                    //    {
-                    //        x -= signal;
-                    //        return true;
-                    //    }
-                }
-                break;
-            case 270:
-                {
-                    //if (z + signal < World.heigth)
-                    //    if (World.Paths[z + signal, x])
-                    //    {
-                    //        z += signal;
-                    //        return true;
-                    //    }
-                }
-                break;
-            default: { return false; }
+            currentTile = nextTile;
+            return true;
         }
 
         return false;
@@ -193,14 +143,33 @@ public class MovementController : MonoBehaviour
 
     void Appear()
     {
-    }
+        //}
+	}    }
 
     void Fade()
     {
-        //if (ShallNotPass.color.a > 0)
-        //{
-        //    ShallNotPass.color -= new Color(0, 0, 0,  Time.deltaTime);
-        //}
+        if (ShallNotPass.color.a > 0)
+        {
+            ShallNotPass.color -= new Color(0, 0, 0, Time.deltaTime);
+        }
     }
 
+    //rotation == 1 - right, -1 - left 
+    Facing getRotationFacing(Facing currentFace, int rotation)
+    {
+        if (rotation != 1 && rotation != -1)
+            Debug.LogError("Incorrect value");
+
+        int curr = (int)currentFace;
+
+        curr += rotation;
+
+        if (curr < 0)
+            return Facing.Left;
+
+        if (curr > 3)
+            return Facing.Up;
+
+        return (Facing)curr;
+    }
 }

@@ -12,14 +12,30 @@ public class MapDecorator : MonoBehaviour
     public GameObject ErrorBlock;
     public GameObject Map;
 
-    public List<GameObject> VerForwardBlocks;
-    public List<GameObject> HorForwardBlocks;
-    public List<GameObject> CrossingBlocks;
-    public List<GameObject> LeftForwardBlocks;
-    public List<GameObject> LeftBlocks;
-    public List<GameObject> RightForwardBlocks;
-    public List<GameObject> RightLeftBlocks;
-    public List<GameObject> RightBlocks;
+    #region BlocksLists
+    public List<GameObject> UpRights;
+    public List<GameObject> UpDowns;
+    public List<GameObject> UpLefts;
+
+    public List<GameObject> RightDowns;
+    public List<GameObject> RightLefts;
+    public List<GameObject> RightUps;
+
+    public List<GameObject> DownLefts;
+
+    public List<GameObject> RightDownLefts;
+    public List<GameObject> DownLeftUps;
+    public List<GameObject> LeftUpRights;
+    public List<GameObject> UpRightDowns;
+
+    public List<GameObject> Crosses;
+
+    public List<GameObject> StartRights;
+    public List<GameObject> StartDowns;
+    public List<GameObject> StartLefts;
+    public List<GameObject> StartUps;
+
+    #endregion
 
     public BiDictionary<Tile, GameObject> NodesTiles { get; private set; }
 
@@ -34,10 +50,9 @@ public class MapDecorator : MonoBehaviour
     }
     private void InstantiateAll()
     {
-        InstantiateNodes(generator.MainNodes);
-        InstantiateNodes(generator.AdditionalNodes);
-        //Debug.Log("Nodes in dict: " + NodesTiles.Count);
+        InstantiateNodes(generator.AllNodes);
         InstantiatePaths(generator.Paths);
+        Debug.Log("Nodes in dict: " + NodesTiles.Count);
     }
 
 
@@ -47,7 +62,7 @@ public class MapDecorator : MonoBehaviour
         foreach (Node node in Node)
         {
             GameObject TilePrefab = SelectPrefabForNode(node);
-            GameObject go = Instantiate(TilePrefab, new Vector3(node.Position.x, 0, node.Position.y), TilePrefab.transform.rotation) as GameObject;
+            GameObject go = Instantiate(TilePrefab, new Vector3(node.Position.x, 0, node.Position.y), Quaternion.identity) as GameObject;
             go.name += " - Node";
             go.transform.SetParent(Map.transform, true);
             NodesTiles.Add(node, go);
@@ -55,25 +70,25 @@ public class MapDecorator : MonoBehaviour
 
 
     }
-    private void InstantiatePaths(List<Path> MainPaths)
+    private void InstantiatePaths(List<Path> paths)
     {
         GameObject go;
         BlockDataHolder holder, hold;
-        //Debug.Log(MainPaths.Count);
-        foreach (Path path in MainPaths)
+        Debug.Log(paths.Count);
+        foreach (Path path in paths)
         {
             GameObject TilePrefab;
             if (!NodesTiles.ContainsKey(path.source) || !NodesTiles.ContainsKey(path.target))
                 continue;
             holder = NodesTiles[path.source].GetComponent<BlockDataHolder>();
             if (path.source.Position.x == path.target.Position.x)
-                TilePrefab = HorForwardBlocks[0];
+                TilePrefab = UpDowns[0];
             else
-                TilePrefab = VerForwardBlocks[0];
+                TilePrefab = RightLefts[0];
 
             foreach (Tile t in path.tiles)
             {
-                go = Instantiate(TilePrefab, new Vector3(t.Position.x, 0, t.Position.y), TilePrefab.transform.rotation) as GameObject;
+                go = Instantiate(TilePrefab, new Vector3(t.Position.x, 0, t.Position.y), Quaternion.identity) as GameObject;
                 hold = go.GetComponent<BlockDataHolder>();
                 hold.NeighbouringBlocks.Add(holder);
                 holder.NeighbouringBlocks.Add(hold);
@@ -93,43 +108,52 @@ public class MapDecorator : MonoBehaviour
         bool up = node.Up != null;
         bool down = node.Down != null;
 
-        if (down && up && left && right)
-        {
-            return CrossingBlocks[0];
-        }
+        if (up && right && down && left)
+            return Crosses.GetRandomElement();
 
-        if (down && left && up && !right)
-        {
-            return LeftForwardBlocks[0];
-        }
+        if (!up && right && down && left)
+            return RightDownLefts.GetRandomElement();
 
-        if (down && left && !right && !up)
-        {
-            return LeftBlocks[0];
-        }
+        if (up && !right && down && left)
+            return UpRightDowns.GetRandomElement();
+
+        if (up && right && !down && left)
+            return LeftUpRights.GetRandomElement();
 
         if (up && right && down && !left)
-        {
-            return RightForwardBlocks[0];
-        }
+            return DownLeftUps.GetRandomElement();
 
-        if (right && left && down && !up)
-        {
-            return RightLeftBlocks[0];
-        }
+        if (!up && !right && down && left)
+            return RightDowns.GetRandomElement();
 
-        if (down && right && !up && !left)
-        {
-            return RightBlocks[0];
-        }
+        if (up && !right && !down && left)
+            return UpRights.GetRandomElement();
 
-        if ((left || right) && !up && !down)
-            return HorForwardBlocks[0];
+        if (up && right && !down && !left)
+            return UpLefts.GetRandomElement();
 
-        if ((up || down) && !right && !left)
-            return VerForwardBlocks[0];
+        if (!up && right && down && !left)
+            return DownLefts.GetRandomElement();
 
-            return ErrorBlock;
+        if (!up && right && !down && left)
+            return RightLefts.GetRandomElement();
+
+        if (up && !right && down && !left)
+            return UpDowns.GetRandomElement();
+
+        if (up && !right && !down && !left)
+            return StartUps.GetRandomElement();
+
+        if (!up && right && !down && !left)
+            return StartRights.GetRandomElement();
+
+        if (!up && !right && down && !left)
+            return StartDowns.GetRandomElement();
+
+        if (!up && !right && !down && left)
+            return StartLefts.GetRandomElement();
+
+        return ErrorBlock;
     }
     private void SetClosestNodeToStart()
     {
@@ -139,7 +163,7 @@ public class MapDecorator : MonoBehaviour
 
         foreach (Path p in generator.Paths)
         {
-            foreach(Tile t in p.tiles)
+            foreach (Tile t in p.tiles)
             {
                 var go = NodesTiles[t];
                 go.GetComponent<BlockDataHolder>().NodeToMain = NodesTiles[p.source];

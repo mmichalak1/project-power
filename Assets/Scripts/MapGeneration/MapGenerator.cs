@@ -24,12 +24,13 @@ public class MapGenerator : MonoBehaviour
 
     private Node startingNode, finishNode;
 
-    private List<Node> nodes = new List<Node>();
+    private List<Node> allNodes = new List<Node>();
     private List<Node> mainNodes = new List<Node>();
     private List<Node> additionalNodes = new List<Node>();
     private List<Path> MainPaths = new List<Path>();
 
 
+    public List<Node> AllNodes { get { return allNodes; } }
     public List<Node> MainNodes { get { return mainNodes; } }
     public List<Node> AdditionalNodes { get { return additionalNodes; } }
     public Node StartingNode { get { return startingNode; } }
@@ -48,12 +49,12 @@ public class MapGenerator : MonoBehaviour
         startingNode = new Node();
         startingNode.Position = Decorator.StartingPoint;
         mainNodes.Add(startingNode);
-        nodes.Add(startingNode);
+        allNodes.Add(startingNode);
 
-        MainNodesCount = Random.Range(MinMainBranches, MaxMainBranches);
-        AdditionalNodesCount = Random.Range(MinAddidtionalBranches, MaxAdditionalBranches);
+        MainNodesCount = Random.Range(MinMainBranches, MaxMainBranches + 1);
+        AdditionalNodesCount = Random.Range(MinAddidtionalBranches, MaxAdditionalBranches + 1);
         BuildMainNodes();
-       
+
         BuildAdditionalNodes();
         BuildPaths(startingNode, null);
 
@@ -61,7 +62,7 @@ public class MapGenerator : MonoBehaviour
         //Debug.Log("Total nodes: " + (MainNodes.Count + AdditionalNodes.Count));
         Decorator.Decorate();
 
-        
+
     }
 
 
@@ -75,9 +76,9 @@ public class MapGenerator : MonoBehaviour
             length = Random.Range(BranchMinLength, BranchMaxLength);
             Node newNode = new Node();
             newNode.Position = lastNode.Position;
-            mainNodes.Add(newNode);
+            allNodes.Add(newNode);
             if (i != MainNodesCount - 1)
-                nodes.Add(newNode);
+                mainNodes.Add(newNode);
             switch (direction)
             {
                 case 0:
@@ -89,11 +90,6 @@ public class MapGenerator : MonoBehaviour
                     lastNode.Left = newNode;
                     newNode.Position.x += length * blockSize;
                     newNode.Right = lastNode;
-                    break;
-                case 2:
-                    lastNode.Right = newNode;
-                    newNode.Position.x -= length * blockSize;
-                    newNode.Left = lastNode;
                     break;
             }
             lastNode = newNode;
@@ -112,13 +108,13 @@ public class MapGenerator : MonoBehaviour
             //randomize next node
             do
             {
-                targetNode = nodes[Random.Range(0, nodes.Count - 1)];
+                targetNode = mainNodes.GetRandomElement();
             }
-            while (!targetNode.CanGetNextDirection());
+            while (!targetNode.CanGetNextDirection() || targetNode == finishNode);
 
             //get next node direction and path length
             nextTargetDirection = targetNode.GetNextDirection();
-            length = Random.Range(BranchMinLength, BranchMaxLength);
+            length = Random.Range(BranchMinLength, BranchMaxLength + 1);
             newNode = new Node();
             newNode.Position = targetNode.Position;
             switch (nextTargetDirection)
@@ -144,7 +140,7 @@ public class MapGenerator : MonoBehaviour
                     newNode.Up = targetNode;
                     break;
             }
-            nodes.Add(newNode);
+            allNodes.Add(newNode);
             additionalNodes.Add(newNode);
 
 
@@ -239,7 +235,7 @@ public class MapGenerator : MonoBehaviour
         while (restart)
         {
             restart = false;
-            foreach (Path p in MainPaths.Where(p => additionalNodes.Contains(p.source) || additionalNodes.Contains(p.target)))
+            foreach (Path p in MainPaths.Where(p => additionalNodes.Contains(p.target) || additionalNodes.Contains(p.target)))
             {
                 int counter = 0;
                 foreach (Path path in MainPaths)
@@ -247,7 +243,7 @@ public class MapGenerator : MonoBehaviour
                     if (path != p)
                         counter += CountOverlappingTiles(p, path);
                 }
-                if (counter > 2)
+                if (counter > 3)
                 {
                     RemovePath(p);
                     restart = true;
@@ -255,24 +251,24 @@ public class MapGenerator : MonoBehaviour
                 }
             }
         }
-    }
 
+    }
     private int CountOverlappingTiles(Path p1, Path p2)
     {
         int res = 0;
 
-        if (p1.target.Position == p2.target.Position)
+        if (V2Equal(p1.target.Position, p2.target.Position))
             res++;
-        if (p1.target.Position == p2.source.Position)
+        if (V2Equal(p1.target.Position, p2.source.Position))
             res++;
-        if (p1.source.Position == p2.target.Position)
+        if (V2Equal(p1.source.Position, p2.target.Position))
             res++;
-        if (p1.source.Position == p2.source.Position)
+        if (V2Equal(p1.source.Position, p2.source.Position))
             res++;
 
-        foreach(Tile t in p1.tiles)
+        foreach (Tile t in p1.tiles)
         {
-            if (p2.tiles.Any(x => x.Position == t.Position))
+            if (p2.tiles.Any(x => V2Equal(t.Position, x.Position)))
                 res++;
         }
 
@@ -283,12 +279,20 @@ public class MapGenerator : MonoBehaviour
     private void RemovePath(Path p)
     {
         Debug.Log("Removing path");
-        p.source.RemoveNode(p.target);
         p.target.RemoveNode(p.source);
-        additionalNodes.Remove(p.source);
+        p.source.RemoveNode(p.target);
+        allNodes.Remove(p.target);
         additionalNodes.Remove(p.target);
         Paths.Remove(p);
 
 
+    }
+
+
+
+    private bool V2Equal(Vector2 v1, Vector2 v2)
+    {
+
+        return Vector3.SqrMagnitude(v1 - v2) < 0.0001;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour {
 
@@ -36,12 +37,21 @@ public class Spawner : MonoBehaviour {
     {
         Node spawnNode = generator.StartingNode;
         Node targetNode = decorator.NodesTiles[decorator.NodesTiles[spawnNode].GetComponent<BlockDataHolder>().NodeToMain] as Node;
-       
-        Vector3 spawnPoint = decorator.NodesTiles[spawnNode].GetComponent<BlockDataHolder>().SpawnTile.transform.position +
+
+        BlockDataHolder blk = decorator.NodesTiles[spawnNode].GetComponent<BlockDataHolder>();
+        Vector3 spawnPoint = blk.SpawnTile.transform.position +
             SpawnOffsetValue;
        
         Player = Instantiate(PlayerPrefab, spawnPoint, Quaternion.identity) as GameObject;
-        Player.transform.localRotation *= CalculateEuler(spawnNode, targetNode);
+
+        Quaternion rot = Quaternion.identity;
+        Facing face = Facing.Up;
+        CalculatePlayerFacing(spawnNode, targetNode, out rot, out face);
+        Player.transform.localRotation *= rot;
+        var comp = Player.GetComponent<MovementController>();
+        comp.currentFacing = face;
+        comp.ShallNotPass = ExploraionUI.transform.FindChild("ShallNotPass").GetComponent<Image>();
+        comp.currentTile = blk.SpawnTile.GetComponent<TileData>();
 
         var arr = Player.GetComponentsInChildren<EntityDataHolder>();
         for(int i =0;i<4;i++)
@@ -59,21 +69,49 @@ public class Spawner : MonoBehaviour {
         var go = LastEnemiesGroups.GetRandomElement();
         var finishBlockData = decorator.NodesTiles[generator.FinishNode].GetComponent<BlockDataHolder>();
 
-        SpawnGroup(go, finishBlockData.SpawnTile.transform.position + SpawnOffsetValue, finishBlockData);
+        //SpawnGroup(go, finishBlockData.SpawnTile.transform.position + SpawnOffsetValue, finishBlockData);
        
 
     }
     
+
+
     private Quaternion CalculateEuler(Node source, Node target)
     {
         if (source.Up == target)
-            return Quaternion.Euler(0,-90,0);
+        {
+            return Quaternion.Euler(0, -90, 0);
+        }
         if (source.Down == target)
+        {
             return Quaternion.Euler(0, 90, 0);
+        }
         if (source.Right == target)
+        {
             return Quaternion.Euler(0, 180, 0);
+        }
 
         return Quaternion.identity;
+    }
+    private void CalculatePlayerFacing(Node source, Node target, out Quaternion res, out Facing face)
+    {
+        res = CalculateEuler(source, target);
+        if (source.Up == target)
+        {   
+            face = Facing.Down;
+            return;
+        }
+        if (source.Down == target)
+        {
+            face = Facing.Down;
+            return;
+        }
+        if (source.Right == target)
+        {
+            face = Facing.Right;
+            return;
+        }
+        face = Facing.Up;
     }
 
     private void SpawnGroup(GameObject prefab, Vector3 spawnPoint, BlockDataHolder blockData)
@@ -85,8 +123,5 @@ public class Spawner : MonoBehaviour {
         comp.BattleUI = BattleUI;
         comp.Player = Player;
     }
-
-
-
 
 }

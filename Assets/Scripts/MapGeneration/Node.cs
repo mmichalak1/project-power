@@ -8,6 +8,20 @@ public class Node : Tile
     public Node Left;
     public Node Right;
 
+    public List<Node> Nodes { get {
+
+            var nodes = new List<Node>();
+            if (Up != null)
+                nodes.Add(Up);
+            if (Right != null)
+                nodes.Add(Right);
+            if (Down != null)
+                nodes.Add(Down);
+            if (Left != null)
+                nodes.Add(Left);
+            return nodes;
+        }
+    }
 
     public bool CanGetNextDirection()
     {

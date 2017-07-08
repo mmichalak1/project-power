@@ -20,4 +20,5 @@ public class BlockDataHolder : MonoBehaviour {
     public List<BlockDataHolder> NeighbouringBlocks { get { return neighbouringBlocks; } }
     public GameObject SpawnTile { get { return startingTile; } set { startingTile = value; } }
     public GameObject NodeToMain { get { return nodeToMain; } set { nodeToMain = value; } }
+
 }
