@@ -68,6 +68,10 @@ public class BiDictionary<T1, T2>
 
     public int Count { get { return dict1.Count; } }
 
+    public override string ToString()
+    {
+        return "Elements: " + Count;
+    }
 
 }
 
