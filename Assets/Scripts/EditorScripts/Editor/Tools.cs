@@ -55,8 +55,11 @@ public class EditorTools {
             {
                 AllTiles.Add(child.GetChild(i).gameObject);
             }
-            AllTiles = AllTiles.OrderBy(x => x.transform.localPosition.x)
-                 .ThenBy(x => x.transform.localPosition.z).ToList();
+            Debug.Log("Tiles count :" + AllTiles.Count);
+            AllTiles = AllTiles.OrderBy(x => x.transform.position.z)
+                 .ThenBy(x => x.transform.position.x).ToList();
+
+
 
            for (int i = 0; i<AllTiles.Count; i++)
            {
@@ -73,25 +76,26 @@ public class EditorTools {
                 scr.UpNeighbour = null;
                 scr.DownNeighbour = null;
 
+
                 //Left Tile
-                if (i-1>0)
+                if (i % blockSize != 0 && i > 0)
                 {
                     scr.LeftNeighbour = AllTiles[i - 1].GetComponent<TileData>();
                 }
                 //Right Tile
-                if(i+1<AllTiles.Count)
+                if((i+1) % blockSize != 0 && i + 1 < AllTiles.Count)
                 {
                     scr.RightNeighbour = AllTiles[i + 1].GetComponent<TileData>();
                 }
-                //Down Tile
+                //Up Tile
                 if(i+blockSize<AllTiles.Count)
                 {
-                    scr.DownNeighbour = AllTiles[i + blockSize].GetComponent<TileData>();
+                    scr.UpNeighbour = AllTiles[i + blockSize].GetComponent<TileData>();
                 }
-                //Up Tile
+                //Down Tile
                 if(i>blockSize)
                 {
-                    scr.UpNeighbour = AllTiles[i - blockSize].GetComponent<TileData>();
+                    scr.DownNeighbour = AllTiles[i - blockSize].GetComponent<TileData>();
                 }
 
             }

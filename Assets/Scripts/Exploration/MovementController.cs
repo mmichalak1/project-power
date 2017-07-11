@@ -124,6 +124,29 @@ public class MovementController : MonoBehaviour
             currentTile = nextTile;
             return true;
         }
+        else if(currentTile.ParentBlock.ConnectingTiles.Contains(currentTile.gameObject))
+        {
+            var currBlock = currentTile.ParentBlock;
+            GameObject clostestTile = null;
+            float distance = 4.0f;
+
+            foreach(var block in currBlock.NeighbouringBlocks)
+            {
+                foreach(GameObject t in block.ConnectingTiles)
+                {
+                    float testDistance = Vector3.Distance(currentTile.transform.position, t.transform.position);
+                    if(testDistance < distance)
+                    {
+                        clostestTile = t;
+                        distance = testDistance;
+                    }
+                }
+            }
+            if (clostestTile == null)
+                return false;
+            currentTile = clostestTile.GetComponent<TileData>();
+            return true;
+        }
 
         return false;
     }
