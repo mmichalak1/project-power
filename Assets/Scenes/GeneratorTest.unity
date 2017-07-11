@@ -303,7 +303,7 @@ MonoBehaviour:
   UpRights:
   - {fileID: 173662, guid: 0703e14f02840c3429b15183e486a86b, type: 2}
   UpDowns:
-  - {fileID: 199756, guid: 4deb2736d1a892c4c9f130e80f9540ca, type: 2}
+  - {fileID: 164230, guid: 6876963c5bfb1984d806beaf1e502e9d, type: 2}
   UpLefts:
   - {fileID: 197462, guid: eeb72e39618609343952b286a59b44ef, type: 2}
   RightDowns:
