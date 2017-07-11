@@ -98,7 +98,7 @@ public class Spawner : MonoBehaviour {
         res = CalculateEuler(source, target);
         if (source.Up == target)
         {   
-            face = Facing.Down;
+            face = Facing.Up;
             return;
         }
         if (source.Down == target)
@@ -108,10 +108,10 @@ public class Spawner : MonoBehaviour {
         }
         if (source.Right == target)
         {
-            face = Facing.Right;
+            face = Facing.Left;
             return;
         }
-        face = Facing.Up;
+        face = Facing.Right;
     }
 
     private void SpawnGroup(GameObject prefab, Vector3 spawnPoint, BlockDataHolder blockData)
