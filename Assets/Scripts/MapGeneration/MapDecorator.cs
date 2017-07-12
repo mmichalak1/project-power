@@ -54,18 +54,20 @@ public class MapDecorator : MonoBehaviour
         InstantiatePaths(generator.Paths);
         Debug.Log("Nodes in dict: " + NodesTiles.Count);
     }
-
-
-
     private void InstantiateNodes(IEnumerable<Node> Node)
     {
         foreach (Node node in Node)
         {
+           
             GameObject TilePrefab = SelectPrefabForNode(node);
             GameObject go = Instantiate(TilePrefab, new Vector3(node.Position.x, 0, node.Position.y), Quaternion.identity) as GameObject;
             go.name += " - Node";
             go.transform.SetParent(Map.transform, true);
             NodesTiles.Add(node, go);
+            if (node != generator.StartingNode && node != generator.FinishNode)
+            {
+                spawner.PossibleSpawnPoints.Add(go);
+            }
         }
 
 
@@ -95,6 +97,7 @@ public class MapDecorator : MonoBehaviour
                 holder = hold;
                 go.transform.SetParent(Map.transform, false);
                 NodesTiles.Add(t, go);
+                spawner.PossibleSpawnPoints.Add(go);
             }
             hold = NodesTiles[path.target].GetComponent<BlockDataHolder>();
             hold.NeighbouringBlocks.Add(holder);

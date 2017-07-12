@@ -264,12 +264,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Decorator: {fileID: 420036991}
   blockSize: 10
-  BranchMinLength: 3
-  BranchMaxLength: 5
-  MinMainBranches: 5
-  MaxMainBranches: 8
-  MinAddidtionalBranches: 5
-  MaxAdditionalBranches: 5
+  BranchMinLength: 1
+  BranchMaxLength: 2
+  MinMainBranches: 3
+  MaxMainBranches: 4
+  MinAddidtionalBranches: 3
+  MaxAdditionalBranches: 4
   LevelSeed: 0
 --- !u!4 &420036990
 Transform:
@@ -349,6 +349,7 @@ MonoBehaviour:
   ExploraionUI: {fileID: 381671393}
   Player: {fileID: 0}
   TurnManager: {fileID: 521107148}
+  Data: {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
   NormalEnemiesGroups:
   - {fileID: 154906, guid: 57e43767fecd9f242af2431881175e6e, type: 2}
   - {fileID: 104394, guid: 299b2e112f101d2469cbc5e8e7410f42, type: 2}
@@ -356,7 +357,7 @@ MonoBehaviour:
   - {fileID: 182678, guid: 8f6c8775384aa5845b61dfaf2c23a6d5, type: 2}
   LastEnemiesGroups:
   - {fileID: 185082, guid: 4e1ff0d452f91e4499998f71f9926069, type: 2}
-  BossGroupPreafab: {fileID: 0}
+  BossGroupPrefab: {fileID: 109570, guid: 421cef206d9851f42b3f8bcb1b9b74b5, type: 2}
   PlayerPrefab: {fileID: 131650, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
   SpawnOffsetValue: {x: 0, y: 0.1, z: 0}
   MinNormalEnemies: 3

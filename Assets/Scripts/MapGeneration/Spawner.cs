@@ -10,26 +10,41 @@ public class Spawner : MonoBehaviour {
     public GameObject ExploraionUI;
     public GameObject Player;
     public TurnManager TurnManager;
+    public LevelData Data;
 
     public List<GameObject> NormalEnemiesGroups;
     public List<GameObject> SpecialEnemiesGroups;
     public List<GameObject> LastEnemiesGroups;
-    public GameObject BossGroupPreafab;
+    public GameObject BossGroupPrefab;
     public GameObject PlayerPrefab;
     public Vector3 SpawnOffsetValue;
 
     public int MinNormalEnemies = 3;
     public int MaxNormalEnemies = 5;
     public int NormalEnemiesCount;
+
+    private List<GameObject> _possibleSpawnPoints = new List<GameObject>();
+    public List<GameObject> PossibleSpawnPoints { get { return _possibleSpawnPoints; } }
+
+    #region Spawn Methods
     public void Spawn()
     {
+        Debug.Log("Possible Spawns: " + PossibleSpawnPoints.Count);
         SpawnPlayer();
-        ///TODO: Add spawning for boss
-        SpawnLastEnemy();
+        if(Data.Progress < Data.TargetProgress)
+        {
+            Debug.Log("Spawn Last Group");
+            SpawnLastEnemy();
+        }
+        else
+        {
+            Debug.Log("Spawn Boss");
+            SpawnBoss();
+        }
         NormalEnemiesCount = Random.Range(MinNormalEnemies, MaxNormalEnemies);
         for (int i=0; i<NormalEnemiesCount; i++)
         {
-
+            SpawnNormalGroup();
         }
     }
 
@@ -69,12 +84,39 @@ public class Spawner : MonoBehaviour {
         var go = LastEnemiesGroups.GetRandomElement();
         var finishBlockData = decorator.NodesTiles[generator.FinishNode].GetComponent<BlockDataHolder>();
 
-        //SpawnGroup(go, finishBlockData.SpawnTile.transform.position + SpawnOffsetValue, finishBlockData);
+        SpawnGroup(go, finishBlockData);
        
 
     }
     
+    private void SpawnBoss()
+    {
+        var finishBlockData = decorator.NodesTiles[generator.FinishNode].GetComponent<BlockDataHolder>();
 
+        SpawnGroup(BossGroupPrefab, finishBlockData);
+    }
+
+    private void SpawnNormalGroup()
+    {
+        var group = NormalEnemiesGroups.GetRandomElement();
+        var spawn = PossibleSpawnPoints.GetRandomElement();
+        PossibleSpawnPoints.Remove(spawn);
+        var blk = spawn.GetComponent<BlockDataHolder>();
+
+        SpawnGroup(group, blk);
+    }
+
+    private void SpawnGroup(GameObject prefab, BlockDataHolder blockData)
+    {
+        var spawnPoint = blockData.SpawnTile.transform.position + SpawnOffsetValue;
+        var group = Instantiate(prefab, spawnPoint, Quaternion.identity) as GameObject;
+        group.transform.rotation *= CalculateEuler(decorator.NodesTiles[blockData.gameObject] as Node, decorator.NodesTiles[blockData.NodeToMain] as Node) * Quaternion.Euler(0, 180,0);
+        var comp = group.GetComponent<CheckIfPlayerEnter>();
+        comp.ExplorationUI = ExploraionUI;
+        comp.BattleUI = BattleUI;
+        comp.Player = Player;
+    }
+    #endregion
 
     private Quaternion CalculateEuler(Node source, Node target)
     {
@@ -114,14 +156,6 @@ public class Spawner : MonoBehaviour {
         face = Facing.Right;
     }
 
-    private void SpawnGroup(GameObject prefab, Vector3 spawnPoint, BlockDataHolder blockData)
-    {
-        var group = Instantiate(prefab, spawnPoint, Quaternion.identity) as GameObject;
-        group.transform.localRotation *= CalculateEuler(decorator.NodesTiles[blockData.gameObject] as Node, decorator.NodesTiles[blockData.NodeToMain] as Node);
-        var comp = group.GetComponent<CheckIfPlayerEnter>();
-        comp.ExplorationUI = ExploraionUI;
-        comp.BattleUI = BattleUI;
-        comp.Player = Player;
-    }
+    
 
 }
