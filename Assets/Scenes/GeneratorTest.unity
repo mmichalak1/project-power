@@ -268,8 +268,8 @@ MonoBehaviour:
   BranchMaxLength: 4
   MinMainBranches: 3
   MaxMainBranches: 4
-  MinAddidtionalBranches: 3
-  MaxAdditionalBranches: 4
+  MinAddidtionalBranches: 1
+  MaxAdditionalBranches: 1
   LevelSeed: 0
 --- !u!4 &420036990
 Transform:
@@ -317,7 +317,7 @@ MonoBehaviour:
   RightDownLefts:
   - {fileID: 183490, guid: d74139dcb2dd1884bbb1e5b4e43568e6, type: 2}
   DownLeftUps:
-  - {fileID: 186080, guid: 5ed4dca24e2fc344386caa221061d609, type: 2}
+  - {fileID: 166760, guid: 4eee2bc3ada9dde4e892223571413519, type: 2}
   LeftUpRights:
   - {fileID: 160666, guid: 23b4938a93a568349b691d47f8d4f33d, type: 2}
   UpRightDowns:
