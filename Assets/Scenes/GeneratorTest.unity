@@ -122,7 +122,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22465096, guid: 916bb8ec18c4ef347b35ede2a75ebb82, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 22465096, guid: 916bb8ec18c4ef347b35ede2a75ebb82, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -264,8 +264,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Decorator: {fileID: 420036991}
   blockSize: 10
-  BranchMinLength: 1
-  BranchMaxLength: 2
+  BranchMinLength: 3
+  BranchMaxLength: 4
   MinMainBranches: 3
   MaxMainBranches: 4
   MinAddidtionalBranches: 3
@@ -351,8 +351,8 @@ MonoBehaviour:
   TurnManager: {fileID: 521107148}
   Data: {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
   NormalEnemiesGroups:
-  - {fileID: 154906, guid: 57e43767fecd9f242af2431881175e6e, type: 2}
   - {fileID: 104394, guid: 299b2e112f101d2469cbc5e8e7410f42, type: 2}
+  - {fileID: 154906, guid: 57e43767fecd9f242af2431881175e6e, type: 2}
   SpecialEnemiesGroups:
   - {fileID: 182678, guid: 8f6c8775384aa5845b61dfaf2c23a6d5, type: 2}
   LastEnemiesGroups:
@@ -360,7 +360,7 @@ MonoBehaviour:
   BossGroupPrefab: {fileID: 109570, guid: 421cef206d9851f42b3f8bcb1b9b74b5, type: 2}
   PlayerPrefab: {fileID: 131650, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
   SpawnOffsetValue: {x: 0, y: 0.1, z: 0}
-  MinNormalEnemies: 3
+  MinNormalEnemies: 5
   MaxNormalEnemies: 5
   NormalEnemiesCount: 0
 --- !u!1 &521107143
@@ -602,7 +602,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22443770, guid: 9fefb5a55dc7711418f91f17d8091328, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22443770, guid: 9fefb5a55dc7711418f91f17d8091328, type: 2}
       propertyPath: m_AnchoredPosition.x

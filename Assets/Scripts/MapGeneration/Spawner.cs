@@ -110,7 +110,7 @@ public class Spawner : MonoBehaviour {
     {
         var spawnPoint = blockData.SpawnTile.transform.position + SpawnOffsetValue;
         var group = Instantiate(prefab, spawnPoint, Quaternion.identity) as GameObject;
-        group.transform.rotation *= CalculateEuler(decorator.NodesTiles[blockData.gameObject] as Node, decorator.NodesTiles[blockData.NodeToMain] as Node) * Quaternion.Euler(0, 180,0);
+        group.transform.rotation *= CalculateEuler(decorator.NodesTiles[blockData.gameObject], decorator.NodesTiles[blockData.NodeToMain]) * Quaternion.Euler(0, 180,0);
         var comp = group.GetComponent<CheckIfPlayerEnter>();
         comp.ExplorationUI = ExploraionUI;
         comp.BattleUI = BattleUI;
@@ -120,6 +120,7 @@ public class Spawner : MonoBehaviour {
 
     private Quaternion CalculateEuler(Node source, Node target)
     {
+
         if (source.Up == target)
         {
             return Quaternion.Euler(0, -90, 0);
@@ -134,6 +135,30 @@ public class Spawner : MonoBehaviour {
         }
 
         return Quaternion.identity;
+    }
+
+    private Quaternion CalculateEuler(Tile source, Tile target)
+    {
+        if ( source.Position.x == target.Position.x)
+        {
+            if (source.Position.y > target.Position.y)
+            {
+                return Quaternion.Euler(0, 90, 0);
+            }
+            else
+            {
+                return Quaternion.Euler(0, -90, 0);
+            }
+        }
+        else if(source.Position.x > target.Position.x)
+        {
+            return Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            return Quaternion.identity;
+        }
+
     }
     private void CalculatePlayerFacing(Node source, Node target, out Quaternion res, out Facing face)
     {

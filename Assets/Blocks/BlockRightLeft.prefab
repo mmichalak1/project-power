@@ -713,7 +713,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.680103, y: 160.17491, z: -27.566698}
+  m_LocalPosition: {x: -14.682237, y: 7.6022577, z: -0.4425828}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -2149,7 +2149,7 @@ MonoBehaviour:
   - {fileID: 104746}
   - {fileID: 196890}
   - {fileID: 134394}
-  - {fileID: 193086}
+  - {fileID: 135280}
   connectingTiles:
   - {fileID: 183434}
   - {fileID: 135280}

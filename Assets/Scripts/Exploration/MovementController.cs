@@ -124,7 +124,7 @@ public class MovementController : MonoBehaviour
             currentTile = nextTile;
             return true;
         }
-        else if(currentTile.ParentBlock.ConnectingTiles.Contains(currentTile.gameObject))
+        else if(nextTile==null && currentTile.ParentBlock.ConnectingTiles.Contains(currentTile.gameObject))
         {
             var currBlock = currentTile.ParentBlock;
             GameObject clostestTile = null;
