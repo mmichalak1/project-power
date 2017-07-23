@@ -17,9 +17,6 @@ public class LevelData : ScriptableObject
     [SerializeField]
     private bool isLocked = true;
 
-    [SerializeField]
-    private ChestData[] _chests;
-
     public int Progress
     {
         get { return _progress; }
@@ -43,11 +40,6 @@ public class LevelData : ScriptableObject
     {
         get { return isLocked; }
         set { isLocked = value; }
-    }
-
-    public ChestData[] Chests
-    {
-        get { return _chests; }
     }
 
     public void OnLevelWon()
