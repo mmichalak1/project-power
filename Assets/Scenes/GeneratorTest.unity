@@ -122,7 +122,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22465096, guid: 916bb8ec18c4ef347b35ede2a75ebb82, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 22465096, guid: 916bb8ec18c4ef347b35ede2a75ebb82, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -162,6 +162,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22465096, guid: 916bb8ec18c4ef347b35ede2a75ebb82, type: 2}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 190528, guid: 916bb8ec18c4ef347b35ede2a75ebb82, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -244,6 +248,8 @@ GameObject:
   - 114: {fileID: 420036989}
   - 114: {fileID: 420036991}
   - 114: {fileID: 420036992}
+  - 114: {fileID: 420036994}
+  - 114: {fileID: 420036993}
   m_Layer: 0
   m_Name: Generator
   m_TagString: Untagged
@@ -268,8 +274,8 @@ MonoBehaviour:
   BranchMaxLength: 4
   MinMainBranches: 3
   MaxMainBranches: 4
-  MinAddidtionalBranches: 1
-  MaxAdditionalBranches: 1
+  MinAddidtionalBranches: 2
+  MaxAdditionalBranches: 4
   LevelSeed: 0
 --- !u!4 &420036990
 Transform:
@@ -296,6 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generator: {fileID: 420036989}
+  chestSpawner: {fileID: 420036994}
   spawner: {fileID: 420036992}
   StartingPoint: {x: 0, y: 0, z: 0}
   ErrorBlock: {fileID: 199756, guid: 4deb2736d1a892c4c9f130e80f9540ca, type: 2}
@@ -345,10 +352,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generator: {fileID: 420036989}
   decorator: {fileID: 420036991}
+  playerSpawner: {fileID: 420036993}
+  chestSpawner: {fileID: 420036994}
   BattleUI: {fileID: 2129180735}
-  ExploraionUI: {fileID: 381671393}
-  Player: {fileID: 0}
-  TurnManager: {fileID: 521107148}
+  ExplorationUI: {fileID: 381671393}
   Data: {fileID: 11400000, guid: 89266affa9bd36149887998fe698767b, type: 2}
   NormalEnemiesGroups:
   - {fileID: 104394, guid: 299b2e112f101d2469cbc5e8e7410f42, type: 2}
@@ -359,12 +366,46 @@ MonoBehaviour:
   - {fileID: 185082, guid: 4e1ff0d452f91e4499998f71f9926069, type: 2}
   BossGroupPrefab: {fileID: 109570, guid: 421cef206d9851f42b3f8bcb1b9b74b5, type: 2}
   PlayerPrefab: {fileID: 131650, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
-  ChestPrefab: {fileID: 0}
   SpawnOffsetValue: {x: 0, y: 0.1, z: 0}
-  ChestsCount: 2
   MinNormalEnemies: 5
   MaxNormalEnemies: 5
   NormalEnemiesCount: 0
+--- !u!114 &420036993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 420036988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b26f2f60032a474d9008ea2754cf3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  PlayerPrefab: {fileID: 131650, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
+  generator: {fileID: 420036989}
+  decorator: {fileID: 420036991}
+  ExploraionUI: {fileID: 381671393}
+  TurnManager: {fileID: 521107148}
+  SpawnOffsetValue: {x: 0, y: 0.1, z: 0}
+--- !u!114 &420036994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 420036988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02114da5f8df9e94db49407c329998f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChestPrefab: {fileID: 100348, guid: ea8db2f3d6057664db2a057ab199c9bf, type: 2}
+  playerSpawner: {fileID: 420036993}
+  woolWindow: {fileID: 1926666963}
+  swipeManager: {fileID: 521107144}
+  gameSaver: {fileID: 521107150}
+  ChestsCount: 2
+  WoolForChest: 10
 --- !u!1 &521107143
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +536,7 @@ GameObject:
   - 108: {fileID: 818182240}
   m_Layer: 0
   m_Name: Directional Light
-  m_TagString: Untagged
+  m_TagString: AmbientLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -582,6 +623,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!1 &1926666963 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 164182, guid: 916bb8ec18c4ef347b35ede2a75ebb82, type: 2}
+  m_PrefabInternal: {fileID: 81241085}
 --- !u!1001 &1930478084
 Prefab:
   m_ObjectHideFlags: 0
@@ -619,7 +664,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22443770, guid: 9fefb5a55dc7711418f91f17d8091328, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 22443770, guid: 9fefb5a55dc7711418f91f17d8091328, type: 2}
       propertyPath: m_AnchoredPosition.x

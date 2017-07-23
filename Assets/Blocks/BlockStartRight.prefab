@@ -2457,6 +2457,7 @@ MonoBehaviour:
   neighbouringBlocks: []
   startingTile: {fileID: 189000}
   nodeToMain: {fileID: 0}
+  tileForChest: {fileID: 189000}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -2156,7 +2156,7 @@ MonoBehaviour:
   neighbouringBlocks: []
   startingTile: {fileID: 193316}
   nodeToMain: {fileID: 0}
-  tileForChest: {fileID: 0}
+  tileForChest: {fileID: 193316}
 --- !u!114 &11434110
 MonoBehaviour:
   m_ObjectHideFlags: 1

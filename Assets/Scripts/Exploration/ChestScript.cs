@@ -8,9 +8,8 @@ public class ChestScript : MonoBehaviour
     public int WoolForChest { get; set; }
     public GameObject Player;
     public GameObject WoolWindow;
-    public SwipeManager Manager;
+    public SwipeManager SwipeManager;
     public GameSaverScript GameSaver;
-    public bool IsCountingDown = false;
 
     void Start()
     {
