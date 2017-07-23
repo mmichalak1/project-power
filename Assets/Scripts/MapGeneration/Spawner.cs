@@ -73,6 +73,7 @@ public class Spawner : MonoBehaviour {
         var spawn = PossibleSpawnPoints.GetRandomElement();
         PossibleSpawnPoints.Remove(spawn);
         var blk = spawn.GetComponent<BlockDataHolder>();
+        chestSpawner.ChestsSpawns.Remove(blk);
 
         SpawnGroup(group, blk);
     }

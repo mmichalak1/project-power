@@ -69,7 +69,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &149322
 GameObject:
   m_ObjectHideFlags: 1
@@ -430,10 +430,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   WoolWindow: {fileID: 0}
   Manager: {fileID: 0}
-  ChestData: {fileID: 0}
-  ExplorationHolder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
-  TimerText: {fileID: 11475362}
-  IsCountingDown: 0
+  GameSaver: {fileID: 0}
 --- !u!135 &13516240
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -6,6 +6,7 @@ public class MapDecorator : MonoBehaviour
 {
 
     public MapGenerator generator;
+    public ChestSpawner chestSpawner;
     public Spawner spawner;
     public Vector3 StartingPoint;
 
@@ -67,6 +68,11 @@ public class MapDecorator : MonoBehaviour
             if (node != generator.StartingNode && node != generator.FinishNode)
             {
                 spawner.PossibleSpawnPoints.Add(go);
+            }
+            var blk = go.GetComponent<BlockDataHolder>();
+            if (blk.TileForChest != null && node != generator.StartingNode && node!=generator.FinishNode)
+            {
+                chestSpawner.ChestsSpawns.Add(blk);
             }
         }
 
