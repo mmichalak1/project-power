@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.LogicSystem;
 
-public class WolfGroupManager : MonoBehaviour
+public class EnemyGroup : MonoBehaviour
 {
     [SerializeField]
     WoolCounter Counter;
@@ -25,7 +25,7 @@ public class WolfGroupManager : MonoBehaviour
         wolvesCounter = enemies.Count;
         foreach (var enemy in enemies)
         {
-            Events.Instance.RegisterForEvent(enemy.name + "death", OnWolfDeath);
+            Events.Instance.RegisterForEvent(enemy.name + "death", OnEnemyDeath);
         }
     }
 
@@ -37,7 +37,7 @@ public class WolfGroupManager : MonoBehaviour
         }
     }
 
-    public void OnWolfDeath(object wolf)
+    public void OnEnemyDeath(object wolf)
     {
         GameObject x = (GameObject)wolf;
         if (x.transform.parent.name != gameObject.name)
@@ -50,7 +50,7 @@ public class WolfGroupManager : MonoBehaviour
             TurnManager.BattleWon = true;
             foreach (var item in enemies)
             {
-                Events.Instance.UnregisterForEvent(item.name + "death", OnWolfDeath);
+                Events.Instance.UnregisterForEvent(item.name + "death", OnEnemyDeath);
             }
             Events.Instance.DispatchEvent("EnemyGroupDestroyed", gameObject);
             Destroy(gameObject);

@@ -15,7 +15,7 @@ public class Fireball : Skill
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {
-        var enemies = target.transform.parent.gameObject.GetComponent<WolfGroupManager>().GetNeighbouringEnemies(target);
+        var enemies = target.transform.parent.gameObject.GetComponent<EnemyGroup>().GetNeighbouringEnemies(target);
         target.GetComponent<IReciveDamage>().DealDamage(Power, actor);
         for (int i = 0; i < enemies.Length; i++)
             if (enemies[i] != null)

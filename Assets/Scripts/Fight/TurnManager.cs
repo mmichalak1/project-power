@@ -11,7 +11,7 @@ public class TurnManager : MonoBehaviour
 {
     #region Statics
     private static TurnManager Instance;
-    private static WolfGroupManager _wolfManager;
+    private static EnemyGroup _wolfManager;
     public static activeState state = activeState.nothingPicked;
     public static GameObject hitedTarget = null;
     public static int CurrentResource { get; set; }
@@ -19,7 +19,7 @@ public class TurnManager : MonoBehaviour
     public static Skill pickedSkill;
     public static bool BattleWon { get; set; }
 
-    public static WolfGroupManager WolfManager
+    public static EnemyGroup WolfManager
     {
         get { return _wolfManager; }
     }
@@ -27,10 +27,7 @@ public class TurnManager : MonoBehaviour
 
     public static void UpdateResource(int i)
     {
-        CurrentResource -= i;
-        if (CurrentResource > Instance.DefaultResourceCounter.Resources)
-            CurrentResource = Instance.DefaultResourceCounter.Resources;
-        Events.Instance.DispatchEvent("SetFilled", CurrentResource);
+        
     }
 
     public static void SelectSkill(Skill selectedSkill)
@@ -46,8 +43,7 @@ public class TurnManager : MonoBehaviour
 
         //if resources are ok change picked skill and notify resuources display
         pickedSkill = selectedSkill;
-        if (!TurnPlaner.Instance.ContainsPlanWithSkill(selectedSkill))
-            Events.Instance.DispatchEvent("ChangeActive", selectedSkill.Cost);
+       
         state = activeState.waiting;
 
         hitedTarget = null;
@@ -87,7 +83,7 @@ public class TurnManager : MonoBehaviour
     #region Events
     private void OnEnterFight(object x)
     {
-        _wolfManager = x as WolfGroupManager;
+        _wolfManager = x as EnemyGroup;
         WoolForFight = _wolfManager.WoolForFight;
         queueController.gameObject.SetActive(false);
     }
@@ -216,39 +212,11 @@ public class TurnManager : MonoBehaviour
 
     }
 
-    bool GetPointerPosition()
-    {
-#if UNITY_EDITOR || UNITY_STANDALONE
-        if (Input.GetMouseButtonUp(0))
-        {
-            CheckTouch(Input.mousePosition);
-            return true;
-        }
-
-#elif UNITY_WSA_10_0 || UNITY_IOS || UNITY_ANDROID
-        if (Input.touchCount > 0)
-        {
-            if (Input.GetTouch(0).phase == TouchPhase.Ended)
-            {
-                CheckTouch(Input.GetTouch(0).position);
-                return true;
-            }
-        }
-#endif
-        return false;
-    }
+   
     #endregion
 
 
-    private void CheckTouch(Vector3 pos)
-    {
-        Ray ray = Camera.main.ScreenPointToRay(pos);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-        {
-            hitedTarget = hit.collider.gameObject;
-        }
-    }
+   
 
     private void OnNotEnoughResources()
     {
@@ -348,37 +316,7 @@ public class TurnManager : MonoBehaviour
 
     void Update()
     {
-        if (ourTurn && GetPointerPosition() && hitedTarget != null)
-            switch (state)
-            {
-                case activeState.sheepPicked:
-                    {
-                        SheepPickedActions();
-                    }
-                    break;
-                case activeState.skillPicked:
-                    {
-                        SkillPickedActions();
-                    }
-                    break;
-                case activeState.nothingPicked:
-                    {
-                        NothingPickedActions();
-                    }
-                    break;
-                case activeState.waiting:
-                    {
-                        StartCoroutine(Wait(0.1f, activeState.skillPicked));
-                    }
-                    break;
-                case activeState.reseting:
-                    {
-                        StartCoroutine(Wait(0.1f, activeState.nothingPicked));
-                    }
-                    break;
-                default:
-                    break;
-            }
+      
     }
 
     public void CancelButton()

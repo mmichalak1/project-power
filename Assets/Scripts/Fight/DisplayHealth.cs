@@ -45,7 +45,7 @@ public class DisplayHealth : MonoBehaviour
 
     private void SetupHPBars(object x)
     {
-        var group = x as WolfGroupManager;
+        var group = x as EnemyGroup;
         for (int i = 0; i < 4; i++)
         {
             _controllers[i] = group.enemies[i].GetComponent<HealthController>();

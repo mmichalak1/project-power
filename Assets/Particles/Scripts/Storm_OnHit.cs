@@ -18,7 +18,7 @@ public class Storm_OnHit : MonoBehaviour, IEffect {
 
     public void SetUpAction(GameObject actor, GameObject target)
     {
-        var enemies = target.GetComponentInParent<WolfGroupManager>().enemies;
+        var enemies = target.GetComponentInParent<EnemyGroup>().enemies;
         foreach(var enemy in enemies)
         {
             GameObject go = Instantiate(Lightning, enemy.transform.position, Quaternion.identity) as GameObject;

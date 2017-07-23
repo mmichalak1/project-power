@@ -16,7 +16,7 @@ public class LightingStorm : Skill {
     protected override void PerformAction(GameObject actor, GameObject target)
     {
         Debug.Log("The storm is real! Every enemy takes " + Power + " damage!");
-        var group = target.transform.parent.gameObject.GetComponent<WolfGroupManager>().enemies;
+        var group = target.transform.parent.gameObject.GetComponent<EnemyGroup>().enemies;
         foreach (var enemy in group)
         {
             enemy.gameObject.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage(Power, actor);

@@ -85,6 +85,8 @@ public class UIBattleSkillButton : MonoBehaviour
     public void OnClick()
     {
         Events.Instance.DispatchEvent("HideBattleSkillPanel", null);
-        TurnManager.SelectSkill(skill);
+        isDisplayed = true;
+        animator.SetBool("isDisplayed", isDisplayed);
+        SystemAccessor.GetSystem<TurnManagerInteface>().SelectSkill(skill);
     }
 }

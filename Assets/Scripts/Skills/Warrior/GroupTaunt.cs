@@ -29,7 +29,7 @@ public class GroupTaunt : Skill
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {
-        var enemyGroup = target.transform.parent.GetComponent<WolfGroupManager>();
+        var enemyGroup = target.transform.parent.GetComponent<EnemyGroup>();
         if (enemyGroup == null)
             return;
 

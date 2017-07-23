@@ -6,13 +6,12 @@ using Assets.LogicSystem;
 
 public class TurnQueueController : MonoBehaviour
 {
+    public BattleResourcesController resourceController;
 
     public GameObject SkillPrefab;
+
     private Dictionary<Plan, GameObject> _plannedSkills = new Dictionary<Plan, GameObject>();
     private PlanComparator planComparator = new PlanComparator();
-
-
-
 
     public void AddPlan(Plan plan)
     {
@@ -41,6 +40,7 @@ public class TurnQueueController : MonoBehaviour
         if (!_plannedSkills.Keys.Contains(plan, planComparator))
             return;
         RemovePlan(plan);
+        resourceController.TakeResources(-plan.Skill.Cost);
         TurnPlaner.Instance.CancelPlan(plan);
     }
 

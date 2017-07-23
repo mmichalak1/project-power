@@ -42,26 +42,13 @@ namespace Assets.LogicSystem
 
         public void AddPlan(Plan plan)
         {
-            if (ContainsPlan(plan))
-            {
-                CancelPlan(plan);
-            }
-            TurnManager.UpdateResource(plan.Skill.Cost);
             plans.Add(plan);
             //Debug.Log("Added plan for " + entity.name);
         }
 
         public void CancelPlan(Plan cancelledPlan)
         {
-            TurnManager.UpdateResource(-cancelledPlan.Skill.Cost);
             plans.Remove(cancelledPlan);
-            if (!ContainsPlanForActor(cancelledPlan.Actor))
-            {
-                var bubble = cancelledPlan.Actor.GetComponentInChildren<ActionBubble>();
-                if (bubble != null)
-                    bubble.TurnOff();
-            }
-
         }
 
         public void Reset()
