@@ -2156,6 +2156,7 @@ MonoBehaviour:
   neighbouringBlocks: []
   startingTile: {fileID: 193316}
   nodeToMain: {fileID: 0}
+  tileForChest: {fileID: 0}
 --- !u!114 &11434110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2216,7 +2217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParentBlock: {fileID: 11426572}
-  RightNeighbour: {fileID: 11469060}
+  RightNeighbour: {fileID: 0}
   LeftNeighbour: {fileID: 11439564}
   UpNeighbour: {fileID: 11479976}
   DownNeighbour: {fileID: 11497634}
@@ -2344,7 +2345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParentBlock: {fileID: 11426572}
-  RightNeighbour: {fileID: 11415330}
+  RightNeighbour: {fileID: 0}
   LeftNeighbour: {fileID: 11412532}
   UpNeighbour: {fileID: 11454138}
   DownNeighbour: {fileID: 11479976}
@@ -2376,7 +2377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParentBlock: {fileID: 11426572}
-  RightNeighbour: {fileID: 11407680}
+  RightNeighbour: {fileID: 0}
   LeftNeighbour: {fileID: 11494172}
   UpNeighbour: {fileID: 11470980}
   DownNeighbour: {fileID: 11447544}
@@ -2424,7 +2425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParentBlock: {fileID: 11426572}
-  RightNeighbour: {fileID: 11434110}
+  RightNeighbour: {fileID: 0}
   LeftNeighbour: {fileID: 11470558}
   UpNeighbour: {fileID: 11447544}
   DownNeighbour: {fileID: 0}

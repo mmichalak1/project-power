@@ -14,11 +14,14 @@ public class BlockDataHolder : MonoBehaviour {
     private GameObject startingTile;
     [SerializeField]
     private GameObject nodeToMain;
+    [SerializeField]
+    private GameObject tileForChest;
     
     public List<GameObject> PassableTiles { get { return passableTiles; } }
     public List<GameObject> ConnectingTiles { get { return connectingTiles; } }
     public List<BlockDataHolder> NeighbouringBlocks { get { return neighbouringBlocks; } }
     public GameObject SpawnTile { get { return startingTile; } set { startingTile = value; } }
     public GameObject NodeToMain { get { return nodeToMain; } set { nodeToMain = value; } }
+    public GameObject TileForChest { get { return tileForChest; } }
 
 }

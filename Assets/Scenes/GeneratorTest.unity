@@ -359,7 +359,9 @@ MonoBehaviour:
   - {fileID: 185082, guid: 4e1ff0d452f91e4499998f71f9926069, type: 2}
   BossGroupPrefab: {fileID: 109570, guid: 421cef206d9851f42b3f8bcb1b9b74b5, type: 2}
   PlayerPrefab: {fileID: 131650, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
+  ChestPrefab: {fileID: 0}
   SpawnOffsetValue: {x: 0, y: 0.1, z: 0}
+  ChestsCount: 2
   MinNormalEnemies: 5
   MaxNormalEnemies: 5
   NormalEnemiesCount: 0
@@ -376,6 +378,7 @@ GameObject:
   - 114: {fileID: 521107147}
   - 114: {fileID: 521107149}
   - 114: {fileID: 521107148}
+  - 114: {fileID: 521107150}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -467,6 +470,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   queueController: {fileID: 1930478086}
+--- !u!114 &521107150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 521107143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 451cfe9c89c8c8a4d817e06d8b080363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Save: {fileID: 11400000, guid: 25308824fbae9e140aa83092a62e67aa, type: 2}
+  SaveOnStart: 0
+  LoadOnStart: 0
 --- !u!1 &818182239
 GameObject:
   m_ObjectHideFlags: 0

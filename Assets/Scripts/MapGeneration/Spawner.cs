@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour {
 
     public MapGenerator generator;
     public MapDecorator decorator;
+    public PlayerSpawner playerSpawner;
+    public ChestSpawner chestSpawner;
     public GameObject BattleUI;
-    public GameObject ExploraionUI;
-    public GameObject Player;
-    public TurnManager TurnManager;
+    public GameObject ExplorationUI;
     public LevelData Data;
 
     public List<GameObject> NormalEnemiesGroups;
@@ -29,8 +28,8 @@ public class Spawner : MonoBehaviour {
     #region Spawn Methods
     public void Spawn()
     {
+        playerSpawner.SpawnPlayer();
         Debug.Log("Possible Spawns: " + PossibleSpawnPoints.Count);
-        SpawnPlayer();
         if(Data.Progress < Data.TargetProgress)
         {
             Debug.Log("Spawn Last Group");
@@ -46,38 +45,10 @@ public class Spawner : MonoBehaviour {
         {
             SpawnNormalGroup();
         }
+        chestSpawner.SpawnChests();
     }
 
-    private void SpawnPlayer()
-    {
-        Node spawnNode = generator.StartingNode;
-        Node targetNode = decorator.NodesTiles[decorator.NodesTiles[spawnNode].GetComponent<BlockDataHolder>().NodeToMain] as Node;
-
-        BlockDataHolder blk = decorator.NodesTiles[spawnNode].GetComponent<BlockDataHolder>();
-        Vector3 spawnPoint = blk.SpawnTile.transform.position +
-            SpawnOffsetValue;
-       
-        Player = Instantiate(PlayerPrefab, spawnPoint, Quaternion.identity) as GameObject;
-
-        Quaternion rot = Quaternion.identity;
-        Facing face = Facing.Up;
-        CalculatePlayerFacing(spawnNode, targetNode, out rot, out face);
-        Player.transform.localRotation *= rot;
-        var comp = Player.GetComponent<MovementController>();
-        comp.currentFacing = face;
-        comp.ShallNotPass = ExploraionUI.transform.FindChild("ShallNotPass").GetComponent<Image>();
-        comp.currentTile = blk.SpawnTile.GetComponent<TileData>();
-
-        var arr = Player.GetComponentsInChildren<EntityDataHolder>();
-        for(int i =0;i<4;i++)
-        {
-            TurnManager.DataHolders[i] = arr[i];
-        }
-
-        foreach (var x in Player.GetComponentsInChildren<SheepDataLoader>())
-            x.LoadSheepData();
-
-    }
+    
 
     private void SpawnLastEnemy()
     {
@@ -112,31 +83,13 @@ public class Spawner : MonoBehaviour {
         var group = Instantiate(prefab, spawnPoint, Quaternion.identity) as GameObject;
         group.transform.rotation *= CalculateEuler(decorator.NodesTiles[blockData.gameObject], decorator.NodesTiles[blockData.NodeToMain]) * Quaternion.Euler(0, 180,0);
         var comp = group.GetComponent<CheckIfPlayerEnter>();
-        comp.ExplorationUI = ExploraionUI;
+        comp.ExplorationUI = ExplorationUI;
         comp.BattleUI = BattleUI;
-        comp.Player = Player;
+        comp.Player = playerSpawner.Player;
     }
     #endregion
 
-    private Quaternion CalculateEuler(Node source, Node target)
-    {
-
-        if (source.Up == target)
-        {
-            return Quaternion.Euler(0, -90, 0);
-        }
-        if (source.Down == target)
-        {
-            return Quaternion.Euler(0, 90, 0);
-        }
-        if (source.Right == target)
-        {
-            return Quaternion.Euler(0, 180, 0);
-        }
-
-        return Quaternion.identity;
-    }
-
+    
     private Quaternion CalculateEuler(Tile source, Tile target)
     {
         if ( source.Position.x == target.Position.x)
@@ -160,26 +113,7 @@ public class Spawner : MonoBehaviour {
         }
 
     }
-    private void CalculatePlayerFacing(Node source, Node target, out Quaternion res, out Facing face)
-    {
-        res = CalculateEuler(source, target);
-        if (source.Up == target)
-        {   
-            face = Facing.Up;
-            return;
-        }
-        if (source.Down == target)
-        {
-            face = Facing.Down;
-            return;
-        }
-        if (source.Right == target)
-        {
-            face = Facing.Left;
-            return;
-        }
-        face = Facing.Right;
-    }
+    
 
     
 
