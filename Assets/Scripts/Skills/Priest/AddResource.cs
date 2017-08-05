@@ -16,7 +16,7 @@ public class AddResource : Skill
     public override void OnSkillPlanned(GameObject actor, GameObject target)
     {
         _cooldown = CooldownBase;
-        TurnManager.UpdateResource(0 - ResourceAdded);
+        SystemAccessor.GetSystem<BattleResourcesController>().MoveFromTakenToAvailable(ResourceAdded);
         base.OnSkillPlanned(actor, target);
     }
 }

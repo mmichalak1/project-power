@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
+using Assets.Scripts.Interfaces;
 
 public class ButtonAction : MonoBehaviour {
 
     public void SkillButtonAction(Skill skill)
     {
-        TurnManager.SelectSkill(skill);
+        SystemAccessor.GetSystem<ITurnManager>().SelectSkill(skill);
     }
 }

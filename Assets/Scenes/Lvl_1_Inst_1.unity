@@ -1223,6 +1223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cb4652cf88d724bb2c7d2f57da8e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!4 &40125988 stripped
 Transform:
   m_PrefabParentObject: {fileID: 417640, guid: c8a2cf893b362b14784799d9219265da, type: 2}
@@ -3925,6 +3926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf90467409b39ac46b21567500258fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!4 &169788827 stripped
 Transform:
   m_PrefabParentObject: {fileID: 417640, guid: c8a2cf893b362b14784799d9219265da, type: 2}
@@ -4610,7 +4612,8 @@ Prefab:
       propertyPath: sheepGroup
       value: 
       objectReference: {fileID: 836859325}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11453086, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &183555360 stripped
@@ -5280,6 +5283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Counter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
+  wolvesCounter: 0
   WoolForFight: 15
   enemies: []
 --- !u!114 &205677592
@@ -5296,6 +5300,12 @@ MonoBehaviour:
   Player: {fileID: 1793178694}
   BattleUI: {fileID: 18451736}
   ExplorationUI: {fileID: 1618518010}
+  newRot: {x: 0, y: 0, z: 0, w: 0}
+  rotationSpeed: 180
+  isDetecting: 1
+  isFaceToFace: 1
+  time: 0
+  timer: 0
 --- !u!54 &205677593
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6173,6 +6183,7 @@ MonoBehaviour:
   - {fileID: 884589056}
   - {fileID: 884589055}
   - {fileID: 884589054}
+  animator: {fileID: 0}
 --- !u!95 &289081958
 Animator:
   serializedVersion: 3
@@ -7140,6 +7151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cb4652cf88d724bb2c7d2f57da8e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!1 &342125496
 GameObject:
   m_ObjectHideFlags: 0
@@ -8042,6 +8054,8 @@ MonoBehaviour:
   UpperY: 125
   LowerY: -125
   Speed: 1000
+  rectTransform: {fileID: 0}
+  direction: 0
 --- !u!1001 &377400782
 Prefab:
   m_ObjectHideFlags: 0
@@ -10549,6 +10563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c8d04fb3f198543b6b4cde3a2486dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1001 &521543006
 Prefab:
   m_ObjectHideFlags: 0
@@ -16128,6 +16143,16 @@ MonoBehaviour:
   - {fileID: 46450783}
   - {fileID: 1418634651}
   - {fileID: 1599811801}
+  active:
+    r: 1
+    g: 1
+    b: 1
+    a: 1
+  inActive:
+    r: 0.5
+    g: 0.5
+    b: 0.5
+    a: 1
 --- !u!4 &812919662 stripped
 Transform:
   m_PrefabParentObject: {fileID: 416522, guid: bee8d047e16101c438fb33382ab66935, type: 2}
@@ -16598,6 +16623,10 @@ MonoBehaviour:
   holder: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
   LostPanel: {fileID: 1507109539}
   WoolGrowthMultiplier: 0.07
+  ExplorationUI: {fileID: 0}
+  BattleUI: {fileID: 0}
+  SheepCount: 0
+  sheep: []
 --- !u!114 &836859326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18543,6 +18572,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillIcon: {fileID: 884589039}
   CooldownCounter: {fileID: 502881412}
+  animator: {fileID: 0}
+  skill: {fileID: 0}
+  MINDISTANCE: 10
+  isDisplayed: 0
 --- !u!114 &884589055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18556,6 +18589,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillIcon: {fileID: 884589042}
   CooldownCounter: {fileID: 1466753880}
+  animator: {fileID: 0}
+  skill: {fileID: 0}
+  MINDISTANCE: 10
+  isDisplayed: 0
 --- !u!114 &884589056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18569,6 +18606,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillIcon: {fileID: 884589045}
   CooldownCounter: {fileID: 1967158040}
+  animator: {fileID: 0}
+  skill: {fileID: 0}
+  MINDISTANCE: 10
+  isDisplayed: 0
 --- !u!114 &884589057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18582,6 +18623,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillIcon: {fileID: 884589048}
   CooldownCounter: {fileID: 622306769}
+  animator: {fileID: 0}
+  skill: {fileID: 0}
+  MINDISTANCE: 10
+  isDisplayed: 0
 --- !u!114 &884589058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18595,6 +18640,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillIcon: {fileID: 884589051}
   CooldownCounter: {fileID: 1623242151}
+  animator: {fileID: 0}
+  skill: {fileID: 0}
+  MINDISTANCE: 10
+  isDisplayed: 0
 --- !u!224 &884589059 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22490384, guid: c3b6b453c329a9e4a9a287c477a1a005,
@@ -21261,6 +21310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cb4652cf88d724bb2c7d2f57da8e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!1 &975208303
 GameObject:
   m_ObjectHideFlags: 0
@@ -29974,6 +30024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Counter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
+  wolvesCounter: 0
   WoolForFight: 10
   enemies: []
 --- !u!114 &1357289226
@@ -29988,8 +30039,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1793178694}
-  BattleUI: {fileID: 0}
+  BattleUI: {fileID: 18451736}
   ExplorationUI: {fileID: 1618518010}
+  newRot: {x: 0, y: 0, z: 0, w: 0}
+  rotationSpeed: 180
+  isDetecting: 1
+  isFaceToFace: 1
+  time: 0
+  timer: 0
 --- !u!54 &1357289227
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32151,6 +32208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Counter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
+  wolvesCounter: 0
   WoolForFight: 30
   enemies: []
 --- !u!114 &1476189208
@@ -32168,6 +32226,12 @@ MonoBehaviour:
   Player: {fileID: 1793178694}
   BattleUI: {fileID: 18451736}
   ExplorationUI: {fileID: 1618518010}
+  newRot: {x: 0, y: 0, z: 0, w: 0}
+  rotationSpeed: 180
+  isDetecting: 1
+  isFaceToFace: 1
+  time: 0
+  timer: 0
 --- !u!54 &1476189209
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -33744,6 +33808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cb4652cf88d724bb2c7d2f57da8e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!1 &1537371684
 GameObject:
   m_ObjectHideFlags: 0
@@ -39023,8 +39088,13 @@ MonoBehaviour:
   debugMode: 0
   shakeAmount: 0
   shakeDuration: 0
+  shakePercentage: 0
+  startAmount: 0
+  startDuration: 0
+  isRunning: 0
   smooth: 0
   smoothAmount: 5
+  originalRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &1747185136 stripped
 Transform:
   m_PrefabParentObject: {fileID: 444518, guid: 4109afb8e36364be19e0157c8df344a3, type: 2}
@@ -39904,6 +39974,32 @@ MonoBehaviour:
   LerpSpeed: 0.01
   cameraExploration: {fileID: 1746547618}
   cameraFight: {fileID: 1774433002}
+  positionCamera: {x: 0, y: 0, z: 0}
+  positionCameraFight: {x: 0, y: 0, z: 0}
+  rotationCamera: {x: 0, y: 0, z: 0, w: 0}
+  rotationCameraFight: {x: 0, y: 0, z: 0, w: 0}
+  explorationPosition: {x: 0, y: 0, z: 0}
+  explorationRotation: {x: 0, y: 0, z: 0, w: 0}
+  startingMatrix:
+    e00: 0
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 0
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 0
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 0
+  timeCounter: 0
+  isChanging: 0
+  blender: {fileID: 0}
 --- !u!4 &1793178696 stripped
 Transform:
   m_PrefabParentObject: {fileID: 485220, guid: f42bd27aacc79184fb586f9af4a2c666, type: 2}
@@ -39920,6 +40016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewCamera: {fileID: 1746547623}
+  <Working>k__BackingField: 0
 --- !u!135 &1793178698
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -44571,11 +44668,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Counter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
+  woolForFight: 0
+  woolToDisplay: 0
+  woolGainedDisplay: 0
+  condition: 0
+  step: 0
+  delta: 0
   WoolGrowIndicator: {fileID: 1489831789}
   WoolGained: {fileID: 411537042}
   stepFactor: 25
   delay: 0.02
   waitTime: 0.5
+  state: 0
 --- !u!4 &2001647483 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400010, guid: 33e4c35785dcfad42ad9b9a24e133f4e, type: 3}
@@ -46340,6 +46444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Counter: {fileID: 11400000, guid: b69dc543b2e2e7e42863d41a5c72653f, type: 2}
+  wolvesCounter: 0
   WoolForFight: 0
   enemies: []
 --- !u!114 &2091533902
@@ -46356,6 +46461,12 @@ MonoBehaviour:
   Player: {fileID: 1793178694}
   BattleUI: {fileID: 18451736}
   ExplorationUI: {fileID: 1618518010}
+  newRot: {x: 0, y: 0, z: 0, w: 0}
+  rotationSpeed: 180
+  isDetecting: 1
+  isFaceToFace: 1
+  time: 0
+  timer: 0
 --- !u!54 &2091533903
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -46789,6 +46900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cb4652cf88d724bb2c7d2f57da8e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!1 &2116865644
 GameObject:
   m_ObjectHideFlags: 0

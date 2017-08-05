@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Assets.LogicSystem;
+using Assets.Scripts.Interfaces;
 
-public class BattleResourcesController : MonoBehaviour {
+public class BattleResourcesController : MonoBehaviour, ISystem {
 
     public ResourcesDisplay resourcesDisplay;
     public ResourceCounter resourceCounter;
@@ -17,15 +18,28 @@ public class BattleResourcesController : MonoBehaviour {
     [SerializeField]
     private int takenResources = 0;
 
-
     public int MaxResources { get { return maxResources; } set { maxResources = value; } }
-
+    #region Unity Hooks
     private void Start()
     {
         MaxResources = resourceCounter.Resources;
         availableResources = MaxResources;
         resourcesDisplay.SetMaxResources(MaxResources);
     }
+    private void Awake()
+    {
+        SystemAccessor.AddSystem(this);
+    }
+
+    private void OnDestroy()
+    {
+        SystemAccessor.RemoveSystem(this);
+    }
+    #endregion
+
+
+
+
 
     public bool MoveToBuffer(int cost)
     {
@@ -51,6 +65,11 @@ public class BattleResourcesController : MonoBehaviour {
 
     public void MoveFromTakenToAvailable(int amount)
     {
+        if (availableResources + amount > maxResources)
+            return;
+
+        if (takenResources - amount < 0)
+            return;
         availableResources += amount;
         takenResources -= amount;
         resourcesDisplay.PaintCrystals(availableResources, bufferedResources, takenResources);

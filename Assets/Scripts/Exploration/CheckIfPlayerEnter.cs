@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Assets.LogicSystem;
+using Assets.Scripts.Interfaces;
 
 public class CheckIfPlayerEnter : MonoBehaviour {
     public GameObject Player;
@@ -61,7 +62,7 @@ public class CheckIfPlayerEnter : MonoBehaviour {
     {
         isDetecting = !isDetecting;
         Events.Instance.DispatchEvent("EnterFight", gameObject.GetComponent<EnemyGroup>());
-        SystemAccessor.GetSystem<TurnManagerInteface>().BeginFight(gameObject.GetComponent<EnemyGroup>());
+        SystemAccessor.GetSystem<ITurnManager>().BeginFight(gameObject.GetComponent<EnemyGroup>());
         BattleUI.SetActive(true);
         ExplorationUI.SetActive(false);
         Events.Instance.DispatchEvent("SetExplorationUI", ExplorationUI);

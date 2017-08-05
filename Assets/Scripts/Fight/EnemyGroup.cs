@@ -46,8 +46,7 @@ public class EnemyGroup : MonoBehaviour
         x.GetComponent<ProvideExperience>().ProvideExp();
         if (wolvesCounter == 0)
         {
-            Debug.Log("Changing flag");
-            TurnManager.BattleWon = true;
+            Debug.Log("Changing flag"); 
             foreach (var item in enemies)
             {
                 Events.Instance.UnregisterForEvent(item.name + "death", OnEnemyDeath);

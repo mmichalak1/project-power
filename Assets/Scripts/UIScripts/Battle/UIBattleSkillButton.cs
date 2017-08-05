@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using Assets.LogicSystem;
+using Assets.Scripts.Interfaces;
 
 public class UIBattleSkillButton : MonoBehaviour
 {
@@ -85,8 +86,8 @@ public class UIBattleSkillButton : MonoBehaviour
 
     public void OnClick()
     {
-        if (!SystemAccessor.GetSystem<TurnManagerInteface>().SelectSkill(skill))
-            return;
+        if (!SystemAccessor.GetSystem<ITurnManager>().SelectSkill(skill))
+            return; 
         Events.Instance.DispatchEvent("HideBattleSkillPanel", null);
         isDisplayed = true;
         animator.SetBool("isDisplayed", isDisplayed);

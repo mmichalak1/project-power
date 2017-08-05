@@ -34,7 +34,6 @@ public class FightingSceneUIScript : MonoBehaviour
 
     public void Cancel()
     {
-        TurnManager.state = TurnManager.activeState.nothingPicked;
         Events.Instance.DispatchEvent("CleanActive", null);
         DisableSkillCanvases();
     }

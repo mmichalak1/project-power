@@ -3,7 +3,7 @@ using Assets.Scripts.Interfaces;
 using System;
 using Assets.LogicSystem;
 
-public class TurnManagerInteface : MonoBehaviour, ISystem
+public class TurnManager : MonoBehaviour, ISystem, ITurnManager
 {
 
     
@@ -113,14 +113,11 @@ public class TurnManagerInteface : MonoBehaviour, ISystem
 
     }
     #endregion
-
-
     public void BeginFight(EnemyGroup group)
     {
         EnemyGroup = group;
         BeginTurn();
     }
-
     public void EndTurn(bool forced)
     {
         //forced is varaible which is set to true when player knows he didnt spent all resources and still wants to end turn
@@ -143,13 +140,10 @@ public class TurnManagerInteface : MonoBehaviour, ISystem
             }
             );
     }
-
-
     private void BeginTurn()
     {
         selector.StartSearching(SelectSheep, new Func<GameObject, bool>(x => x.CompareTag("Sheep") && x != SelectedSheep));
     }
-
     private void PostTurnActions()
     {
         //Tick all cooldowns for sheep
@@ -180,7 +174,6 @@ public class TurnManagerInteface : MonoBehaviour, ISystem
         TurnPlaner.Instance.Reset();
         queueController.Clear();
     }
-
     private void TickSpecialStates()
     {
         //Tick all buffs/debuffs on enemies
@@ -202,7 +195,6 @@ public class TurnManagerInteface : MonoBehaviour, ISystem
                 item.Tick();
         }
     }
-
     public void CancelSkill()
     {
         selector.StartSearching(SelectSheep, new Func<GameObject, bool>(x => x.CompareTag("Sheep") && x != SelectedSheep));
@@ -211,9 +203,7 @@ public class TurnManagerInteface : MonoBehaviour, ISystem
         SelectedSkill = null;
         cancelButton.Hide();
     }
-
-
-    public void Clear()
+    private void Clear()
     {
         Events.Instance.DispatchEvent("HideBattleSkillPanel", null);
         resourcesController.ResetState();
