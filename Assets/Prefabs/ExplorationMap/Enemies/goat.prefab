@@ -1212,10 +1212,7 @@ GameObject:
   - 114: {fileID: 11466344}
   - 114: {fileID: 11490726}
   - 82: {fileID: 8241482}
-  - 114: {fileID: 11444968}
-  - 114: {fileID: 11400164}
   - 114: {fileID: 11489240}
-  - 114: {fileID: 11418618}
   - 114: {fileID: 11453190}
   - 114: {fileID: 11450788}
   m_Layer: 8
@@ -2415,8 +2412,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195228}
   m_LocalRotation: {x: 0, y: -0.8978856, z: 0, w: 0.44022885}
-  m_LocalPosition: {x: 1.08, y: -0.09999998, z: 5.33}
-  m_LocalScale: {x: 0.7794775, y: 0.7794776, z: 0.77947754}
+  m_LocalPosition: {x: 6.19, y: -0.09999998, z: 0.74}
+  m_LocalScale: {x: 0.7794775, y: 0.7794776, z: 0.77947766}
   m_LocalEulerAnglesHint: {x: 0, y: -127.7631, z: 0}
   m_Children:
   - {fileID: 472900}
@@ -2508,8 +2505,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.8636186, y: 10.9281025, z: 3.396471}
-  m_Center: {x: -0.77210855, y: 5.4590545, z: 3.5514603}
+  m_Size: {x: 3.8636186, y: 10.9281025, z: 3.9603395}
+  m_Center: {x: -0.7720617, y: 5.4590535, z: 0.5397177}
 --- !u!82 &8241482
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2593,7 +2590,7 @@ Animator:
   m_GameObject: {fileID: 195228}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 7019cf94b66561640ac8cecb1c7d7c7c, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 004f9ce18f665f44aba95e06ec3a842a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2601,18 +2598,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11400164
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11406676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2651,17 +2636,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11418618
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33cb4652cf88d724bb2c7d2f57da8e5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11438190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2705,18 +2679,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11444968
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11447308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2773,9 +2735,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8a400ccec370445bef0cf32d92c9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 30
-  _currentHealth: 30
+  _maxHealth: 500
+  _currentHealth: 500
   _defence: 0
+  model: {fileID: 0}
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11438190}
   HealthIndicator: {fileID: 11442026}
@@ -2792,7 +2755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 2
-  Damage: 10
+  Damage: 50
   MyBrain: {fileID: 11400000, guid: ef09a6bbab2eb464f8243b7eba89adaf, type: 2}
   _brainsList: []
 --- !u!114 &11473358
@@ -2878,7 +2841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e40f289164f48845907a854d28858a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Experience: 100
+  Experience: 500
 --- !u!137 &13756172
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

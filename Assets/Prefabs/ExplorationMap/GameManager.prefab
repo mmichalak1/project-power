@@ -10,12 +10,12 @@ GameObject:
   - 4: {fileID: 484858}
   - 114: {fileID: 11430480}
   - 114: {fileID: 11491008}
-  - 114: {fileID: 11453086}
   - 114: {fileID: 11456272}
   - 114: {fileID: 11400130}
   - 114: {fileID: 11474310}
   - 114: {fileID: 11457490}
   - 114: {fileID: 11433114}
+  - 114: {fileID: 11477008}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -66,40 +66,11 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130998}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4230d8ccd232d014dad4ce3cde8922b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11453086
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130998}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a54c26768414e741a50d0d7ed59be13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DefaultResourceCounter: {fileID: 11400000, guid: 522d4c5f0b0b01c4895c2b88faec721e,
-    type: 2}
-  UIBattle: {fileID: 0}
-  ConfirmEndTurn: {fileID: 0}
-  ExplorationUI: {fileID: 0}
-  BattleUI: {fileID: 0}
-  Fader: {fileID: 0}
-  DataHolders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  actionBubbles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  queueController: {fileID: 0}
 --- !u!114 &11456272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,6 +97,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selector: {fileID: 11433114}
+  skillPanel: {fileID: 0}
+  resourcesController: {fileID: 11477008}
+  cancelButton: {fileID: 0}
+  queueController: {fileID: 0}
+  endTurnConfirmation: {fileID: 0}
+  turnPlayer: {fileID: 11474310}
+  afterBattleInterface: {fileID: 0}
+  battleUI: {fileID: 0}
+  explorationUI: {fileID: 0}
+  sheepGroup: {fileID: 0}
 --- !u!114 &11474310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,6 +119,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   queueController: {fileID: 0}
+--- !u!114 &11477008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe553a609c280e4f80b5b15ef1b153f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourcesDisplay: {fileID: 0}
+  resourceCounter: {fileID: 11400000, guid: 522d4c5f0b0b01c4895c2b88faec721e, type: 2}
+  maxResources: 0
+  availableResources: 0
+  bufferedResources: 0
+  takenResources: 0
 --- !u!114 &11491008
 MonoBehaviour:
   m_ObjectHideFlags: 1

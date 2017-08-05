@@ -193,7 +193,6 @@ public class MovementController : MonoBehaviour
         if (ShallNotPass.color.a < 1.0)
         {
             ShallNotPass.color += new Color(0, 0, 0, 10 * Time.deltaTime);
-            Debug.Log(ShallNotPass.color.a);
         }
         else
         {
