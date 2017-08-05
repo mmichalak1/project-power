@@ -54,6 +54,8 @@ namespace Assets.LogicSystem
             if (_eventsMap.ContainsKey(name))
             {
                 _eventsMap[name] -= function;
+                if (_eventsMap[name] == null)
+                    _eventsMap.Remove(name);
             }
         }
 

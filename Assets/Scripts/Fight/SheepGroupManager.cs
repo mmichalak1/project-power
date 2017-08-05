@@ -12,8 +12,10 @@ public class SheepGroupManager : MonoBehaviour {
     private float WoolGrowthMultiplier;
     GameObject ExplorationUI, BattleUI;
     int SheepCount = 0;
-    List<Transform> sheep = new List<Transform>();
+    List<GameObject> sheep = new List<GameObject>();
     Events.MyEvent OnSetExplorationUI, OnSetBattleUI;
+
+    public List<GameObject> Sheep { get { return sheep; } set { sheep = value; } }
 
     // Use this for initialization
     void Start() {
@@ -29,7 +31,7 @@ public class SheepGroupManager : MonoBehaviour {
 
         foreach (Transform child in transform)
             if (child.CompareTag("Sheep"))
-                sheep.Add(child);
+                sheep.Add(child.gameObject);
         SheepCount = sheep.Count;
         foreach (var child in sheep)
         {
@@ -60,8 +62,8 @@ public class SheepGroupManager : MonoBehaviour {
     {
         foreach (var child in sheep)
         {
-            child.gameObject.GetComponent<ICanBeHealed>().HealToFull();
-            child.gameObject.SetActive(true);
+            child.GetComponent<ICanBeHealed>().HealToFull();
+            child.GetComponentInChildren<MeshRenderer>().enabled = true;
             var effects = FindObjectsOfType<SC_SpellDuration>();
             foreach (var effect in effects)
             {

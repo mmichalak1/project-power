@@ -9,30 +9,60 @@ public class BattleResourcesController : MonoBehaviour {
 
 
     [SerializeField]
-    private int currentResources = 0;
+    private int maxResources = 0;
+    [SerializeField]
+    private int availableResources = 0;
+    [SerializeField]
+    private int bufferedResources = 0;
+    [SerializeField]
+    private int takenResources = 0;
 
-    public int CurrentResources { get { return currentResources; } set { currentResources = value; } }
+
+    public int MaxResources { get { return maxResources; } set { maxResources = value; } }
 
     private void Start()
     {
-        currentResources = resourceCounter.Resources;
+        MaxResources = resourceCounter.Resources;
+        availableResources = MaxResources;
+        resourcesDisplay.SetMaxResources(MaxResources);
     }
 
-
-    public bool TryAllocateResources(int cost)
+    public bool MoveToBuffer(int cost)
     {
-        if (currentResources < cost)
+        if (maxResources < cost)
             return false;
-        Events.Instance.DispatchEvent("SetActive", currentResources);
+        if(bufferedResources != 0)
+            availableResources += bufferedResources;
+
+        bufferedResources = cost;
+        availableResources -= cost;
+        resourcesDisplay.PaintCrystals(availableResources, bufferedResources, takenResources);
         return true;
 
     }
 
-    public void TakeResources(int i)
+    public void MoveFromBufferToTaken()
     {
-        currentResources -= i;
-        if (currentResources > resourceCounter.Resources)
-            currentResources = resourceCounter.Resources;
-        Events.Instance.DispatchEvent("SetFilled", currentResources);
+        takenResources += bufferedResources;
+        bufferedResources = 0;
+        resourcesDisplay.PaintCrystals(availableResources, bufferedResources, takenResources);
+
     }
+
+    public void MoveFromTakenToAvailable(int amount)
+    {
+        availableResources += amount;
+        takenResources -= amount;
+        resourcesDisplay.PaintCrystals(availableResources, bufferedResources, takenResources);
+    }
+
+    public void ResetState()
+    {
+        availableResources = MaxResources;
+        bufferedResources = 0;
+        takenResources = 0;
+        resourcesDisplay.PaintCrystals(availableResources, bufferedResources, takenResources);
+    }
+
+    public bool FullResources { get { return availableResources == maxResources; } }
 }

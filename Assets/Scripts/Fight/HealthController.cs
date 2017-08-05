@@ -12,13 +12,15 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     private int _currentHealth = 100;
     [SerializeField]
     private float _defence = 0;
+    [SerializeField]
+    GameObject model;
 
     public float Defence
     {
         get { return _defence; }
         set { _defence = value; }
     }
-
+    public bool IsAlive { get { return _currentHealth > 0; } }
 
     public GameObject LastAttacker = null;
 
@@ -38,8 +40,8 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
         if (_currentHealth <= 0)
         {
             Events.Instance.DispatchEvent(gameObject.name + "death", gameObject);
-            //Debug.Log(gameObject.name + " died.");
             gameObject.SetActive(false);
+            
         }
     }
 

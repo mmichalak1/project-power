@@ -40,11 +40,9 @@ public class TurnQueueController : MonoBehaviour
         if (!_plannedSkills.Keys.Contains(plan, planComparator))
             return;
         RemovePlan(plan);
-        resourceController.TakeResources(-plan.Skill.Cost);
+        resourceController.MoveFromTakenToAvailable(plan.Skill.Cost);
         TurnPlaner.Instance.CancelPlan(plan);
     }
-
-
     public void Clear()
     {
         foreach (var item in _plannedSkills)

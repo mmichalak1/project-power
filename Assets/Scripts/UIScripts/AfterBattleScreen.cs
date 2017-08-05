@@ -19,11 +19,6 @@ public class AfterBattleScreen : MonoBehaviour {
     public float delay;
     public float waitTime;
     private State state;
-
-	void Start () {
-        Assets.LogicSystem.Events.Instance.RegisterForEvent("AfterBattleScreen", OnEvoke);
-        gameObject.SetActive(false);
-    }
 	
 	void Update () {
 
@@ -79,11 +74,10 @@ public class AfterBattleScreen : MonoBehaviour {
         Assets.LogicSystem.Events.Instance.DispatchEvent("EndFight", null);
     }
 
-    public void OnEvoke(object obj)
+    public void Show(int woolForFight)
     {
         gameObject.SetActive(true);
         WoolGrowIndicator.text = Counter.WoolCount.ToString();
-        woolForFight = (int)obj;
         woolToDisplay = Counter.WoolCount;
         woolGainedDisplay = woolForFight;
         WoolGained.text = " + " + woolGainedDisplay.ToString();

@@ -60,7 +60,7 @@ public class ChestScript : MonoBehaviour
         if (other.gameObject != Player)
             return;
         WoolWindow.SetActive(true);
-        WoolWindow.GetComponent<AfterBattleScreen>().OnEvoke(ChestData.WoolForChest);
+        WoolWindow.GetComponent<AfterBattleScreen>().Show(ChestData.WoolForChest);
         ChestData.LastOpened = DateTime.UtcNow;
         Manager.enabled = false;
         Disable();

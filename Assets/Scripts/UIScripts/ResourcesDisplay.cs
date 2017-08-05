@@ -6,12 +6,10 @@ using Assets.LogicSystem;
 
 public class ResourcesDisplay : MonoBehaviour
 {
-
     public ResourceCounter ResourceCtr;
     public List<GameObject> Crystals;
     private Color active = Color.white;
     private Color inActive = new Color(0.5f, 0.5f, 0.5f, 1);
-    private int currentResources;
 
     // Use this for initialization
     void Start()
@@ -19,17 +17,8 @@ public class ResourcesDisplay : MonoBehaviour
         Events.Instance.RegisterForEvent("ShowResourcesDisplay", Show);
         Events.Instance.RegisterForEvent("BattleWon", Hide);
         Events.Instance.RegisterForEvent("BattleLost", Hide);
-        Events.Instance.RegisterForEvent("ChangeActive", ChangeActive);
-        Events.Instance.RegisterForEvent("CleanActive", CleanActive);
-        Events.Instance.RegisterForEvent("SetFilled", SetFilled);
-        CleanActive(null);
-
-        for (int i = 0; i < ResourceCtr.Resources; i++)
-            Crystals[i].gameObject.SetActive(true);
-
         gameObject.SetActive(false);
     }
-
     void Show(object obj)
     {
         gameObject.SetActive(true);
@@ -39,46 +28,48 @@ public class ResourcesDisplay : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-
-    void ChangeActive(object obj)
-    {
-        CleanActive(null);
-        int? count = obj as int?;
-        if (count != null)
-        {
-            for (int i = currentResources - 1; i >= currentResources - count; i--)
-            {
-                Crystals[i].transform.GetChild(0).gameObject.SetActive(true);
-            }
-        }
-    }
-
-    void SetFilled(object obj)
-    {
-        CleanActive(null);
-        int? count = obj as int?;
-        currentResources = (int)count;
-        if (count != null)
-        {
-            for (int i = 0; i < Crystals.Count; i++)
-            {
-                Crystals[i].transform.GetChild(1).gameObject.GetComponent<Image>().color = inActive;
-            }
-
-            for (int i = 0; i < count; i++)
-            {
-                Crystals[i].transform.GetChild(1).gameObject.GetComponent<Image>().color = active;
-            }
-        }
-    }
-
-    void CleanActive(object obj)
+    
+    public void SetMaxResources(int res)
     {
         for (int i = 0; i < Crystals.Count; i++)
         {
-            Crystals[i].transform.GetChild(0).gameObject.SetActive(false);
+            if (i >= res)
+                Crystals[i].SetActive(false);
+        }
+        PaintCrystals(res, 0, 0);
+    }
+
+    public void PaintCrystals(int available, int buffered, int taken)
+    {
+        int index = 0;
+        for(index=0; index<available; index++)
+        {
+            SetGlowOnCrystal(index, false);
+            SetCrystalColor(index, active);
+        }
+
+        for (int i = 0; i<buffered+1; i++)
+        {
+            SetGlowOnCrystal(index, true);
+            SetCrystalColor(index, active);
+            index++;
+        }
+        index--;
+        for (int i = 0; i < taken+1; i++)
+        {
+            SetGlowOnCrystal(index, false);
+            SetCrystalColor(index, inActive);
+            index++;
         }
     }
 
-
+    private void SetGlowOnCrystal(int index, bool state)
+    {
+        Crystals[index].transform.GetChild(0).gameObject.SetActive(state);
+    }
+    
+    private void SetCrystalColor(int index, Color color)
+    {
+        Crystals[index].transform.GetChild(1).GetComponent<Image>().color = color;
+    }
 }

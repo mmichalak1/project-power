@@ -53,7 +53,7 @@ public class EnemyGroup : MonoBehaviour
                 Events.Instance.UnregisterForEvent(item.name + "death", OnEnemyDeath);
             }
             Events.Instance.DispatchEvent("EnemyGroupDestroyed", gameObject);
-            Destroy(gameObject);
+            gameObject.GetComponent<Collider>().enabled = false;
         }
     }
 
@@ -66,5 +66,15 @@ public class EnemyGroup : MonoBehaviour
 
         return result;
 
+    }
+
+    public bool IsGroupFinished()
+    {
+        bool result = false;
+        foreach (var x in enemies)
+        {
+            result |= x.GetComponent<HealthController>().IsAlive;
+        }
+        return !result;
     }
 }

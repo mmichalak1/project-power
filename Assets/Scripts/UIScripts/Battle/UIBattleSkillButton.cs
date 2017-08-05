@@ -40,12 +40,13 @@ public class UIBattleSkillButton : MonoBehaviour
             {
                 SkillIcon.raycastTarget = true;
                 SkillIcon.color = Color.white;
+                CooldownCounter.gameObject.SetActive(false);
             }
             else
             {
                 SkillIcon.raycastTarget = false;
                 SkillIcon.color = Color.grey;
-                CooldownCounter.enabled = true;
+                CooldownCounter.gameObject.SetActive(true);
                 CooldownCounter.text = skill.Cooldown.ToString();
             }
         }
@@ -84,9 +85,11 @@ public class UIBattleSkillButton : MonoBehaviour
 
     public void OnClick()
     {
+        if (!SystemAccessor.GetSystem<TurnManagerInteface>().SelectSkill(skill))
+            return;
         Events.Instance.DispatchEvent("HideBattleSkillPanel", null);
         isDisplayed = true;
         animator.SetBool("isDisplayed", isDisplayed);
-        SystemAccessor.GetSystem<TurnManagerInteface>().SelectSkill(skill);
+        
     }
 }
