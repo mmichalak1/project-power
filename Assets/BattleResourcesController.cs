@@ -65,13 +65,17 @@ public class BattleResourcesController : MonoBehaviour, ISystem {
 
     public void MoveFromTakenToAvailable(int amount)
     {
-        if (availableResources + amount > maxResources)
-            return;
-
-        if (takenResources - amount < 0)
-            return;
-        availableResources += amount;
-        takenResources -= amount;
+        int diff = maxResources - availableResources;
+        if (diff < amount)
+        {
+            takenResources -= diff;
+            availableResources += diff;
+        }
+        else
+        {
+            availableResources += amount;
+            takenResources -= amount;
+        }
         resourcesDisplay.PaintCrystals(availableResources, bufferedResources, takenResources);
     }
 

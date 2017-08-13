@@ -5,6 +5,14 @@ using Assets.LogicSystem;
 [RequireComponent(typeof(MatrixBlender))]
 public class CameraManager : MonoBehaviour
 {
+    #region AnimatorTriggers
+    private const string ENTERBATTLE = "EnterBattle";
+    private const string ENDBATTLE = "EndBattle";
+
+    #endregion
+
+    Animator myAnimator;
+
     public float TransitionDuration = 2f;
     public float TimeToChangeCamera = 4f;
     public float TimeToStopTransition = 6.5f;
@@ -34,6 +42,7 @@ public class CameraManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        myAnimator = GetComponent<Animator>();
         blender = GetComponent<MatrixBlender>();
         startingMatrix = cameraExploration.GetComponent<Camera>().projectionMatrix;
         OnEnterTheFight = EnterFight;
@@ -42,50 +51,30 @@ public class CameraManager : MonoBehaviour
         Events.Instance.RegisterForEvent("BattleWon", OnExitTheFight);
     }
 
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        if (isChanging)
-        {
-            timeCounter += Time.deltaTime;
-            cameraExploration.transform.position = Vector3.Lerp(cameraExploration.transform.position, positionCameraFight, LerpSpeed);
-            cameraExploration.transform.rotation = Quaternion.Lerp(cameraExploration.transform.rotation, rotationCameraFight, LerpSpeed);
-            if (timeCounter > TimeToChangeCamera && !blender.Working)
-            {
-                blender.BlendToMatrix(cameraFight.GetComponent<Camera>().projectionMatrix, TransitionDuration);
-            }
-            if (timeCounter > TimeToStopTransition)
-            {
-                isChanging = false;
-                Events.Instance.DispatchEvent("activateBattleUI", null);
-                Events.Instance.DispatchEvent("ShowHealthBar", null);
-                Events.Instance.DispatchEvent("ShowChangeTurnButton", null);
-                Events.Instance.DispatchEvent("ShowResourcesDisplay", null);
-                Events.Instance.DispatchEvent("ShowSurrenderButton", null);
-                timeCounter = 0f;
-            }
-        }
-
-    }
-
     private void EnterFight(object obj)
     {
-        isChanging = true;
-        explorationPosition = cameraExploration.transform.position;
-        explorationRotation = cameraExploration.transform.rotation;
-        positionCamera = cameraExploration.transform.position;
-        positionCameraFight = cameraFight.transform.position;
-        rotationCamera = cameraExploration.transform.rotation;
-        rotationCameraFight = cameraFight.transform.rotation;
+        //isChanging = true;
+        myAnimator.SetTrigger(ENTERBATTLE);
     }
     private void ExitFight(object obj)
     {
         cameraExploration.transform.position = explorationPosition;
         cameraExploration.transform.rotation = explorationRotation;
         cameraExploration.GetComponent<Camera>().projectionMatrix = startingMatrix;
+        myAnimator.SetTrigger(ENDBATTLE);
+    }
+
+    public void OnTransitionToBattleDone()
+    {
+        Events.Instance.DispatchEvent("activateBattleUI", null);
+        Events.Instance.DispatchEvent("ShowHealthBar", null);
+        Events.Instance.DispatchEvent("ShowChangeTurnButton", null);
+        Events.Instance.DispatchEvent("ShowResourcesDisplay", null);
+        Events.Instance.DispatchEvent("ShowSurrenderButton", null);
+    }
+
+    public void StartMatrixBlending()
+    {
+        blender.BlendToMatrix(cameraFight.GetComponent<Camera>().projectionMatrix, TransitionDuration);
     }
 }

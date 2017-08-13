@@ -501,7 +501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &115622
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +516,9 @@ GameObject:
   - 81: {fileID: 8176474}
   - 45: {fileID: 4562616}
   - 114: {fileID: 11448346}
+  - 95: {fileID: 9563390}
+  - 114: {fileID: 11458944}
+  - 114: {fileID: 11461290}
   m_Layer: 0
   m_Name: CameraExploration
   m_TagString: MainCamera
@@ -980,8 +983,6 @@ GameObject:
   - 4: {fileID: 485220}
   - 114: {fileID: 11482614}
   - 135: {fileID: 13567834}
-  - 114: {fileID: 11418766}
-  - 114: {fileID: 11471906}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6571,6 +6572,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &9563390
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115622}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 39d31ee96cbefe24598d35cf01ccd27e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9564474
 Animator:
   serializedVersion: 3
@@ -6841,23 +6859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665135167a848b74a935aca144adc6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11418766
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15b4ffa76c481a840b18598c090bbb4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TransitionDuration: 0.8
-  TimeToChangeCamera: 1.5
-  TimeToStopTransition: 2.3
-  LerpSpeed: 0.01
-  cameraExploration: {fileID: 115622}
-  cameraFight: {fileID: 118262}
 --- !u!114 &11423180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7216,6 +7217,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cb4652cf88d724bb2c7d2f57da8e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11458944
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c67f6373ef530f41af96d072ca3d551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ViewCamera: {fileID: 0}
 --- !u!114 &11459642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7257,6 +7270,23 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11461290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b4ffa76c481a840b18598c090bbb4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionDuration: 0.8
+  TimeToChangeCamera: 1.5
+  TimeToStopTransition: 2.3
+  LerpSpeed: 0.01
+  cameraExploration: {fileID: 115622}
+  cameraFight: {fileID: 118262}
 --- !u!114 &11462950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7358,18 +7388,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sheepData: {fileID: 0}
---- !u!114 &11471906
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c67f6373ef530f41af96d072ca3d551, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ViewCamera: {fileID: 2027662}
 --- !u!114 &11473084
 MonoBehaviour:
   m_ObjectHideFlags: 1

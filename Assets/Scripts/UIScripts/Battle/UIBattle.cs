@@ -11,6 +11,7 @@ public class UIBattle : MonoBehaviour
     void Awake()
     {
         Events.Instance.RegisterForEvent("activateBattleUI", Activate);
+        Events.Instance.RegisterForEvent("disableBattleUI", Deactivate);
     }
 
     public void Activate(object obj)
@@ -18,6 +19,13 @@ public class UIBattle : MonoBehaviour
         ActionQueue.Activate(true);
         ResourcePanel.Activate(true);
         SkillPanel.Activate(true);
+    }
+
+    public void Deactivate(object obj)
+    {
+        ActionQueue.Activate(false);
+        ResourcePanel.Activate(false);
+        SkillPanel.Activate(false);
     }
 
 }

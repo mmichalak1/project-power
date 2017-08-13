@@ -4,10 +4,13 @@ using Assets.LogicSystem;
 
 public class MatrixBlender : MonoBehaviour {
 
-    public Camera ViewCamera;
+    private Camera ViewCamera;
     public bool Working { get; set; }
 
-
+    private void Start()
+    {
+        ViewCamera = gameObject.GetComponent<Camera>();
+    }
 
     private IEnumerator LerpFromTo(Matrix4x4 src, Matrix4x4 dest, float duration)
     {

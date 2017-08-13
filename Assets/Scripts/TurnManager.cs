@@ -162,6 +162,7 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
             explorationUI.SetActive(true);
             afterBattleInterface.Show(EnemyGroup.WoolForFight);
             Events.Instance.DispatchEvent("BattleWon", null);
+            Events.Instance.DispatchEvent("disableBattleUI", null);
             EnemyGroup = null;
             
         }
