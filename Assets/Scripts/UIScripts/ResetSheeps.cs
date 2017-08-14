@@ -33,10 +33,6 @@ public class ResetSheeps : MonoBehaviour
             item.Visited = 0;
             if (item.name != "GreenValley")
                 item.IsLocked = true;
-            foreach (var chest in item.Chests)
-            {
-                chest.LastOpened = DateTime.MinValue;
-            }
         }
 
         foreach (var item in Tutorials.Tutorials)

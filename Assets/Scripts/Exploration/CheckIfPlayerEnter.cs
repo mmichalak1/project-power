@@ -37,20 +37,8 @@ public class CheckIfPlayerEnter : MonoBehaviour {
         //Debug.Log("Call");
         if (other.gameObject == Player && isDetecting)
         {
-            //if (Round(Player.transform.rotation.eulerAngles.y) == Round(transform.rotation.eulerAngles.y))
-            //{
                 ToTheBattle();
                 isFaceToFace = true;
-            //}
-            //else
-            //{
-            //    Events.Instance.DispatchEvent("DisableSwipe", null);
-            //    isFaceToFace = false;
-            //    float rot = transform.rotation.eulerAngles.y - Player.transform.rotation.eulerAngles.y;
-            //    time = Mathf.Abs((rot * 1.5f) / 180);
-            //    newRot = Player.transform.rotation * Quaternion.AngleAxis(rot, Vector3.up);
-            //    Player.GetComponent<MovementController>().newRot = newRot;
-            //}
         }
 
     }

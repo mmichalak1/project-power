@@ -166,8 +166,15 @@ public class MovementController : MonoBehaviour
 
     void Appear()
     {
-        //}
-	}    }
+        if (ShallNotPass.color.a < 1.0)
+        {
+            ShallNotPass.color += new Color(0, 0, 0, 10 * Time.deltaTime);
+        }
+        else
+        {
+            shallNotPassControl = false;
+        }
+    }    
 
     void Fade()
     {
