@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour {
     public GameObject BattleUI;
     public GameObject ExplorationUI;
     public LevelData Data;
+    public GameState gameState;
 
     public List<GameObject> NormalEnemiesGroups;
     public List<GameObject> SpecialEnemiesGroups;
@@ -33,38 +34,40 @@ public class Spawner : MonoBehaviour {
         if(Data.Progress < Data.TargetProgress)
         {
             Debug.Log("Spawn Last Group");
-            SpawnLastEnemy();
+            var lastGroup = SpawnLastEnemy();
+            gameState.LastGroup = lastGroup;
         }
         else
         {
             Debug.Log("Spawn Boss");
-            SpawnBoss();
+            var lastGroup = SpawnBoss();
+            gameState.LastGroup = lastGroup;
         }
         NormalEnemiesCount = Random.Range(MinNormalEnemies, MaxNormalEnemies);
         for (int i=0; i<NormalEnemiesCount; i++)
         {
-            SpawnNormalGroup();
+           SpawnNormalGroup();
         }
         chestSpawner.SpawnChests();
     }
 
     
 
-    private void SpawnLastEnemy()
+    private GameObject SpawnLastEnemy()
     {
         var go = LastEnemiesGroups.GetRandomElement();
         var finishBlockData = decorator.NodesTiles[generator.FinishNode].GetComponent<BlockDataHolder>();
 
-        SpawnGroup(go, finishBlockData);
+        return SpawnGroup(go, finishBlockData);
        
 
     }
     
-    private void SpawnBoss()
+    private GameObject SpawnBoss()
     {
         var finishBlockData = decorator.NodesTiles[generator.FinishNode].GetComponent<BlockDataHolder>();
 
-        SpawnGroup(BossGroupPrefab, finishBlockData);
+        return SpawnGroup(BossGroupPrefab, finishBlockData);
     }
 
     private void SpawnNormalGroup()
@@ -78,7 +81,7 @@ public class Spawner : MonoBehaviour {
         SpawnGroup(group, blk);
     }
 
-    private void SpawnGroup(GameObject prefab, BlockDataHolder blockData)
+    private GameObject SpawnGroup(GameObject prefab, BlockDataHolder blockData)
     {
         var spawnPoint = blockData.SpawnTile.transform.position + SpawnOffsetValue;
         var group = Instantiate(prefab, spawnPoint, Quaternion.identity) as GameObject;
@@ -87,6 +90,7 @@ public class Spawner : MonoBehaviour {
         comp.ExplorationUI = ExplorationUI;
         comp.BattleUI = BattleUI;
         comp.Player = playerSpawner.Player;
+        return group;
     }
     #endregion
 

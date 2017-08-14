@@ -35,10 +35,6 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
     }
     #endregion
 
-    #region TempVariables, to be deleted soon
-    public SheepGroupManager sheepGroup;
-    #endregion
-
     private GameObject selectedSheep = null;
 
     public GameObject SelectedSheep { get { return selectedSheep; } private set
@@ -51,7 +47,7 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
         } }
     public Skill SelectedSkill { get; private set; }
     public EnemyGroup EnemyGroup { get; private set; }
-    public SheepGroupManager SheepGroup { get { return sheepGroup; }  set { sheepGroup = value; } }
+    public SheepGroupManager SheepGroup { get; set; }
 
 
     #region Selection Hooks

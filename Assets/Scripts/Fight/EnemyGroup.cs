@@ -8,21 +8,18 @@ public class EnemyGroup : MonoBehaviour
     [SerializeField]
     WoolCounter Counter;
 
-    int wolvesCounter;
-
-
+    private int _enemiesLeft;
     public int WoolForFight = 100;
-    [HideInInspector]
     public List<GameObject> enemies = new List<GameObject>();
 
     // Use this for initialization
     void Start()
     {
-
+        
         foreach (Transform child in transform)
             if (child.CompareTag("Enemy"))
                 enemies.Add(child.gameObject);
-        wolvesCounter = enemies.Count;
+        _enemiesLeft = enemies.Count;
         foreach (var enemy in enemies)
         {
             Events.Instance.RegisterForEvent(enemy.name + "death", OnEnemyDeath);
@@ -40,11 +37,12 @@ public class EnemyGroup : MonoBehaviour
     public void OnEnemyDeath(object wolf)
     {
         GameObject x = (GameObject)wolf;
-        if (x.transform.parent.name != gameObject.name)
+        if (x.transform.parent != gameObject.transform)
             return;
-        wolvesCounter--;
+        _enemiesLeft--;
+        enemies.Remove(x);
         x.GetComponent<ProvideExperience>().ProvideExp();
-        if (wolvesCounter == 0)
+        if (_enemiesLeft == 0)
         {
             Debug.Log("Changing flag"); 
             foreach (var item in enemies)

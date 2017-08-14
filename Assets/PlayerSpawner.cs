@@ -32,13 +32,7 @@ public class PlayerSpawner : MonoBehaviour {
         comp.currentFacing = face;
         comp.ShallNotPass = ExploraionUI.transform.FindChild("ShallNotPass").GetComponent<Image>();
         comp.currentTile = blk.SpawnTile.GetComponent<TileData>();
-
-        var arr = Player.GetComponentsInChildren<EntityDataHolder>();
-        for (int i = 0; i < 4; i++)
-        {
-            TurnManager.DataHolders[i] = arr[i];
-        }
-
+        TurnManager.SheepGroup = Player.GetComponentInChildren<SheepGroupManager>();
         foreach (var x in Player.GetComponentsInChildren<SheepDataLoader>())
             x.LoadSheepData();
 

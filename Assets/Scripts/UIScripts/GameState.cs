@@ -8,23 +8,16 @@ public class GameState : MonoBehaviour {
     [SerializeField]
     private ExplorationHolder holder;
     [SerializeField]
-    private List<GameObject> _enemyGroups;
-    [SerializeField]
     private GameObject WinWindow;
     [SerializeField]
     private int WoolForWin = 100;
 
     public GameObject Map;
-    
-    public List<GameObject> EnemyGroups
-    {
-        get { return _enemyGroups; }
-        set { _enemyGroups = value; }
-    }
+
+    public GameObject LastGroup;
 
 	// Use this for initialization
 	void Start () {
-        // ExplorationResult.Reset();
         Events.Instance.RegisterForEvent("EnemyGroupDestroyed", OnBattleWon);
          
 	}
@@ -43,9 +36,9 @@ public class GameState : MonoBehaviour {
 
     private void OnBattleWon(object x)
     {
-        _enemyGroups.Remove(x as GameObject);
+        GameObject group = x as GameObject;
         Map.SetActive(true);
-        if (_enemyGroups.Count == 0)
+        if (LastGroup == group)
             ExplorationWon();
     }
 }

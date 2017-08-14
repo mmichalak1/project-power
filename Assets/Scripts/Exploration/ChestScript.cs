@@ -21,7 +21,7 @@ public class ChestScript : MonoBehaviour
         if (other.gameObject != Player)
             return;
         WoolWindow.SetActive(true);
-        WoolWindow.GetComponent<AfterBattleScreen>().OnEvoke(WoolForChest);
+        WoolWindow.GetComponent<AfterBattleScreen>().Show(WoolForChest);
         GameSaver.SaveGame();
     }
 }

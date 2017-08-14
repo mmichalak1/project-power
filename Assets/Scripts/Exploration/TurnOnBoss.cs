@@ -11,8 +11,6 @@ public class TurnOnBoss : MonoBehaviour {
         if (Exploration.EnableBoss)
         {
             var res = Instantiate(BossPrefab);
-            GameState.EnemyGroups.Remove(gameObject);
-            GameState.EnemyGroups.Add(res);
             var checkForPlayer = res.GetComponent<CheckIfPlayerEnter>();
             var mycheckForPlayer = gameObject.GetComponent<CheckIfPlayerEnter>();
             checkForPlayer.Player = mycheckForPlayer.Player;
