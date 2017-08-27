@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 using Assets.LogicSystem;
 
-//TODO Uncomment stuff for World and Fader
 public class MovementController : MonoBehaviour
 {
     readonly Vector3 targetDirection = new Vector3(2, 1, 0).normalized;

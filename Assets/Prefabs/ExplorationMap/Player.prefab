@@ -478,6 +478,7 @@ GameObject:
   - 114: {fileID: 11462950}
   - 114: {fileID: 11459642}
   - 114: {fileID: 11493888}
+  - 114: {fileID: 11456090}
   m_Layer: 0
   m_Name: sheep blue
   m_TagString: Sheep
@@ -699,6 +700,7 @@ GameObject:
   - 114: {fileID: 11471242}
   - 114: {fileID: 11453554}
   - 114: {fileID: 11480740}
+  - 114: {fileID: 11426814}
   m_Layer: 0
   m_Name: sheep yellow
   m_TagString: Sheep
@@ -1237,6 +1239,7 @@ GameObject:
   - 114: {fileID: 11466490}
   - 114: {fileID: 11440912}
   - 114: {fileID: 11499124}
+  - 114: {fileID: 11403170}
   m_Layer: 0
   m_Name: sheep green
   m_TagString: Sheep
@@ -2990,6 +2993,7 @@ GameObject:
   - 114: {fileID: 11495476}
   - 114: {fileID: 11407990}
   - 114: {fileID: 11449096}
+  - 114: {fileID: 11479942}
   m_Layer: 0
   m_Name: sheep red
   m_TagString: Sheep
@@ -6652,6 +6656,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11403170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfeaa2ed09b100d42910d4d9afad3a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunned: 0
+  poisoned: 0
+  taunted: 0
 --- !u!114 &11403190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6913,6 +6931,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &11426814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfeaa2ed09b100d42910d4d9afad3a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunned: 0
+  poisoned: 0
+  taunted: 0
 --- !u!114 &11427390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7190,6 +7222,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 100/100
+--- !u!114 &11456090
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfeaa2ed09b100d42910d4d9afad3a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunned: 0
+  poisoned: 0
+  taunted: 0
 --- !u!114 &11457534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7228,7 +7274,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c67f6373ef530f41af96d072ca3d551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ViewCamera: {fileID: 0}
 --- !u!114 &11459642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7463,6 +7508,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &11479942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfeaa2ed09b100d42910d4d9afad3a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunned: 0
+  poisoned: 0
+  taunted: 0
 --- !u!114 &11480140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7513,14 +7572,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: befe401329b147d49bd27254b78e1c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newRot: {x: 0, y: 0, z: 0, w: 0}
+  currentTile: {fileID: 0}
+  move: 0
   ShallNotPass: {fileID: 0}
-  World: {fileID: 0}
+  newRot: {x: 0, y: 0, z: 0, w: 0}
   animations:
   - {fileID: 11424902}
   - {fileID: 11455076}
   - {fileID: 11458272}
   - {fileID: 11408734}
+  currentFacing: 0
 --- !u!114 &11483946
 MonoBehaviour:
   m_ObjectHideFlags: 1

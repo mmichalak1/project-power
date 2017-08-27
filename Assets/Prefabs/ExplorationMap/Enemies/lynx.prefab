@@ -1305,10 +1305,9 @@ GameObject:
   - 114: {fileID: 11460592}
   - 82: {fileID: 8243006}
   - 114: {fileID: 11416846}
-  - 114: {fileID: 11458992}
-  - 114: {fileID: 11447840}
   - 114: {fileID: 11486916}
   - 114: {fileID: 11484498}
+  - 114: {fileID: 11437056}
   m_Layer: 8
   m_Name: lynx
   m_TagString: Enemy
@@ -2681,6 +2680,20 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11437056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfeaa2ed09b100d42910d4d9afad3a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunned: 0
+  poisoned: 0
+  taunted: 0
 --- !u!114 &11439948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2708,18 +2721,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11447840
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11449874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2747,18 +2748,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &11458992
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11460592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2796,6 +2785,7 @@ MonoBehaviour:
   _maxHealth: 100
   _currentHealth: 100
   _defence: 0
+  model: {fileID: 0}
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11495208}
   HealthIndicator: {fileID: 11486450}

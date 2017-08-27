@@ -253,10 +253,9 @@ GameObject:
   - 114: {fileID: 11434092}
   - 82: {fileID: 8246012}
   - 114: {fileID: 11457944}
-  - 114: {fileID: 11426776}
-  - 114: {fileID: 11439778}
   - 114: {fileID: 11447458}
   - 114: {fileID: 11486740}
+  - 114: {fileID: 11406344}
   m_Layer: 8
   m_Name: fox (2)
   m_TagString: Enemy
@@ -2680,10 +2679,9 @@ GameObject:
   - 114: {fileID: 11447248}
   - 82: {fileID: 8280092}
   - 114: {fileID: 11466424}
-  - 114: {fileID: 11479604}
-  - 114: {fileID: 11439540}
   - 114: {fileID: 11479432}
   - 114: {fileID: 11460436}
+  - 114: {fileID: 11454638}
   m_Layer: 8
   m_Name: bunny (5)
   m_TagString: Enemy
@@ -2936,11 +2934,10 @@ GameObject:
   - 114: {fileID: 11477954}
   - 114: {fileID: 11469512}
   - 82: {fileID: 8209306}
-  - 114: {fileID: 11445542}
-  - 114: {fileID: 11404084}
   - 114: {fileID: 11484024}
   - 114: {fileID: 11486580}
   - 114: {fileID: 11413300}
+  - 114: {fileID: 11420052}
   m_Layer: 8
   m_Name: bunny (4)
   m_TagString: Enemy
@@ -4475,7 +4472,6 @@ GameObject:
   - 54: {fileID: 5416832}
   - 114: {fileID: 11484914}
   - 114: {fileID: 11417722}
-  - 114: {fileID: 11431432}
   m_Layer: 2
   m_Name: FinalGroup
   m_TagString: Untagged
@@ -10522,18 +10518,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &11404084
+--- !u!114 &11406344
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 151398}
+  m_GameObject: {fileID: 103456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
+  m_Script: {fileID: 11500000, guid: bfeaa2ed09b100d42910d4d9afad3a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myAffiliation: 1
+  stunned: 0
+  poisoned: 0
+  taunted: 0
 --- !u!114 &11408446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10559,6 +10557,7 @@ MonoBehaviour:
   _maxHealth: 60
   _currentHealth: 60
   _defence: 0
+  model: {fileID: 0}
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11423910}
   HealthIndicator: {fileID: 11470114}
@@ -10701,6 +10700,7 @@ MonoBehaviour:
   _maxHealth: 80
   _currentHealth: 80
   _defence: 0
+  model: {fileID: 0}
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11472970}
   HealthIndicator: {fileID: 11470006}
@@ -10719,10 +10719,25 @@ MonoBehaviour:
   _maxHealth: 60
   _currentHealth: 60
   _defence: 0
+  model: {fileID: 0}
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11473210}
   HealthIndicator: {fileID: 11452490}
   HealthText: {fileID: 11459132}
+--- !u!114 &11420052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfeaa2ed09b100d42910d4d9afad3a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunned: 0
+  poisoned: 0
+  taunted: 0
 --- !u!114 &11421806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10808,18 +10823,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &11426776
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11426850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10865,20 +10868,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 100/100
---- !u!114 &11431432
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 185082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46802c2e1706754419a396645854686e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BossPrefab: {fileID: 109570, guid: 421cef206d9851f42b3f8bcb1b9b74b5, type: 2}
-  Exploration: {fileID: 11400000, guid: a87785936689cee4781409ac9f54b97a, type: 2}
-  GameState: {fileID: 0}
 --- !u!114 &11434092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10905,6 +10894,7 @@ MonoBehaviour:
   _maxHealth: 80
   _currentHealth: 80
   _defence: 0
+  model: {fileID: 0}
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11459756}
   HealthIndicator: {fileID: 11452664}
@@ -10942,18 +10932,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 100/100
---- !u!114 &11439540
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 147308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11439676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10987,30 +10965,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 100/100
---- !u!114 &11439778
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
---- !u!114 &11445542
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 151398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11445888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11130,6 +11084,20 @@ MonoBehaviour:
   Damage: 10
   MyBrain: {fileID: 11400000, guid: ef09a6bbab2eb464f8243b7eba89adaf, type: 2}
   _brainsList: []
+--- !u!114 &11454638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfeaa2ed09b100d42910d4d9afad3a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunned: 0
+  poisoned: 0
+  taunted: 0
 --- !u!114 &11455536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11402,18 +11370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cb4652cf88d724bb2c7d2f57da8e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11479604
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 147308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11480438
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1306,11 +1306,10 @@ GameObject:
   - 114: {fileID: 11438570}
   - 114: {fileID: 11475094}
   - 82: {fileID: 8201024}
-  - 114: {fileID: 11426574}
-  - 114: {fileID: 11450136}
   - 114: {fileID: 11462216}
   - 114: {fileID: 11445810}
   - 114: {fileID: 11408162}
+  - 114: {fileID: 11467588}
   m_Layer: 8
   m_Name: bunny
   m_TagString: Enemy
@@ -2741,18 +2740,6 @@ MonoBehaviour:
   DealtDamageColor: {r: 1, g: 0, b: 0, a: 1}
   HealedColor: {r: 0, g: 1, b: 0, a: 1}
   IndicatorPrefab: {fileID: 170614, guid: 3a6262a74c345be4790d69b0c2e43b7b, type: 2}
---- !u!114 &11426574
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11430842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2790,18 +2777,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cb4652cf88d724bb2c7d2f57da8e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11450136
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11462216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2814,6 +2789,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myAffiliation: 1
+--- !u!114 &11467588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfeaa2ed09b100d42910d4d9afad3a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunned: 0
+  poisoned: 0
+  taunted: 0
 --- !u!114 &11475094
 MonoBehaviour:
   m_ObjectHideFlags: 1

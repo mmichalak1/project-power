@@ -241,11 +241,10 @@ GameObject:
   - 114: {fileID: 11427398}
   - 114: {fileID: 11417456}
   - 82: {fileID: 8279416}
-  - 114: {fileID: 11405500}
-  - 114: {fileID: 11427198}
   - 114: {fileID: 11484750}
   - 114: {fileID: 11499178}
   - 114: {fileID: 11464990}
+  - 114: {fileID: 11413230}
   m_Layer: 8
   m_Name: fox
   m_TagString: Enemy
@@ -2629,7 +2628,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11405500
+--- !u!114 &11413230
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2637,10 +2636,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 112730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
+  m_Script: {fileID: 11500000, guid: bfeaa2ed09b100d42910d4d9afad3a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myAffiliation: 1
+  stunned: 0
+  poisoned: 0
+  taunted: 0
 --- !u!114 &11414808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2729,18 +2730,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 100/100
---- !u!114 &11427198
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11427398
 MonoBehaviour:
   m_ObjectHideFlags: 1

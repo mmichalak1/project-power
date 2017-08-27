@@ -775,10 +775,9 @@ GameObject:
   - 114: {fileID: 11488278}
   - 82: {fileID: 8292990}
   - 114: {fileID: 11441940}
-  - 114: {fileID: 11461154}
-  - 114: {fileID: 11460712}
   - 114: {fileID: 11492558}
   - 114: {fileID: 11418400}
+  - 114: {fileID: 11436174}
   m_Layer: 8
   m_Name: fox (1)
   m_TagString: Enemy
@@ -1058,10 +1057,9 @@ GameObject:
   - 114: {fileID: 11489870}
   - 82: {fileID: 8220986}
   - 114: {fileID: 11468456}
-  - 114: {fileID: 11499112}
-  - 114: {fileID: 11402080}
   - 114: {fileID: 11426192}
   - 114: {fileID: 11433172}
+  - 114: {fileID: 11400954}
   m_Layer: 8
   m_Name: fox (3)
   m_TagString: Enemy
@@ -4196,10 +4194,9 @@ GameObject:
   - 114: {fileID: 11448790}
   - 82: {fileID: 8219814}
   - 114: {fileID: 11460628}
-  - 114: {fileID: 11464194}
-  - 114: {fileID: 11469118}
   - 114: {fileID: 11421236}
   - 114: {fileID: 11457986}
+  - 114: {fileID: 11449944}
   m_Layer: 8
   m_Name: fox (4)
   m_TagString: Enemy
@@ -5059,10 +5056,9 @@ GameObject:
   - 114: {fileID: 11445858}
   - 82: {fileID: 8245558}
   - 114: {fileID: 11465574}
-  - 114: {fileID: 11488836}
-  - 114: {fileID: 11417636}
   - 114: {fileID: 11447800}
   - 114: {fileID: 11499646}
+  - 114: {fileID: 11474898}
   m_Layer: 8
   m_Name: fox (2)
   m_TagString: Enemy
@@ -10451,7 +10447,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11402080
+--- !u!114 &11400954
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -10459,10 +10455,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 117356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
+  m_Script: {fileID: 11500000, guid: bfeaa2ed09b100d42910d4d9afad3a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myAffiliation: 1
+  stunned: 0
+  poisoned: 0
+  taunted: 0
 --- !u!114 &11406022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10564,18 +10562,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11417636
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11417814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10801,6 +10787,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 100/100
+--- !u!114 &11436174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfeaa2ed09b100d42910d4d9afad3a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunned: 0
+  poisoned: 0
+  taunted: 0
 --- !u!114 &11436198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10829,6 +10829,7 @@ MonoBehaviour:
   _maxHealth: 200
   _currentHealth: 200
   _defence: 0
+  model: {fileID: 0}
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11457698}
   HealthIndicator: {fileID: 11417814}
@@ -10898,6 +10899,7 @@ MonoBehaviour:
   _maxHealth: 100
   _currentHealth: 100
   _defence: 0
+  model: {fileID: 0}
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11438376}
   HealthIndicator: {fileID: 11412574}
@@ -10916,6 +10918,7 @@ MonoBehaviour:
   _maxHealth: 320
   _currentHealth: 320
   _defence: 0
+  model: {fileID: 0}
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11486468}
   HealthIndicator: {fileID: 11456684}
@@ -10943,6 +10946,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Experience: 400
+--- !u!114 &11449944
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfeaa2ed09b100d42910d4d9afad3a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunned: 0
+  poisoned: 0
+  taunted: 0
 --- !u!114 &11450742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11071,30 +11088,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myAffiliation: 1
---- !u!114 &11460712
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
---- !u!114 &11461154
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11461686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11144,18 +11137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58006562402b7ce4a8ea0d2ecf8217bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11464194
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 176854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11465396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11229,18 +11210,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myAffiliation: 1
---- !u!114 &11469118
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 176854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11469270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11298,6 +11267,20 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11474898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfeaa2ed09b100d42910d4d9afad3a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunned: 0
+  poisoned: 0
+  taunted: 0
 --- !u!114 &11475776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11360,6 +11343,7 @@ MonoBehaviour:
   _maxHealth: 200
   _currentHealth: 200
   _defence: 0
+  model: {fileID: 0}
   LastAttacker: {fileID: 0}
   DamageIndicator: {fileID: 11467620}
   HealthIndicator: {fileID: 11456222}
@@ -11433,18 +11417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665135167a848b74a935aca144adc6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11488836
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11489870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11522,18 +11494,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11499112
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 117356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11499646
 MonoBehaviour:
   m_ObjectHideFlags: 1
