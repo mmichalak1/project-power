@@ -4,27 +4,23 @@
 public class Poison : Skill
 {
 
-    public Assets.Scripts.ScriptableObjects.PoisonedBrain PoisonedBrain;
-    private Assets.Scripts.ScriptableObjects.PoisonedBrain _poisonedBrainCopy;
     public GameObject ParticleEffect;
     public TargetOffset tOffset;
 
+    public int PoisonDuration;
+
     public override string Description()
     {
-        return string.Format(_description, PoisonedBrain.Duration, Power);
+        return string.Format(_description, PoisonDuration, Power);
     }
 
     public override void Initialize(GameObject parent)
     {
-        _poisonedBrainCopy = Instantiate(PoisonedBrain);
-        _poisonedBrainCopy.Damage = Power;
         base.Initialize(parent);
     }
 
     public override void Initialize(EntityData data)
     {
-        _poisonedBrainCopy = Instantiate(PoisonedBrain);
-        _poisonedBrainCopy.Damage = Power;
         base.Initialize(data);
     }
 
@@ -42,11 +38,11 @@ public class Poison : Skill
         }
         GameObject go = Instantiate(ParticleEffect, target.transform.position + targetOffset, Quaternion.identity) as GameObject;
         go.transform.parent = target.transform;
-        _poisonedBrainCopy.ParticleEffect = go;
-        var attackComponent = target.GetComponent<AttackController>();
-        if (null == attackComponent)
-            return;
-        attackComponent.AddBrain(_poisonedBrainCopy);
+        var poisonEffect = target.AddComponent<PoisonEffect>();
+        poisonEffect.ParticleEffect = go;
+        poisonEffect.Damage = Power;
+        poisonEffect.Duration = PoisonDuration;
+        poisonEffect.Source = actor;
         base.PerformAction(actor, target);
     }
 }

@@ -138,6 +138,16 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
     }
     private void BeginTurn()
     {
+        //Play all effects at TurnStart
+        foreach (var go in SheepGroup.Sheep)
+            foreach(var effect in go.GetComponents<IOnTurnBegin>())
+                effect.OnTurnBegin();
+
+        foreach (var go in EnemyGroup.enemies)
+            foreach (var effect in go.GetComponents<IOnTurnBegin>())
+                effect.OnTurnBegin();
+
+        //Start selecting sheep
         selector.StartSearching(SelectSheep, new Func<GameObject, bool>(x => x.CompareTag("Sheep") && x != SelectedSheep));
     }
     private void PostTurnActions()
@@ -165,7 +175,7 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
         else
         {
             TickSpecialStates();
-            selector.StartSearching(SelectSheep, new Func<GameObject, bool>(x => x.CompareTag("Sheep") && x != SelectedSheep));
+            BeginTurn();
         }
         Clear();
         TurnPlaner.Instance.Reset();
