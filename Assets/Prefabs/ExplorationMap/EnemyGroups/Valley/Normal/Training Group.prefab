@@ -1448,7 +1448,6 @@ GameObject:
   - 54: {fileID: 5435400}
   - 114: {fileID: 11464292}
   - 114: {fileID: 11417806}
-  - 114: {fileID: 11453316}
   m_Layer: 2
   m_Name: Training Group
   m_TagString: Untagged
@@ -5338,8 +5337,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunned: 0
-  poisoned: 0
   taunted: 0
+  targetable: 1
 --- !u!114 &11417806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5555,17 +5554,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cb4652cf88d724bb2c7d2f57da8e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11453316
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 154906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 502c8b91fb1903046b998fe2dfe0c869, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11453440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5736,8 +5724,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunned: 0
-  poisoned: 0
   taunted: 0
+  targetable: 1
 --- !u!114 &11480556
 MonoBehaviour:
   m_ObjectHideFlags: 1

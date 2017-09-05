@@ -128,12 +128,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120856}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3201db1dc66b34c4fa78016ca065a04c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spellDuration: 3
+  spellStopLoopingDuration: 0
   children:
   - {fileID: 19828412}
   - {fileID: 19827040}

@@ -363,6 +363,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 131636924}
   m_Script: {fileID: 11500000, guid: c3758dc828ac1594d96916a98ccbcca1, type: 3}
+--- !u!114 &495144977 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11477008, guid: fb4af0650b8c9244abeb6a132e49bd7c,
+    type: 2}
+  m_PrefabInternal: {fileID: 131636924}
+  m_Script: {fileID: 11500000, guid: ebe553a609c280e4f80b5b15ef1b153f, type: 3}
 --- !u!114 &599575712 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11406548, guid: c3b6b453c329a9e4a9a287c477a1a005,
@@ -618,6 +624,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EndTurn
       objectReference: {fileID: 0}
+    - target: {fileID: 11406548, guid: c3b6b453c329a9e4a9a287c477a1a005, type: 2}
+      propertyPath: resourceController
+      value: 
+      objectReference: {fileID: 495144977}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3b6b453c329a9e4a9a287c477a1a005, type: 2}
   m_IsPrefabParent: 0

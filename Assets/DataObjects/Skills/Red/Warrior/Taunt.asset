@@ -15,7 +15,7 @@ MonoBehaviour:
   BaseCost: 2
   BaseCooldown: 3
   SkillLevel: 0
-  isActive: 0
+  isActive: 1
   unlockCost: 30
   _rawDescription: Deals <damage>{0}</damage> to enemy and also taunts it for {1}
     turn(s).

@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GeneratorTest.unity
+    path: Assets/Scenes/GreenValleyMap.unity
   - enabled: 1
     path: Assets/Scenes/StartingScene.unity
   - enabled: 1
