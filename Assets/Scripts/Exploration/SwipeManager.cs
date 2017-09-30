@@ -2,14 +2,28 @@
 using System.Collections;
 using Assets.LogicSystem;
 using UnityEngine.UI;
+using Assets.Scripts.Interfaces;
 
-public class SwipeManager : MonoBehaviour
+public class SwipeManager : MonoBehaviour, ISystem
 {
     Vector2 touchStart = -Vector2.one;
     string value;
-    int MINDISTANCE = 100;
-
+    public int minDistanceSwipe = 100;
+    public int minDistanceHold = 60;
+    public float timeToCheckSwipeHold = 0.3f;
+    public bool wasMovementHeld = false;
     Events.MyEvent Enable, Disable;
+
+
+
+    private void Awake()
+    {
+        SystemAccessor.AddSystem(this);
+    }
+    private void OnDestroy()
+    {
+        SystemAccessor.RemoveSystem(this);
+    }
 
     // Use this for initialization
     void Start()
@@ -23,29 +37,65 @@ public class SwipeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ParseSwipe();
+    }
+    private void ParseSwipe()
+    {
 #if UNITY_EDITOR || UNITY_STANDALONE
         if (Input.GetMouseButtonDown(0))
         {
             touchStart = Input.mousePosition;
+            Debug.Log("Starting waiting coroutine.");
+            StartCoroutine("CheckForHolding");
             return;
         }
 
         if (Input.GetMouseButtonUp(0))
         {
+            if(!wasMovementHeld)
+            {
+                StopCoroutine("CheckForHolding");
+                var touch = (Vector2)Input.mousePosition;
+                if (touch.x > touchStart.x && Mathf.Abs(touch.x - touchStart.x) > minDistanceSwipe)
+                {
+                    Events.Instance.DispatchEvent("TurnRight", null);
+                }
+                else if (touch.x < touchStart.x && Mathf.Abs(touch.x - touchStart.x) > minDistanceSwipe)
+                {
+                    Events.Instance.DispatchEvent("TurnLeft", null);
+                }
+                else if (touch.y > touchStart.y && Mathf.Abs(touch.y - touchStart.y) > minDistanceSwipe)
+                {
+                    Events.Instance.DispatchEvent("MoveForward", null);
+                }
+                else if (touch.y < touchStart.y && Mathf.Abs(touch.y - touchStart.y) > minDistanceSwipe)
+                {
+                    Events.Instance.DispatchEvent("MoveDown", null);
+                }
+            }
+            else
+            {
+                wasMovementHeld = false;
+            }
+        }
+
+        if(Input.GetMouseButton(0) && wasMovementHeld)
+        {
+            Debug.Log("Moving");
             var touch = (Vector2)Input.mousePosition;
-            if (touch.x > touchStart.x && Mathf.Abs(touch.x - touchStart.x) > MINDISTANCE)
+            if (touch.x > touchStart.x && Mathf.Abs(touch.x - touchStart.x) > minDistanceHold)
             {
                 Events.Instance.DispatchEvent("TurnRight", null);
             }
-            else if (touch.x < touchStart.x && Mathf.Abs(touch.x - touchStart.x) > MINDISTANCE)
+            else if (touch.x < touchStart.x && Mathf.Abs(touch.x - touchStart.x) > minDistanceHold)
             {
                 Events.Instance.DispatchEvent("TurnLeft", null);
             }
-            else if (touch.y > touchStart.y && Mathf.Abs(touch.y - touchStart.y) > MINDISTANCE)
+            else if (touch.y > touchStart.y && Mathf.Abs(touch.y - touchStart.y) > minDistanceHold)
             {
                 Events.Instance.DispatchEvent("MoveForward", null);
             }
-            else if (touch.y < touchStart.y && Mathf.Abs(touch.y - touchStart.y) > MINDISTANCE)
+            else if (touch.y < touchStart.y && Mathf.Abs(touch.y - touchStart.y) > minDistanceHold)
             {
                 Events.Instance.DispatchEvent("MoveDown", null);
             }
@@ -94,4 +144,13 @@ public class SwipeManager : MonoBehaviour
 #endif
     }
 
+
+    private IEnumerator CheckForHolding()
+    {
+        yield return new WaitForSeconds(timeToCheckSwipeHold);
+        wasMovementHeld = true;
+        Debug.Log("Movment is held");
+        yield return null;
+    }
 }
+
