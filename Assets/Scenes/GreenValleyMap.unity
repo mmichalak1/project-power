@@ -628,6 +628,14 @@ Prefab:
       propertyPath: resourceController
       value: 
       objectReference: {fileID: 495144977}
+    - target: {fileID: 11454412, guid: c3b6b453c329a9e4a9a287c477a1a005, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 131636925}
+    - target: {fileID: 11454412, guid: c3b6b453c329a9e4a9a287c477a1a005, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CancelSkillSelection
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3b6b453c329a9e4a9a287c477a1a005, type: 2}
   m_IsPrefabParent: 0

@@ -3371,6 +3371,7 @@ GameObject:
   - 114: {fileID: 11425684}
   - 114: {fileID: 11449660}
   - 114: {fileID: 11433412}
+  - 114: {fileID: 11455970}
   m_Layer: 8
   m_Name: bunny (2)
   m_TagString: Enemy
@@ -7917,8 +7918,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunned: 0
-  poisoned: 0
   taunted: 0
+  targetable: 1
 --- !u!114 &11407456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8187,8 +8188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunned: 0
-  poisoned: 0
   taunted: 0
+  targetable: 1
 --- !u!114 &11434236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8247,8 +8248,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunned: 0
-  poisoned: 0
   taunted: 0
+  targetable: 1
 --- !u!114 &11446090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8341,6 +8342,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58006562402b7ce4a8ea0d2ecf8217bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11455970
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myAffiliation: 1
 --- !u!114 &11457600
 MonoBehaviour:
   m_ObjectHideFlags: 1

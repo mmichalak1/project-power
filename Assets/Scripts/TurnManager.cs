@@ -210,6 +210,14 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
         SelectedSkill = null;
         cancelButton.Hide();
     }
+    public void CancelSkillSelection()
+    {
+        selector.StartSearching(SelectSheep, new Func<GameObject, bool>(x => x.CompareTag("Sheep") && x != SelectedSheep));
+        Events.Instance.DispatchEvent("HideBattleSkillPanel", null);
+        resourcesController.MoveFromBufferToAvailable(SelectedSkill.Cost);
+        SelectedSkill = null;
+        cancelButton.Hide();
+    }
     private void Clear()
     {
         Events.Instance.DispatchEvent("HideBattleSkillPanel", null);

@@ -19,6 +19,7 @@ public class BattleResourcesController : MonoBehaviour, ISystem {
     private int takenResources = 0;
 
     public int MaxResources { get { return maxResources; } set { maxResources = value; } }
+
     #region Unity Hooks
     private void Start()
     {
@@ -39,7 +40,15 @@ public class BattleResourcesController : MonoBehaviour, ISystem {
 
 
 
-
+    public bool MoveFromBufferToAvailable(int cost)
+    {
+        if (bufferedResources < cost)
+            return false;
+        bufferedResources -= cost;
+        availableResources += cost;
+        resourcesDisplay.PaintCrystals(availableResources, bufferedResources, takenResources);
+        return true;
+    }
 
     public bool MoveToBuffer(int cost)
     {
