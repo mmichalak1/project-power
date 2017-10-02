@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Assets.Scripts.Interfaces;
 using Assets.Scripts.ScriptableObjects;
 using System.Collections.Generic;
 using Assets.LogicSystem;
@@ -21,6 +20,12 @@ public class RandomBrain : AbstractBrain
 
     public override void Think(GameObject parent)
     {
+        //if stunned just end turn
+        var state = parent.GetComponent<EntityStatus>();
+        if (state.Stunned)
+            return;
+
+
         var _myRealDamage = parent.GetComponent<AttackController>().Damage;
         var debuffs = parent.GetComponents<DamageDebuff>();
 
@@ -32,46 +37,19 @@ public class RandomBrain : AbstractBrain
             }
         }
 
-        List<GameObject> availableTargets = new List<GameObject>();
-        foreach (GameObject x in Targets)
+        var sheep = SelectTarget(parent);
+        if (sheep == null)
         {
-            if (x != null)
-                availableTargets.Add(x);
+            Debug.Log("No valid targets for " + parent.name + ".");
+            return;
         }
-        if (availableTargets.Count > 0)
-        {
-            GameObject sheep;
-            do
-            {
-                sheep = GetTarget();
-                if (sheep == null)
-                    break;
-                if (sheep.activeSelf)
-                {
-                    if (sheep.GetComponent<Untargetable>() != null)
-                        Debug.Log(sheep.name + " is untargetable");
-                    else
-                        break;
-                }
-                else
-                {
-                    Debug.Log("Can't target " + sheep.name + " because it's dead.");
-                }
-            }
-            while (true);
-            _checkedTargets.Clear();
-            if (sheep == null)
-            {
-                Debug.Log("No valid targets for " + parent.name + ".");
-                return;
-            }
-            var skill = GetSkill();
-            skill.Initialize();
-            skill.Power = _myRealDamage;
-            TurnPlaner.Instance.AddPlan(new Plan(parent, sheep, skill));
+        var skill = Skills.GetRandomElement();
+        skill.Initialize();
+        skill.Power = _myRealDamage;
+        TurnPlaner.Instance.AddPlan(new Plan(parent, sheep, skill));
 
-            //  Debug.Log(parent.name + " dealt " + _myRealDamage + " damage to " + sheep.name);
-        }
+        //  Debug.Log(parent.name + " dealt " + _myRealDamage + " damage to " + sheep.name);
+
 
         base.Think(parent);
     }
@@ -93,8 +71,56 @@ public class RandomBrain : AbstractBrain
         return GetTarget();
     }
 
-    private Skill GetSkill()
+    private GameObject SelectTarget(GameObject parent)
     {
-        return Instantiate(Skills[Random.Range(0, Skills.Length)]);
+        //if taunted just take taunt target
+        var state = parent.GetComponent<EntityStatus>();
+        if(state.Taunted)
+        {
+            var target = parent.GetComponent<TauntedEffect>().Target;
+            if (target.activeSelf)
+            {
+                if (!target.GetComponent<EntityStatus>().Targetable)
+                    return null;
+                else
+                    return target;
+            }
+            else
+                return null;
+        }
+
+
+
+        List<GameObject> availableTargets = new List<GameObject>();
+        foreach (GameObject x in Targets)
+        {
+            if (x != null)
+                availableTargets.Add(x);
+        }
+        if (availableTargets.Count > 0)
+        {
+            GameObject sheep;
+            do
+            {
+                sheep = GetTarget();
+                if (sheep == null)
+                    break;
+                if (sheep.activeSelf)
+                {
+                    if (!sheep.GetComponent<EntityStatus>().Targetable)
+                        Debug.Log(sheep.name + " is untargetable");
+                    else
+                        break;
+                }
+                else
+                {
+                    Debug.Log("Can't target " + sheep.name + " because it's dead.");
+                }
+            }
+            while (true);
+            _checkedTargets.Clear();
+            return sheep;
+        }
+        return null;
     }
 }

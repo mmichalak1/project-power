@@ -30,10 +30,9 @@ GameObject:
   - 114: {fileID: 11474976}
   - 82: {fileID: 8266092}
   - 114: {fileID: 11426850}
-  - 114: {fileID: 11418420}
-  - 114: {fileID: 11469824}
   - 114: {fileID: 11418124}
   - 114: {fileID: 11480438}
+  - 114: {fileID: 11460652}
   m_Layer: 8
   m_Name: fox (1)
   m_TagString: Enemy
@@ -10530,8 +10529,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunned: 0
-  poisoned: 0
   taunted: 0
+  targetable: 1
 --- !u!114 &11408446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10632,18 +10631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cb4652cf88d724bb2c7d2f57da8e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11418420
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11418800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10736,8 +10723,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunned: 0
-  poisoned: 0
   taunted: 0
+  targetable: 1
 --- !u!114 &11421806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11096,8 +11083,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunned: 0
-  poisoned: 0
   taunted: 0
+  targetable: 1
 --- !u!114 &11455536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11183,6 +11170,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Belly: {x: 0, y: 0.5, z: 0}
   Head: {x: 0, y: 0.75, z: 0}
+--- !u!114 &11460652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfeaa2ed09b100d42910d4d9afad3a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunned: 0
+  taunted: 0
+  targetable: 1
 --- !u!114 &11462870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11234,18 +11235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665135167a848b74a935aca144adc6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11469824
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f324d489a027a0449c7521ee2da2d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAffiliation: 1
 --- !u!114 &11470006
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -303,7 +303,7 @@ Prefab:
     - target: {fileID: 11457490, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
       propertyPath: endTurnConfirmation
       value: 
-      objectReference: {fileID: 1094899262}
+      objectReference: {fileID: 461222501}
     - target: {fileID: 11457490, guid: fb4af0650b8c9244abeb6a132e49bd7c, type: 2}
       propertyPath: afterBattleInterface
       value: 
@@ -363,6 +363,10 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 131636924}
   m_Script: {fileID: 11500000, guid: c3758dc828ac1594d96916a98ccbcca1, type: 3}
+--- !u!1 &461222501 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 162714, guid: c3b6b453c329a9e4a9a287c477a1a005, type: 2}
+  m_PrefabInternal: {fileID: 1772116865}
 --- !u!114 &495144977 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11477008, guid: fb4af0650b8c9244abeb6a132e49bd7c,
@@ -519,10 +523,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1 &1094899262 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 134936, guid: c3b6b453c329a9e4a9a287c477a1a005, type: 2}
-  m_PrefabInternal: {fileID: 1772116865}
 --- !u!114 &1377541575 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11405912, guid: c3b6b453c329a9e4a9a287c477a1a005,
@@ -635,6 +635,10 @@ Prefab:
     - target: {fileID: 11454412, guid: c3b6b453c329a9e4a9a287c477a1a005, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CancelSkillSelection
+      objectReference: {fileID: 0}
+    - target: {fileID: 162714, guid: c3b6b453c329a9e4a9a287c477a1a005, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3b6b453c329a9e4a9a287c477a1a005, type: 2}

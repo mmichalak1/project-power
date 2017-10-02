@@ -5,46 +5,43 @@ using System;
 [CreateAssetMenu(fileName = "Taunt", menuName = "Game/Skills/Taunt")]
 public class Taunt : Skill
 {
-    public TauntedBrain TauntedBrain;
-    private TauntedBrain _myClone;
     public GameObject ParticleEffect;
     public TargetOffset tOffset;
+    public int TauntDuration;
 
     [Range(1, 5)]
     public int SkillDuration = 1;
 
     public override string Description()
     {
-        return string.Format(_description, Power, TauntedBrain.Duration);
+        return string.Format(_description, Power, TauntDuration);
     }
 
     public override void Initialize(GameObject parent)
     {
-        _myClone = Instantiate(TauntedBrain);
-        _myClone.Target = parent;
         base.Initialize(parent);
     }
 
     public override void Initialize(EntityData data)
     {
-        _myClone = Instantiate(TauntedBrain);
         base.Initialize(data);
     }
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {
-        var attack = target.GetComponent<AttackController>();
-        if (attack == null)
-            return;
-        attack.AddBrain(CreateBrainCopy(actor, target));
-        target.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage(Power, actor);
-        base.PerformAction(actor, target);
-    }
-
-
-    private AbstractBrain CreateBrainCopy(GameObject parent, GameObject target)
-    {
-        var _myCopy = Instantiate(TauntedBrain);
+        var targetState = target.GetComponent<EntityStatus>();
+        //remove exisitng taunt
+        if(targetState.Taunted)
+        {
+            var taunt = target.GetComponent<TauntedEffect>();
+            Destroy(taunt);
+        }
+        //add new taunt
+        targetState.Taunted = true;
+        var newTaunt = target.AddComponent<TauntedEffect>();
+        newTaunt.Duration = SkillDuration;
+        newTaunt.Target = actor;
+        //create effect
         Vector3 targetOffset = Vector3.zero;
         var targetingOffset = target.GetComponent<TargetingOffset>();
         if (targetingOffset != null)
@@ -56,13 +53,11 @@ public class Taunt : Skill
             }
         }
         GameObject go = Instantiate(ParticleEffect, target.transform.position + targetOffset + new Vector3(0, 0.25f, 0), Quaternion.identity) as GameObject;
-
         go.transform.parent = target.transform;
-        _myCopy.ParticleEffect = go;
-        _myCopy.Target = parent;
-        _myCopy.Duration = SkillDuration;
-        _myCopy.Initialize(null);
-
-        return _myCopy;
+        //add reference to newTaunt effect
+        newTaunt.ParticleEffect = go;
+        //deal damage
+        target.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage(Power, actor);
+        base.PerformAction(actor, target);
     }
 }

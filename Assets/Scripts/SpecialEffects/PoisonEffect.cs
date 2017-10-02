@@ -18,8 +18,12 @@ public class PoisonEffect : MonoBehaviour, IDisappearAfterTurn, IOnTurnBegin
         if (--Duration < 1)
         {
             gameObject.GetComponent<EntityStatus>().PoisonEffects--;
-            Destroy(ParticleEffect);
             Destroy(this);
         }
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(ParticleEffect);
     }
 }

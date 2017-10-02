@@ -6,7 +6,6 @@ using System;
 public class GroupTaunt : Skill
 {
 
-    public TauntedBrain TauntedBrain;
     public GameObject ParticleEffect;
     public TargetOffset tOffset;
 
@@ -37,10 +36,33 @@ public class GroupTaunt : Skill
         damageReductor.Duration = SkillDuration;
         damageReductor.DamageReduced = DamagePercentReduced;
 
-        foreach (var trans in enemyGroup.enemies)
+        foreach (var ene in enemyGroup.enemies)
         {
 
-            trans.gameObject.GetComponent<AttackController>().AddBrain(CreateBrainCopy(_parent, trans));
+            var state = ene.GetComponent<EntityStatus>();
+            if(state.Taunted)
+            {
+                var taunt = ene.GetComponent<TauntedEffect>();
+                Destroy(taunt);
+            }
+            var newTaunt = ene.AddComponent<TauntedEffect>();
+            newTaunt.Duration = SkillDuration;
+            newTaunt.Target = actor;
+            state.Taunted = true;
+            Vector3 targetOffset = Vector3.zero;
+            var targetingOffset = ene.GetComponent<TargetingOffset>();
+            if (targetingOffset != null)
+            {
+                switch (tOffset)
+                {
+                    case TargetOffset.Belly: { targetOffset = targetingOffset.Belly; } break;
+                    case TargetOffset.Head: { targetOffset = targetingOffset.Head; } break;
+                }
+            }
+            GameObject go = Instantiate(ParticleEffect, ene.transform.position + targetOffset + new Vector3(0, 0.25f, 0), Quaternion.identity) as GameObject;
+            go.transform.parent = ene.transform;
+            newTaunt.ParticleEffect = go;
+
         }
 
         base.PerformAction(actor, target);
@@ -49,29 +71,6 @@ public class GroupTaunt : Skill
     public override string Description()
     {
         return string.Format(_description, SkillDuration, DamagePercentReduced);
-    }
-
-    private AbstractBrain CreateBrainCopy(GameObject parent, GameObject target)
-    {
-        var _myCopy = Instantiate(TauntedBrain);
-        Vector3 targetOffset = Vector3.zero;
-        var targetingOffset = target.GetComponent<TargetingOffset>();
-        if (targetingOffset != null)
-        {
-            switch (tOffset)
-            {
-                case TargetOffset.Belly: { targetOffset = targetingOffset.Belly; } break;
-                case TargetOffset.Head: { targetOffset = targetingOffset.Head; } break;
-            }
-        }
-        GameObject go = Instantiate(ParticleEffect, target.transform.position + targetOffset + new Vector3(0, 0.25f, 0), Quaternion.identity) as GameObject;
-        go.transform.parent = target.transform;
-        _myCopy.ParticleEffect = go;
-        _myCopy.Target = parent;
-        _myCopy.Duration = SkillDuration;
-        _myCopy.Initialize(null);
-
-        return _myCopy;
     }
 
 }

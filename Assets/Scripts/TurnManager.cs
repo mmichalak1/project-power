@@ -7,7 +7,7 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
 {
 
     
-    #region References To Ohter Systems
+    #region References To Other Systems
     public EntitySelector selector;
     public UIBattleSkillPanel skillPanel;
     public BattleResourcesController resourcesController;
@@ -119,7 +119,7 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
         //forced is varaible which is set to true when player knows he didnt spent all resources and still wants to end turn
         if (!forced && resourcesController.FullResources)
         {
-            endTurnConfirmation.SetActive(true);
+            endTurnConfirmation.gameObject.SetActive(true);
             return;
         }
 
