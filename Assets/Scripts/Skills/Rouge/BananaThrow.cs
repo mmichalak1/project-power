@@ -40,6 +40,7 @@ public class BananaThrow : Skill {
         {
             newStun = target.AddComponent<StunnedEffect>();
             newStun.Duration = StunDuration;
+            state.Stunned = true;
             Vector3 targetOffset = Vector3.zero;
             var targetingOffset = target.GetComponent<TargetingOffset>();
             if (targetingOffset != null)
