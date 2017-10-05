@@ -8,7 +8,8 @@ public class PlayerSpawner : MonoBehaviour {
     public GameObject PlayerPrefab;
     public MapGenerator generator;
     public MapDecorator decorator;
-    public GameObject ExploraionUI;
+    public GameObject ExplorationUI;
+    public GameObject LostPanel;
     public TurnManager TurnManager;
 
     public Vector3 SpawnOffsetValue;
@@ -30,9 +31,10 @@ public class PlayerSpawner : MonoBehaviour {
         Player.transform.localRotation *= rot;
         var comp = Player.GetComponent<MovementController>();
         comp.currentFacing = face;
-        comp.ShallNotPass = ExploraionUI.transform.FindChild("ShallNotPass").GetComponent<Image>();
+        comp.ShallNotPass = ExplorationUI.transform.FindChild("ShallNotPass").GetComponent<Image>();
         comp.currentTile = blk.SpawnTile.GetComponent<TileData>();
         TurnManager.SheepGroup = Player.GetComponentInChildren<SheepGroupManager>();
+        TurnManager.SheepGroup.LostPanel = LostPanel;
         foreach (var x in Player.GetComponentsInChildren<SheepDataLoader>())
             x.LoadSheepData();
 

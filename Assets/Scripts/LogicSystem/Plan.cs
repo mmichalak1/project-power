@@ -41,14 +41,7 @@ namespace Assets.LogicSystem
         {
             get
             {
-                if (_actor == null || _target == null)
-                    return false;
-                if (!_actor.activeSelf || !_target.activeSelf)
-                {
-                    Debug.Log(_actor.name + " can't attack because he or target is dead.");
-                    return false;
-                }
-                return true;
+                return (_actor.GetComponent<EntityStatus>().Alive && _target.GetComponent<EntityStatus>().Alive);
             }
         }
 

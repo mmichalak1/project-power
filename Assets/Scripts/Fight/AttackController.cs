@@ -6,8 +6,6 @@ using System.Collections;
 
 public class AttackController : MonoBehaviour
 {
-    private float timer;
-    public float WaitTime = 2f;
     public int Damage = 30;
     [SerializeField]
     private AbstractBrain MyBrain;
@@ -25,20 +23,19 @@ public class AttackController : MonoBehaviour
 
     public void PerformAction()
     {
+        if (!gameObject.GetComponent<EntityStatus>().Alive)
+            return;
         _brainsList = _brainsList.OrderByDescending(x => x.Importance).ToList();
-        if (gameObject.activeSelf)
+        foreach (var brain in _brainsList.ToArray())
         {
-            foreach (var brain in _brainsList.ToArray())
+            brain.Think(gameObject);
+            if (BreakTurn)
             {
-                brain.Think(gameObject);
-                if (BreakTurn)
-                {
-                    BreakTurn = false;
-                    break;
-                }
+                BreakTurn = false;
+                break;
             }
-            ClearFinishedBrains();
         }
+        ClearFinishedBrains();
 
     }
 

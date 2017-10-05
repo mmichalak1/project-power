@@ -40,7 +40,6 @@ public class EnemyGroup : MonoBehaviour
         if (x.transform.parent != gameObject.transform)
             return;
         _enemiesLeft--;
-        enemies.Remove(x);
         x.GetComponent<ProvideExperience>().ProvideExp();
         if (_enemiesLeft == 0)
         {
@@ -70,7 +69,7 @@ public class EnemyGroup : MonoBehaviour
         bool result = false;
         foreach (var x in enemies)
         {
-            result |= x.GetComponent<HealthController>().IsAlive;
+            result |= x.GetComponent<EntityStatus>().Alive;
         }
         return !result;
     }

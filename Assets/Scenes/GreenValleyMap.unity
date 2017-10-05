@@ -458,6 +458,14 @@ Prefab:
       propertyPath: ExploraionUI
       value: 
       objectReference: {fileID: 381671393}
+    - target: {fileID: 11433266, guid: bba7dc211e9d6c44d807184f3224ce39, type: 2}
+      propertyPath: ExplorationUI
+      value: 
+      objectReference: {fileID: 381671393}
+    - target: {fileID: 11433266, guid: bba7dc211e9d6c44d807184f3224ce39, type: 2}
+      propertyPath: LostPanel
+      value: 
+      objectReference: {fileID: 1163792560}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bba7dc211e9d6c44d807184f3224ce39, type: 2}
   m_IsPrefabParent: 0
@@ -523,6 +531,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1 &1163792560 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 152514, guid: 916bb8ec18c4ef347b35ede2a75ebb82, type: 2}
+  m_PrefabInternal: {fileID: 81241085}
 --- !u!114 &1377541575 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11405912, guid: c3b6b453c329a9e4a9a287c477a1a005,

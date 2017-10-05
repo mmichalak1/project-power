@@ -6,11 +6,11 @@ public class SheepGroupManager : MonoBehaviour {
 
     [SerializeField]
     ExplorationHolder holder;
-    [SerializeField]
-    private GameObject LostPanel;
+    public GameObject LostPanel { get; set; }
     [SerializeField, Range(0, 1)]
     private float WoolGrowthMultiplier;
     GameObject ExplorationUI, BattleUI;
+    [SerializeField]
     int SheepCount = 0;
     List<GameObject> sheep = new List<GameObject>();
     Events.MyEvent OnSetExplorationUI, OnSetBattleUI;
@@ -28,7 +28,6 @@ public class SheepGroupManager : MonoBehaviour {
         {
             ExplorationUI = x as GameObject;
         });
-
         foreach (Transform child in transform)
             if (child.CompareTag("Sheep"))
                 sheep.Add(child.gameObject);
