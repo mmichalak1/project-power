@@ -38,10 +38,6 @@ public class DamageIndicatorScript : MonoBehaviour
         rectTransform.localPosition = Vector3.zero;
         rectTransform.offsetMin = new Vector2(0,0);
 
-        //float x = containerRectTransform.rect.width;
-        //float y = 150;
-        //rectTransform.offsetMax = new Vector2(x, y);
-
         var text = newItem.GetComponent<Text>();
 
         //Setup indication direction and speed

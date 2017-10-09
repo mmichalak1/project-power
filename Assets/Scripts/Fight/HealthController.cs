@@ -42,7 +42,8 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
         {
             Events.Instance.DispatchEvent(gameObject.name + "death", gameObject);
             gameObject.GetComponent<EntityStatus>().Alive = false;
-            //gameObject.SetActive(false);
+            HealthIndicator.gameObject.SetActive(false);
+            HealthText.gameObject.SetActive(false);
             
         }
     }

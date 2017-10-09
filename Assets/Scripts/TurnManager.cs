@@ -6,7 +6,7 @@ using Assets.LogicSystem;
 public class TurnManager : MonoBehaviour, ISystem, ITurnManager
 {
 
-    
+
     #region References To Other Systems
     public EntitySelector selector;
     public UIBattleSkillPanel skillPanel;
@@ -37,14 +37,18 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
 
     private GameObject selectedSheep = null;
 
-    public GameObject SelectedSheep { get { return selectedSheep; } private set
+    public GameObject SelectedSheep
+    {
+        get { return selectedSheep; }
+        private set
         {
             if (selectedSheep != null)
                 selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(false);
             selectedSheep = value;
-            if(selectedSheep != null)
-            selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(true);
-        } }
+            if (selectedSheep != null)
+                selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(true);
+        }
+    }
     public Skill SelectedSkill { get; private set; }
     public EnemyGroup EnemyGroup { get; private set; }
     public SheepGroupManager SheepGroup { get; set; }
@@ -52,7 +56,7 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
 
     #region Selection Hooks
     public void SelectSheep(GameObject sheep)
-    {       
+    {
         skillPanel.LoadSkillsData(sheep.GetComponent<EntityDataHolder>().SheepData.SheepSkills);
         SelectedSheep = sheep;
     }
@@ -67,7 +71,7 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
         if (!resourcesController.MoveToBuffer(skill.Cost))
             return false;
         SelectedSkill = skill;
-        selector.StartSearching(SelectTarget, new Func<GameObject, bool>(x => x.CompareTag("Sheep") || x.CompareTag("Enemy")));
+        selector.StartSearching(SelectTarget, CanEntityBeTarget);
         cancelButton.Show();
         return true;
     }
@@ -102,7 +106,7 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
         SelectedSkill = null;
 
         //Start serach for new sheep to act
-        selector.StartSearching(SelectSheep, new Func<GameObject, bool>(x => x.CompareTag("Sheep") && x != SelectedSheep));
+        selector.StartSearching(SelectSheep, CanSheepBeSelected);
 
         //Hide selected skill
         Events.Instance.DispatchEvent("HideBattleSkillPanel", null);
@@ -140,7 +144,7 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
     {
         //Play all effects at TurnStart
         foreach (var go in SheepGroup.Sheep)
-            foreach(var effect in go.GetComponents<IOnTurnBegin>())
+            foreach (var effect in go.GetComponents<IOnTurnBegin>())
                 effect.OnTurnBegin();
 
         foreach (var go in EnemyGroup.enemies)
@@ -148,12 +152,12 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
                 effect.OnTurnBegin();
 
         //Start selecting sheep
-        selector.StartSearching(SelectSheep, new Func<GameObject, bool>(x => x.CompareTag("Sheep") && x != SelectedSheep));
+        selector.StartSearching(SelectSheep, CanSheepBeSelected);
     }
     private void PostTurnActions()
     {
         //Tick all cooldowns for sheep
-        foreach(var obj in SheepGroup.Sheep)
+        foreach (var obj in SheepGroup.Sheep)
             obj.GetComponent<EntityDataHolder>().SheepData.SheepSkills.UpdateCooldowns();
 
         //Vi won 
@@ -171,7 +175,7 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
             Events.Instance.DispatchEvent("disableBattleUI", null);
             Destroy(EnemyGroup.gameObject);
             EnemyGroup = null;
-            
+
         }
         else
         {
@@ -197,7 +201,6 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
         //Tick all buffs//debuffs on sheep
         foreach (GameObject go in SheepGroup.Sheep)
         {
-            //go.transform.GetChild(0).GetComponent<SkillCanvasScript>().UpdateSkillsState(null);
             var objs = go.GetComponents<IDisappearAfterTurn>();
             foreach (var item in objs)
                 item.Tick();
@@ -205,7 +208,7 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
     }
     public void CancelSkill()
     {
-        selector.StartSearching(SelectSheep, new Func<GameObject, bool>(x => x.CompareTag("Sheep") && x != SelectedSheep));
+        selector.StartSearching(SelectSheep, CanSheepBeSelected);
         Events.Instance.DispatchEvent("HideBattleSkillPanel", null);
         resourcesController.MoveFromTakenToAvailable(SelectedSkill.Cost);
         SelectedSkill = null;
@@ -213,7 +216,7 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
     }
     public void CancelSkillSelection()
     {
-        selector.StartSearching(SelectSheep, new Func<GameObject, bool>(x => x.CompareTag("Sheep") && x != SelectedSheep));
+        selector.StartSearching(SelectSheep, CanSheepBeSelected);
         Events.Instance.DispatchEvent("HideBattleSkillPanel", null);
         resourcesController.MoveFromBufferToAvailable(SelectedSkill.Cost);
         SelectedSkill = null;
@@ -226,6 +229,37 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
         cancelButton.Hide();
         SelectedSheep = null;
         SelectedSkill = null;
+    }
+
+    private bool CanSheepBeSelected(GameObject sheep)
+    {
+        if (!sheep.CompareTag("Sheep"))
+            return false;
+        if (sheep == SelectedSheep)
+            return false;
+        var status = sheep.GetComponent<EntityStatus>();
+
+        if (!status.Alive)
+            return false;
+        if (status.Stunned)
+            return false;
+
+        return true;
+    }
+
+    private bool CanEntityBeTarget(GameObject entity)
+    {
+        if (!(entity.CompareTag("Sheep") || entity.CompareTag("Enemy")))
+            return false;
+
+        var state = entity.GetComponent<EntityStatus>();
+        if (!state.Targetable)
+            return false;
+
+        if (!state.Alive)
+            return false;
+
+        return true;
     }
 
 
