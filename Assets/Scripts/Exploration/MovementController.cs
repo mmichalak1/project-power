@@ -6,7 +6,6 @@ using Assets.LogicSystem;
 
 public class MovementController : MonoBehaviour
 {
-    readonly Vector3 targetDirection = new Vector3(2, 1, 0).normalized;
     public TileData currentTile;
 
     private float actionDelay = 0.5f;

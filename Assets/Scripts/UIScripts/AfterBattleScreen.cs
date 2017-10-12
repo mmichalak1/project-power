@@ -5,8 +5,8 @@ using System.Collections;
 public class AfterBattleScreen : MonoBehaviour {
 
     [SerializeField]
-    private WoolCounter Counter;
-    private int woolForFight;
+    private WoolCounter Counter = null;
+    private int woolForFight = 0;
     private int woolToDisplay;
     private int woolGainedDisplay;
     private int condition;

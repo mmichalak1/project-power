@@ -30,7 +30,6 @@ public class SetToTargetVector : MonoBehaviour, IEffect {
             _direction = target.transform.position - actor.transform.position;
         var rotation = Quaternion.FromToRotation(Vector3.up, _direction);
         gameObject.transform.rotation = rotation;
-        int i = 0;
     }
 
 }

@@ -89,6 +89,7 @@ public class UIBattleSkillButton : MonoBehaviour
         if (!SystemAccessor.GetSystem<ITurnManager>().SelectSkill(skill))
             return; 
         Events.Instance.DispatchEvent("HideBattleSkillPanel", null);
+
         
     }
 }

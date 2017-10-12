@@ -7,8 +7,6 @@ public class DurationPropertyDrawer : PropertyDrawer
 {
     SerializedProperty days, hours, minutes, seconds;
 
-    int indent = 20;
-
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
         days = property.FindPropertyRelative("days");

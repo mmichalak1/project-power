@@ -36,11 +36,11 @@ public class SkillsMenuScript : MonoBehaviour
         LoadData(0);
     }
 
-    public void LoadData(int SheepNumber)
+    public void LoadData(int sheepNumber)
     {
         Debug.LogError("Not able to show skills: rework ongoing.");
         return;
-        this.SheepNumber = SheepNumber;
+        SheepNumber = sheepNumber;
         SelectedSheepIcon.sprite = SheepData[SheepNumber].Portrait;
         for (int i = 1; i < 5; i++)
         {

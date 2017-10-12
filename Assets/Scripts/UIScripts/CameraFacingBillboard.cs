@@ -4,16 +4,16 @@ using System.Linq;
 
 public class CameraFacingBillboard : MonoBehaviour 
 {
-    private Camera camera;
+    private Camera targetCamera;
 
     void Start()
     {
-        camera = Camera.main;
+        targetCamera = Camera.main;
     }
  
     void Update()
     {
-        transform.LookAt(transform.position + camera.transform.rotation * Vector3.forward,
-            camera.transform.rotation * Vector3.up);
+        transform.LookAt(transform.position + targetCamera.transform.rotation * Vector3.forward,
+            targetCamera.transform.rotation * Vector3.up);
     }
 }

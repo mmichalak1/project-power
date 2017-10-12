@@ -10,22 +10,8 @@ public class DamageIndicatorScript : MonoBehaviour
     public Color DealtDamageColor, HealedColor;
     public GameObject IndicatorPrefab;
 
-    Vector3 position;
-    RectTransform rectTransform;
-    float timer = 0f;
-
-    void Start()
-    {
-        rectTransform = gameObject.GetComponent<RectTransform>();
-        position = rectTransform.position;
-    }
-
     public void BeginIndication(int HealthPointChange)
     {
-
-        RectTransform prefabRectTransform = IndicatorPrefab.GetComponent<RectTransform>();
-        RectTransform containerRectTransform = gameObject.GetComponent<RectTransform>();
-
         //create a new item, name it, and set the parent
         GameObject newItem = Instantiate(IndicatorPrefab) as GameObject;
         newItem.name = "item";

@@ -7,7 +7,6 @@ using Assets.Scripts.Interfaces;
 public class SwipeManager : MonoBehaviour, ISystem
 {
     Vector2 touchStart = -Vector2.one;
-    string value;
     public int minDistanceSwipe = 100;
     public int minDistanceHold = 60;
     public float timeToCheckSwipeHold = 0.3f;

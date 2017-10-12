@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-using System.Linq;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "effect", menuName = "Game/Effect")]
 public class Effect : ScriptableObject

@@ -26,13 +26,7 @@ public class CameraManager : MonoBehaviour
     private Quaternion rotationCamera;
     private Quaternion rotationCameraFight;
 
-    private Vector3 explorationPosition;
-    private Quaternion explorationRotation;
-
     private Matrix4x4 startingMatrix;
-
-    private float timeCounter = 0;
-    private bool isChanging = false;
 
     private Events.MyEvent OnEnterTheFight, OnExitTheFight;
 
@@ -58,8 +52,6 @@ public class CameraManager : MonoBehaviour
     }
     private void ExitFight(object obj)
     {
-        cameraExploration.transform.position = explorationPosition;
-        cameraExploration.transform.rotation = explorationRotation;
         cameraExploration.GetComponent<Camera>().projectionMatrix = startingMatrix;
         myAnimator.SetTrigger(ENDBATTLE);
     }

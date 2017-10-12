@@ -7,30 +7,7 @@ public class CheckIfPlayerEnter : MonoBehaviour {
     public GameObject BattleUI;
 	public GameObject ExplorationUI;
 
-    private Quaternion newRot;
-    private float rotationSpeed = 180.0f;
     private bool isDetecting = true;
-    private bool isFaceToFace = true;
-    private float time;
-    private float timer = 0;
-
-
-
-
-    void Update()
-    {
-        if(!isFaceToFace)
-        {
-            Player.transform.rotation = Quaternion.RotateTowards(Player.transform.rotation, newRot, Time.deltaTime * rotationSpeed);
-            timer += Time.deltaTime;
-            if (timer > time)
-            {
-                isFaceToFace = true;
-                timer = 0;
-                ToTheBattle();
-            }
-        }
-    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -38,7 +15,6 @@ public class CheckIfPlayerEnter : MonoBehaviour {
         if (other.gameObject == Player && isDetecting)
         {
                 ToTheBattle();
-                isFaceToFace = true;
         }
 
     }

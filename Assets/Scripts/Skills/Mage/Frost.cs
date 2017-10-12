@@ -22,8 +22,6 @@ public class Frost : Skill
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {
-
-        var attack = target.GetComponent<AttackController>();
         Debug.Log(actor.name + " stuns " + target.name + " for " + (StunDuration) + " for turns.");
         var state = target.GetComponent<EntityStatus>();
         StunnedEffect newStun = null;
