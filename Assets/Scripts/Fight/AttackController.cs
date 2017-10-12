@@ -2,11 +2,15 @@
 using Assets.Scripts.ScriptableObjects;
 using System.Collections.Generic;
 using System.Linq;
-using System.Collections;
+using Assets.Scripts.Interfaces;
+using System;
 
-public class AttackController : MonoBehaviour
+public class AttackController : MonoBehaviour, IProvideStatistics
 {
-    public int Damage = 30;
+    [SerializeField]
+    private int Damage = 30;
+    [SerializeField]
+    private int Defence = 0;
     [SerializeField]
     private AbstractBrain MyBrain;
 
@@ -60,4 +64,23 @@ public class AttackController : MonoBehaviour
         _brainsList.Remove(brain);
     }
 
+    public int GetDamage()
+    {
+        return Damage;
+    }
+
+    public int GetDefence()
+    {
+        return Defence;
+    }
+
+    public int GetMaxHealth()
+    {
+        return GetComponent<HealthController>().MaxHealth;
+    }
+
+    public float GetDamageMultiplicator()
+    {
+        return 1.0f;
+    }
 }

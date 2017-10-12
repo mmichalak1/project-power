@@ -13,8 +13,17 @@ public class Hide : Skill {
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {
+        var status = actor.GetComponent<EntityStatus>();
+        if(!status.Targetable)
+        {
+            Debug.Log(actor.name + " already untargetable.");
+            base.PerformAction(actor, target);
+            return;
+        }
         var comp = actor.AddComponent<Untargetable>();
         comp.Duration = Duration;
+
+        status.Targetable = false;
         base.PerformAction(actor, target);
     }
 }

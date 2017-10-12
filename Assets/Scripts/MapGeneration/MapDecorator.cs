@@ -53,7 +53,7 @@ public class MapDecorator : MonoBehaviour
     {
         InstantiateNodes(generator.AllNodes);
         InstantiatePaths(generator.Paths);
-        Debug.Log("Nodes in dict: " + NodesTiles.Count);
+        //Debug.Log("Nodes in dict: " + NodesTiles.Count);
     }
     private void InstantiateNodes(IEnumerable<Node> Node)
     {
@@ -82,7 +82,7 @@ public class MapDecorator : MonoBehaviour
     {
         GameObject go;
         BlockDataHolder holder, hold;
-        Debug.Log(paths.Count);
+        //Debug.Log(paths.Count);
         foreach (Path path in paths)
         {
             GameObject TilePrefab;

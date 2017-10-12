@@ -11,7 +11,7 @@ public class Heal : Skill {
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {
-        Debug.Log(actor.name + " heals " + target.name + " for " + _power + ".");
+        Debug.Log(actor.name + " heals " + target.name + " for " + Power + ".");
         target.GetComponent<Assets.Scripts.Interfaces.ICanBeHealed>().Heal(Power);
         base.PerformAction(actor, target);
     }

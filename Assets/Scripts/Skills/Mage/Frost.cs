@@ -20,11 +20,6 @@ public class Frost : Skill
         base.Initialize(parent);
     }
 
-    public override void Initialize(EntityData data)
-    {
-        base.Initialize(data);
-    }
-
     protected override void PerformAction(GameObject actor, GameObject target)
     {
 

@@ -17,16 +17,6 @@ public class Taunt : Skill
         return string.Format(_description, Power, TauntDuration);
     }
 
-    public override void Initialize(GameObject parent)
-    {
-        base.Initialize(parent);
-    }
-
-    public override void Initialize(EntityData data)
-    {
-        base.Initialize(data);
-    }
-
     protected override void PerformAction(GameObject actor, GameObject target)
     {
         var targetState = target.GetComponent<EntityStatus>();

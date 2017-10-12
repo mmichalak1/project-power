@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System;
 
 [CreateAssetMenu(fileName = "Redirect Damage", menuName = "Game/Skills/Redirect Damage")]
 public class Protect : Skill {

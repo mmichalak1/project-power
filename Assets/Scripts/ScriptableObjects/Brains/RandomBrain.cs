@@ -16,6 +16,10 @@ public class RandomBrain : AbstractBrain
     public override void Initialize(GameObject[] targets)
     {
         Targets = targets;
+        foreach(Skill skill in Skills)
+        {
+            skill.Initialize();
+        }
     }
 
     public override void Think(GameObject parent)
@@ -25,18 +29,6 @@ public class RandomBrain : AbstractBrain
         if (state.Stunned)
             return;
 
-
-        var _myRealDamage = parent.GetComponent<AttackController>().Damage;
-        var debuffs = parent.GetComponents<DamageDebuff>();
-
-        if (debuffs.Length != 0)
-        {
-            foreach (var debuff in debuffs)
-            {
-                _myRealDamage -= (_myRealDamage * debuff.DebuffValue) / 100;
-            }
-        }
-
         var sheep = SelectTarget(parent);
         if (sheep == null)
         {
@@ -44,8 +36,6 @@ public class RandomBrain : AbstractBrain
             return;
         }
         var skill = Skills.GetRandomElement();
-        skill.Initialize();
-        skill.Power = _myRealDamage;
         TurnPlaner.Instance.AddPlan(new Plan(parent, sheep, skill));
 
         //  Debug.Log(parent.name + " dealt " + _myRealDamage + " damage to " + sheep.name);

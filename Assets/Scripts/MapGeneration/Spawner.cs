@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour {
     public void Spawn()
     {
         playerSpawner.SpawnPlayer();
-        Debug.Log("Possible Spawns: " + PossibleSpawnPoints.Count);
+        //Debug.Log("Possible Spawns: " + PossibleSpawnPoints.Count);
         if(Data.Progress < Data.TargetProgress)
         {
             Debug.Log("Spawn Last Group");
@@ -39,7 +39,7 @@ public class Spawner : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Spawn Boss");
+            //Debug.Log("Spawn Boss");
             var lastGroup = SpawnBoss();
             gameState.LastGroup = lastGroup;
         }

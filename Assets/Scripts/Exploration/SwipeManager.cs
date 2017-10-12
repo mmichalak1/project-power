@@ -47,7 +47,7 @@ public class SwipeManager : MonoBehaviour, ISystem
         if (Input.GetMouseButtonDown(0))
         {
             touchStart = Input.mousePosition;
-            Debug.Log("Starting waiting coroutine.");
+            //Debug.Log("Starting waiting coroutine.");
             StartCoroutine("CheckForHolding");
             return;
         }
@@ -87,7 +87,6 @@ public class SwipeManager : MonoBehaviour, ISystem
         //it is held, spam event
         if(Input.GetMouseButton(0) && wasMovementHeld)
         {
-            Debug.Log("Moving");
             var touch = (Vector2)Input.mousePosition;
             if (touch.x > touchStart.x && Mathf.Abs(touch.x - touchStart.x) > minDistanceHold)
             {
@@ -198,7 +197,6 @@ public class SwipeManager : MonoBehaviour, ISystem
     {
         yield return new WaitForSeconds(timeToCheckSwipeHold);
         wasMovementHeld = true;
-        Debug.Log("Movment is held");
         yield return null;
     }
 

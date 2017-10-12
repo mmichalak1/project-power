@@ -10,4 +10,9 @@ public class Untargetable : MonoBehaviour, Assets.Scripts.Interfaces.IDisappearA
         if (--Duration == 0)
             Destroy(this);
     }
+
+    private void OnDestroy()
+    {
+        gameObject.GetComponent<EntityStatus>().Targetable = true;
+    }
 }

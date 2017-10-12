@@ -13,6 +13,15 @@ public class Debuff : Skill {
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {
+        var status = target.GetComponent<EntityStatus>();
+
+        if(status.IsDamageDebuffed)
+        {
+            Debug.Log("Target already debuffed");
+            base.PerformAction(actor, target);
+            return;
+        }
+
         GameObject go = Instantiate(ParticleEffect, target.transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity) as GameObject;
         go.transform.parent = target.transform;
         var debuff = target.AddComponent<DamageDebuff>();

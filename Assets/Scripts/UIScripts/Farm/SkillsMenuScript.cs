@@ -38,12 +38,14 @@ public class SkillsMenuScript : MonoBehaviour
 
     public void LoadData(int SheepNumber)
     {
+        Debug.LogError("Not able to show skills: rework ongoing.");
+        return;
         this.SheepNumber = SheepNumber;
         SelectedSheepIcon.sprite = SheepData[SheepNumber].Portrait;
         for (int i = 1; i < 5; i++)
         {
             var skill = SheepData[SheepNumber].SheepSkills.Skills[i];
-            skill.Initialize(SheepData[SheepNumber]);
+            //skill.Initialize(SheepData[SheepNumber]);
             SkillsButtons[i-1].image.sprite = skill.Icon;
             if (!skill.IsActive)
                 SkillsButtons[i-1].image.color = LockedColor;

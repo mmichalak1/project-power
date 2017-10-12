@@ -21,11 +21,6 @@ public class GroupTaunt : Skill
         base.Initialize(parent);
     }
 
-    public override void Initialize(EntityData data)
-    {
-        base.Initialize(data);
-    }
-
     protected override void PerformAction(GameObject actor, GameObject target)
     {
         var enemyGroup = target.transform.parent.GetComponent<EnemyGroup>();

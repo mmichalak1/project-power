@@ -10,14 +10,6 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     private int _maxHealth = 100;
     [SerializeField]
     private int _currentHealth = 100;
-    [SerializeField]
-    private float _defence = 0;
-
-    public float Defence
-    {
-        get { return _defence; }
-        set { _defence = value; }
-    }
 
     public GameObject LastAttacker = null;
 
@@ -98,13 +90,13 @@ public class HealthController : MonoBehaviour, IReciveDamage, ICanBeHealed
     ///</summary>
     public void DealDamage(int value)
     {
-        //Debug.Log("Defence: " + _defence);
-        if (_defence > 0)
-            value -= (int)(value * _defence / 100.0f);
+        int defence = gameObject.GetComponent<IProvideStatistics>().GetDefence();
+                    
+        value -= (int)(value * defence / 100.0f);
         _currentHealth -= value;
         if (DamageIndicator != null)
         {
-            DamageIndicator.BeginIndication(0 - value);
+            DamageIndicator.BeginIndication(-value);
         }
         UpdateHealthBar();
     }

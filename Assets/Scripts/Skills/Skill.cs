@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Assets.Scripts.Interfaces;
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Skill : ScriptableObject {
 
-    private static System.Collections.Generic.Dictionary<string, string> ColorCoding = new System.Collections.Generic.Dictionary<string, string>()
+    private static Dictionary<string, string> ColorCoding = new Dictionary<string, string>()
     {
         { "<damage>", "<color=\"red\">" },
         { "</damage>", "</color>" },
@@ -24,7 +25,7 @@ public abstract class Skill : ScriptableObject {
     }
 
 
-    [SerializeField, Tooltip("Basic percentage of power's value calculated from sheep's stats."), Range(0, 500)]
+    [SerializeField, Tooltip("Basic percentage of power's value calculated from entity's stats."), Range(0, 500)]
     private int StatsMultiplier = 70;
     [SerializeField, Tooltip("Skill's cost.")]
     private int BaseCost = 3;
@@ -53,11 +54,10 @@ public abstract class Skill : ScriptableObject {
     }
     public Skill[] RequiredSkills;
 
-    protected int _power;
     protected System.Action<GameObject, GameObject> _action;
     protected int _cooldown;
     protected int _cost;
-    protected GameObject _parent;
+    protected GameObject Parent { get; set; }
 
     public Sprite Icon;
     public string Name
@@ -67,15 +67,6 @@ public abstract class Skill : ScriptableObject {
     public System.Action<GameObject, GameObject> Action
     {
         get { return _action; }
-    }
-
-    /// <summary>
-    /// Defines shield's power, amount hp healed, dmg dealt by skill
-    /// </summary>
-    public int Power
-    {
-        get { return _power; }
-        set { _power = value; }
     }
 
     public int Cost
@@ -131,6 +122,15 @@ public abstract class Skill : ScriptableObject {
         get { return _skillTarget; }
     }
 
+    public int Power
+    {
+        get
+        {
+            int baseDmg = Parent.GetComponent<IProvideStatistics>().GetDamage();
+            return (baseDmg * StatsMultiplier) / 100;
+        }
+    }
+
 
     public abstract string Description();
     protected virtual void PerformAction(GameObject actor, GameObject target)
@@ -145,8 +145,7 @@ public abstract class Skill : ScriptableObject {
     {
         _cooldown = 0;
         _cost = BaseCost;
-        _power = (parent.GetComponent<EntityDataHolder>().SheepData.TotalAttack * StatsMultiplier) / 100;
-        _parent = parent;
+        Parent = parent;
         _action = PerformAction;
     }
 
@@ -156,10 +155,6 @@ public abstract class Skill : ScriptableObject {
     public virtual void Initialize()
     {
         _action = PerformAction;
-    }
-    public virtual void Initialize(EntityData data)
-    {
-        _power = (data.TotalAttack * StatsMultiplier) / 100;
     }
     public void UpdateCooldown()
     {

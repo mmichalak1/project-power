@@ -19,11 +19,6 @@ public class Poison : Skill
         base.Initialize(parent);
     }
 
-    public override void Initialize(EntityData data)
-    {
-        base.Initialize(data);
-    }
-
     protected override void PerformAction(GameObject actor, GameObject target)
     {
         Vector3 targetOffset = Vector3.zero;
