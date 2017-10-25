@@ -52,7 +52,7 @@ public class BattleResourcesController : MonoBehaviour, ISystem {
 
     public bool MoveToBuffer(int cost)
     {
-        if (maxResources < cost)
+        if (availableResources < cost)
             return false;
         if(bufferedResources != 0)
             availableResources += bufferedResources;

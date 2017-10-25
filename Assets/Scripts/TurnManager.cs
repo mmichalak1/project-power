@@ -55,6 +55,7 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
 
 
     #region Selection Hooks
+
     public void SelectSheep(GameObject sheep)
     {
         skillPanel.LoadSkillsData(sheep.GetComponent<EntityDataHolder>().SheepData.SheepSkills);
