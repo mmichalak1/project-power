@@ -8,7 +8,13 @@ public class MovementController : MonoBehaviour
 {
     public TileData currentTile;
 
-    private float actionDelay = 0.5f;
+    [SerializeField]
+    private float rotationDelay = 0.5f;
+    [SerializeField]
+    private float movementDelay = 0.43f;
+
+    private float actionDelay = 0.0f;
+
     private float actionTimer = 0.0f;
     private float movementSpeed = 5.0f;
     private float rotationSpeed = 180.0f;
@@ -56,6 +62,7 @@ public class MovementController : MonoBehaviour
                 foreach (AnimationControl anim in animations)
                     anim.Stop();
                 actionTimer = 0;
+                actionDelay = 0.0f;
                 move = false;
             }
         }
@@ -70,6 +77,7 @@ public class MovementController : MonoBehaviour
                 
                 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.TransformDirection(Vector3.right).normalized * 2;
                 move = true;
+                actionDelay = movementDelay;
             }
             else
             {
@@ -101,6 +109,7 @@ public class MovementController : MonoBehaviour
             newRot = transform.rotation * Quaternion.AngleAxis(-90f, Vector3.up);
             move = true;
             currentFacing = getRotationFacing(currentFacing, -1);
+            actionDelay = rotationDelay;
         }
     }
 
@@ -111,6 +120,7 @@ public class MovementController : MonoBehaviour
             newRot = transform.rotation * Quaternion.AngleAxis(90f, Vector3.up);
             move = true;
             currentFacing = getRotationFacing(currentFacing, 1);
+            actionDelay = rotationDelay;
         }
     }
 

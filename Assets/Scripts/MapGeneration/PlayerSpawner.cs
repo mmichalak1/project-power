@@ -31,7 +31,7 @@ public class PlayerSpawner : MonoBehaviour {
         Player.transform.localRotation *= rot;
         var comp = Player.GetComponent<MovementController>();
         comp.currentFacing = face;
-        comp.ShallNotPass = ExplorationUI.transform.FindChild("ShallNotPass").GetComponent<Image>();
+        comp.ShallNotPass = ExplorationUI.transform.Find("ShallNotPass").GetComponent<Image>();
         comp.currentTile = blk.SpawnTile.GetComponent<TileData>();
         TurnManager.SheepGroup = Player.GetComponentInChildren<SheepGroupManager>();
         TurnManager.SheepGroup.LostPanel = LostPanel;

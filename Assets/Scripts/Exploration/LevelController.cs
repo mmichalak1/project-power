@@ -15,13 +15,7 @@ namespace Assets.Scripts
 
         // Use this for initialization
         void Start()
-        {
-            if (!levelData.IsLocked)
-                ProgressData.text = levelData.Progress + "/" + levelData.TargetProgress;
-        }
-
-        void OnLevelWasLoaded()
-        {
+        { 
             if (!levelData.IsLocked)
             {
                 Padlock.gameObject.SetActive(false);
@@ -30,12 +24,12 @@ namespace Assets.Scripts
             }
             else
             {
+                ProgressData.text = levelData.Progress + "/" + levelData.TargetProgress;
                 Padlock.gameObject.SetActive(true);
                 Backgroung.interactable = false;
                 ProgressData.gameObject.SetActive(false);
             }
         }
-
 
         private void ProcessResult()
         {

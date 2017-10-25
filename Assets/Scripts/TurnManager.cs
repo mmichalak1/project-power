@@ -43,10 +43,10 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
         private set
         {
             if (selectedSheep != null)
-                selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(false);
+                selectedSheep.transform.Find("SelectRing").gameObject.SetActive(false);
             selectedSheep = value;
             if (selectedSheep != null)
-                selectedSheep.transform.FindChild("SelectRing").gameObject.SetActive(true);
+                selectedSheep.transform.Find("SelectRing").gameObject.SetActive(true);
         }
     }
     public Skill SelectedSkill { get; private set; }
