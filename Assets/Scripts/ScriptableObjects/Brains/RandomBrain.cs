@@ -38,9 +38,6 @@ public class RandomBrain : AbstractBrain
         var skill = Skills.GetRandomElement();
         TurnPlaner.Instance.AddPlan(new Plan(parent, sheep, skill));
 
-        //  Debug.Log(parent.name + " dealt " + _myRealDamage + " damage to " + sheep.name);
-
-
         base.Think(parent);
     }
 

@@ -68,10 +68,19 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
 
         if (TurnPlaner.Instance.ContainsPlanWithSkill(skill))
             return false;
-
         if (!resourcesController.MoveToBuffer(skill.Cost))
             return false;
+
+
         SelectedSkill = skill;
+        if (skill is NotTargetableSkill)
+        {
+            var target = (skill as NotTargetableSkill).GetTarget(SheepGroup, EnemyGroup);
+            SelectTarget(target);
+            SelectedSheep = null;
+            return true;
+        }
+
         selector.StartSearching(SelectTarget, CanEntityBeTarget);
         cancelButton.Show();
         return true;
@@ -82,22 +91,29 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
         if (SelectedSkill == null || !SelectedSkill.IsTargetValid(SelectedSheep, target))
             return;
 
-        Plan plan = new Plan(SelectedSheep, target.transform.gameObject, SelectedSkill);
-
-        //If plan with given skill exists cancel it
-        if (TurnPlaner.Instance.ContainsPlan(plan))
+        if(SelectedSkill is InstantSkill)
         {
-            resourcesController.MoveFromTakenToAvailable(plan.Skill.Cost);
-            queueController.RemovePlan(plan);
-            TurnPlaner.Instance.CancelPlan(plan);
+            SelectedSkill.Action.Invoke(SelectedSheep, target);
+        }
+        else
+        {
+            Plan plan = new Plan(SelectedSheep, target.transform.gameObject, SelectedSkill);
+
+            //If plan with given skill exists cancel it
+            if (TurnPlaner.Instance.ContainsPlan(plan))
+            {
+                resourcesController.MoveFromTakenToAvailable(plan.Skill.Cost);
+                queueController.RemovePlan(plan);
+                TurnPlaner.Instance.CancelPlan(plan);
+            }
+
+            //Finalize plan addition
+            TurnPlaner.Instance.AddPlan(plan);
+            queueController.AddPlan(plan);
         }
 
         //Remove resources for skill
         resourcesController.MoveFromBufferToTaken();
-
-        //Add plan to planner and queue
-        TurnPlaner.Instance.AddPlan(plan);
-        queueController.AddPlan(plan);
 
         //Call OnSkillPlanned
         SelectedSkill.OnSkillPlanned(SelectedSheep, target);

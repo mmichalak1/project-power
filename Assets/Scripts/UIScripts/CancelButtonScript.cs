@@ -10,6 +10,7 @@ public class CancelButtonScript : MonoBehaviour
 
     private RectTransform rectTransform;
     private int direction = 0;
+    private bool isHidden = true;
     // Use this for initialization
     void Start()
     {
@@ -18,11 +19,15 @@ public class CancelButtonScript : MonoBehaviour
 
     public void Show()
     {
+        if (!isHidden)
+            return;
         direction = 1;
     }
 
     public void Hide()
     {
+        if (isHidden)
+            return;
         direction = -1;
     }
 
@@ -34,14 +39,20 @@ public class CancelButtonScript : MonoBehaviour
             if(rectTransform.position.y < UpperY)
                 rectTransform.position += new Vector3(0, Speed, 0) * Time.deltaTime;
             if (rectTransform.position.y > UpperY)
+            {
                 direction = 0;
+                isHidden = false;
+            }
         }
         else if(direction == -1)
         {
             if (rectTransform.position.y > LowerY)
                 rectTransform.position -= new Vector3(0, Speed, 0) * Time.deltaTime;
             if (rectTransform.position.y < LowerY)
+            {
                 direction = 0;
+                isHidden = true;
+            }
         }
     }
 }

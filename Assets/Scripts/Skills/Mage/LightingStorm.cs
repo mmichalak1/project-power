@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using Assets.Scripts.Interfaces;
 
 [CreateAssetMenu(fileName = "Lighting Storm", menuName = "Game/Skills/Lighting Storm")]
-public class LightingStorm : Skill {
+public class LightingStorm : Skill, NotTargetableSkill {
 
     public GameObject ParticleEffect;
 
@@ -12,6 +13,10 @@ public class LightingStorm : Skill {
         return string.Format(_description, Power);
     }
 
+    public GameObject GetTarget(SheepGroupManager sheep, EnemyGroup enemies)
+    {
+        return enemies.enemies[0];
+    }
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {
@@ -19,7 +24,7 @@ public class LightingStorm : Skill {
         var group = target.transform.parent.gameObject.GetComponent<EnemyGroup>().enemies;
         foreach (var enemy in group)
         {
-            enemy.gameObject.GetComponent<Assets.Scripts.Interfaces.IReciveDamage>().DealDamage(Power, actor);
+            enemy.gameObject.GetComponent<IReciveDamage>().DealDamage(Power, actor);
         }
         base.PerformAction(actor, target);
     }}
