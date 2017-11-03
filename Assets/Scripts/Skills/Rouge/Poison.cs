@@ -14,11 +14,6 @@ public class Poison : Skill
         return string.Format(_description, PoisonDuration, Power);
     }
 
-    public override void Initialize(GameObject parent)
-    {
-        base.Initialize(parent);
-    }
-
     protected override void PerformAction(GameObject actor, GameObject target)
     {
         Vector3 targetOffset = Vector3.zero;

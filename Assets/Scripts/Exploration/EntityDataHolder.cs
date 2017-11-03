@@ -23,7 +23,7 @@ public class EntityDataHolder : MonoBehaviour, IProvideStatistics
 
         foreach (var x in SheepData.SheepSkills.Skills)
             if (x != null)
-                x.Initialize(gameObject);
+                x.Initialize(this);
     }
     public static void ApplyItemsChange(EntityData SheepData)
     {

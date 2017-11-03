@@ -14,12 +14,6 @@ public class BananaThrow : Skill {
         return string.Format(_description, StunDuration);
     }
 
-    // Use this for initialization
-    public override void Initialize(GameObject parent)
-    {
-        base.Initialize(parent);
-    }
-
     protected override void PerformAction(GameObject actor, GameObject target)
     {
         Debug.Log(actor.name + " stuns " + target.name + "for " + StunDuration + " turns.");

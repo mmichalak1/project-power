@@ -15,11 +15,6 @@ public class Frost : Skill
         return string.Format(_description, StunDuration);
     }
 
-    public override void Initialize(GameObject parent)
-    {
-        base.Initialize(parent);
-    }
-
     protected override void PerformAction(GameObject actor, GameObject target)
     {
         Debug.Log(actor.name + " stuns " + target.name + " for " + (StunDuration) + " for turns.");

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
+using Assets.Scripts.Interfaces;
+using System;
 
 public class SkillPanelScript : MonoBehaviour {
 
@@ -22,6 +23,8 @@ public class SkillPanelScript : MonoBehaviour {
     {
         this.skill = skill;
         this.sheep = sheep;
+
+        skill.Initialize(new StatsProvider(sheep));
         Name.text = skill.name;
         Description.text = skill.Description();
         Cooldown.text = (skill.CooldownBase - 1).ToString();
@@ -39,7 +42,6 @@ public class SkillPanelScript : MonoBehaviour {
                 skill.IsActive = true;
                 WoolCounter.WoolCount -= skill.UnlockCost;
                 UnlockButton.interactable = canBeUnlocked();
-                //LoadData(SheepNumber);
             }
     }
 
@@ -62,5 +64,36 @@ public class SkillPanelScript : MonoBehaviour {
         MessageText.gameObject.SetActive(false);
         return true;
 
+    }
+
+
+    private class StatsProvider : IProvideStatistics
+    {
+        private EntityData data;
+
+        public StatsProvider(EntityData entity)
+        {
+            data = entity;
+        }
+
+        public int GetDamage()
+        {
+            return data.TotalAttack;
+        }
+
+        public float GetDamageMultiplicator()
+        {
+            return 1.0f;
+        }
+
+        public int GetDefence()
+        {
+            return data.TotalDefence;
+        }
+
+        public int GetMaxHealth()
+        {
+            return data.TotalHealth;
+        }
     }
 }

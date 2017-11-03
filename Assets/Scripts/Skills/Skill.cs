@@ -57,7 +57,8 @@ public abstract class Skill : ScriptableObject {
     protected System.Action<GameObject, GameObject> _action;
     protected int _cooldown;
     protected int _cost;
-    protected GameObject Parent { get; set; }
+    protected IProvideStatistics statisticsProvider;
+
 
     public Sprite Icon;
     public string Name
@@ -126,7 +127,7 @@ public abstract class Skill : ScriptableObject {
     {
         get
         {
-            int baseDmg = Parent.GetComponent<IProvideStatistics>().GetDamage();
+            int baseDmg =statisticsProvider.GetDamage();
             return (baseDmg * StatsMultiplier) / 100;
         }
     }
@@ -141,11 +142,11 @@ public abstract class Skill : ScriptableObject {
     {
 
     }
-    public virtual void Initialize(GameObject parent)
+    public virtual void Initialize(IProvideStatistics statProvider)
     {
         _cooldown = 0;
         _cost = BaseCost;
-        Parent = parent;
+        statisticsProvider = statProvider;
         _action = PerformAction;
     }
 

@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using Assets.Scripts.ScriptableObjects;
-using System;
 
 [CreateAssetMenu(fileName = "Group Taunt", menuName = "Game/Skills/GroupTaunt")]
 public class GroupTaunt : Skill
@@ -14,12 +12,6 @@ public class GroupTaunt : Skill
 
     [Range(0, 100)]
     public int DamagePercentReduced = 20;
-
-    public override void Initialize(GameObject parent)
-    {
-
-        base.Initialize(parent);
-    }
 
     protected override void PerformAction(GameObject actor, GameObject target)
     {
