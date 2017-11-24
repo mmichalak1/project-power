@@ -17,56 +17,16 @@ public class Item : ScriptableObject {
     public Stats[] StatsList;
     public int[] ValueList;
 
-    public void ApplyItemChanges(EntityData data)
+    public int GetBonusToStat(Stats stat)
     {
-        for(int i=0; i<StatsList.Length; i++)
-        {
-            switch (StatsList[i])
-            {
-                case Stats.Attack:
-                    data.AttackFromItems += ValueList[i];
-                    break;
-                case Stats.Defense:
-                    data.DefenceFromItems += ValueList[i];
-                    break;
-                case Stats.WoolCounter:
-                    data.Wool += ValueList[i];
-                    break;
-                case Stats.Health:
-                    data.MaxHealthFromItems += ValueList[i];
-                    break;
-                default:
-                    Debug.LogError("Stat type not found");
-                    break;
-            }
-        }
-
-    }
-
-
-    public void ReverseItemChanges(EntityData data)
-    {
+        int result = 0;
         for (int i = 0; i < StatsList.Length; i++)
         {
-            switch (StatsList[i])
-            {
-                case Stats.Attack:
-                    data.AttackFromItems -= ValueList[i];
-                    break;
-                case Stats.Defense:
-                    data.DefenceFromItems -= ValueList[i];
-                    break;
-                case Stats.WoolCounter:
-                    data.Wool -= ValueList[i];
-                    break;
-                case Stats.Health:
-                    data.MaxHealthFromItems -= ValueList[i];
-                    break;
-                default:
-                    Debug.LogError("Stat type not found");
-                    break;
-            }
+            if (StatsList[i] == stat)
+                result += ValueList[i];
         }
+
+        return result;
     }
 
     public override string ToString()

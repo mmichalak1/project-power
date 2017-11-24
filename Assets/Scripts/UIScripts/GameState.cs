@@ -23,11 +23,6 @@ public class GameState : MonoBehaviour {
         holder.GameResult = GameResult.Win;
         WinWindow.SetActive(true);
         Map.SetActive(false);
-        foreach (var item in GameObject.FindGameObjectsWithTag("Sheep"))
-        {
-            EntityDataHolder.RevertItemsChange(item.GetComponent<EntityDataHolder>().SheepData);
-        }
-
     }
 
     private void OnBattleWon(object x)

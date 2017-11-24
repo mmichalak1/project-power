@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System;
 
 public class GameSaveData
 {
@@ -40,7 +39,6 @@ public class GameSaveData
         save.WoolCounter.WoolCount = data.WoolAmount;
 
     }
-
 
     public static GameSaveData ToBinaryForm(GameSave save)
     {

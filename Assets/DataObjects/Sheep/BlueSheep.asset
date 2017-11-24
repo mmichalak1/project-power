@@ -16,15 +16,12 @@ MonoBehaviour:
   BasicMaxHealth: 1030
   BasicAttack: 1021
   BasicDefence: 0
-  MaxHealthFromItems: 0
-  AttackFromItems: 0
-  DefenceFromItems: 0
   Level: 4
   Experience: 300
   ExperienceForNextLevel: 12500
   Wool: 18
   MaxWool: 70
-  WoolGrowth: 0.54999924
+  WoolGrowth: 5.449999
   SheepSkills: {fileID: 11400000, guid: ff8b91b9b24184744a77d623289fd5c0, type: 2}
   OffensiveItem: {fileID: 0}
   DefensiveItem: {fileID: 0}

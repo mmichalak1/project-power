@@ -1,28 +1,31 @@
 ﻿using UnityEngine;
-using System.Collections;
-
+using System.Collections.Generic;
+/// <summary>
+/// Loads sheep group data
+/// </summary>
 public class SheepDataLoader : MonoBehaviour
 {
 
     [SerializeField]
     private GameObject[] Children;
     [SerializeField]
-    private EntityData[] DefaultLoadout;
-
-    // Use this for initialization
-    void Start()
-    {
-        //LoadSheepData();
-    }
+    private List<EntityData> GameSheepGroup;
+    [SerializeField]
+    private EntityData[] BasicSheepGroup;
+    
 
     public void LoadSheepData()
     {
-        var go = GameObject.FindGameObjectWithTag("GameStatus");
         EntityData[] sheep;
-        if (go != null)
-            sheep = go.GetComponent<GameStatus>().Sheep;
+        if (GameSheepGroup.Count == 4)
+        {
+            sheep = GameSheepGroup.ToArray();
+        }
         else
-            sheep = DefaultLoadout;
+        {
+            Debug.LogError("Incorrect sheep count loading default group");
+            sheep = BasicSheepGroup;
+        }
 
         for (int i = 0; i < sheep.Length; i++)
         {

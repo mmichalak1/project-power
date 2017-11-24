@@ -18,7 +18,7 @@ public class GameSaverScript : MonoBehaviour
 
     public void SaveGame()
     {
-        //Debug.Log(Application.persistentDataPath);
+        Debug.Log(Application.persistentDataPath);
 
         Saver.Save(GameSaveData.ToBinaryForm(Save));
 

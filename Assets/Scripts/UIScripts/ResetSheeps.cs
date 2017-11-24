@@ -58,7 +58,6 @@ public class ResetSheeps : MonoBehaviour
             }
             SheepData[i].OffensiveItem = null;
             SheepData[i].DefensiveItem = null;
-            SheepData[i].DefenceFromItems = 0;
         }
     }
 }

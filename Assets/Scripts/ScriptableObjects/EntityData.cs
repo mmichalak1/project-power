@@ -2,7 +2,8 @@
 using System.Collections;
 
 [CreateAssetMenu(menuName = "Game/Sheep")]
-public class EntityData : ScriptableObject {
+public class EntityData : ScriptableObject
+{
 
     public string Name = "Wacław";
     public Sprite Portrait;
@@ -11,13 +12,58 @@ public class EntityData : ScriptableObject {
     public int BasicAttack = 20;
     public int BasicDefence = 0;
 
-    [HideInInspector]
-    public int MaxHealthFromItems = 100;
-    [HideInInspector]
-    public int AttackFromItems = 20;
-    [HideInInspector]
-    public int DefenceFromItems = 0;
-    
+    public int MaxHealthFromItems
+    {
+        get
+        {
+            int res = 0;
+            if (OffensiveItem != null)
+            {
+                res += OffensiveItem.GetBonusToStat(Item.Stats.Health);
+            }
+            if (DefensiveItem != null)
+            {
+                res += DefensiveItem.GetBonusToStat(Item.Stats.Health);
+            }
+            return res;
+        }
+    }
+
+    public int AttackFromItems
+    {
+        get
+        {
+            int res = 0;
+            if (OffensiveItem != null)
+            {
+                res += OffensiveItem.GetBonusToStat(Item.Stats.Attack);
+            }
+            if (DefensiveItem != null)
+            {
+                res += DefensiveItem.GetBonusToStat(Item.Stats.Attack);
+            }
+            return res;
+        }
+    }
+
+
+    public int DefenceFromItems
+    {
+        get
+        {
+            int res = 0;
+            if (OffensiveItem != null)
+            {
+                res += OffensiveItem.GetBonusToStat(Item.Stats.Defense);
+            }
+            if (DefensiveItem != null)
+            {
+                res += DefensiveItem.GetBonusToStat(Item.Stats.Defense);
+            }
+            return res;
+        }
+    }
+
     public int TotalHealth
     {
         get { return BasicMaxHealth + MaxHealthFromItems; }
@@ -55,9 +101,6 @@ public class EntityData : ScriptableObject {
     public void ResetStats()
     {
         ExperienceGained = 0;
-        MaxHealthFromItems = 0;
-        AttackFromItems = 0;
-        DefenceFromItems = 0;
     }
 
     public void LevelUp()
@@ -94,7 +137,7 @@ public class EntityData : ScriptableObject {
         Rouge
     }
 
-    private  void LevelUpWarrior()
+    private void LevelUpWarrior()
     {
         BasicMaxHealth += 30;
         BasicAttack += 5;
@@ -125,7 +168,7 @@ public class EntityData : ScriptableObject {
             Wool += additionalWool;
         else
             Wool = MaxWool;
-   
+
         WoolGrowth -= additionalWool;
     }
 }

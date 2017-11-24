@@ -48,8 +48,6 @@ public class SheepGroupManager : MonoBehaviour {
         {
             holder.GameResult = GameResult.Loss;
             Events.Instance.DispatchEvent("BattleLost", null);
-            foreach (var item in gameObject.GetComponentsInChildren<EntityDataHolder>())
-                EntityDataHolder.RevertItemsChange(item.SheepData);
             BattleUI.SetActive(false);
             ExplorationUI.SetActive(true);
             LostPanel.SetActive(true);

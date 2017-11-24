@@ -17,28 +17,12 @@ public class EntityDataHolder : MonoBehaviour, IProvideStatistics
         gameObject.name = data.Name;
         HealthController comp = gameObject.GetComponent<HealthController>();
         data.ResetStats();
-        ApplyItemsChange(data);
         comp.MaxHealth = data.TotalHealth;
         comp.HealToFull();
 
         foreach (var x in SheepData.SheepSkills.Skills)
             if (x != null)
                 x.Initialize(this);
-    }
-    public static void ApplyItemsChange(EntityData SheepData)
-    {
-        if (SheepData.DefensiveItem != null)
-            SheepData.DefensiveItem.ApplyItemChanges(SheepData);
-        if (SheepData.OffensiveItem != null)
-            SheepData.OffensiveItem.ApplyItemChanges(SheepData);
-    }
-
-    public static void RevertItemsChange(EntityData SheepData)
-    {
-        if (SheepData.DefensiveItem != null)
-            SheepData.DefensiveItem.ReverseItemChanges(SheepData);
-        if (SheepData.OffensiveItem != null)
-            SheepData.OffensiveItem.ReverseItemChanges(SheepData);
     }
 
     /// <summary>
