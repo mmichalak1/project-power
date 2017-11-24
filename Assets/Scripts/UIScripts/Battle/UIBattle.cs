@@ -7,6 +7,7 @@ public class UIBattle : MonoBehaviour
     public UIBattleActionQueuePanel ActionQueue;
     public UIBattleResourcePanel ResourcePanel;
     public UIBattleSkillPanel SkillPanel;
+    public GameObject changeTurnButton;
 
     void Awake()
     {
@@ -19,6 +20,7 @@ public class UIBattle : MonoBehaviour
         ActionQueue.Activate(true);
         ResourcePanel.Activate(true);
         SkillPanel.Activate(true);
+        changeTurnButton.SetActive(true);
     }
 
     public void Deactivate(object obj)
@@ -26,6 +28,7 @@ public class UIBattle : MonoBehaviour
         ActionQueue.Activate(false);
         ResourcePanel.Activate(false);
         SkillPanel.Activate(false);
+        changeTurnButton.SetActive(false);
     }
 
 }
