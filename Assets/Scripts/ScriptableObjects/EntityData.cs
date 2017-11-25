@@ -28,7 +28,6 @@ public class EntityData : ScriptableObject
             return res;
         }
     }
-
     public int AttackFromItems
     {
         get
@@ -45,8 +44,6 @@ public class EntityData : ScriptableObject
             return res;
         }
     }
-
-
     public int DefenceFromItems
     {
         get

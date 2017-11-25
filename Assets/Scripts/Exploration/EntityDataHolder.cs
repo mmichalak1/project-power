@@ -20,7 +20,7 @@ public class EntityDataHolder : MonoBehaviour, IProvideStatistics
         comp.MaxHealth = data.TotalHealth;
         comp.HealToFull();
 
-        foreach (var x in SheepData.SheepSkills.Skills)
+        foreach (var x in SheepData.SheepSkills.EquipedSkills)
             if (x != null)
                 x.Initialize(this);
     }

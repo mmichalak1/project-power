@@ -20,7 +20,7 @@ public class SkillsMenuScript : MonoBehaviour
     {
         for (int i = 1; i < 5; i++)
         {
-            var skill = SheepData[sheepNumber].SheepSkills.Skills[i];
+            var skill = SheepData[sheepNumber].SheepSkills.EquipedSkills[i];
             SkillPanels[i-1].LoadSkillData(skill, SheepData[sheepNumber]);
         }
     }

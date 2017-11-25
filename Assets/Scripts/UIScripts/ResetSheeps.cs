@@ -54,7 +54,7 @@ public class ResetSheeps : MonoBehaviour
             SheepData[i].SheepClass = SheepDataBackup[i].SheepClass;
             for (int j = 0; j < 4; j++)
             {
-                SheepData[i].SheepSkills.Skills[j] = SheepDataBackup[i].SheepSkills.Skills[j];
+                SheepData[i].SheepSkills.EquipedSkills[j] = SheepDataBackup[i].SheepSkills.EquipedSkills[j];
             }
             SheepData[i].OffensiveItem = null;
             SheepData[i].DefensiveItem = null;

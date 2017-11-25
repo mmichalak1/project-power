@@ -1,12 +1,10 @@
-﻿using System;
+﻿using System.Linq;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Text;
 
 public class SheepData
 {
-    private List<string> _skills = new List<string>();
-
     public string IconPath { get; set; }
     public string Name { get; set; }
     public EntityData.Class Class { get; set; }
@@ -25,15 +23,14 @@ public class SheepData
     public float WoolGrowth { get; set; }
     public string OffensiveItem { get; set; }
     public string DefensiveItem { get; set; }
-    public List<string> CurrentSkills
-    {
-        get { return _skills; }
-        set { _skills = value; }
-    }
+    public SheepSkillsData SheepSkills { get; set; }
 
     public static SheepData CreateFromRuntime(EntityData data)
     {
         SheepData result = new SheepData();
+        var sheepSkills = new SheepSkillsData();
+        SheepSkillsData.CreateFromRuntime(data.SheepSkills, ref sheepSkills);
+
         result.IconPath = data.Portrait.name;
         result.Name = data.name;
         result.Class = data.SheepClass;
@@ -47,8 +44,10 @@ public class SheepData
         result.Wool = data.Wool;
         result.MaxWool = data.MaxWool;
         result.WoolGrowth = data.WoolGrowth;
-        foreach (var item in data.SheepSkills.Skills)
-            result.CurrentSkills.Add(item.name);
+        result.SheepSkills = sheepSkills;
+
+
+
         if (data.OffensiveItem != null)
             result.OffensiveItem = data.OffensiveItem.name;
         if (data.DefensiveItem != null)
@@ -72,5 +71,7 @@ public class SheepData
         entity.Wool = data.Wool;
         entity.MaxWool = data.MaxWool;
         entity.WoolGrowth = data.WoolGrowth;
+        SheepSkillsData.CreateFromGameSave(ref entity.SheepSkills, data.SheepSkills);
+
     }
 }

@@ -15,10 +15,6 @@ public class GameSaveData
             save.SheepData[i].OffensiveItem = save.AllItems.Items.FirstOrDefault(x => x.name == data.Sheep[i].OffensiveItem);
             save.SheepData[i].DefensiveItem = save.AllItems.Items.FirstOrDefault(x => x.name == data.Sheep[i].DefensiveItem);
             SheepData.CreateFromSavedData(ref save.SheepData[i], data.Sheep[i]);
-            for (int j = 0; j < data.Sheep[i].CurrentSkills.Count; j++)
-            {
-                save.SheepData[i].SheepSkills.Skills[j] = save.AllSkills.Skills.First(x => x.Name == data.Sheep[i].CurrentSkills[j]);
-            }
         }
         //Load LevelData from save
         for (int i = 0; i < save.LevelData.Length; i++)
@@ -58,7 +54,7 @@ public class GameSaveData
         for (int i = 0; i < save.LevelData.Length; i++)
             result.Levels.Add(Level.CreateFromRuntime(save.LevelData[i]));
         //Serialize Tutorials
-        foreach(var item in save.Tutorials.Tutorials)
+        foreach (var item in save.Tutorials.Tutorials)
         {
             result.Tutorials.Add(TutorialEntry.FromRuntime(item));
         }
@@ -74,6 +70,7 @@ public class GameSaveData
         get;
         set;
     }
+
     public List<SheepData> Sheep
     {
         get;
@@ -86,7 +83,7 @@ public class GameSaveData
         set;
     }
 
-    public List <TutorialEntry> Tutorials
+    public List<TutorialEntry> Tutorials
     {
         get;
         set;

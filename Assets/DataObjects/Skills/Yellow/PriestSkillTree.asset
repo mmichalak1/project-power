@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968e5aaacd17b1e499e5d562be2a7146, type: 3}
   m_Name: PriestSkillTree
   m_EditorClassIdentifier: 
-  BasicAttack: {fileID: 0}
-  ClassAttack: {fileID: 11400000, guid: 60ece36f6fba7c7428047f2f50ce2003, type: 2}
-  Skill1: {fileID: 11400000, guid: 21633fc87418bcf4e99836df0891f6f7, type: 2}
+  BasicAttack: {fileID: 11400000, guid: fee51892de8fea844ab4182442a961f6, type: 2}
+  ClassAttack: {fileID: 11400000, guid: 21633fc87418bcf4e99836df0891f6f7, type: 2}
+  Skill1: {fileID: 11400000, guid: 60ece36f6fba7c7428047f2f50ce2003, type: 2}
   Skill2: {fileID: 11400000, guid: 3cee1308468d4ad4594840f7392844c7, type: 2}
   Skill3: {fileID: 11400000, guid: 89570dd37d21b3147bf401175f52ac8b, type: 2}
   Skill1Upgrade1: {fileID: 0}

@@ -25,8 +25,12 @@ public class SkillHolder : ScriptableObject
     [SerializeField]
     private List<Skill> _skills;
     [HideInInspector]
-    public List<Skill> Skills
+    public List<Skill> EquipedSkills
     {
         get { return _skills; }
     }
+
+    [SerializeField]
+    private SkillTree skillTree;
+    public SkillTree SkillTree { get { return skillTree; }}
 }
