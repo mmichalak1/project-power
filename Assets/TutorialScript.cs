@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class TutorialScript : MonoBehaviour {
 
     public Tutorial Tutorial;
+    public GameSaverScript GameSaverScript;
     public Text Title;
     public Text Text;
 
@@ -21,16 +22,11 @@ public class TutorialScript : MonoBehaviour {
         }
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 
     public void FinishedReading()
     {
         Tutorial.WasSeen = true;
+        this.GameSaverScript.SaveGame();
         Destroy(gameObject);
     }
 }

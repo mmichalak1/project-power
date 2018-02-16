@@ -36,6 +36,8 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
     #endregion
 
     private GameObject selectedSheep = null;
+    [SerializeField]
+    private SheepGroupManager sheepGroup;
 
     public GameObject SelectedSheep
     {
@@ -51,8 +53,11 @@ public class TurnManager : MonoBehaviour, ISystem, ITurnManager
     }
     public Skill SelectedSkill { get; private set; }
     public EnemyGroup EnemyGroup { get; private set; }
-    public SheepGroupManager SheepGroup { get; set; }
-
+    public SheepGroupManager SheepGroup
+    {
+        get { return sheepGroup; }
+        set { sheepGroup = value; }
+    }
 
     #region Selection Hooks
 

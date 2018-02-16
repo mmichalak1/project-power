@@ -5,14 +5,22 @@ using System.Collections.Generic;
 /// </summary>
 public class SheepDataLoader : MonoBehaviour
 {
-
+    [SerializeField]
+    private bool LoadAtStartup = false;
     [SerializeField]
     private GameObject[] Children;
     [SerializeField]
     private List<EntityData> GameSheepGroup;
     [SerializeField]
     private EntityData[] BasicSheepGroup;
-    
+
+    private void Start()
+    {
+        if(LoadAtStartup)
+        {
+            LoadSheepData();
+        }
+    }
 
     public void LoadSheepData()
     {

@@ -37,3 +37,4 @@ Library
 *.apk
 /UWP
 /iOS
+UnityPackageManager/
